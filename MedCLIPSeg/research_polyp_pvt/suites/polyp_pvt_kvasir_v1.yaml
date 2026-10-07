@@ -1,0 +1,64 @@
+name: polyp_pvt_kvasir_v1
+locked_at: '2026-10-06'
+purpose: >-
+  Same-protocol reference requested by an external review: a dedicated polyp network without text (Polyp-PVT,
+  Dong et al. 2023) trained on the 800 Kvasir-SEG training images that our models use, and evaluated on the same
+  test sets with the same metric code. The result is reported whatever it is.
+model:
+  name: Polyp-PVT
+  code: research_polyp_pvt/lib (vendored from github.com/DengPingFan/Polyp-PVT, commit cd71fbf, with the changes listed in the file headers)
+  backbone_weights: checkpoints/pvt_v2_b2.pth
+  backbone_weights_source: https://github.com/whai362/PVT/releases/download/v2/pvt_v2_b2.pth (ImageNet-1k pre-training)
+dataset: Kvasir
+train_list: Train_text.xlsx
+train_n: 800
+seeds: [666, 667, 668]
+recipe:            # the released training script (Train.py) of the authors, unchanged unless stated
+  input_size: 352
+  epochs: 99                 # the released script runs epochs 1 to 99
+  batch_size: 16
+  optimizer: AdamW
+  learning_rate: 0.0001      # constant: the released script calls its decay with a period of 200 epochs
+  weight_decay: 0.0001
+  gradient_clip: 0.5
+  scales: [0.75, 1.0, 1.25]  # every batch is used at three sizes (256, 352, 448)
+  augmentation: none besides the three scales (default of the released script)
+  loss: >-
+    structure loss of the released code on both outputs, as executed. Its BCE term is called with the legacy argument
+    reduce='none', which PyTorch reads as a mean over all pixels, so the term is the unweighted mean BCE; the IoU term
+    is weighted by the 31 x 31 boundary weights.
+  precision: single
+deviations_from_the_authors:
+  - Training data are the 800 Kvasir-SEG images of our split, not the merged Kvasir-SEG and CVC-ClinicDB set of 1450 images.
+  - The weights of the last epoch are evaluated. The released script keeps the epoch with the best test Dice; we do not select on test data.
+  - The sigmoid output is thresholded at 0.5 without the per-image min-max normalisation of the released test script, and DSC is computed by our metric code at the original resolution.
+  - The mini-batch order is drawn from a seeded generator; images are decoded once and kept in memory.
+  - Training masks are binarised at 127 before resizing (the definition of the ground truth in our metric code); for binary mask files this equals the released loader.
+  - Files are decoded with OpenCV, as in all our evaluations, and then resized with PIL as in the released loader.
+  - The validation split is not used.
+test_targets: [Kvasir, ColonDB, ClinicDB, CVC300, BKAI]
+ood_targets: [ColonDB, ClinicDB, CVC300, BKAI]
+held_out_target: ETIS
+threshold: 0.5
+small_target_threshold: 0.058989688326573426
+comparison:
+  note: descriptive; the accepted per-image results of our models for the same three seeds are read, not recomputed
+  ours:        # [suite, arm, configuration column value (null if the file has no such column)]
+    baseline:
+      label: MedCLIPSeg baseline, single pass
+      polyp: [test_detail_mix_kvasir_v1, baseline, null]
+      held_out: [zoom_etis_v1, baseline, single]
+    full:
+      label: ZoomCLIPSeg (detail branch + SCZ)
+      polyp: [test_zoom_kvasir_v1, detail, t15]
+      held_out: [zoom_etis_v1, detail, t15]
+  statistic: Polyp-PVT minus ours, DSC in percentage points, seed-averaged per image; bootstrap interval and sign-flip permutation test
+timing: {dataset: Kvasir, warmup_images: 10, note: 'batch size 1, one deterministic pass, forward plus upsampling to the original size'}
+rules:
+  - No checkpoint, epoch or threshold is selected on validation or test data.
+  - A paused run resumes from the last completed epoch with the saved random state.
+disclosures:
+  - Polyp-PVT uses a 352 x 352 input and an ImageNet-pretrained backbone that is trained end to end (all weights trainable); our models use a 224 x 224 input and frozen encoders.
+  - The five polyp test sets were used in earlier stages of this project; ETIS-Larib was evaluated once for our method and is new for this model.
+  - CVC-300 and CVC-ColonDB share 52 exact image hashes.
+statistics: {permutation_draws: 20000, bootstrap_draws: 10000, rng_seed: 20261009}

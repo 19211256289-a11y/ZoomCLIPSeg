@@ -1,0 +1,20 @@
+dataset: Kvasir
+percentage: 100
+epochs: 100
+seeds: [666, 667, 668]
+variants: [paired_repeat, paired_image, paired_aug]
+learning_rate: 0.0003
+min_learning_rate: 0.0001
+initialization: unimedclip_base_fresh_adapters_and_head_per_seed
+comparison: independent_from_base_matched_two_view_budget
+selection_split: Val
+evaluation_mc: 30
+checkpoint_selection: final_epoch
+automatic_expansion: false
+automatic_test_after_all_training: true
+test_targets: [Kvasir, ColonDB, ClinicDB, CVC300, BKAI]
+test_usage: fixed_final_comparison_no_parameter_or_checkpoint_selection
+primary_comparison: paired_aug_vs_paired_repeat
+required_ablation: paired_aug_vs_paired_image
+primary_metric: source_test_DSC_percent
+secondary_metrics: [small_DSC_percent, NSD_percent, micro_foreground_precision_percent, micro_foreground_recall_percent, zero_overlap_positive]

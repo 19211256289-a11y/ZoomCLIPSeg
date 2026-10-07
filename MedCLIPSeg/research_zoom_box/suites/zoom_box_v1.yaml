@@ -1,0 +1,69 @@
+name: zoom_box_v1
+locked_at: '2026-10-06'
+purpose: >-
+  Evaluation-only control requested by an external review: does the window rule of the locked two-pass zoom (t15)
+  add anything over the plain alternative "crop the predicted bounding box with a fixed margin and segment again"?
+  Same checkpoints (detail-branch model, five seeds), same five polyp test sets, same second-pass code; only the
+  window size differs. Nothing is trained and nothing here can change the method: t15 remains the method whatever
+  the outcome, and the outcome is reported whatever it is.
+lineage:
+  reports/acceptance_pilot_zoom_20261005/audit.json: 8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3
+  reports/acceptance_test_zoom_20261005/audit.json: 8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17
+mc_samples: 30
+batch_size: 32
+threshold: 0.5
+reproduction_tolerance_pp: 0.25
+sources:
+  kvasir_v1: [666, 667, 668]
+  formal_detail_mix_kvasir_v2: [669, 670]
+arm: detail
+accepted_two_pass:            # the accepted t15 results of these checkpoints; they are read, not recomputed
+  kvasir_v1: test_zoom_kvasir_v1
+  formal_detail_mix_kvasir_v2: zoom_kvasir_seeds_v1
+window_rules:
+  t15: side = max( sqrt(a / 0.15), 1.25 b, 0.2 ), second pass if side <= 0.8  (accepted method; a = predicted area fraction, b = longer side of the predicted box)
+  box: side = max( margin b, min_window ), second pass if side <= 0.8  (no area term)
+variants:      # all cut the window from the original pixels around the centre of the predicted box, like t15
+  - {name: plain125, margin: 1.25, min_window: 0.02}
+  - {name: plain150, margin: 1.5,  min_window: 0.02}
+  - {name: plain200, margin: 2.0,  min_window: 0.02}
+  - {name: box125,   margin: 1.25, min_window: 0.2}
+variant_notes:
+  plain: >-
+    plain crop of the predicted box with a fixed margin. min_window 0.02 only prevents a degenerate window of a few
+    pixels; it is far below every value at which the lower bound of t15 acts.
+  box125: t15 with the area term removed and everything else unchanged (margin 1.25, lower bound 0.2); isolates the area term.
+  geometry_note: >-
+    for a compact (roughly circular) prediction the area term of t15 equals about 2.3 b, so that t15 and plain200 choose
+    similar windows for such lesions; they differ for elongated or fragmented predictions and through the lower bound.
+trigger: 0.8
+zoom:        # constants of the accepted method; must equal the pilot protocol
+  margin: 1.25
+  min_window: 0.2
+  zoom_in_if_window_at_most: 0.8
+  zoom_out_if_fraction_at_least: 0.20
+  zoom_out_target_fraction: 0.10
+  max_window: 2.0
+  fusion: second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty
+reading_rules_fixed_in_advance:
+  statistic: >-
+    DSC of t15 minus DSC of the variant, percentage points; mean over the five seeds of paired image-level
+    differences; macro mean over the four OOD sets, with a bootstrap interval and a sign-flip permutation test
+  per_variant:
+    t15_better: the difference is positive and its interval excludes zero
+    variant_better: the difference is negative and its interval excludes zero
+    not_distinguishable: otherwise
+  overall:
+    rule_adds_value: t15_better against each of the three plain variants
+    plain_crop_sufficient: otherwise (at least one plain variant is not distinguishable from t15 or better)
+  consequence: >-
+    if plain_crop_sufficient, the manuscript must not claim that the window rule itself improves on a plain crop; the
+    contribution is then the diagnosis of the scale dependence and a training-free two-pass remedy.
+  note: descriptive; no configuration is selected from these results
+disclosures:
+  - The five polyp test sets were used in earlier stages of this project.
+  - CVC-300 and CVC-ColonDB share 52 exact image hashes.
+  - Only the detail-branch model is evaluated; the baseline is not.
+  - ETIS-Larib is not touched.
+  - The margins 1.25, 1.5 and 2.0 were fixed before any result of this suite existed; no margin was tuned.
+statistics: {permutation_draws: 20000, bootstrap_draws: 10000, rng_seed: 20261010}

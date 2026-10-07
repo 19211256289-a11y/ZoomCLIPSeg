@@ -1,0 +1,52 @@
+name: test_zoom_kvasir_v1
+locked_at: '2026-10-05'
+purpose: >-
+  One-time confirmation on Test/OOD of the two-pass zoom configuration selected in
+  pilot_zoom_kvasir_v1. Evaluation only. No training, no selection, no parameter change.
+pilot: pilot_zoom_kvasir_v1
+pilot_acceptance_audit: reports/acceptance_pilot_zoom_20261005/audit.json
+pilot_acceptance_sha256: 8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3
+runs: [detail_seed666, detail_seed667, detail_seed668]
+test_targets: [Kvasir, ColonDB, ClinicDB, CVC300, BKAI]
+ood_targets: [ColonDB, ClinicDB, CVC300, BKAI]
+test_list: Test_text_original.xlsx
+prompt: a polyp in a colonoscopy image
+mc_samples: 30
+batch_size: 32
+threshold: 0.5
+config: {name: t15, target_fraction: 0.15, zoom_out: false, oracle: false}
+zoom:
+  margin: 1.25
+  min_window: 0.2
+  zoom_in_if_window_at_most: 0.8
+  zoom_out_if_fraction_at_least: 0.20
+  zoom_out_target_fraction: 0.10
+  max_window: 2.0
+  fusion: second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty
+single_pass_reproduction_tolerance_pp: 0.1
+gate:
+  description: >-
+    Fixed before any two-pass Test number was computed. Contrast: two-pass (t15) minus single-pass,
+    same checkpoints, three-seed mean of DSC differences in percentage points.
+  g1_macro_ood_dsc_gain_at_least_pp: 1.0
+  g2_min_ood_sets_with_positive_gain: 3
+  g3_source_test_dsc_change_at_least_pp: -0.2
+  g4_max_dsc_regression_any_set_pp: 0.5
+  g5_all_seeds_positive_on_macro_ood: true
+  pass_rule: g1 and g2 and g3 and g4 and g5
+  if_fail: the two-pass direction is dropped; no retuning on these data
+if_final_model_is_the_combination_arm: the same locked configuration is applied without re-selection
+secondary_reported_not_gating:
+  - image-level permutation and Wilcoxon tests, bootstrap interval, per-seed consistency
+  - small-target and lesion-size strata, failure counts, share of images given a second pass
+  - unique-image sensitivity for ColonDB and CVC300
+disclosures:
+  - The size-prior weakness that motivated the method was quantified on Test/OOD predictions of these same checkpoints.
+  - The configuration was selected on synthetically rescaled source Val images; that proxy overstates the effect (see pilot acceptance).
+  - The five test sets were used before with earlier models; they are not untouched holdouts.
+  - ColonDB and CVC300 share 52 exact image hashes and are not independent cohorts.
+  - The second pass adds one MC30 inference for every zoomed image.
+statistics:
+  permutation_draws: 100000
+  bootstrap_draws: 10000
+  rng_seed: 20261005

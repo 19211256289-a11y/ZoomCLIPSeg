@@ -1,0 +1,107 @@
+name: zoom_probe_v1
+locked_at: '2026-10-06'
+purpose: >-
+  Evaluation-only analyses requested by an external review of the manuscript. Nothing is trained, and nothing in
+  this suite can change the method: the locked configuration t15 remains the method whatever the outcome.
+  Part A (polyps): is the gain of the second pass due to scale or to the additional original pixels, and how
+  sensitive is it to the three constants of the window rule and to the target fraction.
+  Part B (breast ultrasound): comparison of the detail branch with the baseline at matched image-level specificity.
+  Part C: wall-clock inference time.
+lineage:
+  reports/acceptance_pilot_zoom_20261005/audit.json: 8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3
+  reports/acceptance_test_zoom_20261005/audit.json: 8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17
+mc_samples: 30
+batch_size: 32
+threshold: 0.5
+reproduction_tolerance_pp: 0.25
+
+# ---------------------------------------------------------------- Part A: polyps, detail-branch model
+polyp:
+  sources:
+    kvasir_v1: [666, 667, 668]
+    formal_detail_mix_kvasir_v2: [669, 670]
+  arm: detail
+  accepted_two_pass:            # where the accepted t15 results of these checkpoints are stored
+    kvasir_v1: test_zoom_kvasir_v1
+    formal_detail_mix_kvasir_v2: zoom_kvasir_seeds_v1
+  groups:
+    resolution: [666, 667, 668, 669, 670]
+    sensitivity: [666, 667, 668]
+  reference: {name: t15, tau: 0.15, margin: 1.25, min_window: 0.2, trigger: 0.8, pixels: original, output: original}
+  variants:
+    # resolution control: the same window rule, but the window is cut from the 224 x 224 network input
+    - {name: in224,        group: resolution,  pixels: input224, output: original}
+    - {name: in224_out224, group: resolution,  pixels: input224, output: grid224}
+    # one constant changed at a time
+    - {name: margin100,    group: sensitivity, margin: 1.0}
+    - {name: margin150,    group: sensitivity, margin: 1.5}
+    - {name: minwin010,    group: sensitivity, min_window: 0.1}
+    - {name: minwin030,    group: sensitivity, min_window: 0.3}
+    - {name: trigger070,   group: sensitivity, trigger: 0.7}
+    - {name: trigger090,   group: sensitivity, trigger: 0.9}
+    - {name: tau010,       group: sensitivity, tau: 0.10}
+    - {name: tau020,       group: sensitivity, tau: 0.20}
+  variant_definitions:
+    in224: >-
+      The original image is resized to 224 x 224 exactly as for the first pass; the window is cut from this image and
+      resized to the network inputs. The second-pass map is pasted at the original resolution. The second pass
+      therefore sees the lesion at the canonical scale but receives no pixel that the first pass did not receive.
+    in224_out224: as in224, and the second-pass map is pasted on the 224 x 224 grid, so that the output is not finer either.
+  reading_rules_fixed_in_advance:
+    statistic: mean over seeds of two-pass minus single-pass DSC, percentage points; macro mean over the four OOD sets
+    resolution:
+      ratio: macro OOD gain of in224 divided by macro OOD gain of t15 (five seeds)
+      scale_explains_most_if_ratio_at_least: 0.75
+      original_pixels_explain_most_if_ratio_at_most: 0.25
+      mixed: otherwise
+    sensitivity:
+      robust: every variant has a macro OOD gain of at least min_gain_pp that is positive for each of the three seeds
+      min_gain_pp: 1.0
+      note: descriptive; a variant that scores higher than t15 does not replace it
+
+# ---------------------------------------------------------------- Part B: breast ultrasound, detection
+ultrasound:
+  source: formal_detail_mix_busi_v1
+  arms: [baseline, detail]
+  seeds: [666, 667, 668]
+  cohorts: [Val, BUSI, BUSBRA, BUSUC, BUID, UDIAT]
+  val_list: Val_text.xlsx
+  image_score: maximum over pixels of the mean probability map of the single pass (30 stochastic passes)
+  gate: >-
+    A model is said to predict no lesion on an image if the image score does not exceed theta. With theta = 0.5 this
+    is the ordinary prediction. For each seed, theta of the detail-branch model is the smallest value, not below 0.5,
+    at which its specificity on the lesion-free images of the BUSI validation split is at least that of the
+    baseline of the same seed at 0.5. Gated predictions keep the mask at threshold 0.5 or are empty.
+  primary: theta calibrated on the validation split
+  secondary: theta matched on the lesion-free images of the BUSI test set itself (optimistic; reported as such)
+  reading_rule_fixed_in_advance:
+    retained: >-
+      with the validation-calibrated gate, the macro OOD DSC gain of the detail branch over the baseline is positive
+      for all three seeds and at least half of the ungated gain for at least two of them
+    reduced: otherwise
+  note: The gate is an analysis device. It is not part of the method and is not proposed as one.
+
+# ---------------------------------------------------------------- Part C: timing
+timing:
+  source: kvasir_v1
+  runs: [baseline_seed666, detail_seed666]
+  target: Kvasir
+  warmup_images: 10
+  measured_images: 50
+  batch_size: 1
+  measured: first pass (30 stochastic passes), second pass of the locked configuration t15 including cropping and pasting
+
+zoom:        # constants of the accepted method; must equal the pilot protocol
+  margin: 1.25
+  min_window: 0.2
+  zoom_in_if_window_at_most: 0.8
+  zoom_out_if_fraction_at_least: 0.20
+  zoom_out_target_fraction: 0.10
+  max_window: 2.0
+  fusion: second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty
+disclosures:
+  - The five polyp test sets and the ultrasound test sets were used in earlier stages of this project.
+  - CVC-300 and CVC-ColonDB share 52 exact image hashes.
+  - ETIS-Larib is not touched; its evaluation was run once and stays closed.
+  - The validation split of BUSI contains few lesion-free images; the calibrated gate is coarse.
+statistics: {permutation_draws: 20000, bootstrap_draws: 10000, rng_seed: 20261007}

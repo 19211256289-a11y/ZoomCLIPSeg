@@ -1,0 +1,7 @@
+dataset: Kvasir
+percentage: 100
+epochs: 20
+epochs_by_variant: {paired_aug: 20, paired_consistency: 20}
+consistency_weight: 0.1
+seed: 666
+variants: [paired_aug, paired_consistency]

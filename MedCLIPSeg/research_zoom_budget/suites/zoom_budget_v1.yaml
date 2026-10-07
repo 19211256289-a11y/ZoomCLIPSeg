@@ -1,0 +1,81 @@
+name: zoom_budget_v1
+locked_at: '2026-10-06'
+purpose: >-
+  Evaluation-only analysis of accuracy against inference budget, requested by external reviews. Two questions.
+  (1) The locked SCZ was not separated from averaging with the horizontally reflected image (zoom_compare_v1). Do the
+  two combine, i.e. is SCZ with reflection averaging in both passes better than either alone? (2) Every inference run
+  averages 30 stochastic forward passes, a number inherited from MedCLIPSeg. How does accuracy change with fewer passes,
+  and what do SCZ and reflection averaging give at the budget of the standard single pass? Nothing is trained and
+  nothing here can change the method: the locked configuration t15 with 30 passes remains the method whatever the
+  outcome, and the outcome is reported whatever it is.
+locked_before: >-
+  Written after zoom_compare_v1 and zoom_box_v1 had been accepted. No result with fewer than 30 passes and no
+  result of SCZ combined with reflection averaging existed for any model.
+lineage:
+  reports/acceptance_pilot_zoom_20261005/audit.json: 8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3
+  reports/acceptance_test_zoom_20261005/audit.json: 8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17
+mc_samples: 30
+batch_size: 32
+threshold: 0.5
+reproduction_tolerance_pp: 0.25
+sources:
+  kvasir_v1: [666, 667, 668]
+  formal_detail_mix_kvasir_v2: [669, 670]
+arm: detail
+accepted_two_pass:            # the accepted t15 results of these checkpoints (30 passes); read, not recomputed
+  kvasir_v1: test_zoom_kvasir_v1
+  formal_detail_mix_kvasir_v2: zoom_kvasir_seeds_v1
+target_fraction: 0.15
+passes: [5, 10, 15, 30]
+definitions:
+  pass_prefix: >-
+    the first pass is run once with 30 stochastic forward passes exactly as in the accepted evaluation; the estimate
+    with k passes is the mean of the first k of these 30 independent passes
+  single: mean probability map of k passes of the whole image (k = 5, 10, 15, 30; k = 30 is the accepted single pass)
+  hflip: mean of single with k passes and of the reflected image with k passes, reflected back (k = 10, 15, 30)
+  scz: >-
+    the locked two-pass rule applied to the single map with k passes; the second pass uses k newly drawn passes
+    (k = 10, 15; k = 30 is the accepted configuration t15 and is read from the accepted results)
+  sczflip: >-
+    the locked two-pass rule applied to the hflip map with k passes; the second pass averages k passes of the window and
+    k passes of the reflected window (k = 10, 15, 30)
+  cost: >-
+    mean number of stochastic forward passes per image on the OOD sets: k for single, 2k for hflip, k(1 + s) for scz and
+    2k(1 + s) for sczflip, with s the share of images that receive a second pass. Every model call makes one additional
+    deterministic forward pass that is not counted.
+zoom:        # constants of the accepted method; must equal the pilot protocol
+  margin: 1.25
+  min_window: 0.2
+  zoom_in_if_window_at_most: 0.8
+  zoom_out_if_fraction_at_least: 0.20
+  zoom_out_target_fraction: 0.10
+  max_window: 2.0
+  fusion: second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty
+contrasts:      # [configuration, reference]; difference = configuration minus reference
+  scz_adds_to_reflection:   [sczflip30, hflip30]
+  reflection_adds_to_scz:   [sczflip30, t15]
+  scz_at_standard_budget:   [scz15, single30]
+  hflip_at_standard_budget: [hflip15, single30]
+  sczflip_near_standard_budget: [sczflip10, single30]
+  scz_half_passes:          [scz15, t15]
+  passes_05: [single05, single30]
+  passes_10: [single10, single30]
+  passes_15: [single15, single30]
+reading_rules_fixed_in_advance:
+  statistic: >-
+    DSC difference in percentage points; mean over the five seeds of paired image-level differences; macro mean over the
+    four OOD sets, with a bootstrap interval and a sign-flip permutation test
+  complementary: both scz_adds_to_reflection and reflection_adds_to_scz are positive with intervals that exclude zero
+  scz_at_no_extra_cost: scz_at_standard_budget is positive with an interval that excludes zero
+  passes_sufficient: the smallest k for which single with k passes is within 0.2 pp of 30 passes on the OOD mean
+  consequence: >-
+    The manuscript reports the outcome of each rule as it is. If complementary fails, it states that SCZ and reflection
+    averaging do not add up. No configuration of this suite replaces the locked method; a cheaper configuration may be
+    described as an operating point that was identified after the fact on test data that had been used before.
+disclosures:
+  - The five polyp test sets were used in earlier stages of this project.
+  - CVC-300 and CVC-ColonDB share 52 exact image hashes.
+  - Only the detail-branch model is evaluated.
+  - ETIS-Larib is not touched.
+  - Estimates with fewer passes are prefixes of the 30 passes of one run and are therefore correlated with the 30-pass estimate.
+statistics: {permutation_draws: 20000, bootstrap_draws: 10000, rng_seed: 20261014}

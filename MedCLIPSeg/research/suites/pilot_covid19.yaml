@@ -1,0 +1,5 @@
+dataset: Covid19
+percentage: 100
+epochs: 20
+seed: 666
+variants: [legacy_continue, dice_corrected, detail, detail_beta]

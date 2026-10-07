@@ -1,0 +1,2834 @@
+[
+  {
+    "path": "ExportZoomMasks.cmd",
+    "bytes": 204,
+    "sha256": "f13deba8c8b8f992a7731d0d0d07ce4f2157909801d5375827fb30c68c605e8d",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "LowData.cmd",
+    "bytes": 100,
+    "sha256": "0927b3fe1b9d70fb10d3bad359145c8874a4e55a658109b4251b6bce5a14db00",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "MedCLIPSeg/LICENSE",
+    "bytes": 11558,
+    "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+    "reason": "upstream license and setup documentation"
+  },
+  {
+    "path": "MedCLIPSeg/README.md",
+    "bytes": 10065,
+    "sha256": "5b23b6cf73cb7b120806d1aa2214473f2baa6f8f2e304a27b5fac8734a0980a1",
+    "reason": "upstream license and setup documentation"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/biomedclip.py",
+    "bytes": 2949,
+    "sha256": "b9498b16f41a05b21d62f5eefe9930b6fe9b9f3bb28666e386c2ff48b128180a",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/__init__.py",
+    "bytes": 4255,
+    "sha256": "465d767cc59762156bb981db20c36696e7255caab6d7b900af4661f363bca9a4",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/activations.py",
+    "bytes": 5053,
+    "sha256": "a52637c4b096d2a139d5df3a833e348459beb68203e257b9b7844dd18e2030c7",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/activations_me.py",
+    "bytes": 5712,
+    "sha256": "51bda34175ecc839b7d8cfc64d354998da7551c9b49df5a4de6242f230e0c3fa",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/adaptive_avgmax_pool.py",
+    "bytes": 6766,
+    "sha256": "0d75c3c46d3e4128925af91e5dcdc1be8f2be89f9e57e103778d9edb8544ec5b",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/attention2d.py",
+    "bytes": 13200,
+    "sha256": "b7b28698b56fdbc00d2b156398be0494d35979ab2285d665e8af0a299a7be238",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/attention_pool.py",
+    "bytes": 3640,
+    "sha256": "5d3f111b1e4445157d7a98c1907d320750a60f2b365e459412edfcb7abb60ebc",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/attention_pool2d.py",
+    "bytes": 11829,
+    "sha256": "6ed8e3d13891fb54cfd24adfe31615f0ff12262c9c09867b974f06031d3b597a",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/blur_pool.py",
+    "bytes": 3173,
+    "sha256": "19e9e814f008895d1b2b0a1fc28165e4e3b0c3b62202a0dc1a7826e713f6649b",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/bottleneck_attn.py",
+    "bytes": 7052,
+    "sha256": "796022eea9a2f079a8364066e87213d6bfc1bfb59712cf99bcfa2d9af3d3ab04",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/cbam.py",
+    "bytes": 4538,
+    "sha256": "3f94ada3d48066c925438e66d2adc57f7907b4e49e0ab4a0c4e2c59b715bfecb",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/classifier.py",
+    "bytes": 10691,
+    "sha256": "a9667732d4c3790bf899f3324dfd1a876dfcd5c2197a4b931a5738133dfad39e",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/cond_conv2d.py",
+    "bytes": 5322,
+    "sha256": "3c7accbfbcda103b17d5c149919afde8e0114c0af23d1861bcbc9e9b82a65119",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/config.py",
+    "bytes": 4742,
+    "sha256": "5b7813ec66e55be92d282526a174ac35a6656decffb2c34b3bf4191d1a90d68a",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/conv2d_same.py",
+    "bytes": 3326,
+    "sha256": "a805857836bcc90b6257cae54d3c60d8b58b18327f66f161a5da81f2432f58d9",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/conv_bn_act.py",
+    "bytes": 2999,
+    "sha256": "b8ef67ae872332249605291febd2d44cb3e291c8c50e52a22c9ed49bb32e72d4",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/create_act.py",
+    "bytes": 4620,
+    "sha256": "517159580df2ade2ce2499ad86bd102b6ca1781ab427565f38c38273d34bcc49",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/create_attn.py",
+    "bytes": 3603,
+    "sha256": "ddc268fee80d68ea96b7c3432fa3646ed7f1eee637d66daa227435ec1926dbc9",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/create_conv2d.py",
+    "bytes": 1658,
+    "sha256": "340fe404e51629bb27db5f81830253d0a13a36cdfa33a2e7a0a54c768ec4a131",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/create_norm.py",
+    "bytes": 1761,
+    "sha256": "4b098aa8bd218f2450bf1619edd8410e28420125cb1af5b392e5b78c9d0c0127",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/create_norm_act.py",
+    "bytes": 3931,
+    "sha256": "4504f890aee444a3888192eb3352841195b4795a121dffcc5bbaa36256f5774e",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/drop.py",
+    "bytes": 7155,
+    "sha256": "d434c84d1b3d8b11f7f2e997981f9f597bb7f5ca95b42e544307143223d4cd2f",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/eca.py",
+    "bytes": 6531,
+    "sha256": "23fbb16dc25b2ea42469df9909411626073ea61bd99a326166941b6bf05b751d",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/evo_norm.py",
+    "bytes": 14214,
+    "sha256": "36cbbf05301264c6488cdb403c339ffe24a5dd85805f1a8cc1841c3d2b1aa8a3",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/fast_norm.py",
+    "bytes": 7003,
+    "sha256": "fd940887ea81c52847d8c6d317cca37bf7057d5323fa763957bb25c3e86846e3",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/filter_response_norm.py",
+    "bytes": 2608,
+    "sha256": "3e7a73911dc8cbd611a8aab13793350c26f2655c3d68d49f6ae288dc2c9ca8d7",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/format.py",
+    "bytes": 1167,
+    "sha256": "97035e5e2eafc9e95fb6670207504527d082e6b71d2be43a2803f3e3709ec91e",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/gather_excite.py",
+    "bytes": 3914,
+    "sha256": "855d11a66f6e79419fdbcdb13242dd61dfe3d88240187f85e9baeae7cb000319",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/global_context.py",
+    "bytes": 2512,
+    "sha256": "579f87b0213ee3f755d3fd118c6f1508e37f69968e2e0e0ba6ebef5a7d9daf6e",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/grid.py",
+    "bytes": 1673,
+    "sha256": "a879bbd3feeccc04b994b006f8491d1a9128655e9ee85e9d6e9150e11e83687c",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/grn.py",
+    "bytes": 1358,
+    "sha256": "e8afba31990772600f8a237a662bdf297752c02c1553eeedc0094a490b96155a",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/halo_attn.py",
+    "bytes": 10895,
+    "sha256": "50b5fb3f4dd83e29d481764006806b67d46d7d0447dd71ff59f7bab6b57df452",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/helpers.py",
+    "bytes": 1096,
+    "sha256": "379eae8f5707ba9b7f33e05c533bd88adc3caa10ac51be9832b4aff69161a785",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/hybrid_embed.py",
+    "bytes": 10227,
+    "sha256": "0c36c22bd75543cd1b1cd24fda8e24b395d2e305972f065d80991e2cf6e61253",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/inplace_abn.py",
+    "bytes": 3461,
+    "sha256": "36e31e6b37e084d7c80755977528c601b2b06e56721fceaf0fd902e473d62c8a",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/interpolate.py",
+    "bytes": 2507,
+    "sha256": "44d8c0eb719c6617bda4ea5b9edca95632dd9ca21e5d32c93c3875cca5ff5edd",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/lambda_layer.py",
+    "bytes": 6092,
+    "sha256": "b2406cca72f9bae2d2516c069c9f1cecae9cf4a0e0377d6449132e3cd5395dc1",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/layer_scale.py",
+    "bytes": 1059,
+    "sha256": "5cec76d8ebc4a331c11d2af23351e042f0b47ac0c95f442c4cf812a42a576c82",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/linear.py",
+    "bytes": 762,
+    "sha256": "11dd05cdb693918cd42989c407b59475bef98170d6bbcb7b62729589aced4004",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/median_pool.py",
+    "bytes": 1786,
+    "sha256": "19f4a494d5abb1149a8135f44f98b73ec3f637a465a729fae7abe5b97aa63920",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/mixed_conv2d.py",
+    "bytes": 1894,
+    "sha256": "42deb40adeefba17f3aa5d748ef5f89618f7c8efad13cf1906081d5e2466556d",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/ml_decoder.py",
+    "bytes": 6847,
+    "sha256": "ceedfa0a5ba76a824005d2137d7946d3aaac0da8949486886cb8eb851b6ce446",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/mlp.py",
+    "bytes": 9093,
+    "sha256": "85013659da702ff5c885bb791d2f85290e9c00d3f6698b911947ab36b2dd204b",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/non_local_attn.py",
+    "bytes": 6363,
+    "sha256": "01e6aaacae7120f9966e56c923d4c2bff82d3b965672f8397be5bbef9b4d32b9",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/norm.py",
+    "bytes": 11817,
+    "sha256": "9f2470268799c1dc2a481c7efd132190bec23013a145b4f71ec1d70b2f91dd7b",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/norm_act.py",
+    "bytes": 17785,
+    "sha256": "3678062486771d24f7841e354523248893a9ffe5eccc48711d1337da1ca25f54",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/padding.py",
+    "bytes": 3558,
+    "sha256": "7712ec9b13b19035af816fccbfdfec586f022b3635db5b28ed69914447d609db",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/patch_dropout.py",
+    "bytes": 1831,
+    "sha256": "9406ffc2157e8544f2eaa56d317789d664e6324d7d782b723d152720b4d8fa6d",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/patch_embed.py",
+    "bytes": 11768,
+    "sha256": "f450945c642c10c4e8fce45e98f7fa21e8c9cac9ec55e5dd38aec9dd57bc90f7",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/pool2d_same.py",
+    "bytes": 3118,
+    "sha256": "407d2f3ca402bf78379dc5ef0e234165d0cf2435acbf996f0ef079fe210d4362",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/pos_embed.py",
+    "bytes": 2664,
+    "sha256": "fb442b3c5ac692f8a5dbba9a47c185e159ad2af2bc1cb71b94e7efc735c4496e",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/pos_embed_rel.py",
+    "bytes": 19861,
+    "sha256": "96ee44eea2f709fd4795310836113f594a3de33450e55b827c8132ce9dccbf6e",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/pos_embed_sincos.py",
+    "bytes": 14879,
+    "sha256": "abed3f707e4d5f0f6623c7a3ce60df748b5f894698fc2e4a306721d162b9cccd",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/selective_kernel.py",
+    "bytes": 5502,
+    "sha256": "1454668aeea708756a7575e0b93d03e6996a8e53d06a46e6be15535322da5bf4",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/separable_conv.py",
+    "bytes": 2696,
+    "sha256": "d300d16f2a347ddbd40cb1015cf8b3c2601ffe3827275bef0243749068110381",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/space_to_depth.py",
+    "bytes": 1100,
+    "sha256": "759f68378cabda3dcd036c5610d23f1399d0361942f483e0cf22d5641dd917ad",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/split_attn.py",
+    "bytes": 3160,
+    "sha256": "510c817e515665bdfad26adcc3d7e3519f8135a270c8916b74f823415a7b5f9d",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/split_batchnorm.py",
+    "bytes": 3516,
+    "sha256": "7e914c2012991500f5a707d89d5705d5c21ebffdaf4a85090cfaa9b052b80538",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/squeeze_excite.py",
+    "bytes": 4428,
+    "sha256": "7993da02017b689ca5e2b909737d3ef449195adb4f49543308bde09d525bf4d9",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/std_conv.py",
+    "bytes": 6020,
+    "sha256": "a437f5c8cf6b93a71929e1c1e8ecf34ca744241b73c4e90c07ab7ae5f60ed4df",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/test_time_pool.py",
+    "bytes": 2048,
+    "sha256": "e6953c2048fffda2619699afc161576401783a0b6e1d2537e167b9458dd40e47",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/trace_utils.py",
+    "bytes": 348,
+    "sha256": "7fdc460a6f6978e787f6af89ae667db46879e6d6895fb2244e9ed8daea659da7",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/typing.py",
+    "bytes": 170,
+    "sha256": "65b97e271468ddbfef0eef25db23dc9809a6162397d53aef940e488f1d514449",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/layers/weight_init.py",
+    "bytes": 6375,
+    "sha256": "98a7a39878204c3e56a86f866e7ec9ed39d73669310d9014dca69793ecf37bcc",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/text_module_utils.py",
+    "bytes": 6758,
+    "sha256": "13918d8307f69964e47ae37ed6692368e8a32be44068714a7da89074dc5885d7",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/text_modules.py",
+    "bytes": 8831,
+    "sha256": "12bb770a4ad6798473c7c70f063adb46a8ceac08ea3d77918e9453db88d85284",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/transformer.py",
+    "bytes": 17489,
+    "sha256": "09e203d5fc15b8af74b5c5eac30160bfc82ec393edaa566343977b2633f8ab9c",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/biomedclip/vision_modules.py",
+    "bytes": 5187,
+    "sha256": "0c41c7f9ba808b277b247941e68041c0a6118bec60c80f88883a30488abd8966",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_biomedclip.py"
+  },
+  {
+    "path": "MedCLIPSeg/clip/__init__.py",
+    "bytes": 21,
+    "sha256": "f6ddc7cbe2e119c937398de04e4d064976cc0110c5618bc7312fa595967ae3b4",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_clip.py"
+  },
+  {
+    "path": "MedCLIPSeg/clip/bpe_simple_vocab_16e6.txt.gz",
+    "bytes": 1356917,
+    "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_clip.py"
+  },
+  {
+    "path": "MedCLIPSeg/clip/clip.py",
+    "bytes": 8886,
+    "sha256": "5560e24d72492b51990536010fd4ab26f0935316860714f57b986d1822a30a01",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_clip.py"
+  },
+  {
+    "path": "MedCLIPSeg/clip/interpolate.py",
+    "bytes": 2294,
+    "sha256": "7fd07517c203de5b108cc2e38ae444f1d086d0b9c40ce671463344d0614308ab",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_clip.py"
+  },
+  {
+    "path": "MedCLIPSeg/clip/model.py",
+    "bytes": 41020,
+    "sha256": "45fd755f3654affbad3389974b33739ec3f2cf29c26a6fe3cd9bf0d3692b45b8",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_clip.py"
+  },
+  {
+    "path": "MedCLIPSeg/clip/simple_tokenizer.py",
+    "bytes": 4762,
+    "sha256": "bce7ad01b1131e4461e52e29c99dff18f27e031d5ea0a6fd1573e7e26ced4100",
+    "reason": "local dependency of MedCLIPSeg/trainers/medclipseg_clip.py"
+  },
+  {
+    "path": "MedCLIPSeg/configs/BKAI.yaml",
+    "bytes": 463,
+    "sha256": "158d10b1708eace0818a5641b0fa81a339b50786abe4a15e064ed97e8a24b837",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/BRISC.yaml",
+    "bytes": 468,
+    "sha256": "c5c85b15b4f9f4b50eeedcfb5fd10f413a0adb7d8325bf711b96706db3fb0462",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/BTMRI.yaml",
+    "bytes": 598,
+    "sha256": "afe7e3024989757b52a4572101cf1e9b7dc4ec7d6586c2c9aa9dbb54d6da2983",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/BUID.yaml",
+    "bytes": 463,
+    "sha256": "bf0895d357283222a8b7b6c6a965602326f2692f38904aeaee0a5baf2a4ace53",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/BUSBRA.yaml",
+    "bytes": 473,
+    "sha256": "b009f1b22c5f80c99dd1e80a7d48d1d84ccd3668db8cb895b5ccfc0fefb36f0f",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/BUSI.yaml",
+    "bytes": 593,
+    "sha256": "3230ec1a020a0d6d4ad3638ff4865dec01bf6517d43ebf23ae3579f89046793d",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/BUSUC.yaml",
+    "bytes": 468,
+    "sha256": "e322756f1e522ececc248ad5cfd1ee5be6fbcc09d7d3f0658fd6ebaeb206d7ac",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/CVC300.yaml",
+    "bytes": 473,
+    "sha256": "be8b6b525db7c3fe52807fc4152f3a5926666f3bc61ea950ac72cc6764ba081f",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/ClinicDB.yaml",
+    "bytes": 483,
+    "sha256": "b30123ecd04ac2b1eb9303fcfb3fb942d34c1498246526c85eb7e0f640028a93",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/ColonDB.yaml",
+    "bytes": 478,
+    "sha256": "5280a43931a373a180bc4ed6c9e745ce908978117649be452083ddf0a7c6b14d",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/Covid19.yaml",
+    "bytes": 612,
+    "sha256": "4d11c809f5f743262bd3e3d0245f718f9515d4f5c3cae4cc22f1cf484f2ecea7",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/EUS.yaml",
+    "bytes": 587,
+    "sha256": "e10541507ab4673c8b08c0974f9124c3749756d8e2b5f5157207370193cd51c7",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/ISIC.yaml",
+    "bytes": 585,
+    "sha256": "069ee26e0f1a8a6b539cc64e0bae6da93ef15a522ea2ad76296f72ca873b6c09",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/Kvasir.yaml",
+    "bytes": 603,
+    "sha256": "4de80b7bab76eebcee0dc3d9af308fda4aff2eec282a2fc61730acf4cdb20c42",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/UDIAT.yaml",
+    "bytes": 468,
+    "sha256": "857f7150fd0306c266b2358012dd68f199f0a58d1cdaeb6ada77934fcfcaa8f7",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/configs/UWaterlooSkinCancer.yaml",
+    "bytes": 528,
+    "sha256": "1f624c7ea498eb12da69adf5e8e5754bbec7f02db6de6c15e4ae7fc304c37a2d",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/datasets/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/datasets/dataloader.py",
+    "bytes": 6312,
+    "sha256": "4435869f6a75ea5910a1206345a07593297f97405ec7efce24778a6dbc9da353",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/local_data.py",
+    "bytes": 3894,
+    "sha256": "e1ae488c1d92190feda8245c1ed99721a81ee597266f36c65fb660a975c721ff",
+    "reason": "local dependency of MedCLIPSeg/local_reproduce.py"
+  },
+  {
+    "path": "MedCLIPSeg/local_reproduce.py",
+    "bytes": 15144,
+    "sha256": "93c697af4f193b1026c86e3ec40cf9663997d185007f237434c7a2b969c19f23",
+    "reason": "requested file"
+  },
+  {
+    "path": "MedCLIPSeg/local_runtime.py",
+    "bytes": 454,
+    "sha256": "6b95a58c0cb5955ffd2e5eb03b9abb64b2d0bc44b87a1b847c25b5c945e19fec",
+    "reason": "requested file"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/__init__.py",
+    "bytes": 534,
+    "sha256": "61b3c579f2a7c7d1d3a9d164260dc528333f6a87f5f57ee7f98057cec58e3322",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/bpe_simple_vocab_16e6.txt.gz",
+    "bytes": 1356917,
+    "sha256": "924691ac288e54409236115652ad4aa250f48203de50a9e4722a6ecd48d6804a",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/factory.py",
+    "bytes": 6595,
+    "sha256": "56799d975fcb547b55e2038ade4f1629357dadd43f5e951fe51d51aae5f3b062",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/hf_configs.py",
+    "bytes": 2489,
+    "sha256": "bbd2b3c44139c7c9a611c3d0a99908de3bc11e00d19d505dd4addebfad768732",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/hf_model.py",
+    "bytes": 7151,
+    "sha256": "9a93f89b70db2d25ba060c4487ff4e7b1c7e9f5d95594aac2b4c011ee63d0904",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/loss.py",
+    "bytes": 5052,
+    "sha256": "9fcc915816715c1525e5d1b7a52546bb623eaa51be10c6800bdc34043a15a7d6",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model.py",
+    "bytes": 22862,
+    "sha256": "a4a86ab600d54169e6c9af8c25db0c1857acc58d3ac4682512bfd67330ec78a5",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/RN101-quickgelu.json",
+    "bytes": 409,
+    "sha256": "1895e4421bf7542c352c33c95c227a8bf9ddb1c3c20990aadb3f06a32acc5e41",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/RN101.json",
+    "bytes": 384,
+    "sha256": "d390d7fcde3fb20a8ce08644be16436d792d4607975438cd2821bc3a6186fd1a",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/RN50-quickgelu.json",
+    "bytes": 411,
+    "sha256": "30862c227260adb2b1ca7bca5e5f2859bc0da426d8e439df8fc1ab06d82a3416",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/RN50.json",
+    "bytes": 384,
+    "sha256": "42c9eff3beb3a3647281052aebb34d26f0a83728c68292dbfbf545467d1f4496",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/RN50x16.json",
+    "bytes": 385,
+    "sha256": "982df3e887b54cf6aca01653f9e36a3910f01d9f1f26152ed44eb51ee93c84bc",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/RN50x4.json",
+    "bytes": 385,
+    "sha256": "571a23e419a6394d516f54fc14e7293193b6fb78995cc538edc3048a519a881d",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-B-16-plus-240.json",
+    "bytes": 310,
+    "sha256": "7d1fe400810cffb2297dd4818518c11e0d5d9f8c863cd721b9230a2682f8728d",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-B-16-plus.json",
+    "bytes": 310,
+    "sha256": "bffc7adff78cd5e4d6ef5584dabaa7a256207777843027a117e8f3e700a07c3f",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-B-16-quickgelu.json",
+    "bytes": 334,
+    "sha256": "4cedcf460865baca9013c343edfeb1d2e43f57c0321c6b799eb502e5a42bf6f9",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-B-16.json",
+    "bytes": 309,
+    "sha256": "c7ff171b1300a7bdb49f47145bab4811cd360b60864235c07524a672e28fedf3",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-B-32-plus-256.json",
+    "bytes": 310,
+    "sha256": "b1d67cf7bbb87a736a0117cf4f5dedc709e735a265b10193535495886e8e3029",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-B-32-quickgelu.json",
+    "bytes": 334,
+    "sha256": "6821a4d6fc6e2a60925dc170e828b700e9fd51a461ce12fcd1f3863623e94b16",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-B-32.json",
+    "bytes": 309,
+    "sha256": "1248b16441adaa5eb719c4376c9e2f59435fbc13a7d730c1867a2e639cfe8866",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-H-14-quickgelu.json",
+    "bytes": 367,
+    "sha256": "0463c0f2f21d2b7d67e2e6fbe6d6fc09b6cc4447bf4089021cc5c3625fa489fb",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-H-14.json",
+    "bytes": 340,
+    "sha256": "63f6653068b7b913ccf6c2043d8a1b1b8f043751e0714e5ce1f593e0977e9b09",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-H-16.json",
+    "bytes": 340,
+    "sha256": "82a2c20c9fb3d597e363132fa8d83526dbf35bf8f2e997504a4aeb658bba8d26",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-L-14-280.json",
+    "bytes": 311,
+    "sha256": "c5f5464432b05059d932d3039e6bee123523ca3ac01ec8a3691ca570f7bff4c7",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-L-14-336-quickgelu.json",
+    "bytes": 336,
+    "sha256": "353834f84a70770995d86c8f9044841fbcda9bfa0a4ad2443e3757c3c2f07c2d",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-L-14-336.json",
+    "bytes": 311,
+    "sha256": "2918beaa3b5844eeb08c316b69f62e30b7a04c42dcb3cc629f36c74405f045bd",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-L-14-quickgelu.json",
+    "bytes": 336,
+    "sha256": "10aca1ee6d2acab91db2cdad5de50856b85caba1e61fe9e65f2bcbe72bff3fb8",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-L-14.json",
+    "bytes": 311,
+    "sha256": "171cfafd089dfcdcec7df80b6628582e6e78937932799bf748b32503d6a5fa8b",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-L-16-320.json",
+    "bytes": 311,
+    "sha256": "c4cad9300d8be2a02fccc385172a71f4c344ff5fa9075a2c49224cc435708785",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-L-16.json",
+    "bytes": 311,
+    "sha256": "b5cc42c848a4e4215de720274575bd10f91cfde12a783e7ef6b623dc7ba15b89",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-bigG-14-quickgelu.json",
+    "bytes": 396,
+    "sha256": "dfeff6aae2eb329e23f298fbd5d546c09e302fcb3fa7315647e2f7157c2f3f54",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/ViT-g-14.json",
+    "bytes": 370,
+    "sha256": "97003fcaf39f72ae09c7b311a9a8a6cd5f19bd26d258da38477109db9e389c11",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/timm-efficientnetv2_rw_s.json",
+    "bytes": 388,
+    "sha256": "f1c5e551ac9a7abe6351d464d77015f6d0c4187d8b7f74b8f81c0c2fbf66f294",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/timm-resnet50d.json",
+    "bytes": 381,
+    "sha256": "9a1d55acd7b1155f7aeddb6c73e5c8d64b538d36073bbecdeef7bafab326a642",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/timm-resnetaa50d.json",
+    "bytes": 383,
+    "sha256": "d66dea2e40fefa3543f9f8c894db56db3c205f1422f2e591b485ac2f4180b827",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/timm-resnetblur50.json",
+    "bytes": 384,
+    "sha256": "688645c76a94b62720be2ab2858e6fbb68567cc8ad0f56fa9cc94aebef504a94",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/timm-swin_base_patch4_window7_224.json",
+    "bytes": 395,
+    "sha256": "4c5719d2a01dd16248a7fc247618b9b5defd24f900a55f3ab82a9137352a9a15",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/timm-vit_base_patch16_224.json",
+    "bytes": 387,
+    "sha256": "b18fe7515ea1291f5ffa7cf15a6dec27ff999125b44d50cd2d485ee276fda0b1",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/timm-vit_base_patch32_224.json",
+    "bytes": 387,
+    "sha256": "57ba3bdb4f19ce989170a0345c9386d4a42eea434a8b084e5325206da53ae040",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/model_configs/timm-vit_small_patch16_224.json",
+    "bytes": 388,
+    "sha256": "2a6990c2a13141576e91d78534c923dfee5a559f15a821035eed60e295601f0b",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/openai.py",
+    "bytes": 4682,
+    "sha256": "2a64ddc6701cbba78eb9e036222fed1973f0334bae456d584be1446af5aae00a",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/pos_embed.py",
+    "bytes": 4138,
+    "sha256": "1b9b9e4eed88c438ca5b033fe9a22ad48a1e568d43e7dd08b177baf6d26a7457",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/pretrained.py",
+    "bytes": 11113,
+    "sha256": "c701a43f9b1ada8a8cca19dedbdf80ba80953d13d19e6301bb7bd2b2d051a1a0",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/timm_model.py",
+    "bytes": 4461,
+    "sha256": "05b9427f417eb9ad47ebf18d4c7ce3050a8ac7253fbd3b6dd59691ef16573dca",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/tokenizer.py",
+    "bytes": 9993,
+    "sha256": "df352cbfde04068828d169b82e30e9403d2a3225a955ed503596c3c62c619648",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/transform.py",
+    "bytes": 3333,
+    "sha256": "12614c8292c9877475bf8fcfc0ad794af513ff023b705b0039e37a8732068b39",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/transformer.py",
+    "bytes": 56517,
+    "sha256": "0abfa917fa0c60583dea3c336242435205b22c572dad157dcf3a833b1bbbbf84",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/utils.py",
+    "bytes": 5466,
+    "sha256": "ac1d3f8350d1378c97db9aeb2b044d13d39917b125d42c8ed6ff5e4ed95b902b",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/open_clip_lib/version.py",
+    "bytes": 103,
+    "sha256": "3e09c46e9b72cc1965ff5a57b7f6668595f75608ef032286c5e3b4c010fe9d03",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/requirements.txt",
+    "bytes": 352,
+    "sha256": "f2731d2078e208dc223a91e47d7f29b2f564b52c6ffef71c893cd0b839b39667",
+    "reason": "upstream license and setup documentation"
+  },
+  {
+    "path": "MedCLIPSeg/research/__init__.py",
+    "bytes": 82,
+    "sha256": "3ed7023d971821d23d91528a8ea8da361a180e295374f1a297debd61bd5c889d",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research/check.py",
+    "bytes": 7458,
+    "sha256": "9f65eda887dbaca8043991410988db35145d25a5ac57dd371badfc74230c60b2",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research/common.py",
+    "bytes": 6632,
+    "sha256": "74cbc522abbcf358d8c6767d95d974effa90488d6943b553bbaabc80c41e6bfc",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research/data.py",
+    "bytes": 3408,
+    "sha256": "4d743dc3b5558bab1106e919d63b821f7cfab9d2eafc8d2848ec5919cab0da22",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research/evaluate.py",
+    "bytes": 8171,
+    "sha256": "8d9dafa8d3f1949e32fddc1317c81b10a61ac8f89dbc665a0dcfa928745d624e",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research/metrics.py",
+    "bytes": 4254,
+    "sha256": "4ab495980b4b2b13855c605352e508ee447502ee341877aedbc6ab79f7ccc0ac",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research/model.py",
+    "bytes": 8785,
+    "sha256": "792087650869558bbb56afcf0334aa408ae3aba03caa711d9b117bca567ffb4c",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research/modules.py",
+    "bytes": 4366,
+    "sha256": "8b5afe739539c01f0af5c784ae6eca4590dd619e9aefa539987b154d891fbe78",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research/report.py",
+    "bytes": 3560,
+    "sha256": "44c99b2c63dddc617c8b3903c870cc3789346a997dbd4aba1ece67612156c290",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research/runner.py",
+    "bytes": 10758,
+    "sha256": "aa8dfc4feeffd9821015f6c14d13a6fdcdc85b5320527d774dafc9b23d91e428",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research/suites/ablate_kvasir.yaml",
+    "bytes": 102,
+    "sha256": "e80a15756f418299cc95bbb4464908ca4d5679c6403ff2003ac680ea5c83a8eb",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research/suites/pilot_busi.yaml",
+    "bytes": 116,
+    "sha256": "8a78f430c2da6f84ce9980f959facb912b31037efba85dc1070ab97669cb1ef0",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research/suites/pilot_covid19.yaml",
+    "bytes": 119,
+    "sha256": "6840b0eb80946ae38f7572f1b57f09dd74d2f77b48fbb88e6a8b872490a3c38b",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research/suites/pilot_kvasir.yaml",
+    "bytes": 118,
+    "sha256": "16abf73541a0635bbd34fbf4c4ea91fd49fbcdb8e9f65068ee64c0839fe86746",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research/tests.py",
+    "bytes": 9742,
+    "sha256": "0ba9b340bdc19b42f1e8624f964a232faf9d1d891902e9656bbf9a3d865157af",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_controls/__init__.py",
+    "bytes": 116,
+    "sha256": "ad2e58f73f88a7428139081a2422b99069d9e156df2455c735bec8875ed851a3",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_controls/common.py",
+    "bytes": 3931,
+    "sha256": "5a3151e2a1facb6659ed1335fd05de1462c3d798a1865a29eab1d41fb91dd22e",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_controls/evaluate.py",
+    "bytes": 6113,
+    "sha256": "62aa34a38c5a1c7c333d3b31ef37e451f1e08d3bf8541ec844a22c8aa0667c85",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_controls/recipes.py",
+    "bytes": 4588,
+    "sha256": "61b5106c10509e6fa954726f09472afdb0c31d8585ecc95da0150f6d780c6bcc",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_controls/report.py",
+    "bytes": 7290,
+    "sha256": "168a68c917fd7974440ac443843abc59132fe1d93484a70a8c98af34504b544f",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_controls/runner.py",
+    "bytes": 14564,
+    "sha256": "b1d01715b1cf42c7033a76fc0118bb5837734cfa4b0d2194ff0ace2b8642afde",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_controls/suites/formal_controls_kvasir_v1.yaml",
+    "bytes": 4483,
+    "sha256": "377455650af92d5868ea094e86cbd5db8406c3dfef83abc139fcd80972d11daa",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_ext/__init__.py",
+    "bytes": 132,
+    "sha256": "9271ae66cdcaa1faae7fbb0a42b51d5144c228fe7070b3c50796cff4f46c25e6",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_ext/common.py",
+    "bytes": 5612,
+    "sha256": "b4bb409717150174c217592317d9118a3c3ff4e0a82702efafbd77d632f931d6",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_ext/evaluate.py",
+    "bytes": 7749,
+    "sha256": "f163e36461f03203646a7ea280bb19faac8c0341894c351ec5441e00dec5efb3",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_ext/report.py",
+    "bytes": 14451,
+    "sha256": "584b5a77e855e8af6d456a50da2051b12ea4deb1202c6665bcdb8b48da324347",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_ext/runner.py",
+    "bytes": 19149,
+    "sha256": "34de931beedac2a116792c98279d012fc5540e105066e0f5131a7f3ef2f5533e",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_ext/suites/formal_detail_mix_busi_v1.yaml",
+    "bytes": 2398,
+    "sha256": "a86eed9a407180cb5c33921d4f5293492e73cf5ebd5457a8f223f565079b2034",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_ext/suites/formal_detail_mix_kvasir_v2.yaml",
+    "bytes": 1942,
+    "sha256": "b62a8a11849a922ca1f369f8e8b26832021147d5541a1c707e9358e8d819c9b9",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_formal/__init__.py",
+    "bytes": 80,
+    "sha256": "0403d0842325d2a7f764816d1118ce45ae38f6dafb1ddef2b6177c32d8e54be6",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_formal/check.py",
+    "bytes": 7535,
+    "sha256": "b7da409fbd509c1862b8cc34b60d877bb3da0942dca575da251c1a2cd872f3e8",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_formal/common.py",
+    "bytes": 6421,
+    "sha256": "f4fcc7aa5d1b9ed56bf83ea6bd2854019b2c1bf8f455523fa50a668f8717d707",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_formal/data.py",
+    "bytes": 976,
+    "sha256": "91c7f123b00cfcb1297e94d2f4fd363356083774c63e0f5049930ecd01cd019d",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_formal/evaluate.py",
+    "bytes": 5210,
+    "sha256": "f5d05cd08f8dfab59909f72c8d9c93fad4fd2d1d7834ac3a15176883d901fa44",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_formal/gate.py",
+    "bytes": 55,
+    "sha256": "97500dda60739366ea1eee521cb4ddb43b8e39770de742b215eb3fec9894a457",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_formal/model.py",
+    "bytes": 176,
+    "sha256": "093f93e46362d5cf878561a319c0fbe863d34551131b933b41c82cb523f38346",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_formal/objective.py",
+    "bytes": 1845,
+    "sha256": "bf61eee84bf17f451308acd5fba9226379caf55d876d87b0dd60732c2367b577",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_formal/runner.py",
+    "bytes": 9994,
+    "sha256": "c407f2078c25b55d7bbeae34ab58f09596dcf148b0e7b775eb87a35c423a74c4",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_formal/suites/formal_detail_mix_kvasir_v1.yaml",
+    "bytes": 1477,
+    "sha256": "d1f1164d0f4f82511b04ebacb22ff2ec35fd4db4b2a19f6305d39fe15f535d4c",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_formal/tests.py",
+    "bytes": 9628,
+    "sha256": "6026aca033a5fd7890af71b1bdb23ac642d52e8e8bba3fba85756647d723fc87",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_mix/__init__.py",
+    "bytes": 80,
+    "sha256": "0403d0842325d2a7f764816d1118ce45ae38f6dafb1ddef2b6177c32d8e54be6",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_mix/check.py",
+    "bytes": 7384,
+    "sha256": "10e017b31d6947e56a749fb87c6020a2ec99d107c552f63c40bc2e445037efa2",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_mix/common.py",
+    "bytes": 4887,
+    "sha256": "1faea7af2e1161666c1db0da7a1536a7494681798ae184e909453c3ff9dcd743",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_mix/data.py",
+    "bytes": 976,
+    "sha256": "91c7f123b00cfcb1297e94d2f4fd363356083774c63e0f5049930ecd01cd019d",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_mix/evaluate.py",
+    "bytes": 5204,
+    "sha256": "53bc92ad9f64ed58c4bee037a0e826fa30e21bb8949423d51acf42e7fbf05af7",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_mix/gate.py",
+    "bytes": 2775,
+    "sha256": "e4d0e95c56966f81c8b886cd10505b300590626e414aec69eaa4bb5dffcb7a98",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_mix/model.py",
+    "bytes": 5458,
+    "sha256": "9bde1958c46263e848a26f5fee1fc36f15833388da773f6b7e4e8815a458af1c",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_mix/objective.py",
+    "bytes": 1845,
+    "sha256": "bf61eee84bf17f451308acd5fba9226379caf55d876d87b0dd60732c2367b577",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_mix/runner.py",
+    "bytes": 10352,
+    "sha256": "eb81f7539853daf167d5ece6614b80aebb810ba1b3e7297ac35d533108ec71b5",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_mix/suites/pilot_detail_mix_kvasir_v1.yaml",
+    "bytes": 1210,
+    "sha256": "85fb6631c278c27cd834b9363583a18e7ccade8218b43863053bb48dd07b862c",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_mix/tests.py",
+    "bytes": 8767,
+    "sha256": "7d672c894991aad29c571424e2477628feaf0435371eee5a885d2f0275871a10",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_test/__init__.py",
+    "bytes": 111,
+    "sha256": "c31ecea38fe624463a2634ef89b12d868e1de3c77a20b2cd942fc6e46873c080",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_test/common.py",
+    "bytes": 3686,
+    "sha256": "c1bdb22cd62a26d2e5dcccebb9f14ccebefeade9fc84fc67ef4d63c383cea289",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_test/evaluate.py",
+    "bytes": 7690,
+    "sha256": "1bff92b00e18c54407fd93bc9888a8e2d993947d36ee6f30f9aa1e3148c83a40",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_test/report.py",
+    "bytes": 10731,
+    "sha256": "f1907563b2317fa7ba1d9d82d5d5370fa15157fa388db583080981d71dac4672",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_test/runner.py",
+    "bytes": 11743,
+    "sha256": "3fbfc4f0910976907bb076245dbc33b259718a78a1a2c46d5e2d8d4e30747677",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_test/stats.py",
+    "bytes": 7841,
+    "sha256": "4764e587e55bf0804c01679d93ed67749aa33d67a74fe4c672967522a57ef819",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_test/step0.py",
+    "bytes": 3140,
+    "sha256": "2f0979f8bfde390a44e2d7dd078b42610e9e64b8444cb1c659e575362688775c",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_detail_test/suites/test_detail_mix_kvasir_v1.yaml",
+    "bytes": 3175,
+    "sha256": "a43c0685c54a271650dddf9a2a12175664574e71f3b384b1bdfcfe80c12e69a7",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_formal/ORIGIN.json",
+    "bytes": 8093,
+    "sha256": "36680f15e8c942bea097a49e8c86891bbd03a20d713b99a97fe1e2e0ac1faae2",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_formal/__init__.py",
+    "bytes": 83,
+    "sha256": "e58384ea06b11c30adc6a432cdb94a43523563ee849bcd274467cb63e963cd33",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_formal/check.py",
+    "bytes": 8013,
+    "sha256": "e4627610b9f54ea97fbbb9363a3ee0afd6a53678febee3da164737923c365007",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_formal/common.py",
+    "bytes": 10954,
+    "sha256": "95d2440cb6cf5e23f07f1c880fff90df3ce864477d3cd8b39ac723521e1c47e6",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_formal/data.py",
+    "bytes": 483,
+    "sha256": "1e21231aa249eb426119db159b5549323034b47a0bce35ecf2dfb3a9ba40a1c9",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_formal/evaluate.py",
+    "bytes": 11096,
+    "sha256": "f0ff263587985c9073007897c23f86456d47cad2611cb89dc1cd856efadce3f3",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_formal/metrics.py",
+    "bytes": 4641,
+    "sha256": "9e1b65b1729baa14be536fa8a9ad2a99992730c0dc80b92467519f24ac734318",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_formal/model.py",
+    "bytes": 2542,
+    "sha256": "9b3e5e3f8bba4bdc6aedb5f6b8f1fafd8aec9b8eaadc71a2a93f7ad45a592efa",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_formal/objective.py",
+    "bytes": 2600,
+    "sha256": "1ee8663390a3bc7b07a4bfbb7110f847146819a786cbfbc1348970025b54e616",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_formal/report.py",
+    "bytes": 6709,
+    "sha256": "4743e9cad6a5a5575f423431a693b3189daee7199c9542dfe647706e0c1e6980",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_formal/runner.py",
+    "bytes": 14383,
+    "sha256": "e1cd4f15560ea4841902914aaf23727a433b4f862f8f900e225295b9d105d478",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_formal/suites/formal_kvasir_v1.yaml",
+    "bytes": 836,
+    "sha256": "a850cecee3cf76bc4364262654dd22ca784bf99b8800138bb1e30725c325f85e",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_formal/tests.py",
+    "bytes": 9229,
+    "sha256": "ee0349450e5e5b428e5ab7c2031c3d4cd15782554afc7bd54f404ffd6562234c",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_hires/__init__.py",
+    "bytes": 123,
+    "sha256": "c589f1a7e86184354e9a64da3237237a43d4c5a0dd535fd4dfe51e358a4c2428",
+    "reason": "local dependency of tools/launch_research_hires.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_hires/check.py",
+    "bytes": 3374,
+    "sha256": "7a1bece93bb80b7b9f0efda3f282876912f7644c5edf71dbdf8611451172ad4a",
+    "reason": "local dependency of tools/launch_research_hires.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_hires/common.py",
+    "bytes": 2821,
+    "sha256": "ea3b84045a205221ecc3b0d322fbe9db0164d7f6b469cb38af527f0a50f4a9f2",
+    "reason": "local dependency of tools/launch_research_hires.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_hires/data.py",
+    "bytes": 1854,
+    "sha256": "57324e3739478024a6cafb99654fa2c11fabb90cc3617ef12e40a50d230259ec",
+    "reason": "local dependency of tools/launch_research_hires.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_hires/evaluate.py",
+    "bytes": 1576,
+    "sha256": "79a5afed3fc380712b3bca47ac5d815f1fda3635da9927f638147a57a3d5dfb5",
+    "reason": "local dependency of tools/launch_research_hires.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_hires/model.py",
+    "bytes": 5959,
+    "sha256": "323a937239ce8ee2161ae2d15cf6193df46b37c11b53c7b4a6232e733f301f45",
+    "reason": "local dependency of tools/launch_research_hires.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_hires/report.py",
+    "bytes": 4443,
+    "sha256": "06dc59eac5f6f2e3dfae70a3238679edba873f63f74de7a938aacf3e51aa6b36",
+    "reason": "local dependency of tools/launch_research_hires.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_hires/runner.py",
+    "bytes": 11810,
+    "sha256": "6ded9c92a95019e4ab9ea9b42088fa5f8618f3c8461566bd126536b0f307c3dd",
+    "reason": "local dependency of tools/launch_research_hires.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_hires/suites/pilot_hires_kvasir_v1.yaml",
+    "bytes": 2244,
+    "sha256": "65a4001ce944858513cd8d0dbf356f2751afa4eef907ce3d8604e5c6e40f79e8",
+    "reason": "local dependency of tools/launch_research_hires.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_lowdata/__init__.py",
+    "bytes": 118,
+    "sha256": "cbc6859bf112225730a48323c27dc9e037d5cf18c69bc16c7f92876164817f32",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_lowdata/common.py",
+    "bytes": 4591,
+    "sha256": "b4c04402c9898977505d45f1f25feb52431194c98724869a8d0405c455866d13",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_lowdata/evaluate.py",
+    "bytes": 5709,
+    "sha256": "99b093e76c5967bd68b2a58f0f7f18884eb5fac4c460ea46fe56cea6dab23a09",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_lowdata/report.py",
+    "bytes": 13964,
+    "sha256": "2db02193608d2302a6d81912d76652eb39d56b92821aa2cd4fbed3814a714221",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_lowdata/runner.py",
+    "bytes": 13585,
+    "sha256": "c04e2f40cf4c16aec5fc2eda4647d3d6ebb1760f490487d343d147774e4a634b",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_lowdata/suites/lowdata_kvasir_v1.yaml",
+    "bytes": 4425,
+    "sha256": "b8505fe9e643ba3e4c8990ba642e2a08b33888b022ba8dcfd99db0e6416c0d6c",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_mix_repeat/__init__.py",
+    "bytes": 80,
+    "sha256": "0403d0842325d2a7f764816d1118ce45ae38f6dafb1ddef2b6177c32d8e54be6",
+    "reason": "local dependency of tools/launch_research_mix_repeat.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_mix_repeat/check.py",
+    "bytes": 6553,
+    "sha256": "3392075e26c9315e497a2ab61f6d528b92de76d8165e4e8978d5bb00577b4379",
+    "reason": "local dependency of tools/launch_research_mix_repeat.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_mix_repeat/common.py",
+    "bytes": 4678,
+    "sha256": "5ce153245de4ec0eba50a4dc0da8e69b75e831b3faf0f8c9c224aaca06f64b6f",
+    "reason": "local dependency of tools/launch_research_mix_repeat.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_mix_repeat/data.py",
+    "bytes": 873,
+    "sha256": "5786b8d9e7912795c5a16888d7a06b13f70b2af12ecf6373447b33d72bf75679",
+    "reason": "local dependency of tools/launch_research_mix_repeat.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_mix_repeat/evaluate.py",
+    "bytes": 5204,
+    "sha256": "093a704a4e333bc6defd0076b93a251f6bde918b94db3685518fe9972dd30b85",
+    "reason": "local dependency of tools/launch_research_mix_repeat.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_mix_repeat/gate.py",
+    "bytes": 2628,
+    "sha256": "442c8015caecc908a37f9a210a8eeb4414d33f697ff6186676132fb3d0b82f9d",
+    "reason": "local dependency of tools/launch_research_mix_repeat.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_mix_repeat/model.py",
+    "bytes": 363,
+    "sha256": "0040e5e7085a3581a73a295d5736a9e6ee443424812b809a790efae4e7e15eed",
+    "reason": "local dependency of tools/launch_research_mix_repeat.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_mix_repeat/objective.py",
+    "bytes": 1758,
+    "sha256": "dc7359d8f2564fc47c4a193212f3c567c35a0e3d8a9faf3975bf46f902b85a83",
+    "reason": "local dependency of tools/launch_research_mix_repeat.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_mix_repeat/runner.py",
+    "bytes": 10470,
+    "sha256": "14d39247164c7451993b8051a6d36da12702788872d1db0451f3e101aa0560ee",
+    "reason": "local dependency of tools/launch_research_mix_repeat.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_mix_repeat/suites/repeat_global_mix_kvasir_v1.yaml",
+    "bytes": 1146,
+    "sha256": "57cf6a9a80c433c8d1d2a21d3c7e2208eb3475550696f064636ecc4ef06963a2",
+    "reason": "local dependency of tools/launch_research_mix_repeat.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_mix_repeat/tests.py",
+    "bytes": 4242,
+    "sha256": "c2a29e7c60b65216449f97f9e77d5127d0c768a848402208e6e092719748a0ba",
+    "reason": "local dependency of tools/launch_research_mix_repeat.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_polyp_pvt/__init__.py",
+    "bytes": 97,
+    "sha256": "1f0759177f523fd7b9177c3e6c6db6269b8e72dac3ca6c9baac1ed0e1776d762",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_polyp_pvt/common.py",
+    "bytes": 3784,
+    "sha256": "b3c27cad5116890f13f9b740330ec05a756e96f3b6a87f8eb6ac17e0bfea1455",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_polyp_pvt/data.py",
+    "bytes": 3191,
+    "sha256": "03b6b28bc600bad1066ce1d7e3c8f6f987091b4d696904e35c7baeb90bc31713",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_polyp_pvt/evaluate.py",
+    "bytes": 4292,
+    "sha256": "75e8efbc823c1e5ad3ce39177c87bbb50939260dcd762451764b3b523d8e04f1",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_polyp_pvt/lib/__init__.py",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_polyp_pvt/lib/pvt.py",
+    "bytes": 8107,
+    "sha256": "2bbfd2d019acddbfcdd4224833d1a511c0a5a3d6b35a0edc095f7dcfee476066",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_polyp_pvt/lib/pvtv2.py",
+    "bytes": 17526,
+    "sha256": "e42ed169654ac83d0c07e0d7cbc0b68624c1f6c0de67c796c1f95b2b64569752",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_polyp_pvt/report.py",
+    "bytes": 10774,
+    "sha256": "f7402989a654a4a6f97800140fe6b4e849b12fbb8a2b77b955feb643e93b5938",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_polyp_pvt/runner.py",
+    "bytes": 11625,
+    "sha256": "a6a52efd0352746d127936cc041969296b9a353a2d70b659c75200dcaa0fa1d4",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_polyp_pvt/suites/polyp_pvt_kvasir_v1.yaml",
+    "bytes": 4176,
+    "sha256": "43b3e0bdb02050627b28ec6887d0f100d137e90dc306579bb203b7f1ecbcef20",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_polyp_pvt/train.py",
+    "bytes": 8252,
+    "sha256": "f131feaef9d9b1f1d4a25a0b99c62cac447e4cec38a7ff9a980d6190296a9896",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_prompt/__init__.py",
+    "bytes": 79,
+    "sha256": "7cb90478b3a8ea631d9848ef8a7fc9d0e038fa8d73cc72054047b467a44dc585",
+    "reason": "local dependency of tools/launch_research_prompt.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_prompt/check.py",
+    "bytes": 4706,
+    "sha256": "e2a0f12762f7ee03c45e6864c7c725c3d8669c22c4772efab4b6c7d6eb3d37f8",
+    "reason": "local dependency of tools/launch_research_prompt.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_prompt/common.py",
+    "bytes": 4007,
+    "sha256": "f725d4211a83848c063e1a8462de67e670f7b3a9faa29d36ae0446aba05a4490",
+    "reason": "local dependency of tools/launch_research_prompt.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_prompt/data.py",
+    "bytes": 854,
+    "sha256": "216c25239ce8dad0fea94f2bf5753a05e0047e38011c88d64d80bf26cdbb1ccd",
+    "reason": "local dependency of tools/launch_research_prompt.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_prompt/evaluate.py",
+    "bytes": 5077,
+    "sha256": "23dd9f9529854866f93e5241f47b8ee66a09b3edcd7ee58b4285983fe4cdb0f5",
+    "reason": "local dependency of tools/launch_research_prompt.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_prompt/objective.py",
+    "bytes": 1730,
+    "sha256": "7f25f898f72f5953b1c69917789eb35a4b38d29ae35330cc47f840c260e0275b",
+    "reason": "local dependency of tools/launch_research_prompt.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_prompt/runner.py",
+    "bytes": 10523,
+    "sha256": "c27c778edaa943c555a73890edc5f9a904a3135b397b2542519260de3cb8300b",
+    "reason": "local dependency of tools/launch_research_prompt.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_prompt/suites/pilot_prompt_kvasir_v1.yaml",
+    "bytes": 751,
+    "sha256": "f132cb0c874bf5309f5f0c1710d63c9b6ce12d7bf255556356eddf7f03536883",
+    "reason": "local dependency of tools/launch_research_prompt.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_prompt/tests.py",
+    "bytes": 5120,
+    "sha256": "33a55f82640369ea515c3cdc2b63d4842224ee74887308141ca2d4091493c6f3",
+    "reason": "local dependency of tools/launch_research_prompt.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_pvt_ext/__init__.py",
+    "bytes": 120,
+    "sha256": "0245beefdb2cf117a7c8ba11e5910a4bef2125810280783aaf6a99449fb5b305",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_pvt_ext/common.py",
+    "bytes": 2638,
+    "sha256": "507485a8fcff71e0c20237044db30674adb9faca657874eb67f239e25f255c1d",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_pvt_ext/report.py",
+    "bytes": 7461,
+    "sha256": "104ab98f2aabeb149f757d9a802052e3245ffbbe5981a5d67f15dd261b986b33",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_pvt_ext/runner.py",
+    "bytes": 12279,
+    "sha256": "008593ed7a82a2d832d40a225fe5d2ce836b1fd341ea71148a0cf68e6c53272b",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_pvt_ext/suites/pvt_ext_v1.yaml",
+    "bytes": 3485,
+    "sha256": "2d4030d86b27764699898d544ebad0832837de27d2484724978227b88c187383",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_pvt_ext/work.py",
+    "bytes": 2062,
+    "sha256": "abf30d0498f74fca196d7181a01e01753e7c4bdd3bbf22811f15835bdb418fba",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_pvt_zoom/__init__.py",
+    "bytes": 110,
+    "sha256": "f4691dc32f1e77a610374fbb78bd68d7d20b1402a83551e27ad150876162d052",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_pvt_zoom/common.py",
+    "bytes": 2116,
+    "sha256": "67ccf582e075d2a6e8d4102b0bc525ce6f3fe07d8a9289daa4978ea13be1f661",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_pvt_zoom/evaluate.py",
+    "bytes": 4272,
+    "sha256": "954867503f24ae176f608f89907ed78b70f9215087f6de9a38675869f8d1dc32",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_pvt_zoom/report.py",
+    "bytes": 6354,
+    "sha256": "e3a96abcc6fc85056f9b84c6fbd1aa7f13b32722a71bc9ec7e7663b0495daeba",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_pvt_zoom/runner.py",
+    "bytes": 11916,
+    "sha256": "40963991269f66d2628936f6b207067799f702de1be69acb5e89fec743172a7c",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_pvt_zoom/suites/pvt_zoom_v1.yaml",
+    "bytes": 3301,
+    "sha256": "5ec99b275dafd9b79a65ac8488a122916baf75f254731f0651511ff3674828de",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_query/__init__.py",
+    "bytes": 80,
+    "sha256": "0403d0842325d2a7f764816d1118ce45ae38f6dafb1ddef2b6177c32d8e54be6",
+    "reason": "local dependency of tools/launch_research_query.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_query/check.py",
+    "bytes": 6358,
+    "sha256": "51ae31e5dc8df1016f2e4d8e4c4a62c03c6e7607f392a6884a7897228fe627f0",
+    "reason": "local dependency of tools/launch_research_query.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_query/common.py",
+    "bytes": 4172,
+    "sha256": "b48d24cf881a2b3aa020eca4b859df2dbe56bbaf5bfc36b340852f6604f77107",
+    "reason": "local dependency of tools/launch_research_query.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_query/data.py",
+    "bytes": 873,
+    "sha256": "5786b8d9e7912795c5a16888d7a06b13f70b2af12ecf6373447b33d72bf75679",
+    "reason": "local dependency of tools/launch_research_query.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_query/evaluate.py",
+    "bytes": 5194,
+    "sha256": "aea80056ac24c38c889b988cac4124ecac4159d7d0d364f907ad1941ae00fd3c",
+    "reason": "local dependency of tools/launch_research_query.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_query/model.py",
+    "bytes": 4233,
+    "sha256": "75775e3c074e082c4cccd2525cc0b2373b16ff3f79dbbe1a73ec223a08fa38e8",
+    "reason": "local dependency of tools/launch_research_query.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_query/objective.py",
+    "bytes": 1758,
+    "sha256": "dc7359d8f2564fc47c4a193212f3c567c35a0e3d8a9faf3975bf46f902b85a83",
+    "reason": "local dependency of tools/launch_research_query.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_query/runner.py",
+    "bytes": 11074,
+    "sha256": "b6683dac5b861e4badf61aed3fd288bcea453e1ddf7a765b18fb1be417e7dabc",
+    "reason": "local dependency of tools/launch_research_query.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_query/suites/pilot_query_kvasir_v1.yaml",
+    "bytes": 956,
+    "sha256": "44d566a22060a0ccdf87ffddd3eb7367b8233d647cbc2d406066056cee9786fa",
+    "reason": "local dependency of tools/launch_research_query.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_query/tests.py",
+    "bytes": 5530,
+    "sha256": "e86f69e71d3931332462edb18ae71035b46755029f455d3011027646228cdae5",
+    "reason": "local dependency of tools/launch_research_query.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_softcon/__init__.py",
+    "bytes": 80,
+    "sha256": "0403d0842325d2a7f764816d1118ce45ae38f6dafb1ddef2b6177c32d8e54be6",
+    "reason": "local dependency of tools/launch_research_softcon.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_softcon/check.py",
+    "bytes": 4776,
+    "sha256": "6935cfadafb2f949f4f0a88b8659b95a809f1451875ce039161488f3187a2a7c",
+    "reason": "local dependency of tools/launch_research_softcon.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_softcon/common.py",
+    "bytes": 6923,
+    "sha256": "2814a3c99857a88deb1cd83d95e2725fa35394dcb8c91de2f870090482f7b81e",
+    "reason": "local dependency of tools/launch_research_softcon.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_softcon/data.py",
+    "bytes": 873,
+    "sha256": "5786b8d9e7912795c5a16888d7a06b13f70b2af12ecf6373447b33d72bf75679",
+    "reason": "local dependency of tools/launch_research_softcon.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_softcon/evaluate.py",
+    "bytes": 5162,
+    "sha256": "c895144a23db04074049bedac6e7b4c5077dc22b5cca62e0fb4dd2f120c942ca",
+    "reason": "local dependency of tools/launch_research_softcon.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_softcon/objective.py",
+    "bytes": 1867,
+    "sha256": "d817f8a618cce636d4614c54dbae7f12bfbc268a7337ac7586b7c6f27393ca4c",
+    "reason": "local dependency of tools/launch_research_softcon.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_softcon/runner.py",
+    "bytes": 11739,
+    "sha256": "5cafe34ca1ad7c4d4d44029454e6f930b7f32991a44a6be965f02a1144e014a6",
+    "reason": "local dependency of tools/launch_research_softcon.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_softcon/suites/pilot_softcon_kvasir_v1.yaml",
+    "bytes": 829,
+    "sha256": "1393135169aa7110f5240b0174f0289e9aee8bfb83f2df97058f25d20fb4f9dc",
+    "reason": "local dependency of tools/launch_research_softcon.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_softcon/tests.py",
+    "bytes": 6334,
+    "sha256": "03f97cf1e67c24ff4932df45019b8343c3c9b3c52885db5336ff742add8ef046",
+    "reason": "local dependency of tools/launch_research_softcon.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_spatial/__init__.py",
+    "bytes": 80,
+    "sha256": "0403d0842325d2a7f764816d1118ce45ae38f6dafb1ddef2b6177c32d8e54be6",
+    "reason": "local dependency of MedCLIPSeg/research_detail_mix/common.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_spatial/check.py",
+    "bytes": 6578,
+    "sha256": "8b5f8e767b241c49a4ec783029ed52bb750fd6f58dace429b31f729420576a7c",
+    "reason": "local dependency of MedCLIPSeg/research_detail_mix/common.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_spatial/common.py",
+    "bytes": 4547,
+    "sha256": "56091212a3677df7d89a66e6bbbc541fc2df0434e4d929004b62a4b29a3bb35b",
+    "reason": "local dependency of MedCLIPSeg/research_detail_mix/common.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_spatial/data.py",
+    "bytes": 873,
+    "sha256": "5786b8d9e7912795c5a16888d7a06b13f70b2af12ecf6373447b33d72bf75679",
+    "reason": "local dependency of MedCLIPSeg/research_detail_mix/common.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_spatial/evaluate.py",
+    "bytes": 5198,
+    "sha256": "6d9c1f8a87084f69baff452cf0e4af1b345e2632db9defaebe506464c48bd850",
+    "reason": "local dependency of MedCLIPSeg/research_detail_mix/common.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_spatial/gate.py",
+    "bytes": 2485,
+    "sha256": "c093371a16d9fc771e20d054b4aecc2276045cab5c5745634dfb4dbd0096c746",
+    "reason": "local dependency of MedCLIPSeg/research_detail_mix/common.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_spatial/model.py",
+    "bytes": 4146,
+    "sha256": "a2fd1247b7af2c1e71b6882a226440007894fec4c78eff97bc13e9855f96e577",
+    "reason": "local dependency of MedCLIPSeg/research_detail_mix/common.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_spatial/objective.py",
+    "bytes": 1758,
+    "sha256": "dc7359d8f2564fc47c4a193212f3c567c35a0e3d8a9faf3975bf46f902b85a83",
+    "reason": "local dependency of MedCLIPSeg/research_detail_mix/common.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_spatial/runner.py",
+    "bytes": 10528,
+    "sha256": "f2876ee62b142434fc7f7427c6e090f013a53f77e8f1aa6d457d13e06d91d559",
+    "reason": "local dependency of MedCLIPSeg/research_detail_mix/common.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_spatial/suites/pilot_spatial_kvasir_v1.yaml",
+    "bytes": 1079,
+    "sha256": "c08c2bc657ab00af6da49abfb6d877cb26def1bb99058b0ac78fdf0d53c7de9c",
+    "reason": "local dependency of MedCLIPSeg/research_detail_mix/common.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_spatial/tests.py",
+    "bytes": 8016,
+    "sha256": "ae89bf65398e8f212c5f485e889be55dff9626b7029cd84233093462e67ce07c",
+    "reason": "local dependency of MedCLIPSeg/research_detail_mix/common.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_v6/ORIGIN.json",
+    "bytes": 5687,
+    "sha256": "fefef9f8e23b0323c603326c4d935288e2ddedb9d51fb7cb400d1c9b4df55d2f",
+    "reason": "local dependency of MedCLIPSeg/research_formal/tests.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_v6/__init__.py",
+    "bytes": 83,
+    "sha256": "e58384ea06b11c30adc6a432cdb94a43523563ee849bcd274467cb63e963cd33",
+    "reason": "local dependency of MedCLIPSeg/research_formal/tests.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_v6/check.py",
+    "bytes": 4966,
+    "sha256": "40b182a4847ab9f4261f0dadd4915c22589122c4532a4ce7a3ff12b7c3847519",
+    "reason": "local dependency of MedCLIPSeg/research_formal/tests.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_v6/common.py",
+    "bytes": 7467,
+    "sha256": "005833aaa7f52c7b83a5998cfe5e4e3ebf8e9d5c4087d83c00b9e932a9ac1605",
+    "reason": "local dependency of MedCLIPSeg/research_formal/tests.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_v6/data.py",
+    "bytes": 483,
+    "sha256": "1e21231aa249eb426119db159b5549323034b47a0bce35ecf2dfb3a9ba40a1c9",
+    "reason": "local dependency of MedCLIPSeg/research_formal/tests.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_v6/evaluate.py",
+    "bytes": 9096,
+    "sha256": "b19b12478cda623a8c64b8d34e13c319ae9acab0e64655e94f534cdbed3c9b51",
+    "reason": "local dependency of MedCLIPSeg/research_formal/tests.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_v6/metrics.py",
+    "bytes": 4641,
+    "sha256": "9e1b65b1729baa14be536fa8a9ad2a99992730c0dc80b92467519f24ac734318",
+    "reason": "local dependency of MedCLIPSeg/research_formal/tests.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_v6/model.py",
+    "bytes": 928,
+    "sha256": "48538c296fb28b5586098e8bc2b8daae32d850ec739d30509b21538c2e35fec5",
+    "reason": "local dependency of MedCLIPSeg/research_formal/tests.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_v6/objective.py",
+    "bytes": 3552,
+    "sha256": "2513e9322d52039d10b8e97a7b3cc075277423cf2ab4ce01157b6ef5b6ecc827",
+    "reason": "local dependency of MedCLIPSeg/research_formal/tests.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_v6/report.py",
+    "bytes": 3341,
+    "sha256": "17529d758e3fb85da17582d066832fe22f1d97792a1092973b6b0f7aa2a91010",
+    "reason": "local dependency of MedCLIPSeg/research_formal/tests.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_v6/runner.py",
+    "bytes": 11066,
+    "sha256": "0b4c976898468e47edb075ccdc38aa2849df0c5fd303be37e9512f937f8b0b53",
+    "reason": "local dependency of MedCLIPSeg/research_formal/tests.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_v6/suites/pilot_kvasir_v6.yaml",
+    "bytes": 187,
+    "sha256": "61a09eac5f18040e1ab10d9ba0b12d81c3ba630db3ada00a8c3795516c024f0b",
+    "reason": "local dependency of MedCLIPSeg/research_formal/tests.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_v6/tests.py",
+    "bytes": 5200,
+    "sha256": "7a4d27d1b1b3225da1a18878e3cee69323c884a6f1fa2a2cd4bf5824b7acb2ea",
+    "reason": "local dependency of MedCLIPSeg/research_formal/tests.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_validation/__init__.py",
+    "bytes": 83,
+    "sha256": "f401f84fdf7046f2f866cc91b01d1c38fbef0dca7065bd4d430d1c365103c268",
+    "reason": "local dependency of tools/launch_research_validation.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_validation/prompts.py",
+    "bytes": 1686,
+    "sha256": "ca0c5bcc3f647c34ab72ee87229bc1c65d224ef3105f352906256e53b7310610",
+    "reason": "local dependency of tools/launch_research_validation.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_validation/protocol.py",
+    "bytes": 5755,
+    "sha256": "33f518c8970eaaa884fbe5bf8708a75f25727b2ccb1edecabdaef6425ffffe49",
+    "reason": "local dependency of tools/launch_research_validation.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_validation/runner.py",
+    "bytes": 21831,
+    "sha256": "e12359178fd9051422a03ad858ac196863d304662cc60b04a68ff16a00154269",
+    "reason": "local dependency of tools/launch_research_validation.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_validation/tests.py",
+    "bytes": 5183,
+    "sha256": "4eadfeef3790be35afe0a1a810845ee0797caac9c8f5c6332ed5a34b614005ac",
+    "reason": "local dependency of tools/launch_research_validation.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom/__init__.py",
+    "bytes": 111,
+    "sha256": "c831cb21588da5c4785147453fa59414c86484b2bd7c27c5183beee0f08d3af4",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom/common.py",
+    "bytes": 1553,
+    "sha256": "f3549651aa3e65e1e7e52693f97620f8878acc41f893f3ae622e83f9d3927cfd",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom/evaluate.py",
+    "bytes": 8206,
+    "sha256": "024cef32be79463bf36e4bbbf29cf665d730bd29215f2fbe279939b8f72e4629",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom/geometry.py",
+    "bytes": 3204,
+    "sha256": "23c20c342bb6fac71c135d50031db72dedcb926f890cf942f7ed0fa8dee3ed23",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom/report.py",
+    "bytes": 7717,
+    "sha256": "f9aca209fc46e958ef4b1990a404b88116ddf53cf441d3dcb812c45f4a83ac92",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom/runner.py",
+    "bytes": 10024,
+    "sha256": "1b4dd6cdea67b239afed6042d1d3ff1488adfc3e7681aaef742ab892eae66500",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom/suites/pilot_zoom_kvasir_v1.yaml",
+    "bytes": 2886,
+    "sha256": "2f39bd9818e1f9c745dddc556832665db55441346edf000d0928ac5d1601cebd",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box/__init__.py",
+    "bytes": 114,
+    "sha256": "13f0d80a5ae29e9a63907090c6b894cd5f801cbba796a7f86ab6f48ecdb47458",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box/common.py",
+    "bytes": 3384,
+    "sha256": "55194ef3ece7ee9e500d929c7d6e8082fc0c9a6053d66a031e7f8ccdbdda5196",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box/report.py",
+    "bytes": 8130,
+    "sha256": "3d6da1c3b4154da73d9cd830518d730a54e179ab26d2d1e676f9e3f155ce1e2c",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box/runner.py",
+    "bytes": 11886,
+    "sha256": "2179e5be9de5f9fa0501966e202373c85fc417ab0263888e52325cf81aeb4007",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box/suites/zoom_box_v1.yaml",
+    "bytes": 4130,
+    "sha256": "efc7af9d0ed28b6595cc91718b7d0f971fd913bae1bdb9557053897f1ade2e2d",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box2/__init__.py",
+    "bytes": 114,
+    "sha256": "13f0d80a5ae29e9a63907090c6b894cd5f801cbba796a7f86ab6f48ecdb47458",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box2/common.py",
+    "bytes": 3387,
+    "sha256": "497c88927aa3075a2e4ec17ae1f1dc266698116e8c893d5dd3aaa4dc89c4513a",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box2/report.py",
+    "bytes": 8089,
+    "sha256": "5184a8cac09955b7db5c48826b6666614116efe3351df20a4628a75de64cf706",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box2/runner.py",
+    "bytes": 11886,
+    "sha256": "2179e5be9de5f9fa0501966e202373c85fc417ab0263888e52325cf81aeb4007",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box2/suites/zoom_box_v2.yaml",
+    "bytes": 3994,
+    "sha256": "e78075cb5e29ad32fdba8668bf7fa4d104ae14852fe85c8ec7d2e385e12726c7",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box_busi/__init__.py",
+    "bytes": 114,
+    "sha256": "13f0d80a5ae29e9a63907090c6b894cd5f801cbba796a7f86ab6f48ecdb47458",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box_busi/common.py",
+    "bytes": 3538,
+    "sha256": "dedba11964ea30df421d3fab50b1542ec4852b0525293780eeae6f28a53db9bc",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box_busi/report.py",
+    "bytes": 8173,
+    "sha256": "82a526972fca1eb2a41718816afddc48b1685443624e3342b4d49342fde65cb2",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box_busi/runner.py",
+    "bytes": 11907,
+    "sha256": "8ab95c5ded20ba9ba7077a5561404f2dea5e3d2f318fa15db81319e81709a399",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_box_busi/suites/zoom_box_busi_v1.yaml",
+    "bytes": 4106,
+    "sha256": "b35324db3ca9416bd6b5b501b11c922a898998ed02b0558b78a05f0ef2655e78",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_budget/__init__.py",
+    "bytes": 101,
+    "sha256": "5b48aff410bbce94d4170779034c3baa5b85d5008956a47eff873e1df1901523",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_budget/common.py",
+    "bytes": 3097,
+    "sha256": "573a6dee8271257470a5bcca6e0500cf128e7ca2e6afc2af39f86ee97e9c9889",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_budget/evaluate.py",
+    "bytes": 6741,
+    "sha256": "9110dc0f4cfe000bfa1d797325ddcbfc6390cd2bc2184432e50b57d41324802e",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_budget/report.py",
+    "bytes": 8273,
+    "sha256": "4b873d7786f05ba165e76180e9cbe1ba0bb7b65ae46e98b7407ca6c35064bb96",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_budget/runner.py",
+    "bytes": 11641,
+    "sha256": "d3df178d1f453dbd6e85ce63760a7decf71ed17b34c0c53cd8805f4cab15814c",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_budget/suites/zoom_budget_v1.yaml",
+    "bytes": 5032,
+    "sha256": "c9b8380f01e58bca27d1bd1624f5d87ee7151e3068aae34ec1d27b019340b44b",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_compare/__init__.py",
+    "bytes": 101,
+    "sha256": "5b48aff410bbce94d4170779034c3baa5b85d5008956a47eff873e1df1901523",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_compare/common.py",
+    "bytes": 2239,
+    "sha256": "3835dada613d745d5a03c7b7bb86e058338fe89c3979b900e602e5d82afa94f9",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_compare/evaluate.py",
+    "bytes": 4074,
+    "sha256": "00cc7598c102c4c4c21cce39d4d1ed80d39336e948f39b74fb7ac0b04226bac4",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_compare/report.py",
+    "bytes": 6708,
+    "sha256": "a20bce5e9442df6fe13e39aec180d35a0b1a17d07523a522744bfac99b9ec232",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_compare/runner.py",
+    "bytes": 11769,
+    "sha256": "bf5013fd4b7f8fb405430fbea51bcd8a3b5d9daf9a58415bf2abdbd02a175d85",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_compare/suites/zoom_compare_v1.yaml",
+    "bytes": 3323,
+    "sha256": "e8e7d10306af554bcec81ac96e085260ec3c33c34cceba9f2c0796a0ddf368de",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_compare/tiles.py",
+    "bytes": 1273,
+    "sha256": "d5ece6d6a98a6094d1600c7b44ed24af9ce923f20b18cef24571c2aa07914486",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_etis/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_etis/common.py",
+    "bytes": 5115,
+    "sha256": "66d94a8e86149645d375fd53dbe37b44ddb241ba4addbe52435c33374d7d3b12",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_etis/report.py",
+    "bytes": 8566,
+    "sha256": "0df0347c4b11cf0c596e3ff841ce4cf94739785bd2ea41cbc917f9b541ac158b",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_etis/runner.py",
+    "bytes": 10017,
+    "sha256": "3fd65d0add17611b6e64f4e4a7e2ae6090b9e578ddcc79c360224924c7942cc8",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_etis/suites/zoom_etis_v1.yaml",
+    "bytes": 2800,
+    "sha256": "7e118f4ecc0b4716fe5e6fb2676ad7121e3ee481d003a8cb981a7974cb2c3f6a",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_export/__init__.py",
+    "bytes": 126,
+    "sha256": "1817a2e84cf8bc74e06a33b71a6004768f916e5172123fe1c1d476c496c8e27a",
+    "reason": "local dependency of tools/launch_zoom_export.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_export/runner.py",
+    "bytes": 9560,
+    "sha256": "622a002d24d863f75d1fccb386a0efc94a2d476bf1a94b8b8e6547a62687b1fe",
+    "reason": "local dependency of tools/launch_zoom_export.py"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_ext/__init__.py",
+    "bytes": 113,
+    "sha256": "d93e19ddb4dfd86925eabd02118df0521df9795faa50d5a4af778781312202b7",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_ext/common.py",
+    "bytes": 9561,
+    "sha256": "beb9be29e6ab48b7b704f11ac2cc7dbf8ead7dd11e1302d6e30863d3a1f43591",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_ext/report.py",
+    "bytes": 12738,
+    "sha256": "8e48feab1a4514d44aa651bc3a2d7bb680339e5d2200678aed4baa6df80af664",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_ext/runner.py",
+    "bytes": 12238,
+    "sha256": "133e43f1bcd259ef38dbb27945d9116966db0f273c0803126c820ed76555a79b",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_ext/suites/zoom_ablation_kvasir_v1.yaml",
+    "bytes": 1594,
+    "sha256": "7825ee5057b7f744c6f3f61c9b2d9d280c51e2a3566c701fcf496477cd1cedf8",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_ext/suites/zoom_busi_v1.yaml",
+    "bytes": 3262,
+    "sha256": "686e83893505410b77c99150de3049dbeb84db003693fd084cba5ae021e8cad6",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_ext/suites/zoom_kvasir_seeds_v1.yaml",
+    "bytes": 1817,
+    "sha256": "6b8a05750a95f6c7def01a2d7773c46169bc98f2cb5d8c728c102be6c34137a4",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_probe/__init__.py",
+    "bytes": 61,
+    "sha256": "886f7218426a0fa93601799c08c698b3cd02cb1313d124236c767d49e0847e5b",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_probe/common.py",
+    "bytes": 4017,
+    "sha256": "52d7c1c666db0701da6320a1fd17737421a0fc0f4cac7ab4432580cfd2e8edc0",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_probe/evaluate.py",
+    "bytes": 10796,
+    "sha256": "26e3f42acd58c95a6dbea924ba9daec5d8e6a57f71f4f77bd1cb2449cff4cc25",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_probe/geometry.py",
+    "bytes": 1730,
+    "sha256": "e6a0c24369616e54f92158170afbb3e518f7dc63bdc8b1dc7214d1e5d7729f50",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_probe/report.py",
+    "bytes": 16213,
+    "sha256": "aac3d017ba85f8b107f1bab6eb96fcab20a91534d73a70722bde6af74d1bc05c",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_probe/runner.py",
+    "bytes": 17089,
+    "sha256": "3211192abc3ee9f4729a7e3b63c100f95b4f0a69dc2759d5809f1ae227e95e30",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_probe/suites/zoom_probe_v1.yaml",
+    "bytes": 5992,
+    "sha256": "e9452e02e02d292556205bd35708946ff22aa79d46f2f052a8e092b6f2b7babd",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_test/__init__.py",
+    "bytes": 93,
+    "sha256": "bd7a64fea60b0976ea4a8d8768c33a027409a0d6254b411a54bb973a6c27f6cb",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_test/common.py",
+    "bytes": 2345,
+    "sha256": "99f9e45ff1562b5e57c2124e7a316d7b07fdea4302f3c73b301361ce3306fdff",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_test/report.py",
+    "bytes": 9685,
+    "sha256": "29595908e164763d8abe22043d28d78dd5bfb81d1280249a221e3b9982c0dbf3",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_test/runner.py",
+    "bytes": 11025,
+    "sha256": "973824b8abcda3cd4b2e94a88fe7b7a9bc8ed489a761474b7829fa0a8338feba",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/research_zoom_test/suites/test_zoom_kvasir_v1.yaml",
+    "bytes": 2596,
+    "sha256": "dec79bc2b4d97a04e2e193e7043c74761bb07d3b0f7a67d0c6da9a329de1da6d",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/test.py",
+    "bytes": 9689,
+    "sha256": "71be54f26971e5e4e962f727dc64cab3fc20806c20493e3b8b4b8c07ec147dd1",
+    "reason": "entry point referenced by MedCLIPSeg/local_reproduce.py"
+  },
+  {
+    "path": "MedCLIPSeg/train.py",
+    "bytes": 24207,
+    "sha256": "18960a959d268dbc2c61e0a551e6310573104ff30290f02b05fe8605eb19358d",
+    "reason": "local dependency of MedCLIPSeg/research/check.py"
+  },
+  {
+    "path": "MedCLIPSeg/train_controls.py",
+    "bytes": 1523,
+    "sha256": "2441de1b40ccb23aef16972c2c3565372d82c1e1607c361f2ce8a185fbd01f07",
+    "reason": "requested file"
+  },
+  {
+    "path": "MedCLIPSeg/train_detail_ext.py",
+    "bytes": 1167,
+    "sha256": "b24f4ccbcb723e54f890eb811e2cad56af0d16736b87ce2b632f0b2f9acc4f0d",
+    "reason": "entry point referenced by MedCLIPSeg/research_detail_ext/runner.py"
+  },
+  {
+    "path": "MedCLIPSeg/train_detail_formal.py",
+    "bytes": 25204,
+    "sha256": "71f9b14b0136813ac3d4d12330c8d6cadf8bea2911a2119463e72dd3312b2f06",
+    "reason": "requested file"
+  },
+  {
+    "path": "MedCLIPSeg/train_detail_mix.py",
+    "bytes": 25189,
+    "sha256": "11b8f1ce842690a9f178b87bf28f9fee9d9adf45d4a71b105faa656ebccbf7be",
+    "reason": "local dependency of MedCLIPSeg/research_detail_mix/check.py"
+  },
+  {
+    "path": "MedCLIPSeg/train_formal.py",
+    "bytes": 25095,
+    "sha256": "bd4fe18d6c8f7e49bcc4eb041e9012143ab58508d25b876c15d007936815a63a",
+    "reason": "local dependency of MedCLIPSeg/research_formal/check.py"
+  },
+  {
+    "path": "MedCLIPSeg/train_hires.py",
+    "bytes": 1418,
+    "sha256": "dc2874044fc73b0e5cfb6bc02431c08e9f64a43e00e9750f13a6fb44e7d8bf93",
+    "reason": "entry point referenced by MedCLIPSeg/research_hires/common.py"
+  },
+  {
+    "path": "MedCLIPSeg/train_mix_repeat.py",
+    "bytes": 25189,
+    "sha256": "2c1b1745c34538885e3edbe31d0c8e1c25dd7025e3604fb9d49966cb8332042b",
+    "reason": "local dependency of MedCLIPSeg/research_mix_repeat/check.py"
+  },
+  {
+    "path": "MedCLIPSeg/train_prompt.py",
+    "bytes": 25169,
+    "sha256": "66afd310d2497467a1f31a1e31fb79dae913f6a97ba4be96762dbae0f1714339",
+    "reason": "local dependency of MedCLIPSeg/research_prompt/check.py"
+  },
+  {
+    "path": "MedCLIPSeg/train_query.py",
+    "bytes": 25164,
+    "sha256": "34d3a25213ace218c7dbedd7928dcfd8bb468bea1e9783ddd401a363e0ebf144",
+    "reason": "local dependency of MedCLIPSeg/research_query/check.py"
+  },
+  {
+    "path": "MedCLIPSeg/train_softcon.py",
+    "bytes": 25173,
+    "sha256": "b95e95e4eb0118eed31747c7ad3836b23accf228188dec37c305b433e406c74e",
+    "reason": "local dependency of MedCLIPSeg/research_softcon/check.py"
+  },
+  {
+    "path": "MedCLIPSeg/train_spatial.py",
+    "bytes": 25174,
+    "sha256": "02e7b100fe7590b85a428f106609c37bd098613b9deb7bbe5a3f703137b6fefc",
+    "reason": "local dependency of MedCLIPSeg/research_spatial/check.py"
+  },
+  {
+    "path": "MedCLIPSeg/train_v6.py",
+    "bytes": 24826,
+    "sha256": "fdee0711f445d63629fa07b7ffb38e649152e641225b34b4e295445acbd5b692",
+    "reason": "local dependency of MedCLIPSeg/research_v6/check.py"
+  },
+  {
+    "path": "MedCLIPSeg/trainers/__init__.py",
+    "bytes": 242,
+    "sha256": "e02d821b3a4cb33168e5cbb73275b5ae0eefafe65be04e117463207d9d79f58b",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/trainers/layers.py",
+    "bytes": 3808,
+    "sha256": "998cf374af07bd33bea9bcb1fcae7572c067f21df3ecbe7995d6c4fb187c2776",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/trainers/medclipseg_biomedclip.py",
+    "bytes": 9266,
+    "sha256": "58969badff8e20e2f018e152d4057e88ae32f53d1b86efcedb2a3530f926e9f0",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/trainers/medclipseg_clip.py",
+    "bytes": 9561,
+    "sha256": "69e3dc628b679e71bf8df737fa319dfcfcc70f3b529811a3266e06e229825236",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/trainers/medclipseg_pubmedclip.py",
+    "bytes": 10478,
+    "sha256": "fea66af41391ed2726b8872d18f1ab12cff4cea58fadf990617e55dcbaafa0f5",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/trainers/medclipseg_unimedclip.py",
+    "bytes": 11954,
+    "sha256": "40272f148d4b427aff0b5d1cbb83d5691025abfe1231030b691788af3fbc189e",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/trainers/scale_block.py",
+    "bytes": 1008,
+    "sha256": "8f5da6c27a5793ccdf6b2892b5cabae2408ebe6cf846f04526d28d7a79efd5e9",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/utils/SurfaceDice.py",
+    "bytes": 26445,
+    "sha256": "a36275c2f59a48729e013afec093ec35ba34bb35ad5b6cf19b77e8c60a1a0241",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/utils/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/utils/download_ckpt.py",
+    "bytes": 2344,
+    "sha256": "95c417c8fc15f09f82082260f7442079fb5dff74f7526c119b9680234bca3b97",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/utils/eval.py",
+    "bytes": 7329,
+    "sha256": "14aeccb48a0b05a58e93eb842b33eed8c7676d7708b33c886e551f31c69972de",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/utils/main_utils.py",
+    "bytes": 3804,
+    "sha256": "2dd6020b2294f009028f727b3224ed849f06a6f5a463c7bf2d7fea56d3681857",
+    "reason": "requested directory"
+  },
+  {
+    "path": "MedCLIPSeg/utils/preprocess_EUS.py",
+    "bytes": 4304,
+    "sha256": "c165db045392a8ddc0ca7bc82bb6d3b9c2744609333bb99b82ab1fe3072fc254",
+    "reason": "requested directory"
+  },
+  {
+    "path": "PolypPVT.cmd",
+    "bytes": 102,
+    "sha256": "e84fe58628c136fdf7b3b1f0f73e62265db9be33fe91d9b7f9bd5619fe121f05",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "PvtExt.cmd",
+    "bytes": 100,
+    "sha256": "b4688d1d07069472d6699eb006100bb0b35d63c62b80ea6f0554c650d9594ff8",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "PvtZoom.cmd",
+    "bytes": 101,
+    "sha256": "be622e4f0987d5eec2009bfe1c9c7ab6cd02f32add94113fbbf3f39bd2285464",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchControls.cmd",
+    "bytes": 88,
+    "sha256": "3cfc5ff4cf8733bb518654ecede05327c0cc3d9a0fdaa6c999ee3a24f0c2c84e",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchDetailExt.cmd",
+    "bytes": 90,
+    "sha256": "5dca443d39715711a2a1d75330d34b74952c3a68bf2191fb83dd118eed207c11",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchDetailFormal.cmd",
+    "bytes": 93,
+    "sha256": "c3b72bb4431d10782dafe91c94cb6ee337480072fd309be662c42382599d1c01",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchDetailMix.cmd",
+    "bytes": 90,
+    "sha256": "23abe66d9674f661fb75d9b9203f1a3ad6a493c5a81d841f7201aea9a503c022",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchDetailTest.cmd",
+    "bytes": 91,
+    "sha256": "c95bce182db07485a4295cd0387d46ac6dfa54cef9e41592dab50e7366ee574c",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchHires.cmd",
+    "bytes": 85,
+    "sha256": "5f66f8f64eab4e0ae4937c05d7338bdef591678cbb774d6c543236f97cc797f8",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchMixRepeat.cmd",
+    "bytes": 90,
+    "sha256": "5798fbcfd5f399543b1911876c5311b9b19584d71118e7ba904c8d7ed5e38939",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchPrompt.cmd",
+    "bytes": 86,
+    "sha256": "6bc82bafe4affccce2ec2e95c662c17fb4340b58c525fd2cf4def1e11f1f7bda",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchQuery.cmd",
+    "bytes": 85,
+    "sha256": "6359fa73205ba1cdca65b8b9440b84361de2a8ee43af9ada130e5547f6822d2b",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchSoftCon.cmd",
+    "bytes": 87,
+    "sha256": "154756c06fcca9c1bb2055bee5d35880435391da7bdc681fdcb1089577ee65ba",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchSpatial.cmd",
+    "bytes": 87,
+    "sha256": "16156c1e6afefa6ff56b16dec1c05688dc256a5be67aedd8d510300006917997",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchValidation.cmd",
+    "bytes": 109,
+    "sha256": "9feb873be818fcf8b75346c57301f7495298cb4bff8f2051ff2faa58cc3f4bd1",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchZoom.cmd",
+    "bytes": 84,
+    "sha256": "ba71e2b329abc0723241bf2fe15ac49e835ca4fde6ef4a5f4697ae3200cd2c1b",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchZoomExt.cmd",
+    "bytes": 88,
+    "sha256": "45f196761b7654d0ec3775f88090617278b25f973adb95edfebeb186d8b73fc6",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ResearchZoomTest.cmd",
+    "bytes": 89,
+    "sha256": "4e2fa087162dc3adc8761309c08786e902b2d03ff4ecc25c345bcad5f57afaef",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ZoomBox.cmd",
+    "bytes": 101,
+    "sha256": "c5829a336ab45ac299bd338fde2cd8e853ec0e133a0ed1c5e990468af4ae0458",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ZoomBox2.cmd",
+    "bytes": 102,
+    "sha256": "a844ff28da4747d85aa3a92b110c0b6b9580652407be1c7d6cb49aeee95dc217",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ZoomBoxBusi.cmd",
+    "bytes": 106,
+    "sha256": "cd1eb8bf91a21cac98405954aee02b81891dacc08ba6ecf7a2bcf26d867eeea4",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ZoomBudget.cmd",
+    "bytes": 104,
+    "sha256": "360f77e0d50dd4e32ade4bf2b0dd018d3df1248620cba7387a92cd02c996fbfb",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ZoomCompare.cmd",
+    "bytes": 105,
+    "sha256": "ae5d36bc6e9de1503793d9380c2c184f1ee4b818d0cee72460cda06645198e25",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ZoomETIS.cmd",
+    "bytes": 102,
+    "sha256": "fcffe27952ded7995d091696c8f397025108355ab13c7f4001bff0f627833306",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "ZoomProbe.cmd",
+    "bytes": 103,
+    "sha256": "ab8af6b66832397c5a08ac638bd61592fd4697a5d32e8a7b4a99f05952adc3e1",
+    "reason": "corresponding CMD launcher"
+  },
+  {
+    "path": "requirements-windows-constraints.txt",
+    "bytes": 390,
+    "sha256": "4878e28c78f75594b3ae536cd5523dec6afbf23eae3cdbe7b56c5cde587b412b",
+    "reason": "Windows dependency versions"
+  },
+  {
+    "path": "requirements-windows-lock.txt",
+    "bytes": 1548,
+    "sha256": "56d74d542b95a62c161808bce1d2a0cd21286dbc56647cad277a9d14b920af7c",
+    "reason": "Windows dependency versions"
+  },
+  {
+    "path": "tools/launch_lowdata.py",
+    "bytes": 1111,
+    "sha256": "0628dd8c8386b7de5050f4f389fb025521023b6e1fdbf90dee22f6f7c28d8e77",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_polyp_pvt.py",
+    "bytes": 1104,
+    "sha256": "be4c1d218042ed6c234c5322ac1d4ddc451116e0636dddff78b74620f7d4ee49",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_pvt_ext.py",
+    "bytes": 1111,
+    "sha256": "84adb56b61c68103de5670b55dd96bd222d281f91bdd955107ab46c436fe2785",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_pvt_zoom.py",
+    "bytes": 1089,
+    "sha256": "316e07fe67a90685195663d594a9a9b818b4f9c8a0b817f4e279072a151e85e9",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_controls.py",
+    "bytes": 3590,
+    "sha256": "f65a4ab58f09b14c91a02e2223f21a5217f2771f25e5ea4020e07ff482663bf7",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_detail_ext.py",
+    "bytes": 3459,
+    "sha256": "afb1e2b5edf3240b3704e4f89dfa62462fc49b932e1ffcaffc12041d9e18a52f",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_detail_formal.py",
+    "bytes": 3041,
+    "sha256": "d881f044f8129217c59a3ed32e9e64298928430f3530294c9306e9efe74d6f65",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_detail_mix.py",
+    "bytes": 2644,
+    "sha256": "8d03e0cb8b5d5d6512ce34628015bad6c48285491ccb489336e8468e60eb8dd2",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_detail_test.py",
+    "bytes": 3592,
+    "sha256": "ceb89a4a653af8ca1bdd0dca607de370ed5f737015eca2ec20603e5aeea13d1a",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_hires.py",
+    "bytes": 3925,
+    "sha256": "374b8516c47b30a078f34c06ac9f3b3aed0f166b4410ecaff3c3bd0292773446",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_mix_repeat.py",
+    "bytes": 2669,
+    "sha256": "3054d6f7595106274657d83a3df9061053f3b4a0490a568da3e8875db69409b4",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_prompt.py",
+    "bytes": 2151,
+    "sha256": "23a2135d55eb71c4f5b0ed974cbc86863150353ede1d972460b6bb1810fe58bb",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_query.py",
+    "bytes": 2154,
+    "sha256": "b9f8b2f22668b603bad6858e3d21645b9d93a776fd594f1f5232cee10026d851",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_softcon.py",
+    "bytes": 2155,
+    "sha256": "dcfb0af7296fcf8177a504551c9abfcf5c4ffea6d6c888c273514cf349ebea26",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_spatial.py",
+    "bytes": 2160,
+    "sha256": "625f73f62a60b50343bfcbef858f400fee55d63ba81f842de6d2cd79dbdaa0fe",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_validation.py",
+    "bytes": 2114,
+    "sha256": "1c0c0526d3354ab3975653ab89e3e7a7ac83b82237b3e7b174a39b6cc64b650e",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_zoom.py",
+    "bytes": 3594,
+    "sha256": "db988cbb8b681ab8370b34cda23d5fd7f49c8ce4dda8dbe603977c6139f97dbc",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_zoom_ext.py",
+    "bytes": 4251,
+    "sha256": "9d55f7540ff613b0a699d94f21e5cddfe2875e46a14ea8dad12f3ccc4d212409",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_research_zoom_test.py",
+    "bytes": 3601,
+    "sha256": "7a80f2f859b2a686d7a1cc0f54c2793f4ae6a34fd4a660ee5494a9f5bc089aa2",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_zoom_box.py",
+    "bytes": 1083,
+    "sha256": "fef8ba33b442e99fc77d46610b3d4b715cf2207af19d8b676ad7da9f9e327846",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_zoom_box2.py",
+    "bytes": 1084,
+    "sha256": "275518dc5b8ae626788f8cfc26021a471ba6aec6ed6b3e3803eaa511c318c2f0",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_zoom_box_busi.py",
+    "bytes": 1109,
+    "sha256": "ac892d9834aeed2def5e07b11c37660d0b76f0996bdcc63819a5f506e042f09f",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_zoom_budget.py",
+    "bytes": 1129,
+    "sha256": "3d266e88a92c924df8c2ab384c1e60cfd364504c18a51adc2606fba8bff21956",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_zoom_compare.py",
+    "bytes": 1101,
+    "sha256": "c34f38d767053e6e4838d004eb19a5240b66570d0d68810ac88b3ab749bb462e",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_zoom_etis.py",
+    "bytes": 1075,
+    "sha256": "089e33f6cdf147a9fd97e2263ded6f18e9dcd786fd0220d1c2fe1af1bd1ef164",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_zoom_export.py",
+    "bytes": 2082,
+    "sha256": "5c07eb289c8e0d05cfdcb92a6afde332ec53ae8a1dde4c2d55d4904e5d77a3b0",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/launch_zoom_probe.py",
+    "bytes": 1077,
+    "sha256": "5fd69d2a986cc63374ae1c9ea9d78552fc18096ce8b5ff727e066125eff932be",
+    "reason": "requested launcher"
+  },
+  {
+    "path": "tools/run_detail_formal_parallel.py",
+    "bytes": 14523,
+    "sha256": "f73646eee898002bd091178c0169fcf4b43c182cf98ef17eb6725ca3d22bfbba",
+    "reason": "helper referenced by tools/launch_research_detail_formal.py"
+  },
+  {
+    "path": "tools/run_detail_mix_parallel.py",
+    "bytes": 12719,
+    "sha256": "13ff673c5723a442c5a317dca688d612635b66d6911d3328bf25af65cbb3b581",
+    "reason": "helper referenced by tools/launch_research_detail_mix.py"
+  },
+  {
+    "path": "tools/run_mix_repeat_parallel.py",
+    "bytes": 12223,
+    "sha256": "e03104e99d28aea500d524dd83ee5cc0bf564f80c7f0dabe6b263f1ba0696e01",
+    "reason": "helper referenced by tools/launch_research_mix_repeat.py"
+  }
+]

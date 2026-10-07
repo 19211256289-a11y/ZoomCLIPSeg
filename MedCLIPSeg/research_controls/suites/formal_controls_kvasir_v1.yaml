@@ -1,0 +1,71 @@
+name: formal_controls_kvasir_v1
+locked_at: '2026-10-05'
+purpose: >-
+  Control experiments requested by an external review of the study. All arms are trained on this PC with the same
+  three seeds, so that every comparison in this suite is between models trained on the same hardware.
+dataset: Kvasir
+seeds: [666, 667, 668]
+epochs: 100
+prompt: a polyp in a colonoscopy image
+arms:
+  detail:          {query_mode: detail,   recipe: paired,      dice: image,  data: standard,  two_pass: true}
+  detail_scale:    {query_mode: detail,   recipe: paired,      dice: image,  data: scale_aug, two_pass: true}
+  baseline:        {query_mode: baseline, recipe: paired,      dice: image,  data: standard,  two_pass: true}
+  orig_fixed:      {query_mode: baseline, recipe: single,      dice: legacy, data: standard,  two_pass: false}
+  orig_fixed_dice: {query_mode: baseline, recipe: single,      dice: image,  data: standard,  two_pass: false}
+  flip:            {query_mode: baseline, recipe: single_flip, dice: image,  data: standard,  two_pass: false}
+  detail_up224:    {query_mode: detail,   recipe: paired,      dice: image,  data: upsampled_detail, two_pass: false}
+arm_notes:
+  detail: accepted detail-branch recipe, retrained here as the same-hardware reference
+  baseline: accepted fixed-sentence baseline recipe (paired reflection, corrected Dice), retrained here as reference
+  orig_fixed: original training recipe (one view per step, rotation only, Dice computed as in the public code) with the fixed sentence
+  orig_fixed_dice: orig_fixed with the corrected Dice term only
+  flip: orig_fixed_dice plus an ordinary random flip; each sample is flipped with probability 0.5 along a random axis
+  detail_scale: detail plus ordinary random scaling of the training images
+  detail_up224: detail branch fed with the 224 image upsampled to 448 (same capacity, no additional image information)
+scale_augmentation:
+  scale: log-uniform in [0.5, 2.0], drawn per training sample
+  translation: uniform in [-0.1, 0.1] of the image side, per axis
+  fill: black; mask filled with background
+  applied_to: 224 image, 448 detail image and mask with identical parameters; training split only
+hyperparameters: identical to formal_detail_mix_kvasir_v1 except where an arm says otherwise
+checkpoint: final_epoch_100_latest
+mc_samples: 30
+batch_size: 32
+threshold: 0.5
+small_target_threshold: 0.058989688326573426
+test_list: Test_text_original.xlsx
+test_targets: [Kvasir, ColonDB, ClinicDB, CVC300, BKAI]
+ood_targets: [ColonDB, ClinicDB, CVC300, BKAI]
+two_pass:
+  source: test_zoom_kvasir_v1 (configuration t15, unchanged)
+  acceptance_audit: reports/acceptance_test_zoom_20261005/audit.json
+  acceptance_sha256: 8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17
+contrasts:
+  dice_fix:                [orig_fixed_dice, single, orig_fixed, single]
+  random_flip:             [flip, single, orig_fixed_dice, single]
+  paired_vs_flip:          [baseline, single, flip, single]
+  recipe_total:            [baseline, single, orig_fixed, single]
+  detail_branch:           [detail, single, baseline, single]
+  true_448_vs_upsampled:   [detail, single, detail_up224, single]
+  scale_aug:               [detail_scale, single, detail, single]
+  two_pass_on_detail:      [detail, t15, detail, single]
+  two_pass_on_detail_scale: [detail_scale, t15, detail_scale, single]
+  two_pass_on_baseline:    [baseline, t15, baseline, single]
+  scale_aug_under_two_pass: [detail_scale, t15, detail, t15]
+reading_rules_fixed_in_advance:
+  statistic: mean over seeds of paired DSC differences, percentage points; macro mean over the four OOD sets
+  two_pass_after_scale_augmentation:
+    contrast: two_pass_on_detail_scale
+    retained: macro OOD gain at least 1.0 pp and positive for every seed
+    reduced: macro OOD gain between 0.5 and 1.0 pp, or at least 1.0 pp but not positive for every seed
+    absorbed: macro OOD gain below 0.5 pp
+  detail_information:
+    contrast: true_448_vs_upsampled
+    supported: macro gain over all five sets above 0 and positive for at least two of three seeds
+  note: every other contrast is reported with its interval and is descriptive
+disclosures:
+  - The five polyp test sets were used in earlier stages of this project.
+  - CVC-300 and CVC-ColonDB share 52 exact image hashes.
+  - The single-view arms use half the forward and backward passes per optimisation step of the paired arms.
+statistics: {permutation_draws: 100000, bootstrap_draws: 10000, rng_seed: 20261006}

@@ -1,0 +1,24 @@
+name: pilot_prompt_kvasir_v1
+dataset: Kvasir
+modes: [attribute, generic, mixed]
+seeds: [666]
+epochs: 30
+percentage: 100
+learning_rate: 0.0003
+min_learning_rate: 0.0001
+mixed_generic_probability: 0.5
+generic_prompt: a polyp in a colonoscopy image
+initialization: unimedclip_base_fresh_adapters_and_head_per_seed
+checkpoint_selection: final_epoch
+evaluation_mc: 30
+evaluation_conditions: [generic, original]
+primary_condition: generic
+test_targets: []
+automatic_test_after_all_training: false
+paired_views: image_reflection_without_text_synchronization
+primary_comparison: mixed_minus_generic_under_generic_inference
+screening_gate:
+  overall_DSC_min_gain_pp: 1.0
+  small_DSC_max_drop_pp: 0.5
+  precision_max_drop_pp: 1.0
+  zero_overlap_max_increase: 0

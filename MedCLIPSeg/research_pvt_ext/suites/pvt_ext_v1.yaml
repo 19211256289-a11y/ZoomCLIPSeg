@@ -1,0 +1,55 @@
+name: pvt_ext_v1
+locked_at: '2026-10-06'
+purpose: >-
+  Text-free reference in two further settings, requested by external reviews. (1) Breast ultrasound: the dedicated
+  network of polyp_pvt_kvasir_v1 (Polyp-PVT architecture, released recipe, unchanged) is trained on the BUSI training
+  split that our ultrasound models use and evaluated on the same five test sets with the same metric code.
+  (2) Reduced training sets: the same network is trained on the 10% and 25% subsets of the Kvasir-SEG training split
+  that are distributed with MedCLIPSeg, as the reference for our models trained on the same subsets (lowdata_kvasir_v1).
+  The results are reported whatever they are.
+locked_before: >-
+  Written after polyp_pvt_kvasir_v1 (full Kvasir-SEG training set) had been accepted. No result of this network on
+  ultrasound or on a reduced training set existed.
+source_protocol: polyp_pvt_kvasir_v1      # the recipe, the model code and the backbone weights are taken from it unchanged
+seeds: [666, 667, 668]
+groups:
+  busi_full:
+    dataset: BUSI
+    train_list: Train_text.xlsx
+    cohort_source: formal_detail_mix_busi_v1
+    targets: [BUSI, BUSBRA, BUSUC, BUID, UDIAT]
+    note: lesion-free training and test images are kept, as for our models; an empty prediction on an empty mask scores 100
+  kvasir_p10:
+    dataset: Kvasir
+    train_list: Train_text_10.xlsx
+    cohort_source: kvasir_v1
+    targets: [Kvasir, ColonDB, ClinicDB, CVC300, BKAI]
+  kvasir_p25:
+    dataset: Kvasir
+    train_list: Train_text_25.xlsx
+    cohort_source: kvasir_v1
+    targets: [Kvasir, ColonDB, ClinicDB, CVC300, BKAI]
+epochs_note: >-
+  The number of epochs of the released recipe (99) is kept for every group, as the number of epochs of our models is kept
+  (100). With a reduced training set both families therefore make proportionally fewer optimisation steps.
+conditional_follow_up: >-
+  If, on a reduced training set, this network is not ahead of our full method on the mean of the four OOD sets, it is
+  trained again on that subset with the number of optimisation steps of the full-data run (epochs multiplied by the
+  inverse of the fraction) in a separate suite, and both results are reported. This guards against an advantage of our
+  models that would only reflect an under-trained reference.
+threshold: 0.5
+timing: {warmup_images: 10}
+comparison:      # accepted per-image results of our models for the same three seeds (ultrasound); read, not recomputed
+  busi_full:
+    baseline: {label: 'MedCLIPSeg baseline, single pass', suite: formal_detail_mix_busi_v1, arm: baseline, config: null}
+    detail:   {label: 'Detail branch, single pass',       suite: formal_detail_mix_busi_v1, arm: detail,   config: null}
+    full:     {label: 'ZoomCLIPSeg (detail branch + SCZ)', suite: zoom_busi_v1,             arm: detail,   config: tcal}
+rules:
+  - No checkpoint, epoch or threshold is selected on validation or test data; the weights of the last epoch are evaluated.
+  - ETIS-Larib is not used in this suite.
+disclosures:
+  - The network was designed for polyp images; its recipe is applied to ultrasound without any change or tuning.
+  - It uses a 352 x 352 input and an ImageNet-pretrained backbone trained end to end; our models use a 224 x 224 input and frozen encoders.
+  - The ultrasound and polyp test sets were used in earlier stages of this project.
+  - BUID (35 images) and UDIAT (25 images) are small.
+statistics: {permutation_draws: 20000, bootstrap_draws: 10000, rng_seed: 20261015}

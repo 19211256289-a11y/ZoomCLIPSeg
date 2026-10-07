@@ -1,0 +1,51 @@
+name: pilot_hires_kvasir_v1
+locked_at: '2026-10-04'
+purpose: >-
+  Screening pilot. The detail branch reads a 448 input but its output and supervision are 224.
+  Tests whether producing and supervising the prediction at 448 helps, and separates the effect of
+  supervision resolution from the effect of the detail features. Source Val only; no Test access.
+dataset: Kvasir
+seeds: [666, 667]
+epochs: 30
+prompt: a polyp in a colonoscopy image
+arms:
+  baseline: {query_mode: baseline, hires: none}
+  detail224: {query_mode: detail, hires: none}
+  sup448: {query_mode: baseline, hires: sup448}
+  detail448: {query_mode: detail, hires: detail448}
+arm_notes:
+  sup448: no detail branch; native 56x56 logits upsampled bilinearly to 448 and supervised with a 448 mask
+  detail448: detail decoder continued by one stage to 448 (8-channel 448 stem, fuse, zero-initialised 1x1 output); 448 supervision
+hyperparameters: identical to the accepted 30-epoch Kvasir pilots (config derived from the accepted configuration)
+mc_samples: 30
+batch_size: 32
+threshold: 0.5
+small_target_threshold: 0.058989688326573426
+evaluation: source Val, final epoch 30, fixed sentence
+contrasts:
+  - [detail448, detail224]
+  - [detail448, sup448]
+  - [sup448, baseline]
+  - [detail224, baseline]
+  - [detail448, baseline]
+gate:
+  description: Fixed before training. Statistic is the mean over the two seeds of paired differences, in percentage points.
+  detail448_vs_detail224:
+    small_dsc_gain_min_pp: 0.5
+    nsd_gain_min_pp: 0.3
+    overall_dsc_max_drop_pp: 0.2
+    both_seeds_small_gain_positive: true
+  detail448_vs_sup448:
+    small_dsc_gain_min_pp: 0.5
+    both_seeds_small_gain_positive: true
+  if_pass: formal three-seed 100-epoch training on Kvasir and BUSI, new locked suite
+  if_fail: stop this direction; keep the accepted 224 detail branch
+reference_30_epoch_results:
+  note: accepted earlier pilots with the same configuration; used only as a reproduction check
+  baseline_seed666: {DSC_percent: 86.8269, small_DSC_percent: 84.6728}
+  detail224_seed666: {DSC_percent: 87.3879, small_DSC_percent: 86.0712}
+  baseline_seed667: {DSC_percent: 87.4296, small_DSC_percent: 85.3096}
+statistics:
+  permutation_draws: 100000
+  bootstrap_draws: 10000
+  rng_seed: 20261004

@@ -1,0 +1,57 @@
+name: pilot_zoom_kvasir_v1
+locked_at: '2026-10-04'
+purpose: >-
+  Evaluation-only pilot of scale-canonical two-pass inference ("locate, then zoom").
+  No training. Uses only Kvasir Val images, synthetically rescaled. No Test or OOD image is read.
+motivation_disclosure: >-
+  The size-prior weakness was quantified on Test/OOD predictions of the accepted models
+  (reports/test_detail_mix_20261004). The method parameters below are therefore developed
+  only on source Val data; any Test confirmation needs a separate locked suite.
+runs: [detail_seed666, detail_seed667, detail_seed668]
+source_split: Kvasir Val
+prompt: a polyp in a colonoscopy image
+mc_samples: 30
+batch_size: 32
+threshold: 0.5
+val_reproduction_tolerance_pp: 0.25
+conditions:
+  - {name: s025, scale: 0.25}
+  - {name: s035, scale: 0.35}
+  - {name: s050, scale: 0.5}
+  - {name: s100, scale: 1.0}
+  - {name: s200, scale: 2.0}
+condition_definition: >-
+  scale < 1: image shrunk (area interpolation) and pasted at the centre of a black canvas of the
+  original size. scale > 1: window of 1/scale of each side cropped around the lesion bounding-box
+  centre. scale = 1: the original Val files.
+zoom:
+  margin: 1.25
+  min_window: 0.2
+  zoom_in_if_window_at_most: 0.8
+  zoom_out_if_fraction_at_least: 0.20
+  zoom_out_target_fraction: 0.10
+  max_window: 2.0
+  fusion: second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty
+configs:
+  - {name: t08, target_fraction: 0.08, zoom_out: false, oracle: false}
+  - {name: t15, target_fraction: 0.15, zoom_out: false, oracle: false}
+  - {name: t08_out, target_fraction: 0.08, zoom_out: true, oracle: false}
+  - {name: t15_out, target_fraction: 0.15, zoom_out: true, oracle: false}
+  - {name: oracle_t08, target_fraction: 0.08, zoom_out: true, oracle: true}
+  - {name: oracle_t15, target_fraction: 0.15, zoom_out: true, oracle: true}
+oracle_note: Oracle configs take the window from the ground truth. Diagnostic upper bound only; never a method.
+selection: >-
+  Among the four non-oracle configs, the highest three-seed mean DSC averaged with equal weight
+  over the five conditions; ties go to the first listed.
+gate:
+  description: Fixed before any number of this pilot was computed. Applied to the selected config versus single-pass.
+  p0_proxy_valid_single_pass_drop_s025_vs_s100_at_least_pp: 5.0
+  g1_mean_shrink_dsc_gain_at_least_pp: 2.0
+  shrink_conditions: [s025, s035, s050]
+  g2_unshifted_dsc_change_at_least_pp: -0.2
+  g3_all_seeds_positive_on_shrink_mean: true
+  pass_rule: p0 and g1 and g2 and g3
+  if_p0_fails: verdict is proxy_invalid (the synthetic shift does not reproduce the weakness); no conclusion about the method
+disclosures:
+  - Selection and gate use the same development data; the gate is optimistic and is not a Test result.
+  - Black-canvas shrinking is a proxy for small lesions, not real small-lesion data.

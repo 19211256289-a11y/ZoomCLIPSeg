@@ -1,0 +1,51 @@
+name: formal_detail_mix_kvasir_v2
+locked_at: '2026-10-04'
+purpose: >-
+  Two additional fresh initializations of the four Kvasir arms, so that seed-level evidence rests on
+  five seeds instead of three. Seeds 669 and 670 were never trained or evaluated before.
+dataset: Kvasir
+modes: [baseline, global_mix, detail, detail_global_mix]
+seeds: [669, 670]
+epochs: 100
+prompt: a polyp in a colonoscopy image
+hyperparameters: identical to formal_detail_mix_kvasir_v1 (config derived from it; only the seed differs)
+initialization: unimedclip_base_fresh_adapters_and_head_per_seed
+checkpoint: final_epoch_100_latest
+mc_samples: 30
+batch_size: 32
+threshold: 0.5
+small_target_threshold: 0.058989688326573426
+test_list: Test_text_original.xlsx
+test_targets: [Kvasir, ColonDB, ClinicDB, CVC300, BKAI]
+ood_targets: [ColonDB, ClinicDB, CVC300, BKAI]
+automatic_test_after_all_training: true
+combine_with_earlier_seeds: [666, 667, 668]
+contrasts:
+  - [detail, baseline]
+  - [global_mix, baseline]
+  - [detail_global_mix, baseline]
+  - [detail_global_mix, detail]
+gates:
+  detail_five_seed:
+    seeds: all
+    contrast: [detail, baseline]
+    macro_dsc_gain_gt_pp: 0.0
+    macro_small_dsc_gain_gt_pp: 0.0
+    min_seeds_positive_macro: 4
+  combination_adds_five_seed:
+    seeds: all
+    contrast: [detail_global_mix, detail]
+    macro_dsc_gain_gt_pp: 0.0
+    min_sets_positive: 3
+    min_seeds_positive_macro: 4
+final_model_rule: see formal_detail_mix_busi_v1
+reported_not_gating:
+  - the same contrasts on the two new seeds alone (the only seeds not seen when the combination question was raised)
+  - image-level tests, bootstrap intervals, gain concentration, unique-image sensitivity
+disclosures:
+  - The five test sets were used before; seeds 666-668 results on them are already known.
+  - ColonDB and CVC300 share 52 exact image hashes and are not independent cohorts.
+statistics:
+  permutation_draws: 100000
+  bootstrap_draws: 10000
+  rng_seed: 20261004

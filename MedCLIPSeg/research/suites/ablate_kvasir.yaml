@@ -1,0 +1,5 @@
+dataset: Kvasir
+percentage: 100
+epochs: 20
+seed: 666
+variants: [detail_upsampled, detail_scalar_beta]

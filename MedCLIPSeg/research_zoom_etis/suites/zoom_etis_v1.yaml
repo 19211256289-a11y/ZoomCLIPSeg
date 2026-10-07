@@ -1,0 +1,56 @@
+name: zoom_etis_v1
+locked_at: '2026-10-06'
+purpose: >-
+  One-time evaluation on a polyp dataset that was never used in this project (ETIS-LaribPolypDB, 196 images).
+  The accepted Kvasir-trained checkpoints (baseline and detail branch, five seeds) are evaluated with single-pass
+  inference and with the locked two-pass zoom configuration. Nothing is trained, selected or tuned.
+dataset:
+  folder: data/ETIS
+  manifest: manifest.csv
+  manifest_sha256: cd779b682130a142ae3509af5d059c5a3732854e7a7cf541a4a11bdfd8eb498d
+  n: 196
+  pairing: images/<id>.tif with masks/p<id>.tif, as listed in the manifest
+  preprocessing: none; the original TIFF files are read directly
+prompt: a polyp in a colonoscopy image
+arms: [baseline, detail]
+sources:
+  kvasir_v1: [666, 667, 668]
+  formal_detail_mix_kvasir_v2: [669, 670]
+lineage:
+  reports/acceptance_pilot_zoom_20261005/audit.json: 8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3
+  reports/acceptance_test_zoom_20261005/audit.json: 8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17
+configs:
+  - {name: t15, target_fraction: 0.15, zoom_out: false, oracle: false}
+primary_config: t15
+zoom:
+  margin: 1.25
+  min_window: 0.2
+  zoom_in_if_window_at_most: 0.8
+  zoom_out_if_fraction_at_least: 0.20
+  zoom_out_target_fraction: 0.10
+  max_window: 2.0
+  fusion: second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty
+mc_samples: 30
+batch_size: 32
+threshold: 0.5
+small_target_threshold: 0.058989688326573426
+gate:
+  description: >-
+    Fixed before any prediction on this dataset was computed. Two-pass minus single-pass DSC of the detail-branch
+    model, percentage points, mean over the five seeds of the per-seed mean over images.
+  primary_arm: detail
+  g1_dsc_gain_at_least_pp: 1.0
+  g2_all_seeds_positive: true
+reported_not_gating:
+  - two-pass gain of the baseline arm
+  - detail branch minus baseline, with single-pass and with two-pass inference
+  - NSD, failures (DSC below 50%), results by lesion size, share of images with a second pass
+  - image-level bootstrap intervals and sign-flip permutation tests on seed-averaged differences
+rules:
+  - The evaluation is run once. Its result is reported whatever the outcome.
+  - A paused or interrupted job is rerun from its start with the same seeds; completed jobs are never recomputed.
+disclosures:
+  - ETIS-Larib was not used for training, model selection or any analysis in this project before this evaluation.
+  - Patient-level independence from the training data and absence from the pre-training data of the frozen encoders cannot be established from the archive.
+  - The dataset has one acquisition source; every image contains a polyp.
+statistics: {permutation_draws: 100000, bootstrap_draws: 10000, rng_seed: 20261006}

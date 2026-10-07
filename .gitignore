@@ -1,0 +1,19 @@
+# Local execution state and large artifacts
+__pycache__/
+*.py[cod]
+.venv/
+.cache/
+.env
+.env.*
+!.env.example
+control/
+logs/
+checkpoints/
+outputs*/
+MedCLIPSeg/data/
+server_backups/
+downloads/
+*.pth
+*.pt
+*.ckpt
+*.safetensors

@@ -1,0 +1,60 @@
+name: zoom_compare_v1
+locked_at: '2026-10-06'
+purpose: >-
+  Evaluation-only comparison requested by an external review: the locked two-pass zoom (t15) against generic,
+  training-free inference alternatives on the same checkpoints (detail-branch model, five seeds, five polyp test
+  sets). Nothing is trained and nothing here can change the method: t15 remains the method whatever the outcome,
+  and the outcome is reported whatever it is.
+lineage:
+  reports/acceptance_pilot_zoom_20261005/audit.json: 8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3
+  reports/acceptance_test_zoom_20261005/audit.json: 8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17
+mc_samples: 30
+batch_size: 32
+images_per_batch: 3
+threshold: 0.5
+reproduction_tolerance_pp: 0.25
+sources:
+  kvasir_v1: [666, 667, 668]
+  formal_detail_mix_kvasir_v2: [669, 670]
+arm: detail
+accepted_two_pass:            # the accepted t15 results of these checkpoints; they are read, not recomputed
+  kvasir_v1: test_zoom_kvasir_v1
+  formal_detail_mix_kvasir_v2: zoom_kvasir_seeds_v1
+alternatives:
+  hflip:
+    runs_per_image: 2
+    definition: mean of the single-pass map and the map of the horizontally reflected image (reflected back), on the 224 grid
+  tile2:
+    runs_per_image: 4
+    definition: >-
+      uniform slicing: the original image is cut into 2 x 2 non-overlapping tiles of half the side; each tile is
+      segmented by the same network and the maps are stitched at the original resolution
+  ms12:
+    runs_per_image: 5
+    definition: >-
+      multi-scale averaging, two scales; mean of the single-pass map (resized to the original resolution) and the tile2 map
+  tile15:
+    runs_per_image: 4
+    definition: 2 x 2 overlapping tiles of two thirds of the side, anchored at the corners; maps averaged where tiles overlap
+  ms123:
+    runs_per_image: 9
+    definition: >-
+      multi-scale averaging, three scales; mean of the single-pass map, the tile15 map and the tile2 map
+common_rules:
+  - Every tile is cut from the original pixels and resized to the network inputs exactly like a second-pass window of t15.
+  - Every run averages 30 stochastic passes; the class sentence is the same for every run.
+  - The fused probability map is thresholded at 0.5; metrics are computed at the original resolution.
+reading_rules_fixed_in_advance:
+  statistic: >-
+    DSC of t15 minus DSC of the alternative, percentage points; mean over the five seeds of paired image-level
+    differences; macro mean over the four OOD sets, with a bootstrap interval and a sign-flip permutation test
+  cost: mean number of full inference runs per image; for t15, one plus the share of images with a second pass
+  an_alternative_dominates_t15_if: its macro OOD DSC is higher with an interval that excludes zero and its cost is not higher
+  t15_is_preferable_to_an_alternative_if: its macro OOD DSC is not lower by more than 0.5 pp and its cost is lower
+  note: descriptive; no configuration is selected from these results
+disclosures:
+  - The five polyp test sets were used in earlier stages of this project.
+  - CVC-300 and CVC-ColonDB share 52 exact image hashes.
+  - Only the detail-branch model is evaluated; the baseline is not.
+  - ETIS-Larib is not touched.
+statistics: {permutation_draws: 20000, bootstrap_draws: 10000, rng_seed: 20261008}

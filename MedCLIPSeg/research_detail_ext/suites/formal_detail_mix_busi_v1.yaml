@@ -1,0 +1,52 @@
+name: formal_detail_mix_busi_v1
+locked_at: '2026-10-04'
+purpose: >-
+  Second source dataset. Tests on new data whether the detail branch replicates and whether adding
+  global_mix on top of detail helps, a question raised (not settled) by the Kvasir Test results.
+dataset: BUSI
+modes: [baseline, detail, detail_global_mix]
+seeds: [666, 667, 668]
+epochs: 100
+prompt: a tumor in a breast ultrasound image
+prompt_note: >-
+  One fixed sentence for every image, including normal images. The original BUSI lists describe normal
+  images as "No tumor", which reveals that the mask is empty; that text is never used here.
+hyperparameters: identical to formal_detail_mix_kvasir_v1 (config derived from it; only dataset, seed and sentence differ)
+initialization: unimedclip_base_fresh_adapters_and_head_per_seed
+checkpoint: final_epoch_100_latest
+mc_samples: 30
+batch_size: 32
+threshold: 0.5
+small_target_definition: positive image with foreground fraction <= BUSI Train positive 25th percentile (computed at lock, then fixed)
+test_list: Test_text_original.xlsx
+test_targets: [BUSI, BUSBRA, BUSUC, BUID, UDIAT]
+ood_targets: [BUSBRA, BUSUC, BUID, UDIAT]
+automatic_test_after_all_training: true
+contrasts:
+  - [detail, baseline]
+  - [detail_global_mix, baseline]
+  - [detail_global_mix, detail]
+gates:
+  detail_replicates:
+    contrast: [detail, baseline]
+    source_test_dsc_gain_gt_pp: 0.0
+    min_ood_sets_positive: 3
+    macro_small_dsc_gain_gt_pp: 0.0
+    guard_max_regression_pp: 1.0
+  combination_adds:
+    contrast: [detail_global_mix, detail]
+    macro_dsc_gain_gt_pp: 0.0
+    min_sets_positive: 3
+    min_seeds_positive_macro: 2
+final_model_rule: >-
+  Fixed before training. The combination becomes the final model only if combination_adds passes here
+  AND combination_adds_five_seed passes in formal_detail_mix_kvasir_v2. Otherwise the final model is
+  detail alone. Statistic for every criterion: mean over seeds of paired differences in percentage points.
+reported_not_gating:
+  - positive-image DSC and normal-image false positives (BUSI contains normal images; an empty prediction on an empty mask scores 100)
+  - image-level permutation and Wilcoxon tests, bootstrap intervals, per-seed signs, gain concentration
+  - unique-image sensitivity and any exact image overlap between test sets and BUSI Train/Val
+statistics:
+  permutation_draws: 100000
+  bootstrap_draws: 10000
+  rng_seed: 20261004

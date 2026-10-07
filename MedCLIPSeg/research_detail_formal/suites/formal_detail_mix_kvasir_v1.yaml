@@ -1,0 +1,53 @@
+name: formal_detail_mix_kvasir_v1
+dataset: Kvasir
+modes:
+- baseline
+- global_mix
+- detail
+- detail_global_mix
+seeds:
+- 666
+- 667
+- 668
+epochs: 100
+percentage: 100
+learning_rate: 0.0003
+min_learning_rate: 0.0001
+generic_prompt: a polyp in a colonoscopy image
+initialization: unimedclip_base_fresh_adapters_and_head_per_seed
+checkpoint_selection: final_epoch
+evaluation_mc: 30
+evaluation_conditions:
+- generic
+primary_condition: generic
+test_targets: []
+automatic_test_after_all_training: false
+paired_views: image_reflection_without_text_synchronization
+primary_comparison: final_epoch100_four_arm_factorial_paired_within_seed
+screening_gate:
+  small_gain_over_global_min_pp: 0.3
+  overall_max_drop_pp: 0.3
+  precision_max_drop_pp: 0.5
+  recall_max_drop_pp: 0.5
+  small_improved_fraction_min: 0.5
+  overall_max_drop_vs_detail_pp: 0.2
+  small_max_drop_vs_detail_pp: 0.2
+softcon_weight: 0.1
+query_hidden: 64
+pooling: global_router_logits_mean_only_in_capacity_control
+query_output_initialization: zero
+query_experts: 4
+router_hidden: 32
+hypothesis_origin: positive detail+global_mix pilot seed666; now full-budget three-seed
+  comparison
+detail_size: 448
+detail_checkpointing: true
+host_assignment:
+  local:
+  - 666
+  server4090:
+  - 667
+  - 668
+host_policy: all four arms of each seed stay on one GPU; report hardware/software
+  per seed
+evaluation_policy: source_Val_only_automatic; no automatic Test/OOD tuning or selection

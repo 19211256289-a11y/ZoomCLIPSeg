@@ -1,0 +1,40 @@
+name: repeat_global_mix_kvasir_v1
+dataset: Kvasir
+modes:
+- baseline
+- global_mix
+seeds:
+- 667
+- 668
+epochs: 30
+percentage: 100
+learning_rate: 0.0003
+min_learning_rate: 0.0001
+generic_prompt: a polyp in a colonoscopy image
+initialization: unimedclip_base_fresh_adapters_and_head_per_seed
+checkpoint_selection: final_epoch
+evaluation_mc: 30
+evaluation_conditions:
+- generic
+- original
+primary_condition: generic
+test_targets: []
+automatic_test_after_all_training: false
+paired_views: image_reflection_without_text_synchronization
+primary_comparison: global_mix_minus_baseline_new_seeds_background_precision
+screening_gate:
+  mean_precision_min_gain_pp: 0.5
+  precision_gain_each_seed_min_pp: 0.0
+  overall_DSC_max_drop_pp: 0.3
+  small_DSC_max_drop_pp: 0.5
+  recall_max_drop_pp: 0.5
+  zero_overlap_max_increase: 0
+  fp_improved_fraction_min: 0.5
+softcon_weight: 0.1
+query_hidden: 64
+pooling: global_router_logits_mean_only_in_capacity_control
+query_output_initialization: zero
+query_experts: 4
+router_hidden: 32
+hypothesis_origin: posthoc_global_mix_signal_from_seed666; not a pass of spatial-routing
+  pilot

@@ -1,0 +1,61 @@
+name: test_detail_mix_kvasir_v1
+locked_at: '2026-10-04'
+purpose: >-
+  Evaluation only. Final Test/OOD assessment of the twelve accepted
+  formal_detail_mix_kvasir_v1 checkpoints (4 arms x 3 seeds, epoch 100).
+  No training, no checkpoint selection, no threshold or prompt tuning.
+training_suite: formal_detail_mix_kvasir_v1
+training_protocol_digest: 4faf1c2cd1648448fcf73f84f2aa22583640a49b1da14fe317262b34f8f6e9a9
+modes: [baseline, global_mix, detail, detail_global_mix]
+seeds: [666, 667, 668]
+source: Kvasir
+test_targets: [Kvasir, ColonDB, ClinicDB, CVC300, BKAI]
+ood_targets: [ColonDB, ClinicDB, CVC300, BKAI]
+test_list: Test_text_original.xlsx
+prompt: a polyp in a colonoscopy image
+checkpoint: final_epoch_100_latest
+mc_samples: 30
+batch_size: 32
+threshold: 0.5
+small_target_threshold: 0.058989688326573426
+small_target_definition: positive image with original foreground fraction <= Kvasir Train positive 25th percentile
+accepted_audits:
+  control/remote5090/final_acceptance_audit.json: 8582bcf2f84a7fc19a94e5e961bbdea97d94192d54d0d1f4c96bb5f09c0d5ce6
+  control/remote4090/final_acceptance_audit.json: 245bf9d7fe6c93495e8246c104991b8fa6a571318c3ac6e3f23760fda5c5ba0d
+  control/remote5090/dg_final_acceptance_audit.json: 2e5565625abd4e8c87e03c28a9345e3fe73facfc0bcc24970f184dd0a800af47
+val_reproduction_check:
+  description: >-
+    Before any Test cohort of a run is touched, its source Val evaluation is
+    repeated on the local GPU and compared with the accepted server result.
+    This validates checkpoint loading and the evaluation pipeline on this machine.
+  abort_if_abs_dsc_difference_pp_exceeds: 0.25
+saved_outputs: lossless PNG mask; float16 MC mean and variance (metrics use float32 mean before saving)
+contrasts:
+  - [detail, baseline]
+  - [global_mix, baseline]
+  - [detail_global_mix, baseline]
+  - [detail_global_mix, detail]
+gate:
+  description: Fixed before any Test/OOD result of these checkpoints was computed.
+  primary_contrast: [detail, baseline]
+  statistic: three-seed mean of paired differences, percentage points
+  g1_source_test_dsc_gain_gt_pp: 0.0
+  g2_min_ood_sets_with_positive_dsc_gain: 3
+  g3_macro_small_dsc_gain_gt_pp: 0.0
+  guard_max_dsc_regression_any_set_pp: 1.0
+  pass_rule: g1 and g2 and g3 and guard
+secondary_reported_not_gating:
+  - image-level sign-flip permutation and Wilcoxon tests on seed-averaged paired differences
+  - bootstrap 95% interval over images, conditional on the three seeds
+  - per-seed sign consistency, gain concentration, precision/recall, FP/FN pixels, failure counts
+  - unique-image sensitivity (ColonDB and CVC300 contain duplicate and shared images)
+  - all other contrasts, including global_mix and the combination
+disclosures:
+  - The five test sets were already used with earlier attribute-prompt models; they are not untouched holdouts.
+  - ColonDB and CVC300 share 52 exact image hashes and are not independent cohorts.
+  - Evaluation hardware (local RTX 5060 Ti) differs from training hardware (RTX 4090/5090).
+  - Arms for seeds 667/668 were trained on different GPUs (B/G/D on 4090, combination on 5090).
+statistics:
+  permutation_draws: 100000
+  bootstrap_draws: 10000
+  rng_seed: 20261004
