@@ -1,0 +1,15 @@
+{
+  "signature": {
+    "suite": "zoom_threshold_v1",
+    "plan_digest": "a06e8852378aace647b9995a1ab28a3509d3286a622a693753e1c5cf92a8ecf6",
+    "run": "detail_seed669",
+    "cohort": "BKAI",
+    "checkpoint_sha256": "8e3fa4610262baa7dfa94c2bad4a375d9fc117e9ccfb9a4800ffba040c19c95a",
+    "prompt": "a polyp in a colonoscopy image"
+  },
+  "complete": true,
+  "n": 1000,
+  "finished_at": "2026-10-11T02:06:13.617160+00:00",
+  "sha256": "82055c8b671a36e64b98f7252814ab7a4554f57641540417cb255462a1263d6a",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

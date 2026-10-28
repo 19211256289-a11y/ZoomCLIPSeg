@@ -1,0 +1,15 @@
+{
+  "signature": {
+    "suite": "clipseg_scz_v1",
+    "plan_digest": "9c292db8131e0c3576dcb2a9c3a03a4223ab06fcc0d26f2ede8dc1262cc40590",
+    "group": "kvasir_full",
+    "seed": 667,
+    "cohort": "ColonDB",
+    "weights_sha256": "1e2c1f218703b6d25a54ce0c4b38260409aa6bf488550f311702df01ba6511c1"
+  },
+  "complete": true,
+  "n": 720,
+  "finished_at": "2026-10-07T11:33:34.081671+00:00",
+  "sha256": "2e7a62e2a4bb4c5e89775f315c5e61f7049a8a88555c53025e72c318be7b9a06",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

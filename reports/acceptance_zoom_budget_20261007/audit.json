@@ -1,0 +1,59 @@
+{
+  "suite": "zoom_budget_v1",
+  "audited_at": "2026-10-07T00:53:53.140819+00:00",
+  "execution_valid": true,
+  "gate_verdict": "not_applicable_descriptive",
+  "checks": {
+    "queue_state": "completed",
+    "jobs_completed": "27/27",
+    "error": null,
+    "plan_digest_consistent": true,
+    "active_hours": 2.27,
+    "paused_and_continued": "yes: paused overnight after detail_seed668/ColonDB and continued the next morning; completed jobs were kept",
+    "case_files": "all 25 fetched: 12 configurations x cohort size rows each",
+    "manifests_and_reproduction": "2 of 25 fetched and verified (first and last: complete, hashes and plan digest match, reproduction differences -0.0001 and -0.026 pp); the runner aborts on a failed reproduction and the queue completed",
+    "single_pass_differences": "300 of 3405 image-by-seed single-pass DSC values differ from the accepted evaluations, by at most 0.30 pp (numerical non-determinism)",
+    "code_hashes": "the 5 files of this suite and the protocol are identical to the auditor copy; 3 files of accepted packages were not compared",
+    "independent_recomputation": "Kvasir and OOD DSC and second-pass share of all 13 configurations and the pre-specified contrasts recomputed from the 25 case files and the accepted t15 rows: means identical to the report; intervals agree within bootstrap noise"
+  },
+  "files": {
+    "results_json_sha256": "15f3510fd20edfe19c3c45bb77d6b9b6630d27637c167200bf3719234d227ae9",
+    "report_md_sha256": "1fcf636afcb835d56beddf77b7fa1055ee0536a89c17e9688f0e2814fe5e2384",
+    "plan_digest": "f4d09c7713bd7efbc98f6106fefe2febeeb814e3a5384a667aaebd4b1a8336b0"
+  },
+  "findings": {
+    "ood_dsc": {
+      "single05": 77.35,
+      "single10": 77.35,
+      "single15": 77.35,
+      "single30": 77.36,
+      "hflip10": 78.74,
+      "hflip15": 78.75,
+      "hflip30": 78.75,
+      "scz10": 79.41,
+      "scz15": 79.51,
+      "t15": 79.48,
+      "sczflip10": 80.45,
+      "sczflip15": 80.43,
+      "sczflip30": 80.42
+    },
+    "contrasts_pp": {
+      "scz_adds_to_reflection": "+1.67 [0.86, 2.50], all five seeds positive",
+      "reflection_adds_to_scz": "+0.95 [0.44, 1.46], all five seeds positive",
+      "scz_at_standard_budget": "+2.16 [1.34, 2.95]",
+      "sczflip_near_standard_budget": "+3.10 [2.18, 4.04]",
+      "scz_half_passes": "+0.04 [-0.06, 0.12]",
+      "passes_05": "-0.00 [-0.02, 0.01]"
+    }
+  },
+  "verdicts_by_rule": {
+    "complementary": true,
+    "scz_at_no_extra_cost": true,
+    "passes_sufficient": 5
+  },
+  "auditor_notes": [
+    "SCZ and reflection averaging add up: both pre-specified contrasts are positive with intervals excluding zero and for every seed. The combination reaches 80.42 OOD (+3.07 over single-pass inference).",
+    "The number of stochastic passes has no measurable effect on DSC: 5 passes give the same single-pass result as 30 (difference 0.00 pp). SCZ with 15 passes per run uses 26 passes per image, fewer than the standard single pass, and gains 2.16 pp.",
+    "Estimates with fewer passes are prefixes of one 30-pass run; inference time with fewer passes was not measured. By the protocol no configuration replaces the locked method; cheaper configurations are operating points identified after the fact on test sets used before."
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "what": "detail_seed666/BUSBRA single pass",
+  "DSC_percent": 68.4487588652482,
+  "accepted_DSC_percent": 68.4487588652482,
+  "difference_pp": 0.0,
+  "largest_case_difference_pp": 0.0,
+  "tolerance_pp": 0.25,
+  "passed": true
+}

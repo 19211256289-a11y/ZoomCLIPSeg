@@ -1,0 +1,128 @@
+{
+  "protocol": {
+    "name": "zoom_kvasir_seeds_v1",
+    "locked_at": "2026-10-05",
+    "purpose": "The locked two-pass zoom configuration applied to the new Kvasir seeds 669 and 670 (all four arms) of formal_detail_mix_kvasir_v2, so that every row of the main table has five seeds. Evaluation only.",
+    "source": "formal_detail_mix_kvasir_v2",
+    "arms": [
+      "baseline",
+      "global_mix",
+      "detail",
+      "detail_global_mix"
+    ],
+    "seeds": [
+      669,
+      670
+    ],
+    "lineage": {
+      "reports/acceptance_pilot_zoom_20261005/audit.json": "8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3",
+      "reports/acceptance_test_zoom_20261005/audit.json": "8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17"
+    },
+    "configs": [
+      {
+        "name": "t15",
+        "target_fraction": 0.15,
+        "zoom_out": false,
+        "oracle": false
+      }
+    ],
+    "primary_config": "t15",
+    "zoom": {
+      "margin": 1.25,
+      "min_window": 0.2,
+      "zoom_in_if_window_at_most": 0.8,
+      "zoom_out_if_fraction_at_least": 0.2,
+      "zoom_out_target_fraction": 0.1,
+      "max_window": 2.0,
+      "fusion": "second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty"
+    },
+    "single_pass_reproduction_tolerance_pp": 0.25,
+    "tolerance_note": "the accepted single-pass results of these checkpoints were computed on the training server, not on this PC",
+    "gate": {
+      "description": "Fixed before any two-pass number of these checkpoints was computed. Consistency check on new seeds; two-pass minus single-pass, mean over the two seeds of DSC differences in percentage points.",
+      "primary_arm": "detail",
+      "g1_macro_ood_dsc_gain_at_least_pp": 1.0,
+      "g2_min_ood_sets_with_positive_gain": 3,
+      "g3_source_test_dsc_change_at_least_pp": -0.2,
+      "g4_max_dsc_regression_any_set_pp": 0.5,
+      "g5_all_seeds_positive_on_macro_ood": true
+    },
+    "disclosures": [
+      "Same test sets as the three-seed confirmation; this checks new training seeds, not new data."
+    ],
+    "statistics": {
+      "permutation_draws": 100000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261005
+    }
+  },
+  "protocol_sha256": "6b8a05750a95f6c7def01a2d7773c46169bc98f2cb5d8c728c102be6c34137a4",
+  "code": {
+    "research_zoom_ext/__init__.py": "d93e19ddb4dfd86925eabd02118df0521df9795faa50d5a4af778781312202b7",
+    "research_zoom_ext/common.py": "beb9be29e6ab48b7b704f11ac2cc7dbf8ead7dd11e1302d6e30863d3a1f43591",
+    "research_zoom_ext/report.py": "8e48feab1a4514d44aa651bc3a2d7bb680339e5d2200678aed4baa6df80af664",
+    "research_zoom_ext/runner.py": "133e43f1bcd259ef38dbb27945d9116966db0f273c0803126c820ed76555a79b",
+    "research_zoom/evaluate.py": "024cef32be79463bf36e4bbbf29cf665d730bd29215f2fbe279939b8f72e4629",
+    "research_zoom/geometry.py": "23c20c342bb6fac71c135d50031db72dedcb926f890cf942f7ed0fa8dee3ed23"
+  },
+  "runs": [
+    "baseline_seed669",
+    "global_mix_seed669",
+    "detail_seed669",
+    "detail_global_mix_seed669",
+    "baseline_seed670",
+    "global_mix_seed670",
+    "detail_seed670",
+    "detail_global_mix_seed670"
+  ],
+  "checkpoints": {
+    "baseline_seed669": "9f0c2145d380286a09711efac15a24e6fe11256b9860252025e1163745e5c7c1",
+    "global_mix_seed669": "2065242657117e63909131e0f05c0564e20f4f4af11fe86fc147b4e86f48ccfc",
+    "detail_seed669": "8e3fa4610262baa7dfa94c2bad4a375d9fc117e9ccfb9a4800ffba040c19c95a",
+    "detail_global_mix_seed669": "1bb81dc0568cb0820b19a1c0fb7d937cb2c0b364caf86f4a36d9a6bfa14eb100",
+    "baseline_seed670": "07da10aab5ad4e79b8c6342443adb59bc211ab1a64f111d022d97598f6ca65a6",
+    "global_mix_seed670": "2a6868706fb3801cb9fd1c87bae6cd1a59e1991a910ef7dc7192d8dbed1a4a9f",
+    "detail_seed670": "1a94007125c9bd0bc29b7dc7dafbadd3cc57b27231c49251dc5ab8ced79c799d",
+    "detail_global_mix_seed670": "9c7a2eeb8c628dab4eac711c347d88bacbb9ea8b2767cda031907c4451414dd5"
+  },
+  "configs": [
+    {
+      "name": "t15",
+      "target_fraction": 0.15,
+      "zoom_out": false,
+      "oracle": false
+    }
+  ],
+  "calibration": null,
+  "prompt": "a polyp in a colonoscopy image",
+  "small_threshold": 0.058989688326573426,
+  "cohorts": {
+    "Kvasir": {
+      "n": 100,
+      "list_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+      "files_digest": "cdce78c1bce73e983e65ed9bd8222b50ac7fe6d0cc09dfa306cb819a2d326c78"
+    },
+    "ColonDB": {
+      "n": 360,
+      "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+      "files_digest": "9ff335e0a7bc989b1a07759410533f00f5157316917fbea7df438de737b7d896"
+    },
+    "ClinicDB": {
+      "n": 61,
+      "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+      "files_digest": "3b4fbf76e51d2b479fea9973bd9ac476006a9e7b16b935e6d95fe2de4c7e74ee"
+    },
+    "CVC300": {
+      "n": 60,
+      "list_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+      "files_digest": "998180409607f38f475a0400a8d3f8084a7c805148d0d2b1921ad2af973d100b"
+    },
+    "BKAI": {
+      "n": 100,
+      "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+      "files_digest": "fb61d517acc1cc17935cd9aadf0e914a33bafd25acc3c0558611a7c1e6d836a5"
+    }
+  },
+  "source_plan_digest": "933f993ba80cf44b342ec6e7d185df4d41fb7dd1c33badafa1a365814c9844a4",
+  "digest": "35d30b266a5a5803f360907d3df2148896f666e2904be2e44d2437569c2cdcae"
+}

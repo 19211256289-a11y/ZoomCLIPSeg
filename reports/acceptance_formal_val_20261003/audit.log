@@ -1,0 +1,189 @@
+VERIFIED locked code, Train/Val files, assets, and foundation weights 1879
+VERIFIED 100 saved probability arrays, PNGs, and metrics: paired_repeat_seed666
+VERIFIED 100 saved probability arrays, PNGs, and metrics: paired_image_seed666
+VERIFIED 100 saved probability arrays, PNGs, and metrics: paired_aug_seed666
+VERIFIED 100 saved probability arrays, PNGs, and metrics: paired_repeat_seed667
+VERIFIED 100 saved probability arrays, PNGs, and metrics: paired_image_seed667
+VERIFIED 100 saved probability arrays, PNGs, and metrics: paired_aug_seed667
+VERIFIED 100 saved probability arrays, PNGs, and metrics: paired_repeat_seed668
+VERIFIED 100 saved probability arrays, PNGs, and metrics: paired_image_seed668
+VERIFIED 100 saved probability arrays, PNGs, and metrics: paired_aug_seed668
+VERIFIED epoch100, Adam3400, frozen encoders, finite weights: paired_repeat_seed666
+VERIFIED epoch100, Adam3400, frozen encoders, finite weights: paired_image_seed666
+VERIFIED epoch100, Adam3400, frozen encoders, finite weights: paired_aug_seed666
+VERIFIED epoch100, Adam3400, frozen encoders, finite weights: paired_repeat_seed667
+VERIFIED epoch100, Adam3400, frozen encoders, finite weights: paired_image_seed667
+VERIFIED epoch100, Adam3400, frozen encoders, finite weights: paired_aug_seed667
+VERIFIED epoch100, Adam3400, frozen encoders, finite weights: paired_repeat_seed668
+VERIFIED epoch100, Adam3400, frozen encoders, finite weights: paired_image_seed668
+VERIFIED epoch100, Adam3400, frozen encoders, finite weights: paired_aug_seed668
+PASS: all nine formal training and Val runs verified. Test snapshot 26 / 45
+{
+  "aggregates": {
+    "paired_repeat": {
+      "DSC_percent": {
+        "mean": 89.0512,
+        "sd": 0.27588988745511944
+      },
+      "small_DSC_percent": {
+        "mean": 85.68813333333334,
+        "sd": 1.0506744754362867
+      },
+      "NSD_percent": {
+        "mean": 91.1055,
+        "sd": 0.25164888237382327
+      },
+      "micro_foreground_recall_percent": {
+        "mean": 88.61200179030703,
+        "sd": 1.3257797702596388
+      },
+      "micro_foreground_precision_percent": {
+        "mean": 91.52639024966497,
+        "sd": 0.8521787057951289
+      },
+      "empty_positive": {
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "zero_overlap_positive": {
+        "mean": 0.3333333333333333,
+        "sd": 0.5773502691896258
+      },
+      "positive_DSC_below_50_percent": {
+        "mean": 2.6666666666666665,
+        "sd": 0.5773502691896258
+      },
+      "positive_DSC_below_10_percent": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "brier_224": {
+        "mean": 0.02944156029766115,
+        "sd": 0.0009991525859261803
+      }
+    },
+    "paired_image": {
+      "DSC_percent": {
+        "mean": 89.98696666666667,
+        "sd": 0.2880707262693366
+      },
+      "small_DSC_percent": {
+        "mean": 86.78946666666667,
+        "sd": 0.5301956368486331
+      },
+      "NSD_percent": {
+        "mean": 91.94336666666665,
+        "sd": 0.26051407511559443
+      },
+      "micro_foreground_recall_percent": {
+        "mean": 89.6126170146004,
+        "sd": 1.388386159115645
+      },
+      "micro_foreground_precision_percent": {
+        "mean": 91.53381408005949,
+        "sd": 0.44308463910601165
+      },
+      "empty_positive": {
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "zero_overlap_positive": {
+        "mean": 0.3333333333333333,
+        "sd": 0.5773502691896258
+      },
+      "positive_DSC_below_50_percent": {
+        "mean": 2.6666666666666665,
+        "sd": 0.5773502691896258
+      },
+      "positive_DSC_below_10_percent": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "brier_224": {
+        "mean": 0.026772688379860483,
+        "sd": 0.0016839797260562823
+      }
+    },
+    "paired_aug": {
+      "DSC_percent": {
+        "mean": 90.35926666666667,
+        "sd": 0.25197845807395386
+      },
+      "small_DSC_percent": {
+        "mean": 87.70053333333334,
+        "sd": 0.6192973222397564
+      },
+      "NSD_percent": {
+        "mean": 92.34446666666666,
+        "sd": 0.25768857819728513
+      },
+      "micro_foreground_recall_percent": {
+        "mean": 89.85691493691797,
+        "sd": 1.0559457384422943
+      },
+      "micro_foreground_precision_percent": {
+        "mean": 91.65510162050651,
+        "sd": 1.1178837956431016
+      },
+      "empty_positive": {
+        "mean": 0.0,
+        "sd": 0.0
+      },
+      "zero_overlap_positive": {
+        "mean": 0.3333333333333333,
+        "sd": 0.5773502691896258
+      },
+      "positive_DSC_below_50_percent": {
+        "mean": 1.6666666666666667,
+        "sd": 1.1547005383792517
+      },
+      "positive_DSC_below_10_percent": {
+        "mean": 1.0,
+        "sd": 0.0
+      },
+      "brier_224": {
+        "mean": 0.02642098493214386,
+        "sd": 0.000685780452795308
+      }
+    }
+  },
+  "comparison_deltas": {
+    "paired_image_vs_paired_repeat": {
+      "DSC_percent": 0.9357666666666802,
+      "small_DSC_percent": 1.1013333333333293,
+      "NSD_percent": 0.8378666666666419,
+      "micro_foreground_recall_percent": 1.0006152242933695,
+      "micro_foreground_precision_percent": 0.007423830394515107,
+      "empty_positive": 0.0,
+      "zero_overlap_positive": 0.0,
+      "positive_DSC_below_50_percent": 0.0,
+      "positive_DSC_below_10_percent": 0.0,
+      "brier_224": -0.0026688719178006685
+    },
+    "paired_aug_vs_paired_repeat": {
+      "DSC_percent": 1.3080666666666758,
+      "small_DSC_percent": 2.0123999999999995,
+      "NSD_percent": 1.2389666666666557,
+      "micro_foreground_recall_percent": 1.2449131466109407,
+      "micro_foreground_precision_percent": 0.12871137084154327,
+      "empty_positive": 0.0,
+      "zero_overlap_positive": 0.0,
+      "positive_DSC_below_50_percent": -0.9999999999999998,
+      "positive_DSC_below_10_percent": 0.0,
+      "brier_224": -0.003020575365517291
+    },
+    "paired_aug_vs_paired_image": {
+      "DSC_percent": 0.37229999999999563,
+      "small_DSC_percent": 0.9110666666666702,
+      "NSD_percent": 0.4011000000000138,
+      "micro_foreground_recall_percent": 0.2442979223175712,
+      "micro_foreground_precision_percent": 0.12128754044702816,
+      "empty_positive": 0.0,
+      "zero_overlap_positive": 0.0,
+      "positive_DSC_below_50_percent": -0.9999999999999998,
+      "positive_DSC_below_10_percent": 0.0,
+      "brier_224": -0.00035170344771662254
+    }
+  },
+  "active_training_hours": 15.492904543111152
+}

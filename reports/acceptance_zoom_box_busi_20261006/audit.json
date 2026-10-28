@@ -1,0 +1,180 @@
+{
+  "suite": "zoom_box_busi_v1",
+  "audited_at": "2026-10-06T14:14:35.620027+00:00",
+  "execution_valid": true,
+  "gate_verdict": "not_applicable_descriptive",
+  "checks": {
+    "queue_state": "completed",
+    "jobs_completed": "17/17",
+    "error": null,
+    "plan_digest_consistent": true,
+    "active_hours": 0.5,
+    "case_files": "all 15 fetched: 6 configurations x cohort size rows each",
+    "manifests_and_reproduction": "all 15 fetched: complete, case-file hashes and plan digest match, every reproduction check passed (largest difference of a cohort mean 0.0012 pp)",
+    "single_pass_differences": "17 of 1626 image-by-seed single-pass DSC values differ from the accepted evaluation, by at most 0.07 pp (numerical non-determinism of the stochastic passes)",
+    "code_hashes": "4 of 8 sealed code files identical to the auditor copy (the files of this suite); the other 4 belong to accepted packages and were not compared",
+    "protocol_sha256_matches_auditor_copy": true,
+    "independent_recomputation": "BUSI and OOD DSC, second-pass share, median window, gain over single pass and rule-minus-variant of all configurations recomputed from the 15 case files and the accepted tcal rows: means identical to results.json; intervals agree within bootstrap noise (0.02 pp)",
+    "rule_reference": "tcal 76.09 OOD, read from the accepted zoom_busi_v1 files"
+  },
+  "files": {
+    "results_json_sha256": "52e02248c9eed27269e63b62ad522ed953dd1ae5c9b6fb333f17dbd8d922c413",
+    "report_md_sha256": "1cb7ff491f018d1f55d0c3434fb631a72bb48fada04407a2427b3ad2f66e68e0",
+    "plan_digest": "0fd63629f375648561822f86d78ed4fb55feb6d94f83f9d918bbe477941a761b"
+  },
+  "findings": {
+    "single": {
+      "busi_dsc": 81.04,
+      "ood_dsc": 75.03,
+      "second_pass_share": 0.0,
+      "median_window": null,
+      "gain_over_single": null,
+      "rule_minus_this": {
+        "mean_pp": 1.0618864179691174,
+        "ci95_pp": [
+          0.20175612396952722,
+          2.047997721485874
+        ],
+        "p": 0.012549372531373431
+      }
+    },
+    "tcal": {
+      "busi_dsc": 81.24,
+      "ood_dsc": 76.09,
+      "second_pass_share": 0.345,
+      "median_window": 0.6036185201924249,
+      "gain_over_single": {
+        "mean_pp": 1.0618864179691174,
+        "ci95_pp": [
+          0.22031354625846344,
+          2.0448912981463945
+        ],
+        "p": 0.011899405029748513
+      },
+      "rule_minus_this": null
+    },
+    "plain125": {
+      "busi_dsc": 78.36,
+      "ood_dsc": 74.66,
+      "second_pass_share": 0.779,
+      "median_window": 0.5245535714285714,
+      "gain_over_single": {
+        "mean_pp": -0.3692771081435716,
+        "ci95_pp": [
+          -1.5733588431923753,
+          0.8274301649171467
+        ],
+        "p": 0.5690215489225539
+      },
+      "rule_minus_this": {
+        "mean_pp": 1.4311635261126892,
+        "ci95_pp": [
+          0.47496422733237004,
+          2.4804944171566423
+        ],
+        "p": 0.004149792510374482
+      }
+    },
+    "plain150": {
+      "busi_dsc": 78.9,
+      "ood_dsc": 75.63,
+      "second_pass_share": 0.619,
+      "median_window": 0.5424107142857143,
+      "gain_over_single": {
+        "mean_pp": 0.6066438863698022,
+        "ci95_pp": [
+          -0.2682964434091272,
+          1.5934187889697216
+        ],
+        "p": 0.23573821308934553
+      },
+      "rule_minus_this": {
+        "mean_pp": 0.4552425315993154,
+        "ci95_pp": [
+          -0.2898804632974573,
+          1.1968307205972724
+        ],
+        "p": 0.2551372431378431
+      }
+    },
+    "plain200": {
+      "busi_dsc": 80.01,
+      "ood_dsc": 76.01,
+      "second_pass_share": 0.389,
+      "median_window": 0.5892857142857142,
+      "gain_over_single": {
+        "mean_pp": 0.9853970310761208,
+        "ci95_pp": [
+          0.2596521854463213,
+          1.7720905749262252
+        ],
+        "p": 0.0167991600419979
+      },
+      "rule_minus_this": {
+        "mean_pp": 0.07648938689299661,
+        "ci95_pp": [
+          -0.5912157677125032,
+          0.7412396770309099
+        ],
+        "p": 0.8315584220788961
+      }
+    },
+    "plain300": {
+      "busi_dsc": 81.41,
+      "ood_dsc": 75.12,
+      "second_pass_share": 0.148,
+      "median_window": 0.5892857142857142,
+      "gain_over_single": {
+        "mean_pp": 0.09692558423439121,
+        "ci95_pp": [
+          -0.10964490529202049,
+          0.3383399663314341
+        ],
+        "p": 0.4503274836258187
+      },
+      "rule_minus_this": {
+        "mean_pp": 0.9649608337347262,
+        "ci95_pp": [
+          0.14589184381245826,
+          1.9212892980259755
+        ],
+        "p": 0.020498975051247436
+      }
+    },
+    "plain400": {
+      "busi_dsc": 81.46,
+      "ood_dsc": 75.05,
+      "second_pass_share": 0.086,
+      "median_window": 0.5625,
+      "gain_over_single": {
+        "mean_pp": 0.0224835154826957,
+        "ci95_pp": [
+          -0.12930945733054305,
+          0.19137048434290568
+        ],
+        "p": 0.8076096195190241
+      },
+      "rule_minus_this": {
+        "mean_pp": 1.0394029024864218,
+        "ci95_pp": [
+          0.22364347029830406,
+          1.9763459159649208
+        ],
+        "p": 0.011049447527623619
+      }
+    }
+  },
+  "verdicts_by_rule": {
+    "plain125": "rule_better",
+    "plain150": "not_distinguishable",
+    "plain200": "not_distinguishable",
+    "plain300": "rule_better",
+    "plain400": "rule_better"
+  },
+  "overall_by_rule": "not_supported",
+  "auditor_notes": [
+    "Transfer verdict not_supported: the rule is not distinguishable from a plain crop of twice the predicted box on ultrasound (+0.08 pp, CI -0.59 to 0.74, p=0.83; per seed +0.41, -0.85, +0.67). By the consequence fixed in the protocol the manuscript states that a fixed factor of about two performed like the rule on both modalities and does not present the transfer rule as an advantage in accuracy.",
+    "A tight crop (1.25) gives no gain on the OOD mean and lowers the in-distribution BUSI score by 2.7 pp; factors 3.0 and 4.0 trigger a second pass on only 15% and 9% of the images and stay at the single-pass level. Only factors 1.5 to 2.0 and the rule give a gain.",
+    "BUID (35 images) and UDIAT (25 images) are small and the study has three seeds; the per-set differences are noisy."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+ "suite": "zoom_threshold_v1",
+ "plan_digest": "a06e8852378aace647b9995a1ab28a3509d3286a622a693753e1c5cf92a8ecf6",
+ "results_sha256": "c63a168909e1a6884f343f392d502d31090149c071d6769db4e050cbcd617b67",
+ "gate_verdict": "pass",
+ "verdicts": {
+  "scz_gain_robust_to_threshold": true,
+  "thresholds_with_positive_gain": [
+   "30",
+   "40",
+   "50",
+   "60",
+   "70"
+  ],
+  "thresholds_with_interval_above_zero": [
+   "30",
+   "40",
+   "50",
+   "60",
+   "70"
+  ],
+  "scz_t50_reproduces_t15": true
+ },
+ "ood": {
+  "single_t30": 76.96660777777777,
+  "single_t40": 77.18208786429872,
+  "single_t50": 77.35600137978142,
+  "single_t60": 77.50214371129326,
+  "single_t70": 77.62432595173043,
+  "scz_t30": 79.31417343351548,
+  "scz_t40": 79.48889254098361,
+  "scz_t50": 79.48337289617487,
+  "scz_t60": 79.40033742258652,
+  "scz_t70": 79.41730016848815,
+  "t15": 79.47554959016395
+ },
+ "reproduction_scz_t50_minus_t15_pp": 0.007823306010928876,
+ "events": [],
+ "accepted_at": "2026-10-11T02:38:55.707470+00:00",
+ "accepted_by": "Claude (on behalf of Yanan Liu)",
+ "execution_valid": true,
+ "checks": [
+  "plan digest in queue equals evaluation_plan.json digest",
+  "code SHA-256 of every file in the plan equals the deployed package",
+  "protocol SHA-256 equals the deployed suite YAML",
+  "all jobs completed, no error recorded",
+  "means of every configuration recomputed from the 25 per-image case files equal the report (max deviation 0.0000 pp)",
+  "single-pass reproduction against the accepted evaluation passed for every run and cohort (runner gate, tolerance 0.25 pp)",
+  "ETIS-Larib not evaluated"
+ ]
+}

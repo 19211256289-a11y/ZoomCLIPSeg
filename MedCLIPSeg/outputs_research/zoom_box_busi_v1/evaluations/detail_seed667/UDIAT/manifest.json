@@ -1,0 +1,62 @@
+{
+  "signature": {
+    "suite": "zoom_box_busi_v1",
+    "plan_digest": "0fd63629f375648561822f86d78ed4fb55feb6d94f83f9d918bbe477941a761b",
+    "run": "detail_seed667",
+    "cohort": "UDIAT",
+    "checkpoint_sha256": "029fa59dad718938a8e19efb1ea3b3f8ace5980a00c6fa2c55c072189924d13a",
+    "prompt": "a tumor in a breast ultrasound image",
+    "variants": [
+      {
+        "name": "plain125",
+        "tau": 1000000000000.0,
+        "margin": 1.25,
+        "min_window": 0.02,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      },
+      {
+        "name": "plain150",
+        "tau": 1000000000000.0,
+        "margin": 1.5,
+        "min_window": 0.02,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      },
+      {
+        "name": "plain200",
+        "tau": 1000000000000.0,
+        "margin": 2.0,
+        "min_window": 0.02,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      },
+      {
+        "name": "plain300",
+        "tau": 1000000000000.0,
+        "margin": 3.0,
+        "min_window": 0.02,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      },
+      {
+        "name": "plain400",
+        "tau": 1000000000000.0,
+        "margin": 4.0,
+        "min_window": 0.02,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      }
+    ]
+  },
+  "complete": true,
+  "n": 150,
+  "finished_at": "2026-10-06T13:27:16.726394+00:00",
+  "sha256": "a1df6cab463115b5c7c264b2596c09d3431ecfccec7c32a86b1db8284114997e",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

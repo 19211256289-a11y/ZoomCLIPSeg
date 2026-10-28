@@ -1,0 +1,14 @@
+{
+  "signature": {
+    "run": "detail_seed667",
+    "cohort": "ClinicDB",
+    "split": "Test",
+    "checkpoint_sha256": "c52f1579255a1ed967b866ef1697b649728f5df373e487030205362f969718d4",
+    "plan_digest": "fa02136474c8a5accff522066b368d9a59bf469b65eea19660d84df0a164c00f"
+  },
+  "complete": true,
+  "n": 122,
+  "cases_sha256": "d8075f571eb1a6a15d63d40f844a656db820dbf2561bb70b411542838713774b",
+  "finished_at": "2026-10-04T23:40:03.436100+00:00",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

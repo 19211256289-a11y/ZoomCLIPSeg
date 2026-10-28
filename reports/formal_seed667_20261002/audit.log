@@ -1,0 +1,212 @@
+VERIFIED saved evaluation paired_repeat
+VERIFIED saved evaluation paired_image
+VERIFIED saved evaluation paired_aug
+VERIFIED current code and Train/Val data hashes
+VERIFIED final checkpoint paired_repeat
+VERIFIED final checkpoint paired_image
+VERIFIED final checkpoint paired_aug
+VERIFIED paused seed668 checkpoint: epoch 2, batch 7, Adam step 41
+{
+  "comparisons": {
+    "paired_image_vs_paired_repeat": {
+      "delta": {
+        "DSC_percent": 0.9727000000000317,
+        "small_DSC_percent": 0.2843999999999909,
+        "NSD_percent": 0.853100000000012,
+        "micro_foreground_recall_percent": 1.7136504463336593,
+        "micro_foreground_precision_percent": 0.2166030613780663,
+        "positive_DSC_below_50_percent": -1,
+        "zero_overlap_positive": 1
+      },
+      "all_cases": {
+        "n": 100,
+        "improved": 64,
+        "declined": 36,
+        "tied": 0,
+        "median_pp": 0.6000000000000005
+      },
+      "small_cases": {
+        "n": 25,
+        "improved": 16,
+        "declined": 9,
+        "tied": 0,
+        "median_pp": 0.770000000000004
+      },
+      "top_two_contribution_pp": 0.4011000000000001,
+      "remaining_98_mean_pp": 0.5832653061224496,
+      "best": [
+        {
+          "name": "cju40w3hbkwpn08015rbs3wko.png",
+          "small": false,
+          "delta_pp": 21.990000000000006
+        },
+        {
+          "name": "cju2qozsk20cq0855ugrg3cri.png",
+          "small": false,
+          "delta_pp": 18.120000000000005
+        },
+        {
+          "name": "cju8b6rp0r5st0850184f79xt.png",
+          "small": false,
+          "delta_pp": 12.31000000000001
+        }
+      ],
+      "worst": [
+        {
+          "name": "cju7druhp2gp308715i6km7be.png",
+          "small": false,
+          "delta_pp": -6.950000000000001
+        },
+        {
+          "name": "cju3381d8bz3h07991xtl7ra0.png",
+          "small": true,
+          "delta_pp": -10.309999999999997
+        },
+        {
+          "name": "cju8b2rmgr52s0801p54eyflx.png",
+          "small": false,
+          "delta_pp": -14.790000000000003
+        }
+      ]
+    },
+    "paired_aug_vs_paired_repeat": {
+      "delta": {
+        "DSC_percent": 1.3149999999999977,
+        "small_DSC_percent": 2.3847999999999843,
+        "NSD_percent": 1.257600000000025,
+        "micro_foreground_recall_percent": 1.5329705475397049,
+        "micro_foreground_precision_percent": -0.17937909016195874,
+        "positive_DSC_below_50_percent": -2,
+        "zero_overlap_positive": 0
+      },
+      "all_cases": {
+        "n": 100,
+        "improved": 61,
+        "declined": 37,
+        "tied": 2,
+        "median_pp": 0.4450000000000065
+      },
+      "small_cases": {
+        "n": 25,
+        "improved": 18,
+        "declined": 6,
+        "tied": 1,
+        "median_pp": 1.1099999999999999
+      },
+      "top_two_contribution_pp": 0.6711999999999999,
+      "remaining_98_mean_pp": 0.6569387755102043,
+      "best": [
+        {
+          "name": "cju76o55nymqd0871h31sph9w.png",
+          "small": true,
+          "delta_pp": 44.65
+        },
+        {
+          "name": "cju40w3hbkwpn08015rbs3wko.png",
+          "small": false,
+          "delta_pp": 22.469999999999995
+        },
+        {
+          "name": "cju2qozsk20cq0855ugrg3cri.png",
+          "small": false,
+          "delta_pp": 15.739999999999998
+        }
+      ],
+      "worst": [
+        {
+          "name": "cju7druhp2gp308715i6km7be.png",
+          "small": false,
+          "delta_pp": -5.100000000000005
+        },
+        {
+          "name": "cju2okvco06xc0799kxe5n1qh.png",
+          "small": false,
+          "delta_pp": -10.79
+        },
+        {
+          "name": "cju8b2rmgr52s0801p54eyflx.png",
+          "small": false,
+          "delta_pp": -15.410000000000002
+        }
+      ]
+    },
+    "paired_aug_vs_paired_image": {
+      "delta": {
+        "DSC_percent": 0.3422999999999661,
+        "small_DSC_percent": 2.1003999999999934,
+        "NSD_percent": 0.40450000000001296,
+        "micro_foreground_recall_percent": -0.1806798987939544,
+        "micro_foreground_precision_percent": -0.39598215154002503,
+        "positive_DSC_below_50_percent": -1,
+        "zero_overlap_positive": -1
+      },
+      "all_cases": {
+        "n": 100,
+        "improved": 44,
+        "declined": 56,
+        "tied": 0,
+        "median_pp": -0.17499999999999738
+      },
+      "small_cases": {
+        "n": 25,
+        "improved": 14,
+        "declined": 11,
+        "tied": 0,
+        "median_pp": 0.060000000000004494
+      },
+      "top_two_contribution_pp": 0.5390999999999999,
+      "remaining_98_mean_pp": -0.20081632653061282,
+      "best": [
+        {
+          "name": "cju76o55nymqd0871h31sph9w.png",
+          "small": true,
+          "delta_pp": 39.24999999999999
+        },
+        {
+          "name": "cju1ewnoh5z030855vpex9uzt.png",
+          "small": false,
+          "delta_pp": 14.659999999999995
+        },
+        {
+          "name": "cju3381d8bz3h07991xtl7ra0.png",
+          "small": true,
+          "delta_pp": 8.599999999999996
+        }
+      ],
+      "worst": [
+        {
+          "name": "cju5bmhdcafs909878qfzrqzi.png",
+          "small": false,
+          "delta_pp": -4.870000000000008
+        },
+        {
+          "name": "cju45t5ddnbio0987qtqzx762.png",
+          "small": false,
+          "delta_pp": -6.800000000000006
+        },
+        {
+          "name": "cju2okvco06xc0799kxe5n1qh.png",
+          "small": false,
+          "delta_pp": -7.5699999999999985
+        }
+      ]
+    }
+  },
+  "hard_cases": {
+    "cju40w3hbkwpn08015rbs3wko.png": {
+      "paired_repeat": 37.96,
+      "paired_image": 59.95,
+      "paired_aug": 60.42999999999999
+    },
+    "cju76o55nymqd0871h31sph9w.png": {
+      "paired_repeat": 23.810000000000002,
+      "paired_image": 29.21,
+      "paired_aug": 68.46
+    },
+    "cju89z6pqpqfx0817mfv8ixjc.png": {
+      "paired_repeat": 6.78,
+      "paired_image": 0.0,
+      "paired_aug": 3.0700000000000003
+    }
+  }
+}

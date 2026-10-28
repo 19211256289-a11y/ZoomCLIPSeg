@@ -1,0 +1,9 @@
+{
+  "what": "detail_seed667/BUSI single pass",
+  "DSC_percent": 79.75179487179486,
+  "accepted_DSC_percent": 79.75166666666664,
+  "difference_pp": 0.00012820512820938419,
+  "largest_case_difference_pp": 0.009999999999998899,
+  "tolerance_pp": 0.25,
+  "passed": true
+}

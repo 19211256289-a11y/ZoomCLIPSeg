@@ -1,0 +1,133 @@
+{
+  "run": "detail_seed666",
+  "dataset": "ColonDB",
+  "device": "NVIDIA GeForce RTX 5060 Ti",
+  "torch": "2.9.0+cu128",
+  "batch_size": 1,
+  "warmup_images": 10,
+  "measured_images": 150,
+  "settings": {
+    "single01": {
+      "mean_ms_over_repetitions": 61.39932444474349,
+      "range_ms": [
+        54.54787399969064,
+        66.3178519991925
+      ],
+      "repetitions": [
+        {
+          "mean_ms": 54.54787399969064,
+          "sd_ms": 2.3799229277257874,
+          "median_ms": 54.124600006616674,
+          "n": 150,
+          "second_pass_share": 0.0
+        },
+        {
+          "mean_ms": 66.3178519991925,
+          "sd_ms": 2.986429849383113,
+          "median_ms": 65.89019999955781,
+          "n": 150,
+          "second_pass_share": 0.0
+        },
+        {
+          "mean_ms": 63.33224733534735,
+          "sd_ms": 1.9611287211733148,
+          "median_ms": 63.37980000535026,
+          "n": 150,
+          "second_pass_share": 0.0
+        }
+      ]
+    },
+    "scz01": {
+      "mean_ms_over_repetitions": 104.71757844413837,
+      "range_ms": [
+        95.25468266743701,
+        114.89886399843574
+      ],
+      "repetitions": [
+        {
+          "mean_ms": 95.25468266743701,
+          "sd_ms": 20.976016855207952,
+          "median_ms": 104.10779999801889,
+          "n": 150,
+          "second_pass_share": 0.8066666666666666
+        },
+        {
+          "mean_ms": 103.99918866654237,
+          "sd_ms": 24.193932001811078,
+          "median_ms": 110.57260000961833,
+          "n": 150,
+          "second_pass_share": 0.8066666666666666
+        },
+        {
+          "mean_ms": 114.89886399843574,
+          "sd_ms": 24.635020838058153,
+          "median_ms": 126.51785000343807,
+          "n": 150,
+          "second_pass_share": 0.8066666666666666
+        }
+      ]
+    },
+    "single30": {
+      "mean_ms_over_repetitions": 831.5197097770093,
+      "range_ms": [
+        746.8912513340669,
+        885.8043886649344
+      ],
+      "repetitions": [
+        {
+          "mean_ms": 746.8912513340669,
+          "sd_ms": 17.08798240092662,
+          "median_ms": 746.5304000070319,
+          "n": 150,
+          "second_pass_share": 0.0
+        },
+        {
+          "mean_ms": 861.8634893320268,
+          "sd_ms": 37.953753395149526,
+          "median_ms": 856.7504000093322,
+          "n": 150,
+          "second_pass_share": 0.0
+        },
+        {
+          "mean_ms": 885.8043886649344,
+          "sd_ms": 19.28297186680722,
+          "median_ms": 890.8885499986354,
+          "n": 150,
+          "second_pass_share": 0.0
+        }
+      ]
+    },
+    "t15": {
+      "mean_ms_over_repetitions": 1467.4353482228214,
+      "range_ms": [
+        1397.3652933343935,
+        1555.7614073337754
+      ],
+      "repetitions": [
+        {
+          "mean_ms": 1397.3652933343935,
+          "sd_ms": 341.0388877582865,
+          "median_ms": 1450.232250004774,
+          "n": 150,
+          "second_pass_share": 0.8066666666666666
+        },
+        {
+          "mean_ms": 1555.7614073337754,
+          "sd_ms": 342.53629378064505,
+          "median_ms": 1709.675000005518,
+          "n": 150,
+          "second_pass_share": 0.8066666666666666
+        },
+        {
+          "mean_ms": 1449.1793440002948,
+          "sd_ms": 317.28082369157096,
+          "median_ms": 1508.8465499866288,
+          "n": 150,
+          "second_pass_share": 0.8066666666666666
+        }
+      ]
+    }
+  },
+  "note": "One GPU (RTX 5060 Ti), batch size 1, torch.cuda.synchronize before and after each image; images are the first images of the CVC-ColonDB test list. Accuracy is not taken from the timing run.",
+  "measured_at": "2026-10-11T00:35:39.907682+00:00"
+}

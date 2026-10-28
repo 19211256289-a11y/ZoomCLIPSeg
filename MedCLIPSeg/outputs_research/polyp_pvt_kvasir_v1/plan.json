@@ -1,0 +1,206 @@
+{
+  "protocol": {
+    "name": "polyp_pvt_kvasir_v1",
+    "locked_at": "2026-10-06",
+    "purpose": "Same-protocol reference requested by an external review: a dedicated polyp network without text (Polyp-PVT, Dong et al. 2023) trained on the 800 Kvasir-SEG training images that our models use, and evaluated on the same test sets with the same metric code. The result is reported whatever it is.",
+    "model": {
+      "name": "Polyp-PVT",
+      "code": "research_polyp_pvt/lib (vendored from github.com/DengPingFan/Polyp-PVT, commit cd71fbf, with the changes listed in the file headers)",
+      "backbone_weights": "checkpoints/pvt_v2_b2.pth",
+      "backbone_weights_source": "https://github.com/whai362/PVT/releases/download/v2/pvt_v2_b2.pth (ImageNet-1k pre-training)"
+    },
+    "dataset": "Kvasir",
+    "train_list": "Train_text.xlsx",
+    "train_n": 800,
+    "seeds": [
+      666,
+      667,
+      668
+    ],
+    "recipe": {
+      "input_size": 352,
+      "epochs": 99,
+      "batch_size": 16,
+      "optimizer": "AdamW",
+      "learning_rate": 0.0001,
+      "weight_decay": 0.0001,
+      "gradient_clip": 0.5,
+      "scales": [
+        0.75,
+        1.0,
+        1.25
+      ],
+      "augmentation": "none besides the three scales (default of the released script)",
+      "loss": "structure loss of the released code on both outputs, as executed. Its BCE term is called with the legacy argument reduce='none', which PyTorch reads as a mean over all pixels, so the term is the unweighted mean BCE; the IoU term is weighted by the 31 x 31 boundary weights.",
+      "precision": "single"
+    },
+    "deviations_from_the_authors": [
+      "Training data are the 800 Kvasir-SEG images of our split, not the merged Kvasir-SEG and CVC-ClinicDB set of 1450 images.",
+      "The weights of the last epoch are evaluated. The released script keeps the epoch with the best test Dice; we do not select on test data.",
+      "The sigmoid output is thresholded at 0.5 without the per-image min-max normalisation of the released test script, and DSC is computed by our metric code at the original resolution.",
+      "The mini-batch order is drawn from a seeded generator; images are decoded once and kept in memory.",
+      "Training masks are binarised at 127 before resizing (the definition of the ground truth in our metric code); for binary mask files this equals the released loader.",
+      "Files are decoded with OpenCV, as in all our evaluations, and then resized with PIL as in the released loader.",
+      "The validation split is not used."
+    ],
+    "test_targets": [
+      "Kvasir",
+      "ColonDB",
+      "ClinicDB",
+      "CVC300",
+      "BKAI"
+    ],
+    "ood_targets": [
+      "ColonDB",
+      "ClinicDB",
+      "CVC300",
+      "BKAI"
+    ],
+    "held_out_target": "ETIS",
+    "threshold": 0.5,
+    "small_target_threshold": 0.058989688326573426,
+    "comparison": {
+      "note": "descriptive; the accepted per-image results of our models for the same three seeds are read, not recomputed",
+      "ours": {
+        "baseline": {
+          "label": "MedCLIPSeg baseline, single pass",
+          "polyp": [
+            "test_detail_mix_kvasir_v1",
+            "baseline",
+            null
+          ],
+          "held_out": [
+            "zoom_etis_v1",
+            "baseline",
+            "single"
+          ]
+        },
+        "full": {
+          "label": "ZoomCLIPSeg (detail branch + SCZ)",
+          "polyp": [
+            "test_zoom_kvasir_v1",
+            "detail",
+            "t15"
+          ],
+          "held_out": [
+            "zoom_etis_v1",
+            "detail",
+            "t15"
+          ]
+        }
+      },
+      "statistic": "Polyp-PVT minus ours, DSC in percentage points, seed-averaged per image; bootstrap interval and sign-flip permutation test"
+    },
+    "timing": {
+      "dataset": "Kvasir",
+      "warmup_images": 10,
+      "note": "batch size 1, one deterministic pass, forward plus upsampling to the original size"
+    },
+    "rules": [
+      "No checkpoint, epoch or threshold is selected on validation or test data.",
+      "A paused run resumes from the last completed epoch with the saved random state."
+    ],
+    "disclosures": [
+      "Polyp-PVT uses a 352 x 352 input and an ImageNet-pretrained backbone that is trained end to end (all weights trainable); our models use a 224 x 224 input and frozen encoders.",
+      "The five polyp test sets were used in earlier stages of this project; ETIS-Larib was evaluated once for our method and is new for this model.",
+      "CVC-300 and CVC-ColonDB share 52 exact image hashes."
+    ],
+    "statistics": {
+      "permutation_draws": 20000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261009
+    }
+  },
+  "protocol_sha256": "43b3e0bdb02050627b28ec6887d0f100d137e90dc306579bb203b7f1ecbcef20",
+  "code": {
+    "research_polyp_pvt/lib/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "research_polyp_pvt/lib/pvt.py": "2bbfd2d019acddbfcdd4224833d1a511c0a5a3d6b35a0edc095f7dcfee476066",
+    "research_polyp_pvt/lib/pvtv2.py": "e42ed169654ac83d0c07e0d7cbc0b68624c1f6c0de67c796c1f95b2b64569752",
+    "research_polyp_pvt/common.py": "b3c27cad5116890f13f9b740330ec05a756e96f3b6a87f8eb6ac17e0bfea1455",
+    "research_polyp_pvt/data.py": "03b6b28bc600bad1066ce1d7e3c8f6f987091b4d696904e35c7baeb90bc31713",
+    "research_polyp_pvt/train.py": "f131feaef9d9b1f1d4a25a0b99c62cac447e4cec38a7ff9a980d6190296a9896",
+    "research_polyp_pvt/evaluate.py": "75e8efbc823c1e5ad3ce39177c87bbb50939260dcd762451764b3b523d8e04f1",
+    "research_formal/metrics.py": "9e1b65b1729baa14be536fa8a9ad2a99992730c0dc80b92467519f24ac734318"
+  },
+  "backbone_weights": {
+    "sha256": "80711cd1b37ffba12bec6c7a2a7c54efe2315ed635e6d2055fd51c3e909ede4d",
+    "bytes": 101501299
+  },
+  "train": {
+    "n": 800,
+    "list_sha256": "13929e6a9e10dc2327f9146b05f0387336ea5a92f4cceab667f40c14fde481ea",
+    "files_digest": "7557ffd85c5d436974b3f27c3ea06e82f6eacb37e53520429c42f02077d2fd30"
+  },
+  "cohorts": {
+    "Kvasir": {
+      "n": 100,
+      "list_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+      "files_digest": "cdce78c1bce73e983e65ed9bd8222b50ac7fe6d0cc09dfa306cb819a2d326c78"
+    },
+    "ColonDB": {
+      "n": 360,
+      "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+      "files_digest": "9ff335e0a7bc989b1a07759410533f00f5157316917fbea7df438de737b7d896"
+    },
+    "ClinicDB": {
+      "n": 61,
+      "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+      "files_digest": "3b4fbf76e51d2b479fea9973bd9ac476006a9e7b16b935e6d95fe2de4c7e74ee"
+    },
+    "CVC300": {
+      "n": 60,
+      "list_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+      "files_digest": "998180409607f38f475a0400a8d3f8084a7c805148d0d2b1921ad2af973d100b"
+    },
+    "BKAI": {
+      "n": 100,
+      "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+      "files_digest": "fb61d517acc1cc17935cd9aadf0e914a33bafd25acc3c0558611a7c1e6d836a5"
+    },
+    "ETIS": {
+      "n": 196,
+      "manifest_sha256": "cd779b682130a142ae3509af5d059c5a3732854e7a7cf541a4a11bdfd8eb498d",
+      "files_digest": "33d39654ae7fe262281f3e2507f85ec78a6e52cdc5887d956e10092c74fef51c"
+    }
+  },
+  "test_list": "Test_text_original.xlsx",
+  "accepted": {
+    "baseline/seed666/Kvasir": "697ced32088fc696fa3f2115836de8109d1c07ee5220620c76917f19cf834132",
+    "baseline/seed666/ColonDB": "cea194499c52ced262f3495265db3f149d01b533ea87e4f5e7cbfa7884b19682",
+    "baseline/seed666/ClinicDB": "c87abf1b59877bc7d9b3b10759e131d775dd2a957f38eb8166fc0106bee5573c",
+    "baseline/seed666/CVC300": "047521e85c8cb4a2a66f1a24543af27512eed1334ac97c60fc7001b93d1881c9",
+    "baseline/seed666/BKAI": "945942c35fee53405afc41f41b0d337443c941b07bdb3493eade1a733ef42cf2",
+    "baseline/seed666/ETIS": "e982bc861d9cc4cc625936d0fea26b644285b5ff976294911a01b23add3d9db2",
+    "baseline/seed667/Kvasir": "26a1f6733df8bb9f26734953e2c3b01af344c8eaed4c48cc3f77d0b7641ddecd",
+    "baseline/seed667/ColonDB": "8178522de2b17bfca3026f5f8e8740ae87d6fc784360dac0007c9b7aec666c56",
+    "baseline/seed667/ClinicDB": "2698ad3a14c020596c35d1eba3bb2be20fd4384a8f83972567f882f79065d38d",
+    "baseline/seed667/CVC300": "7caeb9f2ac7e55c0bc3da5058c92cc43a4ec9658ad5217e1bde38bbbeb59166b",
+    "baseline/seed667/BKAI": "ff078bd249529baf5462905922d5917cde0b85f803c424c23a54c4391147ba51",
+    "baseline/seed667/ETIS": "ea0fdcd004b84566dea1d63036db930e054ace8e7b6c8f06d07ec975cc6effff",
+    "baseline/seed668/Kvasir": "7073386597bbe5e4e1f190d974466cbcd0b86c3cbedb762ddeacefefdd6b4330",
+    "baseline/seed668/ColonDB": "aa9ff63b43e18b8c90da896651c92d400fd46bfb8b7ffc644915a8193f9136df",
+    "baseline/seed668/ClinicDB": "cb7449b0c123955943940dd1db4ac9fb3c1c00643e7da90943bd11a6e00aed66",
+    "baseline/seed668/CVC300": "bb7b7c15b794c298a07ca97d7948b3d9d37228304f5bef27d473d34451133b4e",
+    "baseline/seed668/BKAI": "29bca2fb281677b5205de391e51f4ab2f7a4a487128a483f47df51a2764bb66f",
+    "baseline/seed668/ETIS": "8f8b59786a4e15d75476656bdbfd938eaa84dcdf615193587557cc55f5306b82",
+    "full/seed666/Kvasir": "81d01494a7782d69187caa8ea70343c0b52e930701899395beeeb7a087e7d64e",
+    "full/seed666/ColonDB": "8c952198e83748b141ffa6c206803591c71f193a7b0e183ed3fb85c022b9bd95",
+    "full/seed666/ClinicDB": "555038715e3bf8d60ed512eeb23cf3f5bd4b87edd11b16e4775c01f041059489",
+    "full/seed666/CVC300": "ab470320382671d6061f4e1111b81f812f4b506d2be7a8239943187ed3f606c3",
+    "full/seed666/BKAI": "1804a4ca09e6361a4ab4b7499fc3ff5b2675e2bcc42bb49beab52bd8479a8d53",
+    "full/seed666/ETIS": "316f53b2855147153d8a261170139b2cb227480893f9cdac9a33ed3f8ca522af",
+    "full/seed667/Kvasir": "d35dbf6385ac367b74b1073f3eab610eb04eafafc56b621d216d6b3824fd4846",
+    "full/seed667/ColonDB": "9203a13baa7b0aebbf61d4bb3f151fdbf32d90bf4a3575f3ff6003814911c130",
+    "full/seed667/ClinicDB": "d8075f571eb1a6a15d63d40f844a656db820dbf2561bb70b411542838713774b",
+    "full/seed667/CVC300": "c81cf7a893c6658fdffd4bbb40db78593996e5fb5ae5e6436672a9a0c1c13596",
+    "full/seed667/BKAI": "a277da091d817b798aea70b02de70c02096ea7a4d33a656e984e72438f138cc0",
+    "full/seed667/ETIS": "fabdfbd211cf0225ab7b9c4e11fd600ac743a522457e66dfde67a9aed1b7e77d",
+    "full/seed668/Kvasir": "04e84dd20635f135ac8dc6403db04ba439412400e516cb492d7b0e4227ac618b",
+    "full/seed668/ColonDB": "1c37ea0616f243a07ca6ee1123571d4a42ceec7c38cd1b1a00d44c265bd95944",
+    "full/seed668/ClinicDB": "e7255fd0f01871b5eb866e5245827c4de18868b6f781c54eb5014549f1969b4a",
+    "full/seed668/CVC300": "3073a1a486cf61fa03281c3b89e86d3cfb78e7160a2e21eca3db1fc3ef660fdd",
+    "full/seed668/BKAI": "a7316be95ecbf54cb21124ae2e8bc41c54f88d8093fa699a633b19949ee6fdba",
+    "full/seed668/ETIS": "2c98ca0c53370ad158b04b2272dc3b896571698d7bceed16c1429f51685baebe"
+  },
+  "digest": "736dbf2be36a193a98c72eb58abe7b37c7bbdd0a6e1e2a11b37f38cdba25ac67"
+}

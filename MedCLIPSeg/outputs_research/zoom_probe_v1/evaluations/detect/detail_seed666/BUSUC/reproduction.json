@@ -1,0 +1,9 @@
+{
+  "what": "detail_seed666/BUSUC single pass",
+  "DSC_percent": 84.52811475409831,
+  "accepted_DSC_percent": 84.52811475409831,
+  "difference_pp": 0.0,
+  "largest_case_difference_pp": 0.0,
+  "tolerance_pp": 0.25,
+  "passed": true
+}

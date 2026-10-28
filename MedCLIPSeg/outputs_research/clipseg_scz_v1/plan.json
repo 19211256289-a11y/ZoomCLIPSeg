@@ -1,0 +1,133 @@
+{
+  "protocol": {
+    "name": "clipseg_scz_v1",
+    "locked_at": "2026-10-07",
+    "purpose": "Does scale-canonical zoom (SCZ) help a second frozen-encoder, fixed-resolution, text-prompted segmentation model? External reviews noted that SCZ was shown for MedCLIPSeg variants only and did not help the multi-scale Polyp-PVT. CLIPSeg (frozen CLIP ViT-B/16 encoders, lightweight decoder, 352 x 352 input) is fine-tuned on the Kvasir-SEG training split with one fixed class sentence and evaluated on the five polyp test sets with a single pass and with the locked SCZ window rule, unchanged. The outcome is reported whatever it is.",
+    "locked_before": "Written after text_probe_v1 and pvt_seeds_v1 had been accepted. No CLIPSeg model had been trained or evaluated in this project.",
+    "model": {
+      "name": "CLIPSeg (CIDAS/clipseg-rd64-refined, Hugging Face)",
+      "directory": "checkpoints/clipseg-rd64-refined",
+      "trained": "decoder only (the CLIP image and text encoders are frozen); the decoder starts from the released weights",
+      "sentence": "a polyp in a colonoscopy image"
+    },
+    "seeds": [
+      666,
+      667,
+      668
+    ],
+    "groups": {
+      "kvasir_full": {
+        "dataset": "Kvasir",
+        "train_list": "Train_text.xlsx",
+        "cohort_source": "kvasir_v1",
+        "targets": [
+          "Kvasir",
+          "ColonDB",
+          "ClinicDB",
+          "CVC300",
+          "BKAI"
+        ]
+      }
+    },
+    "recipe": {
+      "input_size": 352,
+      "epochs": 100,
+      "batch_size": 24,
+      "optimizer": "Adam",
+      "learning_rate": 0.0003,
+      "final_learning_rate": 0.0001,
+      "loss": "0.5 Dice + 0.5 binary cross-entropy",
+      "augmentation": "rotation by a random angle within +/-20 degrees with probability 0.5 (as in the MedCLIPSeg implementation), and horizontal and vertical reflection with probability 0.5 each. No scale augmentation.",
+      "rotation_degrees": 20,
+      "weights": "last epoch; no selection on validation or test data"
+    },
+    "inference": "one deterministic forward pass; sigmoid; threshold 0.5",
+    "target_fraction": 0.15,
+    "zoom": {
+      "margin": 1.25,
+      "min_window": 0.2,
+      "zoom_in_if_window_at_most": 0.8,
+      "zoom_out_if_fraction_at_least": 0.2,
+      "zoom_out_target_fraction": 0.1,
+      "max_window": 2.0,
+      "fusion": "second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty"
+    },
+    "definitions": {
+      "single": "one pass of the whole image at 352 x 352",
+      "scz": "the locked window rule (target fraction 0.15, constants above) applied to the first prediction; the window is cropped from the original pixels, resized to 352 x 352 and segmented by the same model with the same sentence"
+    },
+    "reading_rules_fixed_in_advance": {
+      "statistic": "DSC difference SCZ minus single pass in percentage points; mean over the three seeds of paired image-level differences; macro mean over the four OOD sets, with a bootstrap interval and a sign-flip permutation test",
+      "transfers": "the OOD gain is positive for every seed and its interval excludes zero",
+      "does_not_transfer": "the interval of the OOD gain includes zero or lies below it",
+      "consequence": "If transfers holds, the manuscript states that SCZ also helps a second frozen-encoder, fixed-resolution text-prompted model and gives the gain. If does_not_transfer holds, it states that SCZ did not help CLIPSeg and keeps the scope \"MedCLIPSeg variants only\". A positive gain that is not positive for every seed is reported as such and counts as neither. The accuracy of CLIPSeg itself is reported for context and is not compared with our models as a ranking, because its recipe was not tuned."
+    },
+    "disclosures": [
+      "The five polyp test sets were used in earlier stages of this project; ETIS-Larib is not touched.",
+      "The training recipe of CLIPSeg was fixed here without tuning and differs from the one used for the values reported in the MedCLIPSeg paper.",
+      "The decoder starts from released weights, so that the seeds differ in mini-batch order and augmentation only.",
+      "The target fraction and the zoom constants are those locked for MedCLIPSeg at 224 x 224; nothing is re-derived for this model."
+    ],
+    "statistics": {
+      "permutation_draws": 20000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261019
+    }
+  },
+  "protocol_sha256": "45ed80e7422c1104c13c7c5e9f5c5613cb61b8536e7d136b1528bb2deeb4daae",
+  "code": {
+    "research_clipseg/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research_clipseg/common.py": "69e30c1e69e0619944c51dacc729d8cb45017a3c6742c3d9258d4c779b732a66",
+    "research_clipseg/evaluate.py": "e83946c772f750e42b1abf77a41d28a501b88248fe4f0f54e90d0c55e56a4d03",
+    "research_clipseg/report.py": "91bf448fa938e33fe6ecb41bb286a439e5339a71b2bc07c968a1178213ecb7f7",
+    "research_clipseg/runner.py": "db252004968b54ab298c11f78b818f87e7d30385057e524b9fe7918cb13120a2",
+    "research_clipseg/work.py": "fe25a274dead0106c3d16b27fa38ed63ca7ee7554798b4556a52ea27180ccb52",
+    "research_polyp_pvt/data.py": "03b6b28bc600bad1066ce1d7e3c8f6f987091b4d696904e35c7baeb90bc31713",
+    "research_zoom/geometry.py": "23c20c342bb6fac71c135d50031db72dedcb926f890cf942f7ed0fa8dee3ed23",
+    "research_formal/metrics.py": "9e1b65b1729baa14be536fa8a9ad2a99992730c0dc80b92467519f24ac734318"
+  },
+  "released_weights": {
+    "file": "model.safetensors",
+    "sha256": "d00ca85d6b859f9d07b7cfb8ef26fe9771cb275b34c9368f2ecf603139307f55",
+    "bytes": 603049496
+  },
+  "groups": {
+    "kvasir_full": {
+      "train_n": 800,
+      "train": {
+        "n": 800,
+        "list_sha256": "13929e6a9e10dc2327f9146b05f0387336ea5a92f4cceab667f40c14fde481ea",
+        "files_digest": "7557ffd85c5d436974b3f27c3ea06e82f6eacb37e53520429c42f02077d2fd30"
+      },
+      "cohorts": {
+        "Kvasir": {
+          "n": 100,
+          "list_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+          "files_digest": "cdce78c1bce73e983e65ed9bd8222b50ac7fe6d0cc09dfa306cb819a2d326c78"
+        },
+        "ColonDB": {
+          "n": 360,
+          "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+          "files_digest": "9ff335e0a7bc989b1a07759410533f00f5157316917fbea7df438de737b7d896"
+        },
+        "ClinicDB": {
+          "n": 61,
+          "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+          "files_digest": "3b4fbf76e51d2b479fea9973bd9ac476006a9e7b16b935e6d95fe2de4c7e74ee"
+        },
+        "CVC300": {
+          "n": 60,
+          "list_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+          "files_digest": "998180409607f38f475a0400a8d3f8084a7c805148d0d2b1921ad2af973d100b"
+        },
+        "BKAI": {
+          "n": 100,
+          "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+          "files_digest": "fb61d517acc1cc17935cd9aadf0e914a33bafd25acc3c0558611a7c1e6d836a5"
+        }
+      },
+      "test_list": "Test_text_original.xlsx"
+    }
+  },
+  "digest": "9c292db8131e0c3576dcb2a9c3a03a4223ab06fcc0d26f2ede8dc1262cc40590"
+}

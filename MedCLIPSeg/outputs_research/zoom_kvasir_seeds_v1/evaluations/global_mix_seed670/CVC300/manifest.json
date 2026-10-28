@@ -1,0 +1,16 @@
+{
+  "signature": {
+    "suite": "zoom_kvasir_seeds_v1",
+    "run": "global_mix_seed670",
+    "cohort": "CVC300",
+    "split": "Test",
+    "checkpoint_sha256": "2a6868706fb3801cb9fd1c87bae6cd1a59e1991a910ef7dc7192d8dbed1a4a9f",
+    "plan_digest": "35d30b266a5a5803f360907d3df2148896f666e2904be2e44d2437569c2cdcae",
+    "prompt": "a polyp in a colonoscopy image"
+  },
+  "complete": true,
+  "n": 120,
+  "cases_sha256": "15205b67bcda7c09fd074dc1c8f7a38ce9087ac01aa71eeb6d4b27696aa9583b",
+  "finished_at": "2026-10-05T14:15:00.275902+00:00",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

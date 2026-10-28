@@ -1,0 +1,9 @@
+{
+  "run": "detail_seed667",
+  "cohort": "BKAI",
+  "single_pass_DSC_percent": 74.75160000000001,
+  "accepted_DSC_percent": 74.75180000000002,
+  "difference_pp": -0.0002000000000066393,
+  "tolerance_pp": 0.25,
+  "passed": true
+}

@@ -1,0 +1,66 @@
+{
+ "suite": "formal_detail_mix_kvasir_v2",
+ "accepted_at": "2026-10-05T21:25+09:00",
+ "inputs": {
+  "reports/formal_detail_mix_kvasir_v2_results/results.json": "5941dc6cf43c9a70fe5633817afe194a42bcd08789cfa582ca8665de33f5d972",
+  "reports/formal_detail_mix_kvasir_v2_results/report.md": "a45d7f84b557e01f0ce7f9a8a2a3f59d6297a995a9768d649883e60ba3390020",
+  "reports/formal_detail_mix_kvasir_v2_results/all_cases.csv": "9a4354bf2b05f7545357062f55eb8371e9a1b9905bed36fef383dafc7a8569a4",
+  "control/remote4090/ext/queue.json": "8ff916ffd3ef140e3e40b6276b74590a9497f10ef45c92a75314ee61ccfc8f72",
+  "control/remote4090/ext/backup_verified.json": "189371281756612ce1a971137a62594cc07bd9c6c297090b955bd05fb2376bbb",
+  "control/remote4090/ext_backup/a_manifest.json": "59359b25c7702af0de49ed85d96808b471a21fbd47a6137a822567ff1af580a7",
+  "MedCLIPSeg/outputs_research/formal_detail_mix_kvasir_v2/experiment_plan.json": "70ad95be01501dec97eee4e1e0aa99fe5097172f1063122ce396b4c0ede29ee2"
+ },
+ "backup": {
+  "files": 11087,
+  "bytes": 8340363602,
+  "tool_verified_every_file_hash": true,
+  "eight_checkpoints_present_with_manifest_sizes": true,
+  "checkpoint_hashes_equal_training_queue": true
+ },
+ "recomputed_from_all_cases": {
+  "dsc_from_pixel_counts_max_abs_diff": 5e-05,
+  "new_seed_macro_gain_detail_minus_baseline_pp": [
+   1.23,
+   1.66
+  ],
+  "five_seed_macro_pp": 0.96,
+  "matches_report": true
+ },
+ "gates": {
+  "detail_five_seed": {
+   "passed": true,
+   "macro_pp": 0.96,
+   "per_seed_pp": [
+    0.76,
+    0.31,
+    0.83,
+    1.23,
+    1.66
+   ],
+   "per_set_pp": {
+    "Kvasir": 0.73,
+    "ColonDB": 1.17,
+    "ClinicDB": 1.62,
+    "CVC300": 0.11,
+    "BKAI": 1.15
+   }
+  },
+  "combination_adds_five_seed": {
+   "passed": true,
+   "macro_pp": 0.43,
+   "per_seed_pp": [
+    0.74,
+    1.07,
+    0.28,
+    0.43,
+    -0.4
+   ]
+  }
+ },
+ "final_model": "detail alone: the rule needs the combination gate to pass on BOTH datasets and it failed on BUSI",
+ "cautions": [
+  "On the two new seeds alone the combination adds +0.43 and -0.40 pp (mean about 0).",
+  "all_cases.csv was recomputed, not each per-run case file; the per-run files are covered by the backup hash check."
+ ],
+ "gate_verdict": "pass"
+}

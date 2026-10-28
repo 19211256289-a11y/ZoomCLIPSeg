@@ -1,0 +1,22 @@
+{
+  "source_page": "https://polyp.grand-challenge.org/ETISLarib/",
+  "download_url": "https://www.dropbox.com/s/j4nsxijf5dhzb6w/ETIS-LaribPolypDB.rar?dl=1",
+  "downloaded_utc": "2026-10-05T14:56:56.887883+00:00",
+  "archive": "downloads\\ETIS-LaribPolypDB.rar",
+  "bytes": 168867263,
+  "sha256": "bf245a8b33328d767684410ffefbd4e905d07aecf4521a1380592d6ea0e5ae19",
+  "verified_utc": "2026-10-05T14:58:36.855838+00:00",
+  "image_count": 196,
+  "mask_count": 196,
+  "pairing": "images/{id}.tif -> masks/p{id}.tif; IDs 1..196",
+  "dimensions": {
+    "(1225, 966)": 196
+  },
+  "extracted_image_and_mask_bytes": 700834084,
+  "all_files_decoded": true,
+  "all_pairs_same_dimensions": true,
+  "manifest_sha256": "cd779b682130a142ae3509af5d059c5a3732854e7a7cf541a4a11bdfd8eb498d",
+  "preprocessing": "None. Original TIFF bytes and filenames preserved; archive directories reorganized only.",
+  "model_evaluation_performed": false,
+  "evaluation_protocol_locked_by_this_download": false
+}

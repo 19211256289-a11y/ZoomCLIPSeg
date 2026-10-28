@@ -1,0 +1,61 @@
+{
+ "suite": "formal_detail_mix_busi_v1",
+ "accepted_at": "2026-10-05T20:45+09:00",
+ "plan_digest": "85c752b70ba5c2487f0b323d13a90d22190ce7b5558095f7b03a9cd503f057b6",
+ "inputs": {
+  "reports/formal_detail_mix_busi_v1_results/results.json": "014e2bac490eb70f6d172819e741b5329c91b5336643ab925ffa191d42851fca",
+  "reports/formal_detail_mix_busi_v1_results/report.md": "f9b3c7f946dcbff35368d83702e0f2e10d583632ff8a2ac0e82f7f12be82d45b",
+  "reports/formal_detail_mix_busi_v1_results/all_cases.csv": "fbf96433253ae70cb96699c17ebdc40beb9bbfd2257815406059fe814d98fb3e",
+  "control/research_detail_ext/queue.json": "4c352650d9703d2912595baea969d3e1bddec83e21d2e7b39c5ed8270faee53e",
+  "MedCLIPSeg/outputs_research/formal_detail_mix_busi_v1/experiment_plan.json": "1bddc5b9d26343c711886d571d9f3d1a2433599d72f9c0d7280e5e2aac80af9a"
+ },
+ "integrity": {
+  "runs_trained": 9,
+  "evaluations": 54,
+  "manifests_complete": 54,
+  "checkpoint_hashes_match_queue": true,
+  "case_file_hashes_match": true,
+  "test_started_after_all_training": true,
+  "test_lists_match_lock": true,
+  "dsc_recomputed_from_pixel_counts_max_abs_diff": 5e-05,
+  "same_images_and_masks_across_arms": true,
+  "note": "baseline_seed666 and detail_seed666 were paused and resumed (overnight power cut); the other seven runs were uninterrupted"
+ },
+ "gates_recomputed": {
+  "detail_replicates": {
+   "passed": true,
+   "source_test_gain_pp": 1.43,
+   "ood_gain_pp": {
+    "BUSBRA": 11.24,
+    "BUSUC": 7.01,
+    "BUID": 8.29,
+    "UDIAT": 16.17
+   },
+   "macro_small_gain_pp": 8.24,
+   "per_seed_macro_pp": [
+    3.44,
+    15.61,
+    7.43
+   ]
+  },
+  "combination_adds": {
+   "passed": false,
+   "macro_gain_pp": -2.08,
+   "sets_positive": 0,
+   "per_seed_macro_pp": [
+    -3.12,
+    -4.16,
+    1.05
+   ]
+  }
+ },
+ "matches_report": true,
+ "final_model": "detail alone (combination_adds failed here, so the pre-fixed rule selects detail regardless of the Kvasir five-seed gate)",
+ "cautions": [
+  "The size of the OOD gain is inflated by instability of the baseline: baseline OOD DSC differs by up to 20 pp between seeds (BUSBRA 67.9/47.6/57.6) while detail is stable (68.5/69.6/68.8). On the seed where the baseline did best (666) the pooled OOD gain is +2.07 pp (image bootstrap CI +0.35..+3.76).",
+  "In-domain BUSI Test gain +1.43 pp has CI -2.63..+5.18; on Val the all-image difference is -0.34 pp.",
+  "The detail arm marks more normal images as containing a tumor: Test 3/4/3 of 13 versus 1/1/2; Val 5/4/6 versus 3/2/4.",
+  "Three seeds; seed-level t-test p = 0.13."
+ ],
+ "gate_verdict": "pass"
+}

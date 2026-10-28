@@ -1,0 +1,17 @@
+{
+ "suite": "pvt_seeds_v1",
+ "accepted_at": "2026-10-07T19:35+09:00",
+ "execution_valid": true,
+ "checks": {
+  "jobs": "16/16",
+  "digests_consistent": true,
+  "code_and_protocol_match_local_copy": true,
+  "per_seed_dsc_recomputed": true
+ },
+ "sha256": {
+  "control/research_pvt_seeds/queue.json": "be139fbb54f1a572b2340e254fc56b0c7cc4e9e870cff2bb06d60abcddf1a555",
+  "MedCLIPSeg/outputs_research/pvt_seeds_v1/plan.json": "22850306a66cb60294c79023b19d387ee731c2acc7195f9ad28094455d569098",
+  "reports/pvt_seeds_v1_results/report.md": "65d25bd9fc20151a9760535a5c0f7c0e6a45309f6a680cdbadfeba9450f8a694",
+  "reports/pvt_seeds_v1_results/results.json": "bf1386a1989f157c54473f0e0e066d40190151985335001c9ffe1239d66fcc0f"
+ }
+}

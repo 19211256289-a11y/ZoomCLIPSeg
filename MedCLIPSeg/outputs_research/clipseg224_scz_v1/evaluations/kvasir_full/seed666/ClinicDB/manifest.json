@@ -1,0 +1,15 @@
+{
+  "signature": {
+    "suite": "clipseg224_scz_v1",
+    "plan_digest": "f841968b271ea1d5dcc37323ec97836d4640362f66744eb66610216bf7a5a882",
+    "group": "kvasir_full",
+    "seed": 666,
+    "cohort": "ClinicDB",
+    "weights_sha256": "9775273e2932eb2bed7395012617f2a335eb6c8b41a2fe3e1fe9cb9f11e54df8"
+  },
+  "complete": true,
+  "n": 122,
+  "finished_at": "2026-10-07T12:05:08.219261+00:00",
+  "sha256": "09b9d8bf1b291254c8a246bfc960957990ad44727f11c16ae91d1ab6b2e6e3d8",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

@@ -1,0 +1,10 @@
+{
+  "run": "detail_global_mix_seed669",
+  "cohort": "ColonDB",
+  "single_pass_DSC_percent": 72.20666666666664,
+  "accepted_DSC_percent": 72.20505555555557,
+  "difference_pp": 0.0016111111110698555,
+  "largest_case_difference_pp": 2.1199999999999997,
+  "tolerance_pp": 0.25,
+  "passed": true
+}

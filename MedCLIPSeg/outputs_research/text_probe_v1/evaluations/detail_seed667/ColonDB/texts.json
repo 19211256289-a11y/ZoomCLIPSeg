@@ -1,0 +1,10 @@
+{
+  "texts": {
+    "fixed": "a polyp in a colonoscopy image",
+    "empty": "",
+    "wrong_class": "a breast tumor in an ultrasound image",
+    "paraphrase_a": "polyp",
+    "paraphrase_b": "a colorectal polyp seen during endoscopy"
+  },
+  "empty_text": "empty string"
+}

@@ -1,0 +1,23 @@
+{
+  "checks": [
+    {
+      "what": "detail_seed668/CVC300 single pass",
+      "DSC_percent": 79.67633333333335,
+      "accepted_DSC_percent": 79.67633333333335,
+      "difference_pp": -1.1842378929335004e-14,
+      "largest_case_difference_pp": 0.060000000000004494,
+      "tolerance_pp": 0.25,
+      "passed": true
+    },
+    {
+      "what": "detail_seed668/CVC300 accepted two-pass (t15)",
+      "DSC_percent": 82.73016666666669,
+      "accepted_DSC_percent": 82.73033333333336,
+      "difference_pp": -0.00016666666666035704,
+      "largest_case_difference_pp": 0.009999999999998899,
+      "tolerance_pp": 0.25,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

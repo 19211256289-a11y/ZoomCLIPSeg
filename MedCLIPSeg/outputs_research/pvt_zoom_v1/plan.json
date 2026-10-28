@@ -1,0 +1,135 @@
+{
+  "protocol": {
+    "name": "pvt_zoom_v1",
+    "locked_at": "2026-10-06",
+    "purpose": "Evaluation-only. The locked two-pass zoom (SCZ, configuration t15) is applied, unchanged, to the three Polyp-PVT models of polyp_pvt_kvasir_v1. Question: is the scale dependence that SCZ addresses specific to the frozen 224 x 224 vision-language model, or does SCZ also help a dedicated network that was trained end to end at 352 x 352 with multi-scale training? Nothing is trained; the outcome is reported whatever it is and changes neither the method nor the Polyp-PVT reference results.",
+    "locked_before": "This protocol and its code were written after the single-pass results of seed 666 of polyp_pvt_kvasir_v1 had been inspected (a preview at the request of the first author) and before any two-pass result of any Polyp-PVT model existed.",
+    "source_suite": "polyp_pvt_kvasir_v1",
+    "seeds": [
+      666,
+      667,
+      668
+    ],
+    "input_size": 352,
+    "threshold": 0.5,
+    "reproduction_tolerance_pp": 0.05,
+    "procedure": {
+      "first_pass": "the accepted Polyp-PVT inference (352 x 352 input, sum of both outputs, sigmoid)",
+      "localisation": "area fraction and bounding box of the first prediction at threshold 0.5 on the 352 x 352 output grid",
+      "window": "the accepted rule of research_zoom.geometry with the constants below; never zooms out",
+      "second_pass": "the window is cut from the original pixels, resized to 352 x 352 and segmented by the same model",
+      "fusion": "second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty"
+    },
+    "target_fraction": 0.15,
+    "zoom": {
+      "margin": 1.25,
+      "min_window": 0.2,
+      "zoom_in_if_window_at_most": 0.8,
+      "zoom_out_if_fraction_at_least": 0.2,
+      "zoom_out_target_fraction": 0.1,
+      "max_window": 2.0,
+      "fusion": "second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty"
+    },
+    "strata_percent": [
+      1,
+      3,
+      5.9,
+      15
+    ],
+    "reading_rules_fixed_in_advance": {
+      "statistic": "two-pass minus single-pass DSC, percentage points; mean over the three seeds of paired image-level differences; macro mean over the four OOD sets with a bootstrap interval and a sign-flip permutation test; the same for ETIS-Larib",
+      "scz_transfers": "the macro OOD gain is positive, its interval excludes zero and it is positive for each seed",
+      "scz_harms": "the macro OOD gain is negative and its interval excludes zero",
+      "no_effect": "otherwise",
+      "consequence": "scz_transfers: SCZ is reported as a test-time procedure that also helps a dedicated network. no_effect or scz_harms: the manuscript states that the scale dependence addressed by SCZ is specific to the frozen 224 x 224 model and that a network with multi-scale training does not benefit."
+    },
+    "disclosures": [
+      "The five polyp test sets were used in earlier stages of this project.",
+      "ETIS-Larib is evaluated here once for the combination of Polyp-PVT with SCZ; the evaluation of our own method on it stays closed.",
+      "CVC-300 and CVC-ColonDB share 52 exact image hashes.",
+      "No constant of SCZ is adapted to Polyp-PVT; in particular the target fraction is not tuned."
+    ],
+    "statistics": {
+      "permutation_draws": 20000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261011
+    },
+    "small_target_threshold": 0.058989688326573426
+  },
+  "protocol_sha256": "5ec99b275dafd9b79a65ac8488a122916baf75f254731f0651511ff3674828de",
+  "code": {
+    "research_pvt_zoom/__init__.py": "f4691dc32f1e77a610374fbb78bd68d7d20b1402a83551e27ad150876162d052",
+    "research_pvt_zoom/common.py": "67ccf582e075d2a6e8d4102b0bc525ce6f3fe07d8a9289daa4978ea13be1f661",
+    "research_pvt_zoom/evaluate.py": "954867503f24ae176f608f89907ed78b70f9215087f6de9a38675869f8d1dc32",
+    "research_pvt_zoom/report.py": "e3a96abcc6fc85056f9b84c6fbd1aa7f13b32722a71bc9ec7e7663b0495daeba",
+    "research_pvt_zoom/runner.py": "40963991269f66d2628936f6b207067799f702de1be69acb5e89fec743172a7c",
+    "research_zoom/geometry.py": "23c20c342bb6fac71c135d50031db72dedcb926f890cf942f7ed0fa8dee3ed23",
+    "research_formal/metrics.py": "9e1b65b1729baa14be536fa8a9ad2a99992730c0dc80b92467519f24ac734318",
+    "research_polyp_pvt/lib/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "research_polyp_pvt/lib/pvt.py": "2bbfd2d019acddbfcdd4224833d1a511c0a5a3d6b35a0edc095f7dcfee476066",
+    "research_polyp_pvt/lib/pvtv2.py": "e42ed169654ac83d0c07e0d7cbc0b68624c1f6c0de67c796c1f95b2b64569752",
+    "research_polyp_pvt/common.py": "b3c27cad5116890f13f9b740330ec05a756e96f3b6a87f8eb6ac17e0bfea1455",
+    "research_polyp_pvt/data.py": "03b6b28bc600bad1066ce1d7e3c8f6f987091b4d696904e35c7baeb90bc31713",
+    "research_polyp_pvt/evaluate.py": "75e8efbc823c1e5ad3ce39177c87bbb50939260dcd762451764b3b523d8e04f1"
+  },
+  "pvt_plan_digest": "736dbf2be36a193a98c72eb58abe7b37c7bbdd0a6e1e2a11b37f38cdba25ac67",
+  "weights": {
+    "666": "bcf13f4b582b94062dc3b5446f6b80c4b14d9bdc439b93f8f65cef36664604ea",
+    "667": "f52cbea8e6595ec25b10c3b03748157ee67e9f326e2c6d0bbb486f523e6e748e",
+    "668": "143438b6bb69a1593218dd9e3cf89fc4d5026d73d14c8accc687e8a8d6b7afcc"
+  },
+  "accepted_single_pass": {
+    "seed666/Kvasir": "c915642666687b43d0cad13d4be8f3f53fd4d99ff9d9b1517bf2967e2f9b02b7",
+    "seed666/ColonDB": "84c971aad2e65e9b1423a82f7db5c73a908d1b6097bdc0c89723bae4cae6ef25",
+    "seed666/ClinicDB": "a347d248f10ba12ff02a540402bfb7d07cd595aac229d23e8a5af4685c68a2e8",
+    "seed666/CVC300": "8f5d98fd182604a4ed8de7f9d254e5e940ac8a15d4751c1d1dc36ce26d8bdfb0",
+    "seed666/BKAI": "c307014171fc0d5e281e540d36bff5e59f03df584ac0f5b2646a58da601bc91e",
+    "seed666/ETIS": "5cd30dbc2a1b7969d8224a938a1067df4a5c2062e3f532c99fcef9e6244ee483",
+    "seed667/Kvasir": "938cbe1e32f00af19be4f609900491ed339228f598c3337c4e44aff171a8cabc",
+    "seed667/ColonDB": "df7d2c6f7969d4007a45bc748974b089b57ef001c75f3be2be4146e511a0b7dd",
+    "seed667/ClinicDB": "d6c6ecd2b589c6426154b0708a2f38681488a60d16bd10917a4f2f1541d34839",
+    "seed667/CVC300": "d964ae0b1359cc511dd199611118090c4b8f21059ec76bf0776e99389dbd3b2c",
+    "seed667/BKAI": "088ec27aa07f68a6d8cb9d7a7d39e13202884f0e8769f3b846e25a192306d9c8",
+    "seed667/ETIS": "c636fad16531d9b8eb8ef11ba660cb1c8f080c5c1a37f300503348151f055d52",
+    "seed668/Kvasir": "2329499c3fd4dab8e25fe6978d96b2eae885da4d1e3562db98f0b88fbd2b9f97",
+    "seed668/ColonDB": "f35c87ab6d935ef0520820418ff047b996310c2e89a539cdf85a3a63fd4589e6",
+    "seed668/ClinicDB": "1acbb412ba14959aef96bf2087c20706e2b76d8de7bddbc70fd6b195bcba6b01",
+    "seed668/CVC300": "282021771e6da7c64d3775e8729b9c850572bc2dceb287d2abc172df222df893",
+    "seed668/BKAI": "6f3746997fe9f630091ca869ff39d76408b853a997a7c070c9fe2ddefa8bc8af",
+    "seed668/ETIS": "ad1894296a94955e5a1a8a66c00e88a4fc667115f52dde5f993e826bb0c1b775"
+  },
+  "cohorts": {
+    "Kvasir": {
+      "n": 100,
+      "list_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+      "files_digest": "cdce78c1bce73e983e65ed9bd8222b50ac7fe6d0cc09dfa306cb819a2d326c78"
+    },
+    "ColonDB": {
+      "n": 360,
+      "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+      "files_digest": "9ff335e0a7bc989b1a07759410533f00f5157316917fbea7df438de737b7d896"
+    },
+    "ClinicDB": {
+      "n": 61,
+      "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+      "files_digest": "3b4fbf76e51d2b479fea9973bd9ac476006a9e7b16b935e6d95fe2de4c7e74ee"
+    },
+    "CVC300": {
+      "n": 60,
+      "list_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+      "files_digest": "998180409607f38f475a0400a8d3f8084a7c805148d0d2b1921ad2af973d100b"
+    },
+    "BKAI": {
+      "n": 100,
+      "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+      "files_digest": "fb61d517acc1cc17935cd9aadf0e914a33bafd25acc3c0558611a7c1e6d836a5"
+    },
+    "ETIS": {
+      "n": 196,
+      "manifest_sha256": "cd779b682130a142ae3509af5d059c5a3732854e7a7cf541a4a11bdfd8eb498d",
+      "files_digest": "33d39654ae7fe262281f3e2507f85ec78a6e52cdc5887d956e10092c74fef51c"
+    }
+  },
+  "test_list": "Test_text_original.xlsx",
+  "digest": "cf3b9414f22c3a7dfca69e9d166c442555473a64567588e3010a9f7b73b92c21"
+}

@@ -1,0 +1,51 @@
+{
+  "checked_at": "2026-10-03T12:29:07.703085+08:00",
+  "queue": {
+    "jobs": {
+      "train/attribute_seed666": {
+        "status": "running",
+        "started_at": "2026-10-03T04:27:43.422459+00:00"
+      }
+    },
+    "state": "running",
+    "pid": 22996,
+    "plan_digest": "e95fedb1a38c1927b38f50d29652f3581f2eb3f443f616485ec2a0bd652019c5",
+    "error": null,
+    "updated_at": "2026-10-03T04:27:43.441315+00:00",
+    "current_job": "train/attribute_seed666",
+    "child_pid": 21508
+  },
+  "training_status": {
+    "dataset": "Kvasir",
+    "seed": 666,
+    "checkpoint": "E:\\BaiduNetdiskDownload\\paper\\MedCLIPSeg\\outputs_research\\pilot_prompt_kvasir_v1\\attribute_seed666\\Kvasir\\trained_models\\seed666\\MedCLIPSeg_unimedclip_ViT-B-16_latest.pth",
+    "epoch": 1,
+    "step": 24,
+    "phase": "train",
+    "status": "running",
+    "pid": 21040,
+    "updated_at": "2026-10-03T04:29:06.217477+00:00",
+    "variant": "paired_image",
+    "run_id": "attribute_seed666",
+    "total_epochs": 30,
+    "latest_loss": 0.7218188047409058,
+    "gpu_allocated_mib": 1101.8544921875,
+    "remaining_seconds": null,
+    "total_steps": 34,
+    "branch_diagnostics": {
+      "prompt_mode": "attribute",
+      "generic_count": 0,
+      "batch_size": 24,
+      "generic_probability": 0.0,
+      "reflection_draw": "vertical",
+      "supervised_paired_loss": 0.7218188047409058,
+      "first_view_loss": 0.7217180728912354,
+      "second_view_loss": 0.7219195365905762,
+      "forward_backward_passes": 2,
+      "consistency_weight": 0.0,
+      "text_synchronized": false
+    }
+  },
+  "initial_fingerprints_match_check": true,
+  "check_passed": true
+}

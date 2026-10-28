@@ -1,0 +1,16 @@
+{
+  "signature": {
+    "suite": "zoom_busi_v1",
+    "run": "detail_seed668",
+    "cohort": "BUSI",
+    "split": "Test",
+    "checkpoint_sha256": "bc3089d076a35d7d3d6694181ccad6618ba573b29e0f5f38c3f9e9f475547ba5",
+    "plan_digest": "4174ff97dcef5cc1fa6421e634a2e861ef4f6b4060e7021c80afcc7034fb425b",
+    "prompt": "a tumor in a breast ultrasound image"
+  },
+  "complete": true,
+  "n": 234,
+  "cases_sha256": "a286626e35f9130309bae8f6518d4536a83ee4447eb7ee281a10286a0e5df492",
+  "finished_at": "2026-10-05T12:03:55.905049+00:00",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

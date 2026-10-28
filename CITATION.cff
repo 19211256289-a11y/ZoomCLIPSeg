@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this code or these records, please cite the paper below."
+title: "ZoomCLIPSeg"
+type: software
+license: Apache-2.0
+repository-code: "https://github.com/19211256289-a11y/ZoomCLIPSeg"
+authors:
+  - family-names: Liu
+    given-names: Yanan
+    affiliation: "Qilu University of Technology (Shandong Academy of Sciences)"
+  - family-names: Liu
+    given-names: Rensong
+    affiliation: "Qilu University of Technology (Shandong Academy of Sciences)"
+preferred-citation:
+  type: article
+  title: "Vision-Language Medical Image Segmentation Without Mask-Derived Prompts: Where It Fails and a Training-Free Remedy"
+  authors:
+    - family-names: Liu
+      given-names: Yanan
+    - family-names: Liu
+      given-names: Rensong
+  year: 2026
+  notes: "Manuscript under review."

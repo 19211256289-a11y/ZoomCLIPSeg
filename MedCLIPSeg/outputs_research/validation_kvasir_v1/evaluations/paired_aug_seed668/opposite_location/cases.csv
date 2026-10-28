@@ -1,0 +1,301 @@
+﻿name,image_name,mask_file,probability_file,condition,prompt_changed,direction_bearing,original_prompt,input_prompt,original_DSC,aligned_probability_mae,binary_disagreement_fraction,DSC,NSD,gt_pixels,pred_pixels,tp_pixels,fp_pixels,fn_pixels,gt_fraction,foreground_recall,foreground_precision,brier_224,brier_fg_224,brier_bg_224,delta_DSC_pp
+cju13fwthn9mq0835gacxgy01.png,cju13fwthn9mq0835gacxgy01.png,masks/000000.png,probabilities/000000.npz,opposite_location,True,True,"one medium white round polyp, located in top right of the image
+","one medium white round polyp, located in bottom left of the image
+",0.9425,0.005802646744996309,0.0057597257653061226,0.9274,0.9448,45633,44019,41570,2449,4063,0.1384634990760604,0.9109635570749238,0.9443649333242463,0.016847580671310425,0.07985025644302368,0.006709371693432331,-1.5100000000000002
+cju17g6ykn1cs0993dww6qdi8.png,cju17g6ykn1cs0993dww6qdi8.png,masks/000001.png,probabilities/000001.npz,opposite_location,True,True,"two large yellow round polyp, located in top left, center of the image
+","two large yellow round polyp, located in bottom right, center of the image
+",0.7853,0.013161852955818176,0.011997767857142858,0.794,0.8067,96882,110968,82515,28453,14367,0.3139912493923189,0.8517061992939865,0.7435927474587268,0.12437409907579422,0.12353401631116867,0.12475807219743729,0.8700000000000041
+cju1819curo000988pd5xcqme.png,cju1819curo000988pd5xcqme.png,masks/000002.png,probabilities/000002.npz,opposite_location,True,True,"one medium yellow round polyp, located in bottom right of the image
+","one medium yellow round polyp, located in top left of the image
+",0.9736,0.0025345103349536657,0.0027901785714285715,0.9668,0.9838,34083,33101,32477,624,1606,0.10738185255198487,0.9528797347651322,0.9811486057823027,0.007638871204108,0.04777618125081062,0.002812357386574149,-0.6800000000000028
+cju1aqqv02qwz0878a5cyhr67.png,cju1aqqv02qwz0878a5cyhr67.png,masks/000003.png,probabilities/000003.npz,opposite_location,True,True,"one small yellow triangular polyp, located in bottom of the image
+","one small yellow triangular polyp, located in top of the image
+",0.9644,0.0013401331380009651,0.0014947385204081632,0.9601,0.9845,19185,19604,18621,983,564,0.05602735805526514,0.9706020328381548,0.9498571720057131,0.0043568238615989685,0.027867458760738373,0.0029625757597386837,-0.43000000000000815
+cju1ats0y372e08011yazcsxm.png,cju1ats0y372e08011yazcsxm.png,masks/000004.png,probabilities/000004.npz,opposite_location,True,True,"two medium white large polyp, located in top left, top of the image
+","two medium white large polyp, located in bottom right, bottom of the image
+",0.8353,0.006032561883330345,0.006138392857142857,0.8458,0.8598,51281,68260,50551,17709,730,0.15589583637336446,0.9857647081765176,0.7405654849106358,0.05509594827890396,0.02178407832980156,0.06126667931675911,1.0499999999999954
+cju1b75x63ddl0799sdp0i2j3.png,cju1b75x63ddl0799sdp0i2j3.png,masks/000005.png,probabilities/000005.npz,opposite_location,False,False,"one small white oval polyp, located in center of the image
+","one small white oval polyp, located in center of the image
+",0.9396,0.0,0.0,0.9396,0.9638,19559,22036,19542,2494,17,0.06721998831494656,0.9991308349097602,0.886821564712289,0.00791110098361969,0.0020017267670482397,0.008336436934769154,0.0
+cju1c3218411b08014g9f6gig.png,cju1c3218411b08014g9f6gig.png,masks/000006.png,probabilities/000006.npz,opposite_location,True,True,"two medium yellow large polyp, located in top left, top of the image
+","two medium yellow large polyp, located in bottom right, bottom of the image
+",0.9423,0.009982163086533546,0.008689413265306123,0.9337,0.9496,54326,58127,52499,5628,1827,0.1589427611791829,0.9663696940691382,0.9031775250744061,0.01675228960812092,0.024223841726779938,0.015342235565185547,-0.8600000000000052
+cju1csmlc4ht10799b8ymmghg.png,cju1csmlc4ht10799b8ymmghg.png,masks/000007.png,probabilities/000007.npz,opposite_location,False,False,"one medium tan oval polyp, located in center of the image
+","one medium tan oval polyp, located in center of the image
+",0.9698,0.0,0.0,0.9698,0.9853,43713,43191,42141,1050,1572,0.13081771170006465,0.9640381579850388,0.9756893797318886,0.006179374177008867,0.028664708137512207,0.002796314423903823,0.0
+cju1euuc65wm00799m4sjdnnn.png,cju1euuc65wm00799m4sjdnnn.png,masks/000008.png,probabilities/000008.npz,opposite_location,False,False,"one small pink circle polyp, located in center of the image
+","one small pink circle polyp, located in center of the image
+",0.9432,0.0,0.0,0.9432,0.9745,11367,11381,10728,653,639,0.0376266137040715,0.943784639746635,0.9426236710306651,0.002379062119871378,0.030243415385484695,0.0012902006274089217,0.0
+cju1ewnoh5z030855vpex9uzt.png,cju1ewnoh5z030855vpex9uzt.png,masks/000009.png,probabilities/000009.npz,opposite_location,True,True,"one medium white triangular polyp, located in right of the image
+","one medium white triangular polyp, located in left of the image
+",0.7951,0.026102615520358086,0.024872448979591837,0.7509,0.7692,33518,49567,31194,18373,2324,0.10186665369957269,0.9306641207709291,0.6293299977807816,0.05826546251773834,0.05146169289946556,0.0590379498898983,-4.420000000000002
+cju1expq45zst0855rjqwwj4m.png,cju1expq45zst0855rjqwwj4m.png,masks/000010.png,probabilities/000010.npz,opposite_location,True,True,"one medium yellow round polyp, located in right of the image
+","one medium yellow round polyp, located in left of the image
+",0.9726,0.005180853884667158,0.00528140943877551,0.9752,0.9863,92859,90442,89374,1068,3485,0.28221360450768607,0.9624699813696034,0.9881913270383229,0.011412927880883217,0.030903618782758713,0.003749996889382601,0.25999999999999357
+cju1f79yhsb5w0993txub59ol.png,cju1f79yhsb5w0993txub59ol.png,masks/000011.png,probabilities/000011.npz,opposite_location,True,True,"one small white round polyp, located in right of the image
+","one small white round polyp, located in left of the image
+",0.9057,0.0007244208827614784,0.0007573341836734694,0.9294,0.9737,3531,3695,3358,337,173,0.010734349919743178,0.951005380911923,0.9087956698240865,0.0009848728077486157,0.029721390455961227,0.0006693159812130034,2.3700000000000054
+cju1gghyjwxt80835vx0wgxw0.png,cju1gghyjwxt80835vx0wgxw0.png,masks/000012.png,probabilities/000012.npz,opposite_location,False,False,"one medium yellow oval polyp, located in center of the image
+","one medium yellow oval polyp, located in center of the image
+",0.9574,0.0,0.0,0.9574,0.972,68882,71050,66985,4065,1897,0.20968070889990836,0.9724601492407305,0.9427867698803659,0.014702580869197845,0.021323326975107193,0.012947910465300083,0.0
+cju1gi7jlwyld0835cdf6g6qz.png,cju1gi7jlwyld0835cdf6g6qz.png,masks/000013.png,probabilities/000013.npz,opposite_location,False,False,"one small white oval polyp, located in center of the image
+","one small white oval polyp, located in center of the image
+",0.9382,0.0,0.0,0.9382,0.9632,15256,15532,14443,1089,813,0.04720019553305963,0.9467094913476665,0.9298866855524079,0.004603156819939613,0.04303731769323349,0.0026952368207275867,0.0
+cju1h89h6xbnx08352k2790o9.png,cju1h89h6xbnx08352k2790o9.png,masks/000014.png,probabilities/000014.npz,opposite_location,False,False,"one medium tan round polyp, located in center of the image
+","one medium tan round polyp, located in center of the image
+",0.9743,0.0,0.0,0.9743,0.9919,25412,25542,24821,721,591,0.08395942775960617,0.9767432708956398,0.9717719833998903,0.003807917470112443,0.020116178318858147,0.0023130911868065596,0.0
+cju1hirfi7ekp0855q0vgm9qq.png,cju1hirfi7ekp0855q0vgm9qq.png,masks/000015.png,probabilities/000015.npz,opposite_location,False,False,"one small white round polyp, located in center of the image
+","one small white round polyp, located in center of the image
+",0.8739,0.0,0.0,0.8739,0.9033,14945,16955,13939,3016,1006,0.046696558296489554,0.9326865172298427,0.8221173695075199,0.011920031160116196,0.06150856241583824,0.00948016345500946,0.0
+cju2hgsptlfam0835o3b59h1o.png,cju2hgsptlfam0835o3b59h1o.png,masks/000016.png,probabilities/000016.npz,opposite_location,False,False,"one small white circle polyp, located in center of the image
+","one small white circle polyp, located in center of the image
+",0.9348,0.0,0.0,0.9348,0.9759,6908,7262,6623,639,285,0.02468553459119497,0.9587434858135495,0.912007711374277,0.0038933800533413887,0.05370349809527397,0.002636448247358203,0.0
+cju2i03ptvkiu0799xbbd4det.png,cju2i03ptvkiu0799xbbd4det.png,masks/000017.png,probabilities/000017.npz,opposite_location,True,True,"one small white oval polyp, located in right of the image
+","one small white oval polyp, located in left of the image
+",0.9674,0.002074846299365163,0.0021723533163265306,0.9727,0.9924,25626,26044,25129,915,497,0.08089015151515151,0.9806056349020525,0.9648671479035479,0.0034203429240733385,0.01607382297515869,0.002304553287103772,0.5299999999999971
+cju2nguelpmlj0835rojdn097.png,cju2nguelpmlj0835rojdn097.png,masks/000018.png,probabilities/000018.npz,opposite_location,True,True,"one medium white round polyp, located in bottom right of the image
+","one medium white round polyp, located in top left of the image
+",0.9539,0.005214928183704615,0.005141900510204082,0.9536,0.9695,51907,50422,48792,1630,3115,0.16602855050073728,0.9399888261698808,0.9676728412201023,0.011545403860509396,0.047013409435749054,0.004482996184378862,-0.029999999999996696
+cju2okvco06xc0799kxe5n1qh.png,cju2okvco06xc0799kxe5n1qh.png,masks/000019.png,probabilities/000019.npz,opposite_location,False,False,"one large white round polyp, located in center of the image
+","one large white round polyp, located in center of the image
+",0.8825,0.0,0.0,0.8825,0.892,101431,127212,100894,26318,537,0.3316798011837415,0.9947057605662963,0.7931170015407352,0.07695835828781128,0.0034793377853929996,0.11346333473920822,0.0
+cju2p0eveqtdc0835gpi3p93i.png,cju2p0eveqtdc0835gpi3p93i.png,masks/000020.png,probabilities/000020.npz,opposite_location,False,False,"one medium tan oval polyp, located in center of the image
+","one medium tan oval polyp, located in center of the image
+",0.9591,0.0,0.0,0.9591,0.9767,36265,35773,34546,1227,1719,0.11042397447140212,0.9525989245829312,0.9657003885612053,0.007033202797174454,0.03811896592378616,0.003177340142428875,0.0
+cju2qozsk20cq0855ugrg3cri.png,cju2qozsk20cq0855ugrg3cri.png,masks/000021.png,probabilities/000021.npz,opposite_location,True,True,"one medium white round polyp, located in right of the image
+","one medium white round polyp, located in left of the image
+",0.9411,0.01909155212342739,0.017040019132653062,0.8816,0.8964,35953,40414,33661,6753,2292,0.1051884749967817,0.9362501043028398,0.8329044390557727,0.025171898305416107,0.06543157249689102,0.020445171743631363,-5.949999999999999
+cju2qxxko229x08786gvxxhur.png,cju2qxxko229x08786gvxxhur.png,masks/000022.png,probabilities/000022.npz,opposite_location,False,False,"one large brown round polyp, located in center of the image
+","one large brown round polyp, located in center of the image
+",0.8816,0.0,0.0,0.8816,0.9001,92516,90330,80596,9734,11920,0.3606580383595821,0.8711574214189978,0.892239566035647,0.06873361766338348,0.10520654916763306,0.048159606754779816,0.0
+cju2ricdv2iys0878sv1adh0u.png,cju2ricdv2iys0878sv1adh0u.png,masks/000023.png,probabilities/000023.npz,opposite_location,True,True,"two large pink round polyp, located in top left, center of the image
+","two large pink round polyp, located in bottom right, center of the image
+",0.8669,0.010371801443397999,0.009665975765306123,0.8718,0.882,243211,188513,188191,322,55020,0.7449491546189659,0.7737766795087393,0.9982918949886745,0.1553114503622055,0.20795020461082458,0.0015256573678925633,0.49000000000000155
+cju2rlqdnoz9k0993cpjae3x0.png,cju2rlqdnoz9k0993cpjae3x0.png,masks/000024.png,probabilities/000024.npz,opposite_location,True,True,"one medium pink round polyp, located in right of the image
+","one medium pink round polyp, located in left of the image
+",0.9438,0.009239288978278637,0.009526466836734694,0.9531,0.9691,54918,52963,51413,1550,3505,0.17470224461749886,0.9361775738373576,0.9707342861997998,0.012210472486913204,0.05221039801836014,0.0037406282499432564,0.9299999999999975
+cju2rpa30t07b0835im0erql0.png,cju2rpa30t07b0835im0erql0.png,masks/000025.png,probabilities/000025.npz,opposite_location,False,False,"one medium white oval polyp, located in center of the image
+","one medium white oval polyp, located in center of the image
+",0.9692,0.0,0.0,0.9692,0.9855,32930,33950,32411,1539,519,0.1002407848795619,0.9842392954752506,0.9546686303387334,0.0055820755660533905,0.013541296124458313,0.004696072079241276,0.0
+cju2sxf3iqbpv09937iksn8ep.png,cju2sxf3iqbpv09937iksn8ep.png,masks/000026.png,probabilities/000026.npz,opposite_location,False,False,"one medium white round polyp, located in center of the image
+","one medium white round polyp, located in center of the image
+",0.9382,0.0,0.0,0.9382,0.9531,57668,55289,52986,2303,4682,0.17526243169481945,0.9188111257543178,0.9583461448027637,0.01750990003347397,0.0715201273560524,0.006029137410223484,0.0
+cju2t16vuucaq0835xcpsivn2.png,cju2t16vuucaq0835xcpsivn2.png,masks/000027.png,probabilities/000027.npz,opposite_location,True,True,"one small brown circle polyp, located in top of the image
+","one small brown circle polyp, located in bottom of the image
+",0.9646,0.0013296941760927439,0.0011559311224489796,0.9678,0.9878,21928,21625,21076,549,852,0.06639175008023447,0.9611455673112003,0.9746127167630058,0.004368979018181562,0.036513496190309525,0.0020898976363241673,0.31999999999999806
+cju2u73dj53oz0878486k8k4b.png,cju2u73dj53oz0878486k8k4b.png,masks/000028.png,probabilities/000028.npz,opposite_location,False,False,"one medium white circle polyp, located in center of the image
+","one medium white circle polyp, located in center of the image
+",0.9295,0.0,0.0,0.9295,0.9462,38697,43709,38298,5411,399,0.13960158155240335,0.989689123187844,0.876203985449221,0.017573008313775063,0.006424139253795147,0.019376643002033234,0.0
+cju2xd75m82720801q4s4ik3n.png,cju2xd75m82720801q4s4ik3n.png,masks/000029.png,probabilities/000029.npz,opposite_location,False,False,"one medium red round polyp, located in center of the image
+","one medium red round polyp, located in center of the image
+",0.8053,0.0,0.0,0.8053,0.8135,138066,197076,134942,62134,3124,0.11193753952424965,0.9773731403821361,0.6847206153971057,0.04833439737558365,0.01254489365965128,0.05284322053194046,0.0
+cju2y40d8ulqo0993q0adtgtb.png,cju2y40d8ulqo0993q0adtgtb.png,masks/000030.png,probabilities/000030.npz,opposite_location,False,False,"one medium white round polyp, located in center of the image
+","one medium white round polyp, located in center of the image
+",0.9394,0.0,0.0,0.9394,0.9557,43504,43937,41072,2865,2432,0.13328717221263936,0.9440970945200441,0.9347929990668458,0.014892184175550938,0.05213223397731781,0.009166042320430279,0.0
+cju2ycp1u8g2r0799jslnp7cz.png,cju2ycp1u8g2r0799jslnp7cz.png,masks/000031.png,probabilities/000031.npz,opposite_location,True,True,"one medium brown oval polyp, located in right of the image
+","one medium brown oval polyp, located in left of the image
+",0.9131,0.0024569211527705193,0.0024115114795918366,0.9183,0.9397,33409,35787,31772,4015,1637,0.10197267014012887,0.9510012272142238,0.8878084220527007,0.01569974608719349,0.04286857694387436,0.012617080472409725,0.5199999999999982
+cju2yv4imv6cz099314jveiib.png,cju2yv4imv6cz099314jveiib.png,masks/000032.png,probabilities/000032.npz,opposite_location,True,True,"one medium white round polyp, located in bottom right of the image
+","one medium white round polyp, located in top left of the image
+",0.9287,0.01784457638859749,0.01747847576530612,0.8868,0.9047,36147,43346,35246,8100,901,0.11003351506351425,0.9750740033751072,0.8131315461634292,0.02325374074280262,0.016144583001732826,0.024134306237101555,-4.189999999999994
+cju30ia8da2bq0799klnehml2.png,cju30ia8da2bq0799klnehml2.png,masks/000033.png,probabilities/000033.npz,opposite_location,True,True,"two large yellow round polyp, located in top left, center of the image
+","two large yellow round polyp, located in bottom right, center of the image
+",0.8509,0.004495004191994667,0.003966039540816327,0.8488,0.8584,134506,102569,100614,1955,33892,0.4436199089053136,0.7480261103593892,0.9809396601312287,0.11119887232780457,0.23869098722934723,0.00986554380506277,-0.20999999999999908
+cju32qr9tbvsj08013pkpjenq.png,cju32qr9tbvsj08013pkpjenq.png,masks/000034.png,probabilities/000034.npz,opposite_location,False,False,"one small white circle polyp, located in center of the image
+","one small white circle polyp, located in center of the image
+",0.8459,0.0,0.0,0.8459,0.8731,22392,17343,16806,537,5586,0.06668453497721791,0.7505359056806002,0.969036498875627,0.017632177099585533,0.2427693009376526,0.001535845105536282,0.0
+cju32srle1xfq083575i3fl75.png,cju32srle1xfq083575i3fl75.png,masks/000035.png,probabilities/000035.npz,opposite_location,True,True,"one small white oval polyp, located in right of the image
+","one small white oval polyp, located in left of the image
+",0.9345,0.0032603235449641943,0.003208705357142857,0.9521,0.9741,21652,21186,20392,794,1260,0.06323191850990882,0.9418067615000923,0.9625224204663457,0.004825958050787449,0.04784015566110611,0.0019300419371575117,1.759999999999995
+cju3381d8bz3h07991xtl7ra0.png,cju3381d8bz3h07991xtl7ra0.png,masks/000036.png,probabilities/000036.npz,opposite_location,False,False,"one small white round polyp, located in center of the image
+","one small white round polyp, located in center of the image
+",0.9278,0.0,0.0,0.9278,0.9551,15002,15851,14312,1539,690,0.050110897333119554,0.9540061325156646,0.9029083338590626,0.006494429428130388,0.0437963604927063,0.0045219422318041325,0.0
+cju33o12x2jm50988944mxq0v.png,cju33o12x2jm50988944mxq0v.png,masks/000037.png,probabilities/000037.npz,opposite_location,False,False,"one small peach oval polyp, located in center of the image
+","one small peach oval polyp, located in center of the image
+",0.9391,0.0,0.0,0.9391,0.9679,11065,11538,10613,925,452,0.033564885033064366,0.9591504744690466,0.9198301265383949,0.0033581939060240984,0.028416506946086884,0.0024954681284725666,0.0
+cju34o6dbd2lo0855aqlcy1hs.png,cju34o6dbd2lo0855aqlcy1hs.png,masks/000038.png,probabilities/000038.npz,opposite_location,True,True,"two small white round polyp, located in top left, top right of the image
+","two small white round polyp, located in bottom right, bottom left of the image
+",0.9031,0.0026751928962767124,0.002810108418367347,0.9299,0.9562,13779,12251,12102,149,1677,0.046464653277041155,0.8782930546483779,0.9878377275324464,0.006504611577838659,0.12362135946750641,0.0007524791872128844,2.6799999999999935
+cju35ldepdtlm0801yv79y8vu.png,cju35ldepdtlm0801yv79y8vu.png,masks/000039.png,probabilities/000039.npz,opposite_location,True,True,"one small yellow heart polyp, located in top left of the image
+","one small yellow heart polyp, located in bottom right of the image
+",0.9184,0.002438432304188609,0.0024115114795918366,0.9242,0.9514,16859,15164,14798,366,2061,0.04923457020868986,0.877750756272614,0.9758638881561593,0.006184312980622053,0.11079362034797668,0.0007681180723011494,0.5800000000000027
+cju35oyvd3y850988km12hdz1.png,cju35oyvd3y850988km12hdz1.png,masks/000040.png,probabilities/000040.npz,opposite_location,True,True,"one medium white round polyp, located in left of the image
+","one medium white round polyp, located in right of the image
+",0.9294,0.006553028244525194,0.005580357142857143,0.9275,0.9504,26570,24968,23901,1067,2669,0.0889997990219066,0.8995483628152051,0.9572652995834668,0.0116151487454772,0.09472835808992386,0.0034767796751111746,-0.19000000000000128
+cju3tvffffx5f0818t5ov22al.png,cju3tvffffx5f0818t5ov22al.png,masks/000041.png,probabilities/000041.npz,opposite_location,True,True,"one medium yellow round polyp, located in top of the image
+","one medium yellow round polyp, located in bottom of the image
+",0.9646,0.002517905319109559,0.0024713010204081634,0.9636,0.9757,75073,71767,70748,1019,4325,0.22772856882848996,0.9423894076432272,0.985801273565845,0.012353661470115185,0.04562020301818848,0.002545650815591216,-0.10000000000000009
+cju3v72v5h1qz0818fggilwtq.png,cju3v72v5h1qz0818fggilwtq.png,masks/000042.png,probabilities/000042.npz,opposite_location,False,False,"one small pink circle polyp, located in center of the image
+","one small pink circle polyp, located in center of the image
+",0.9686,0.0,0.0,0.9686,0.9941,11753,12081,11543,538,210,0.035719278624353416,0.9821322215604527,0.9554672626438209,0.003008296014741063,0.028245234861969948,0.002071972005069256,0.0
+cju3x5u2tiihx0818914gzxy1.png,cju3x5u2tiihx0818914gzxy1.png,masks/000043.png,probabilities/000043.npz,opposite_location,True,True,"two medium white round polyp, located in top left, bottom of the image
+","two medium white round polyp, located in bottom right, top of the image
+",0.9746,0.0020289327949285507,0.0021125637755102043,0.9753,0.9863,79175,81109,78160,2949,1015,0.24017169204635078,0.9871802968108621,0.9636415194368073,0.00884564034640789,0.0054566701874136925,0.009912658482789993,0.06999999999999229
+cju40w3hbkwpn08015rbs3wko.png,cju40w3hbkwpn08015rbs3wko.png,masks/000044.png,probabilities/000044.npz,opposite_location,True,True,"one small white triangular polyp, located in top right of the image
+","one small white triangular polyp, located in bottom left of the image
+",0.5701,0.06570775806903839,0.06594786352040816,0.4319,0.4552,22284,20962,9339,11623,12945,0.06796223100570926,0.419089929994615,0.44552046560442704,0.06914752721786499,0.5588850378990173,0.033583737909793854,-13.820000000000004
+cju40wto5kxwi0755it190f2k.png,cju40wto5kxwi0755it190f2k.png,masks/000045.png,probabilities/000045.npz,opposite_location,True,True,"one small pink a circle polyp, located in bottom of the image
+","one small pink a circle polyp, located in top of the image
+",0.8724,0.0034898598678410053,0.0033880739795918366,0.8749,0.8906,76003,83731,69876,13855,6127,0.05269350231564935,0.9193847611278502,0.8345296246312597,0.011108692735433578,0.05824756249785423,0.008487608283758163,0.2500000000000058
+cju41nz76lcxu0755cya2qefx.png,cju41nz76lcxu0755cya2qefx.png,masks/000046.png,probabilities/000046.npz,opposite_location,False,False,"one medium white round polyp, located in center of the image
+","one medium white round polyp, located in center of the image
+",0.971,0.0,0.0,0.971,0.9864,55261,55557,53804,1753,1457,0.18346701903029175,0.9736342085738586,0.96844682038267,0.007124192081391811,0.017555546015501022,0.0047796331346035,0.0
+cju426tomlhll0818fc0i7nvh.png,cju426tomlhll0818fc0i7nvh.png,masks/000047.png,probabilities/000047.npz,opposite_location,True,True,"one small brown circle polyp, located in right of the image
+","one small brown circle polyp, located in left of the image
+",0.9393,0.002782904077321291,0.002551020408163265,0.9512,0.9753,18150,18852,17598,1254,552,0.05626022913256956,0.9695867768595041,0.9334818586887333,0.0054473793134093285,0.031240222975611687,0.0039085568860173225,1.1900000000000022
+cju42wamblrqn098798r2yyok.png,cju42wamblrqn098798r2yyok.png,masks/000048.png,probabilities/000048.npz,opposite_location,True,True,"one medium white round polyp, located in bottom right of the image
+","one medium white round polyp, located in top left of the image
+",0.9667,0.014739596284925938,0.01363201530612245,0.9596,0.9705,77413,76630,73912,2718,3501,0.2278950916579086,0.9547750377843515,0.9645308625864544,0.016114378347992897,0.04023129865527153,0.00901765376329422,-0.7099999999999995
+cju439oazm2fu0871ma0vvrft.png,cju439oazm2fu0871ma0vvrft.png,masks/000049.png,probabilities/000049.npz,opposite_location,True,True,"one medium white round polyp, located in right of the image
+","one medium white round polyp, located in left of the image
+",0.8232,0.01823536492884159,0.018016581632653062,0.7792,0.8038,55563,44073,38819,5254,16744,0.16822896797282322,0.6986483811169303,0.8807886914891203,0.06285646557807922,0.2867770493030548,0.017587361857295036,-4.400000000000004
+cju43gfosm63n08714rpih8pe.png,cju43gfosm63n08714rpih8pe.png,masks/000050.png,probabilities/000050.npz,opposite_location,True,True,"one medium yellow round polyp, located in right of the image
+","one medium yellow round polyp, located in left of the image
+",0.9535,0.007634831126779318,0.0078125,0.954,0.9659,87888,94385,86940,7445,948,0.2666019535278772,0.989213544511196,0.921120940827462,0.022573120892047882,0.008843254297971725,0.027563627809286118,0.04999999999999449
+cju43in5fm22c08175rxziqrk.png,cju43in5fm22c08175rxziqrk.png,masks/000051.png,probabilities/000051.npz,opposite_location,True,True,"two medium white round polyp, located in top left, right of the image
+","two medium white round polyp, located in bottom right, left of the image
+",0.9619,0.010883673094213009,0.009486607142857142,0.9651,0.976,93814,91095,89225,1870,4589,0.2873499142367067,0.9510840599484085,0.9794719798013063,0.013383962213993073,0.033104993402957916,0.005469334777444601,0.31999999999999806
+cju45t5ddnbio0987qtqzx762.png,cju45t5ddnbio0987qtqzx762.png,masks/000052.png,probabilities/000052.npz,opposite_location,False,False,"one medium yellow round polyp, located in center of the image
+","one medium yellow round polyp, located in center of the image
+",0.9495,0.0,0.0,0.9495,0.967,39772,41001,38345,2656,1427,0.12142639066984186,0.9641204867746153,0.9352210921684837,0.009641286917030811,0.027978209778666496,0.00710113812237978,0.0
+cju5bdwa3aatx0818b79i18zf.png,cju5bdwa3aatx0818b79i18zf.png,masks/000053.png,probabilities/000053.npz,opposite_location,True,True,"one small white round polyp, located in bottom right of the image
+","one small white round polyp, located in top left of the image
+",0.9691,0.0023810758721083403,0.0021723533163265306,0.9714,0.9909,23663,23532,22922,610,741,0.07178001577382757,0.9686852892701686,0.974077851436342,0.004198495764285326,0.03379093483090401,0.001906414283439517,0.23000000000000798
+cju5bf6hxa6m50817rbwettgu.png,cju5bf6hxa6m50817rbwettgu.png,masks/000054.png,probabilities/000054.npz,opposite_location,True,True,"one medium brown oval polyp, located in right of the image
+","one medium brown oval polyp, located in left of the image
+",0.9619,0.0027693104930222034,0.002650669642857143,0.97,0.9877,28706,29428,28194,1234,512,0.0869136071599421,0.9821640075245593,0.9580671469348919,0.004120150581002235,0.011893014423549175,0.003381388494744897,0.8099999999999996
+cju5bmhdcafs909878qfzrqzi.png,cju5bmhdcafs909878qfzrqzi.png,masks/000055.png,probabilities/000055.npz,opposite_location,True,True,"one medium white round polyp, located in bottom of the image
+","one medium white round polyp, located in top of the image
+",0.9363,0.0037136198952794075,0.003547512755102041,0.932,0.9471,44811,40824,39907,917,4904,0.15128220709771512,0.8905625850795563,0.9775377229080933,0.018642745912075043,0.10461606085300446,0.0033104161266237497,-0.42999999999999705
+cju5c5xc7algd0817pb1ej5yo.png,cju5c5xc7algd0817pb1ej5yo.png,masks/000056.png,probabilities/000056.npz,opposite_location,True,True,"one medium white round polyp, located in right of the image
+","one medium white round polyp, located in left of the image
+",0.9557,0.005836047697812319,0.005859375,0.964,0.9793,48609,48915,47006,1909,1603,0.15369365609348914,0.9670225678372318,0.9609731166308904,0.008497861213982105,0.0248117633163929,0.005533687770366669,0.8299999999999974
+cju5fb86jd1jp0755b1ukbhq5.png,cju5fb86jd1jp0755b1ukbhq5.png,masks/000057.png,probabilities/000057.npz,opposite_location,False,False,"one medium yellow round polyp, located in center of the image
+","one medium yellow round polyp, located in center of the image
+",0.9398,0.0,0.0,0.9398,0.9544,69531,62895,62226,669,7305,0.2928360849056604,0.8949389480950942,0.9893632244216551,0.02874334156513214,0.09051205962896347,0.0031165422406047583,0.0
+cju5ft6mcd5q40987rhjgbrr6.png,cju5ft6mcd5q40987rhjgbrr6.png,masks/000058.png,probabilities/000058.npz,opposite_location,False,False,"one medium white round polyp, located in center of the image
+","one medium white round polyp, located in center of the image
+",0.9626,0.0,0.0,0.9626,0.9784,43833,46024,43247,2777,586,0.1329642662136747,0.9866310770424109,0.9396619155223361,0.008557431399822235,0.01164752896875143,0.008083436638116837,0.0
+cju5gucasds9d0801019axylx.png,cju5gucasds9d0801019axylx.png,masks/000059.png,probabilities/000059.npz,opposite_location,False,False,"one small brown circle polyp, located in center of the image
+","one small brown circle polyp, located in center of the image
+",0.9011,0.0,0.0,0.9011,0.9373,7141,8362,6985,1377,156,0.020892579199288466,0.978154320123232,0.8353264769193973,0.0038116106297820807,0.024779291823506355,0.0033617117442190647,0.0
+cju5h57xedz5h0755mjpc8694.png,cju5h57xedz5h0755mjpc8694.png,masks/000060.png,probabilities/000060.npz,opposite_location,True,True,"two large orange round polyp, located in top left, center of the image
+","two large orange round polyp, located in bottom right, center of the image
+",0.965,0.0038079682271927595,0.00412547831632653,0.9688,0.9795,125286,122212,119889,2323,5397,0.3814856767027185,0.9569225611800201,0.9809920466075345,0.015272407792508602,0.030927762389183044,0.005586673505604267,0.38000000000000256
+cju5nyu31gv8e0871zpk74a2n.png,cju5nyu31gv8e0871zpk74a2n.png,masks/000061.png,probabilities/000061.npz,opposite_location,True,True,"one small yellow round polyp, located in right of the image
+","one small yellow round polyp, located in left of the image
+",0.9435,0.0021592136472463608,0.002232142857142857,0.9556,0.9855,15840,14910,14693,217,1147,0.04860923575479341,0.9275883838383838,0.9854460093896713,0.0029714645352214575,0.05371497571468353,0.00038555721403099597,1.21
+cju5u8gz4kj5b07552e2wpkwp.png,cju5u8gz4kj5b07552e2wpkwp.png,masks/000062.png,probabilities/000062.npz,opposite_location,True,True,"one medium red round polyp, located in right of the image
+","one medium red round polyp, located in left of the image
+",0.9122,0.0654953122138977,0.06752232142857142,0.9224,0.9377,79136,83807,75149,8658,3987,0.2610017776986224,0.9496183784876668,0.896691207178398,0.03780577704310417,0.041916731745004654,0.03635416179895401,1.0199999999999987
+cju5vi4nxlc530817uoqm2m7a.png,cju5vi4nxlc530817uoqm2m7a.png,masks/000063.png,probabilities/000063.npz,opposite_location,True,True,"one medium yellow round polyp, located in right of the image
+","one medium yellow round polyp, located in left of the image
+",0.9821,0.0049427589401602745,0.005141900510204082,0.9841,0.9959,74552,74391,73291,1100,1261,0.2272441856920779,0.9830856315055263,0.9852132650455028,0.005872758105397224,0.014195657335221767,0.0034211324527859688,0.20000000000000018
+cju5wi6bqlxy90755bu227nvb.png,cju5wi6bqlxy90755bu227nvb.png,masks/000064.png,probabilities/000064.npz,opposite_location,False,False,"one medium pink oval polyp, located in center of the image
+","one medium pink oval polyp, located in center of the image
+",0.9582,0.0,0.0,0.9582,0.9777,29375,29297,28109,1188,1266,0.08910695868470546,0.9569021276595745,0.9594497730143018,0.004654115065932274,0.027954986318945885,0.0023758732713758945,0.0
+cju5wrapcm2290818jsh26ppb.png,cju5wrapcm2290818jsh26ppb.png,masks/000065.png,probabilities/000065.npz,opposite_location,True,True,"one medium white triangular polyp, located in right of the image
+","one medium white triangular polyp, located in left of the image
+",0.7601,0.032253190875053406,0.03170838647959184,0.8504,0.8671,32114,40907,31049,9858,1065,0.09778451719770048,0.9668368935666688,0.7590143496223141,0.03056415729224682,0.03565504774451256,0.030013322830200195,9.030000000000005
+cju5y84q3mdv50817eyp82xf3.png,cju5y84q3mdv50817eyp82xf3.png,masks/000066.png,probabilities/000066.npz,opposite_location,True,True,"one small yellow oval polyp, located in right of the image
+","one small yellow oval polyp, located in left of the image
+",0.966,0.001763231703080237,0.0018136160714285715,0.9622,0.989,11354,11242,10871,371,483,0.035061606398418925,0.9574599260172626,0.9669987546699875,0.0026138974353671074,0.03930296376347542,0.001281761098653078,-0.37999999999999146
+cju6ur9l9v9jq0755paud9uka.png,cju6ur9l9v9jq0755paud9uka.png,masks/000067.png,probabilities/000067.npz,opposite_location,False,False,"one small white round polyp, located in center of the image
+","one small white round polyp, located in center of the image
+",0.8916,0.0,0.0,0.8916,0.9246,8853,9656,8251,1405,602,0.029831282917016266,0.9320004518242404,0.8544946147473074,0.007343699224293232,0.07865694910287857,0.005167246330529451,0.0
+cju6us80mv1b50871ebyq2wxa.png,cju6us80mv1b50871ebyq2wxa.png,masks/000068.png,probabilities/000068.npz,opposite_location,True,True,"one small white circle polyp, located in right of the image
+","one small white circle polyp, located in left of the image
+",0.8909,0.0011427151039242744,0.0012755102040816326,0.8346,0.8947,3869,2848,2803,45,1066,0.01298932384341637,0.7244766089428794,0.9841994382022472,0.003839990356937051,0.2686099708080292,0.0003812854702118784,-5.630000000000002
+cju6ywm40wdbo0987pbftsvtg.png,cju6ywm40wdbo0987pbftsvtg.png,masks/000069.png,probabilities/000069.npz,opposite_location,True,True,"one medium red round polyp, located in right of the image
+","one medium red round polyp, located in left of the image
+",0.9723,0.0031386183109134436,0.003208705357142857,0.9764,0.9915,48280,47456,46738,718,1542,0.14700867192828607,0.9680613090306545,0.9848701955495617,0.00481725949794054,0.02324264496564865,0.0016413888661190867,0.40999999999999925
+cju76o55nymqd0871h31sph9w.png,cju76o55nymqd0871h31sph9w.png,masks/000070.png,probabilities/000070.npz,opposite_location,True,True,"one small brown round polyp, located in top of the image
+","one small brown round polyp, located in bottom of the image
+",0.5101,0.044071462005376816,0.04416454081632653,0.1838,0.2037,2065,17296,1779,15517,286,0.0065059861373660995,0.8615012106537531,0.10285615171137835,0.04536807909607887,0.06390997767448425,0.04524756968021393,-32.63
+cju773hsyyosz0817pk1e7sjq.png,cju773hsyyosz0817pk1e7sjq.png,masks/000071.png,probabilities/000071.npz,opposite_location,True,True,"one medium pink round polyp, located in right of the image
+","one medium pink round polyp, located in left of the image
+",0.9734,0.003407962154597044,0.0034877232142857145,0.9798,0.9946,35500,36010,35032,978,468,0.10838370885998656,0.9868169014084507,0.9728408775340184,0.0045667472295463085,0.01500763837248087,0.0032984197605401278,0.6399999999999961
+cju7b5afm1nfw0801xqm8bf8q.png,cju7b5afm1nfw0801xqm8bf8q.png,masks/000072.png,probabilities/000072.npz,opposite_location,True,True,"one small white round polyp, located in top of the image
+","one small white round polyp, located in bottom of the image
+",0.9362,0.0016752902884036303,0.001833545918367347,0.942,0.9656,18001,17104,16535,569,1466,0.056594638270312414,0.9185600799955558,0.9667329279700655,0.005238081328570843,0.07009683549404144,0.0013409650418907404,0.5799999999999916
+cju7b9vcs1luz0987ta60j1dy.png,cju7b9vcs1luz0987ta60j1dy.png,masks/000073.png,probabilities/000073.npz,opposite_location,True,True,"one medium white oval polyp, located in right of the image
+","one medium white oval polyp, located in left of the image
+",0.9195,0.002819084795191884,0.0026705994897959183,0.9223,0.9427,44794,39049,38666,383,6128,0.13081519294905117,0.8631959637451444,0.9901918102896361,0.01762944646179676,0.12548726797103882,0.0013816425343975425,0.28000000000000247
+cju7bfx651qr80801cs7epotb.png,cju7bfx651qr80801cs7epotb.png,masks/000074.png,probabilities/000074.npz,opposite_location,True,True,"one medium white round polyp, located in bottom of the image
+","one medium white round polyp, located in top of the image
+",0.9762,0.001306510646827519,0.0011957908163265306,0.9756,0.9888,60381,60441,58936,1505,1445,0.1838552323881906,0.9760686308607012,0.975099683989345,0.007780132815241814,0.020002475008368492,0.005023523233830929,-0.05999999999999339
+cju7dda8w2br20818zhsuz8s7.png,cju7dda8w2br20818zhsuz8s7.png,masks/000075.png,probabilities/000075.npz,opposite_location,False,False,"one large yellow round polyp, located in center of the image
+","one large yellow round polyp, located in center of the image
+",0.9836,0.0,0.0,0.9836,0.9939,109820,111058,108632,2426,1188,0.36738926803158034,0.9891822983063194,0.9781555583568946,0.0068456982262432575,0.005195922683924437,0.007805275730788708,0.0
+cju7dff9529h208503w60lbil.png,cju7dff9529h208503w60lbil.png,masks/000076.png,probabilities/000076.npz,opposite_location,False,False,"one large white round polyp, located in center of the image
+","one large white round polyp, located in center of the image
+",0.9032,0.0,0.0,0.9032,0.914,167981,141032,139549,1483,28432,0.5120279208705459,0.8307427625743388,0.9894846559646038,0.08391335606575012,0.15841330587863922,0.005587897263467312,0.0
+cju7dmlgf2ebw0871ieqas5fh.png,cju7dmlgf2ebw0871ieqas5fh.png,masks/000077.png,probabilities/000077.npz,opposite_location,True,True,"three small white round polyp, located in top left, right, center of the image
+","three small white round polyp, located in bottom right, left, center of the image
+",0.7931,0.002299670595675707,0.002232142857142857,0.8023,0.8303,28020,19843,19201,642,8819,0.08711819719430902,0.6852605281941471,0.9676460212669455,0.026940757408738136,0.2957221567630768,0.0013305131578817964,0.9199999999999986
+cju7druhp2gp308715i6km7be.png,cju7druhp2gp308715i6km7be.png,masks/000078.png,probabilities/000078.npz,opposite_location,False,False,"one large yellow round polyp, located in center of the image
+","one large yellow round polyp, located in center of the image
+",0.8233,0.0,0.0,0.8233,0.8423,110124,118474,94107,24367,16017,0.32219218481199313,0.8545548654244306,0.7943261812718402,0.10229182988405228,0.12173681706190109,0.09306251257658005,0.0
+cju7dxffn2eam0817qxosfwch.png,cju7dxffn2eam0817qxosfwch.png,masks/000079.png,probabilities/000079.npz,opposite_location,True,True,"one medium yellow round polyp, located in right of the image
+","one medium yellow round polyp, located in left of the image
+",0.6844,0.01335208397358656,0.01305404974489796,0.6619,0.6734,59589,34986,31298,3688,28291,0.17434083488396587,0.525231166826092,0.8945864059909678,0.08864594250917435,0.46763908863067627,0.008650402538478374,-2.2499999999999964
+cju7ea4om2l910801bohqjccy.png,cju7ea4om2l910801bohqjccy.png,masks/000080.png,probabilities/000080.npz,opposite_location,True,True,"one small white oval polyp, located in right of the image
+","one small white oval polyp, located in left of the image
+",0.9668,0.0018674279563128948,0.0018534757653061226,0.9713,0.9901,19249,19461,18799,662,450,0.056317218457793534,0.9766221621902437,0.9659832485483788,0.0028382297605276108,0.020140986889600754,0.0018074815161526203,0.45000000000000595
+cju7ecl9i2i060987xawjp4l0.png,cju7ecl9i2i060987xawjp4l0.png,masks/000081.png,probabilities/000081.npz,opposite_location,True,True,"one medium white round polyp, located in bottom of the image
+","one medium white round polyp, located in top of the image
+",0.899,0.0050201197154819965,0.005221619897959184,0.9037,0.9211,77510,64309,64081,228,13429,0.23556549699426813,0.8267449361372726,0.9964546175496432,0.036333732306957245,0.1530643105506897,0.0003972044214606285,0.46999999999999265
+cju7er4kc2opa0801anuxc0eb.png,cju7er4kc2opa0801anuxc0eb.png,masks/000082.png,probabilities/000082.npz,opposite_location,False,False,"one medium brown round polyp, located in center of the image
+","one medium brown round polyp, located in center of the image
+",0.9561,0.0,0.0,0.9561,0.9712,56838,57048,54441,2607,2397,0.1730670856474715,0.9578275097645941,0.9543016407236011,0.01297976914793253,0.03504389524459839,0.00835481844842434,0.0
+cju7et17a2vjk0755e743npl1.png,cju7et17a2vjk0755e743npl1.png,masks/000083.png,probabilities/000083.npz,opposite_location,True,True,"two small white round polyp, located in top right, bottom of the image
+","two small white round polyp, located in bottom left, top of the image
+",0.8964,0.0017782272771000862,0.0015146683673469387,0.8962,0.9449,13853,12443,11783,660,2070,0.040530023756860815,0.8505738829134484,0.9469581290685526,0.005888291634619236,0.1179516613483429,0.0011705933138728142,-0.019999999999997797
+cju7ev2b12owa08500bpfpwyw.png,cju7ev2b12owa08500bpfpwyw.png,masks/000084.png,probabilities/000084.npz,opposite_location,True,True,"two medium white triangular polyp, located in top left, bottom left of the image
+","two medium white triangular polyp, located in bottom right, top right of the image
+",0.9603,0.007310122717171907,0.0074936224489795915,0.946,0.9618,63166,63721,60016,3705,3150,0.1916095370988291,0.9501313998036919,0.9418559030774784,0.016172047704458237,0.03915347903966904,0.010726393200457096,-1.430000000000009
+cju7f6cqy2ur20818t1saazbm.png,cju7f6cqy2ur20818t1saazbm.png,masks/000085.png,probabilities/000085.npz,opposite_location,True,True,"one medium white round polyp, located in right of the image
+","one medium white round polyp, located in left of the image
+",0.9189,0.008302640169858932,0.00821109693877551,0.9189,0.937,43453,42872,39663,3209,3790,0.12713138831349693,0.9127793247877016,0.9251492815823847,0.019884204491972923,0.08802106976509094,0.0099476408213377,0.0
+cju7fcgbe2z3p07550vaflqdb.png,cju7fcgbe2z3p07550vaflqdb.png,masks/000086.png,probabilities/000086.npz,opposite_location,True,True,"one medium pink round polyp, located in right of the image
+","one medium pink round polyp, located in left of the image
+",0.956,0.003263429505750537,0.0033880739795918366,0.9689,0.9862,31276,31716,30518,1198,758,0.09517954960438223,0.9757641642153728,0.9622272669945768,0.003959453199058771,0.015284430235624313,0.002769187791272998,1.2900000000000023
+cju846ec0kj7z08012o10klrb.png,cju846ec0kj7z08012o10klrb.png,masks/000087.png,probabilities/000087.npz,opposite_location,True,True,"one medium white triangular polyp, located in top right of the image
+","one medium white triangular polyp, located in bottom left of the image
+",0.9711,0.002363605657592416,0.0021125637755102043,0.9681,0.9866,32180,31533,30841,692,1339,0.09856652781181083,0.9583903045369795,0.9780547363079948,0.00521265110000968,0.033892106264829636,0.002080006990581751,-0.30000000000000027
+cju85hguellg50818kwu3s8d1.png,cju85hguellg50818kwu3s8d1.png,masks/000088.png,probabilities/000088.npz,opposite_location,True,True,"two large white round polyp, located in top left, right of the image
+","two large white round polyp, located in bottom right, left of the image
+",0.9163,0.23527181148529053,0.24424027423469388,0.7105,0.7176,131265,213834,122592,91242,8673,0.39969124524992694,0.9339275511370129,0.5733045259406829,0.28613126277923584,0.05407455936074257,0.44030460715293884,-20.58
+cju85l4yjlops0801fvmnwptf.png,cju85l4yjlops0801fvmnwptf.png,masks/000089.png,probabilities/000089.npz,opposite_location,True,True,"two large white round polyp, located in top left, center of the image
+","two large white round polyp, located in bottom right, center of the image
+",0.9046,0.004112252965569496,0.003547512755102041,0.9033,0.9151,106009,119607,101895,17712,4114,0.3502461426636271,0.9611919742663358,0.8519150216960546,0.06296813488006592,0.029550766572356224,0.08099743723869324,-0.12999999999999678
+cju87li0zn3yb0817kbwgjiz8.png,cju87li0zn3yb0817kbwgjiz8.png,masks/000090.png,probabilities/000090.npz,opposite_location,True,True,"two large white round polyp, located in top left, right of the image
+","two large white round polyp, located in bottom right, left of the image
+",0.8269,0.13552597165107727,0.13855229591836735,0.8789,0.8959,159714,142250,132703,9547,27011,0.6329367752776038,0.8308789461161826,0.9328857644991213,0.12473390251398087,0.14216524362564087,0.09455568343400955,5.200000000000005
+cju87tyddnnad0755bj0wxahe.png,cju87tyddnnad0755bj0wxahe.png,masks/000091.png,probabilities/000091.npz,opposite_location,True,True,"one large red round polyp, located in right of the image
+","one large red round polyp, located in left of the image
+",0.9696,0.014031906612217426,0.0146484375,0.983,0.9921,118655,118242,116431,1811,2224,0.45145666160630377,0.9812565842147403,0.9846839532484227,0.012904207222163677,0.015352918766438961,0.010891860350966454,1.3399999999999967
+cju87vqa0ndwg0850onjdz7ol.png,cju87vqa0ndwg0850onjdz7ol.png,masks/000092.png,probabilities/000092.npz,opposite_location,True,True,"two large white round polyp, located in top left, top left of the image
+","two large white round polyp, located in bottom right, bottom right of the image
+",0.8087,0.047699879854917526,0.04593829719387755,0.8472,0.8611,198413,147789,146647,1142,51766,0.6733168182435184,0.73909975656837,0.9922727672560204,0.16472283005714417,0.23955288529396057,0.010133801028132439,3.849999999999998
+cju893jmdompz0817xn3g1w4h.png,cju893jmdompz0817xn3g1w4h.png,masks/000093.png,probabilities/000093.npz,opposite_location,False,False,"one medium white round polyp, located in center of the image
+","one medium white round polyp, located in center of the image
+",0.9624,0.0,0.0,0.9624,0.9785,55230,51709,51457,252,3773,0.16129220669232702,0.9316856780735108,0.9951265737105727,0.011109716258943081,0.06330202519893646,0.0010711117647588253,0.0
+cju89z6pqpqfx0817mfv8ixjc.png,cju89z6pqpqfx0817mfv8ixjc.png,masks/000094.png,probabilities/000094.npz,opposite_location,True,True,"one small brown triangular polyp, located in top right of the image
+","one small brown triangular polyp, located in bottom left of the image
+",0.0036,0.01005606073886156,0.00958625637755102,0.0,0.0,4905,8733,0,8733,4905,0.01485094555561611,0.0,0.0,0.03931749239563942,0.9976508021354675,0.024736179038882256,-0.36
+cju8b2rmgr52s0801p54eyflx.png,cju8b2rmgr52s0801p54eyflx.png,masks/000095.png,probabilities/000095.npz,opposite_location,False,False,"one medium white it is a triangular shape polyp, located in center of the image
+","one medium white it is a triangular shape polyp, located in center of the image
+",0.6341,0.0,0.0,0.6341,0.651,51790,24357,24141,216,27649,0.1664684516730417,0.4661324580034756,0.9911319127971425,0.08734945207834244,0.5214946269989014,0.000703087542206049,0.0
+cju8b6rp0r5st0850184f79xt.png,cju8b6rp0r5st0850184f79xt.png,masks/000096.png,probabilities/000096.npz,opposite_location,True,True,"one medium white round polyp, located in right of the image
+","one medium white round polyp, located in left of the image
+",0.8736,0.10312823206186295,0.10471141581632654,0.6573,0.6786,93948,76282,55948,20334,38000,0.2748657093705017,0.5955209264699621,0.733436459453082,0.15758763253688812,0.3652757704257965,0.07900136709213257,-21.630000000000006
+cju8c82iosagu0817l74s4m5g.png,cju8c82iosagu0817l74s4m5g.png,masks/000097.png,probabilities/000097.npz,opposite_location,False,False,"one large white round polyp, located in center of the image
+","one large white round polyp, located in center of the image
+",0.8897,0.0,0.0,0.8897,0.8998,124469,153969,123858,30111,611,0.3634959202387697,0.9950911471932771,0.8044346589248486,0.08365379273891449,0.004904871806502342,0.128673255443573,0.0
+cju8chxndsre008015uisl4si.png,cju8chxndsre008015uisl4si.png,masks/000098.png,probabilities/000098.npz,opposite_location,True,True,"one small brown circle polyp, located in top right of the image
+","one small brown circle polyp, located in bottom left of the image
+",0.9471,0.0014881954994052649,0.0015545280612244898,0.9476,0.9784,9691,9611,9145,466,546,0.036076986076986076,0.9436590651119595,0.9515138903339923,0.0031120507046580315,0.04451264441013336,0.0015636049211025238,0.04999999999999449
+cju8dk7eztzup08182yxko5zh.png,cju8dk7eztzup08182yxko5zh.png,masks/000099.png,probabilities/000099.npz,opposite_location,True,True,"one small yellow round polyp, located in top of the image
+","one small yellow round polyp, located in bottom of the image
+",0.9628,0.000931977410800755,0.0009367028061224489,0.9623,0.987,18027,16857,16785,72,1242,0.05480264117904567,0.9311033449825262,0.99572877736252,0.003920104820281267,0.06330683827400208,0.0004765608755405992,-0.04999999999999449

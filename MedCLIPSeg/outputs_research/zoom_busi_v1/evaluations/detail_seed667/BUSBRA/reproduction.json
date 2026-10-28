@@ -1,0 +1,10 @@
+{
+  "run": "detail_seed667",
+  "cohort": "BUSBRA",
+  "single_pass_DSC_percent": 69.56578014184396,
+  "accepted_DSC_percent": 69.56570921985814,
+  "difference_pp": 7.092198582803582e-05,
+  "largest_case_difference_pp": 0.039999999999995595,
+  "tolerance_pp": 0.1,
+  "passed": true
+}

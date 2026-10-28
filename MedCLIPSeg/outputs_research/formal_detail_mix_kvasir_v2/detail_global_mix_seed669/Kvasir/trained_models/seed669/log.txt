@@ -1,0 +1,370 @@
+************
+** Config **
+************
+DATASET:
+  DETAIL_SIZE: 448
+  NAME: Kvasir
+  SIZE: 224
+  TEST_PATH: /root/autodl-tmp/medclipseg-paper/MedCLIPSeg/data/Kvasir/Test_Folder/
+  TEXT_PROMPT_PATH: /root/autodl-tmp/medclipseg-paper/MedCLIPSeg/data/Kvasir/Prompts_Folder/
+  TRAIN_PATH: /root/autodl-tmp/medclipseg-paper/MedCLIPSeg/data/Kvasir/Train_Folder/
+  VAL_PATH: /root/autodl-tmp/medclipseg-paper/MedCLIPSeg/data/Kvasir/Val_Folder/
+MODEL:
+  ADAPTER_DIM: 256
+  BACKBONE: ViT-B/16
+  BETA: 2.35
+  CLIP_MODEL: unimedclip
+  DEVICE: cuda
+  GATE_INIT: 0.0
+  GRAD_CHECKPOINTING: True
+  LAYERS: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  NUM_UPSCALE: 2
+  TEMPERATURE: 0.2
+  VARIANT: paired_image
+RESEARCH:
+  BASE_WEIGHTS: /root/autodl-tmp/medclipseg-paper/MedCLIPSeg/checkpoints/unimed_clip_vit_b16.pt
+  DETAIL_CHECKPOINTING: True
+  DETAIL_INITIALIZATION_SEED: 1117
+  GENERIC_PROBABILITY: 1.0
+  GENERIC_PROMPT: a polyp in a colonoscopy image
+  INITIALIZATION: unimedclip_base_fresh_adapters_and_head_per_seed
+  INITIALIZATION_SEED: 669
+  PARENT_ACCEPTANCE_SHA256: 9b0d045e3fb6fffdf60bd080b6a65b50799148cbe34a785d3100bcf1b12efd00
+  PROMPT_MODE: generic
+  PROTOCOL_SHA256: b62a8a11849a922ca1f369f8e8b26832021147d5541a1c707e9358e8d819c9b9
+  QUERY_MODE: detail_global_mix
+  RUN_ID: detail_global_mix_seed669
+  SUITE: formal_detail_mix_kvasir_v2
+  VALIDATION_PROMPT: generic
+TEST:
+  NUM_SAMPLES: 30
+  USE_LATEST: True
+TRAIN:
+  AUX_WEIGHT: 0.0
+  BATCH_SIZE: 24
+  BETA_WEIGHT: 0.001
+  CE_WEIGHT: 0.5
+  CLIP_WEIGHT: 0.1
+  CONSISTENCY_WEIGHT: 0.0
+  DICE_MODE: image
+  DICE_WEIGHT: 0.5
+  HARD_BG_FRACTION: 0.1
+  LEARNING_RATE: 0.0003
+  MIN_LEARNING_RATE: 0.0001
+  NEW_LEARNING_RATE: 0.0003
+  NUM_EPOCHS: 100
+config_file: /root/autodl-tmp/medclipseg-paper/MedCLIPSeg/outputs_research/formal_detail_mix_kvasir_v2/configs/detail_global_mix_seed669.yaml
+control_dir: /root/autodl-tmp/medclipseg-paper/control/research_detail_ext
+data_percentage: 100
+gradient_checkpointing: True
+init_from: None
+num_workers: 0
+opts: []
+output_dir: /root/autodl-tmp/medclipseg-paper/MedCLIPSeg/outputs_research/formal_detail_mix_kvasir_v2/detail_global_mix_seed669
+resume: False
+seed: 669
+Setting fixed seed: 669
+Loading ViT-B-16-quickgelu model config.
+FROM_BASE_INITIALIZATION: {"frozen": "a247070c83f2dac9030e98595c097d71deeba691b18066199ae4b8547b4a6932", "trainable": "6d71b6bd08a8a0b6c2fc55bb3c147a8fff174623d1ea4b39c39c6319bbc22f93"}
+Parameters to be updated: {'pvl_adapters.5.proj_txt_up.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.gate', 'spatial_query.router.0.weight', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.k_proj.bias', 'detail_decoder.fuse224.1.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.out_proj.bias', 'mask_head.4.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.0.proj_txt_up.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.0.proj_vis_up.weight', 'detail_decoder.project.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.8.proj_txt_up.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.gate', 'spatial_query.router.5.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.k_proj.weight', 'mask_head.0.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.2.proj_txt_up.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.out_proj.weight', 'detail_encoder.stages.1.0.1.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.9.proj_txt_down.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.3.proj_txt_up.weight', 'spatial_query.experts.1.bias', 'pvl_adapters.4.proj_txt_up.weight', 'detail_encoder.stages.0.1.0.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.0.proj_txt_down.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.norm_k.weight', 'detail_decoder.fuse112.0.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.v_proj.weight', 'detail_encoder.stages.1.1.0.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.1.proj_vis_down.0.weight', 'pvl_adapters.8.proj_vis_up.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.q_proj.weight', 'detail_decoder.fuse112.0.bias', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.out_proj.bias', 'spatial_query.router.1.bias', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.norm_v.bias', 'detail_encoder.stages.0.1.1.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.norm_v.weight', 'detail_encoder.stages.2.0.0.bias', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.norm_v.weight', 'detail_encoder.stages.2.1.1.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.out_proj.weight', 'detail_encoder.stages.1.0.0.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.norm_v.weight', 'detail_decoder.out.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.norm_v.bias', 'detail_encoder.stages.2.0.1.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.norm_v.weight', 'detail_encoder.stages.1.1.1.weight', 'pvl_adapters.7.proj_vis_down.0.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.9.proj_vis_up.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.gate', 'detail_decoder.fuse224.1.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.norm_k.weight', 'upscale.0.norm.bias', 'spatial_query.experts.1.weight', 'mask_head.2.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.out_proj.bias', 'spatial_query.router.3.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.q_proj.bias', 'upscale.1.norm.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.5.proj_vis_down.0.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.k_proj.bias', 'upscale.1.conv1.weight', 'pvl_adapters.4.proj_txt_down.weight', 'detail_decoder.fuse112.1.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.7.proj_vis_up.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.q_proj.bias', 'upscale.0.norm.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.6.proj_vis_up.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.7.proj_txt_up.weight', 'pvl_adapters.2.proj_txt_down.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.v_proj.bias', 'detail_decoder.fuse56.1.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.v_proj.weight', 'detail_encoder.stages.1.1.0.weight', 'detail_decoder.fuse224.0.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.norm_k.weight', 'spatial_query.router.5.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.3.proj_txt_down.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.4.proj_vis_down.0.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.norm_k.bias', 'detail_decoder.out.weight', 'detail_encoder.stages.0.0.1.weight', 'pvl_adapters.6.proj_txt_down.weight', 'upscale.0.conv1.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.q_proj.bias', 'detail_encoder.stages.1.0.0.weight', 'pvl_adapters.5.proj_vis_up.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.6.proj_vis_down.0.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.v_proj.weight', 'detail_encoder.stages.0.1.1.bias', 'detail_encoder.stages.1.0.1.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.5.proj_txt_down.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.2.proj_vis_down.0.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.9.proj_vis_down.0.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.8.proj_vis_down.0.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.v_proj.weight', 'mask_head.4.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.k_proj.weight', 'detail_decoder.fuse56.0.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.norm_v.weight', 'mask_head.0.weight', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.k_proj.weight', 'detail_encoder.stages.2.0.1.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.out_proj.weight', 'upscale.1.conv2.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.norm_k.weight', 'upscale.0.conv2.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.7.proj_txt_down.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.norm_k.bias', 'upscale.1.conv1.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.gate', 'detail_decoder.fuse112.1.bias', 'pvl_adapters.1.proj_vis_up.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.out_proj.weight', 'mask_head.2.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.k_proj.weight', 'detail_encoder.stages.0.0.0.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.v_proj.bias', 'detail_encoder.stages.0.0.1.bias', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.1.proj_txt_up.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.v_proj.bias', 'detail_encoder.stages.1.1.1.bias', 'detail_encoder.stages.2.1.0.bias', 'pvl_adapters.1.proj_txt_down.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.out_proj.bias', 'detail_encoder.stages.0.1.0.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.out_proj.bias', 'spatial_query.router.1.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.norm_v.bias', 'spatial_query.experts.0.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.2.proj_vis_up.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.4.proj_vis_up.weight', 'detail_decoder.fuse224.0.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.out_proj.weight', 'detail_encoder.stages.2.1.0.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.9.proj_txt_up.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.v_proj.bias', 'spatial_query.experts.3.weight', 'spatial_query.router.0.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.3.proj_vis_down.0.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.3.proj_vis_up.weight', 'pvl_adapters.0.proj_vis_down.0.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.6.proj_txt_up.weight', 'detail_decoder.fuse56.0.bias', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.norm_v.weight', 'spatial_query.experts.3.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.q_proj.weight', 'detail_encoder.stages.2.1.1.bias', 'upscale.0.conv1.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.q_proj.bias', 'spatial_query.router.3.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.q_proj.bias', 'detail_encoder.stages.2.0.0.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.norm_v.bias', 'detail_encoder.stages.0.0.0.weight', 'detail_decoder.project.weight', 'spatial_query.experts.0.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.8.proj_txt_down.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.out_proj.bias', 'detail_decoder.fuse56.1.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.norm_v.bias', 'upscale.1.norm.weight'}
+Number of trainable parameters: 19075177
+EPOCH: 1 | Training Loss: 0.7945 | Validation Loss: 0.2585
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.5560520887374878, "first_view_loss": 0.5601833462715149, "second_view_loss": 0.5519208908081055, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.0000 -> 0.7532
+EPOCH: 2 | Training Loss: 0.5584 | Validation Loss: 0.3000
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.36130648851394653, "first_view_loss": 0.36021164059638977, "second_view_loss": 0.3624013662338257, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.7292
+EPOCH: 3 | Training Loss: 0.5215 | Validation Loss: 0.2287
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.4561345875263214, "first_view_loss": 0.41919437050819397, "second_view_loss": 0.49307480454444885, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.7532 -> 0.8104
+EPOCH: 4 | Training Loss: 0.4906 | Validation Loss: 0.1754
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.46396780014038086, "first_view_loss": 0.4554811716079712, "second_view_loss": 0.4724544286727905, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.8104 -> 0.8376
+EPOCH: 5 | Training Loss: 0.4653 | Validation Loss: 0.1638
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.3280991315841675, "first_view_loss": 0.33913567662239075, "second_view_loss": 0.3170626163482666, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.8376 -> 0.8549
+EPOCH: 6 | Training Loss: 0.4557 | Validation Loss: 0.1873
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.531191349029541, "first_view_loss": 0.5018478631973267, "second_view_loss": 0.5605348944664001, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8271
+EPOCH: 7 | Training Loss: 0.4473 | Validation Loss: 0.1860
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.3129885494709015, "first_view_loss": 0.29839158058166504, "second_view_loss": 0.32758551836013794, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8462
+EPOCH: 8 | Training Loss: 0.4324 | Validation Loss: 0.1580
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.3068001866340637, "first_view_loss": 0.29419755935668945, "second_view_loss": 0.3194028437137604, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8532
+EPOCH: 9 | Training Loss: 0.4240 | Validation Loss: 0.1567
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.40255653858184814, "first_view_loss": 0.4022403359413147, "second_view_loss": 0.4028727114200592, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.8549 -> 0.8605
+EPOCH: 10 | Training Loss: 0.4199 | Validation Loss: 0.1452
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.3230465352535248, "first_view_loss": 0.33201277256011963, "second_view_loss": 0.31408029794692993, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.8605 -> 0.8645
+EPOCH: 11 | Training Loss: 0.4148 | Validation Loss: 0.1778
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2820568382740021, "first_view_loss": 0.26861631870269775, "second_view_loss": 0.2954973578453064, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8627
+EPOCH: 12 | Training Loss: 0.4019 | Validation Loss: 0.1453
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.2687870264053345, "first_view_loss": 0.2691732943058014, "second_view_loss": 0.26840072870254517, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.8645 -> 0.8706
+EPOCH: 13 | Training Loss: 0.3964 | Validation Loss: 0.1516
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.287183552980423, "first_view_loss": 0.2725328803062439, "second_view_loss": 0.30183422565460205, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.8706 -> 0.8724
+EPOCH: 14 | Training Loss: 0.3931 | Validation Loss: 0.1386
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.3229338824748993, "first_view_loss": 0.3087773323059082, "second_view_loss": 0.3370904326438904, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.8724 -> 0.8780
+EPOCH: 15 | Training Loss: 0.3946 | Validation Loss: 0.1414
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2900756001472473, "first_view_loss": 0.2907673418521881, "second_view_loss": 0.2893838584423065, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8737
+EPOCH: 16 | Training Loss: 0.3882 | Validation Loss: 0.1488
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.24920466542243958, "first_view_loss": 0.24564442038536072, "second_view_loss": 0.25276491045951843, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.8780 -> 0.8784
+EPOCH: 17 | Training Loss: 0.3896 | Validation Loss: 0.1400
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.37432461977005005, "first_view_loss": 0.3754247725009918, "second_view_loss": 0.3732244372367859, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8766
+EPOCH: 18 | Training Loss: 0.3908 | Validation Loss: 0.1933
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2656594216823578, "first_view_loss": 0.2647915482521057, "second_view_loss": 0.26652729511260986, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8650
+EPOCH: 19 | Training Loss: 0.3841 | Validation Loss: 0.1501
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2686259150505066, "first_view_loss": 0.24445727467536926, "second_view_loss": 0.29279452562332153, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8780
+EPOCH: 20 | Training Loss: 0.3811 | Validation Loss: 0.1275
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2714627981185913, "first_view_loss": 0.25336822867393494, "second_view_loss": 0.2895573675632477, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.8784 -> 0.8900
+EPOCH: 21 | Training Loss: 0.3774 | Validation Loss: 0.1357
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.252867728471756, "first_view_loss": 0.2517503499984741, "second_view_loss": 0.25398510694503784, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8834
+EPOCH: 22 | Training Loss: 0.3788 | Validation Loss: 0.1347
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.25938230752944946, "first_view_loss": 0.2554399073123932, "second_view_loss": 0.2633247375488281, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8869
+EPOCH: 23 | Training Loss: 0.3733 | Validation Loss: 0.1241
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2821645140647888, "first_view_loss": 0.278548926115036, "second_view_loss": 0.2857801020145416, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.8900 -> 0.8966
+EPOCH: 24 | Training Loss: 0.3721 | Validation Loss: 0.1365
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2818717062473297, "first_view_loss": 0.26621344685554504, "second_view_loss": 0.2975299656391144, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8853
+EPOCH: 25 | Training Loss: 0.3686 | Validation Loss: 0.1348
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.24730823934078217, "first_view_loss": 0.24498310685157776, "second_view_loss": 0.24963337182998657, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8895
+EPOCH: 26 | Training Loss: 0.3721 | Validation Loss: 0.1274
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.26382124423980713, "first_view_loss": 0.26568761467933655, "second_view_loss": 0.2619549036026001, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8831
+EPOCH: 27 | Training Loss: 0.3689 | Validation Loss: 0.1315
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.25779256224632263, "first_view_loss": 0.25007033348083496, "second_view_loss": 0.2655147910118103, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8873
+EPOCH: 28 | Training Loss: 0.3668 | Validation Loss: 0.1427
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.26843780279159546, "first_view_loss": 0.2638915181159973, "second_view_loss": 0.272984117269516, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8795
+EPOCH: 29 | Training Loss: 0.3672 | Validation Loss: 0.1289
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.26327940821647644, "first_view_loss": 0.24649359285831451, "second_view_loss": 0.28006523847579956, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8867
+EPOCH: 30 | Training Loss: 0.3670 | Validation Loss: 0.1308
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2969731092453003, "first_view_loss": 0.28776800632476807, "second_view_loss": 0.3061782419681549, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8902
+EPOCH: 31 | Training Loss: 0.3661 | Validation Loss: 0.1345
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.256381094455719, "first_view_loss": 0.2526673376560211, "second_view_loss": 0.26009488105773926, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8801
+EPOCH: 32 | Training Loss: 0.3620 | Validation Loss: 0.1377
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.2595011591911316, "first_view_loss": 0.2527462840080261, "second_view_loss": 0.26625603437423706, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8878
+EPOCH: 33 | Training Loss: 0.3623 | Validation Loss: 0.1347
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.24798032641410828, "first_view_loss": 0.2491522580385208, "second_view_loss": 0.24680837988853455, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8850
+EPOCH: 34 | Training Loss: 0.3621 | Validation Loss: 0.1224
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2545008063316345, "first_view_loss": 0.249663844704628, "second_view_loss": 0.25933778285980225, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8915
+EPOCH: 35 | Training Loss: 0.3607 | Validation Loss: 0.1388
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.26207679510116577, "first_view_loss": 0.24780018627643585, "second_view_loss": 0.2763534188270569, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8819
+EPOCH: 36 | Training Loss: 0.3634 | Validation Loss: 0.1348
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.24803635478019714, "first_view_loss": 0.24085752665996552, "second_view_loss": 0.2552151679992676, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8885
+EPOCH: 37 | Training Loss: 0.3610 | Validation Loss: 0.1617
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.2468978315591812, "first_view_loss": 0.24747774004936218, "second_view_loss": 0.24631792306900024, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8763
+EPOCH: 38 | Training Loss: 0.3594 | Validation Loss: 0.1286
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.2656569480895996, "first_view_loss": 0.24404719471931458, "second_view_loss": 0.28726673126220703, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8932
+EPOCH: 39 | Training Loss: 0.3588 | Validation Loss: 0.1267
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.2598324120044708, "first_view_loss": 0.25471001863479614, "second_view_loss": 0.2649548053741455, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8907
+EPOCH: 40 | Training Loss: 0.3563 | Validation Loss: 0.1314
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.2547072768211365, "first_view_loss": 0.2509174048900604, "second_view_loss": 0.2584971487522125, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8922
+EPOCH: 41 | Training Loss: 0.3573 | Validation Loss: 0.1380
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23969632387161255, "first_view_loss": 0.23389481008052826, "second_view_loss": 0.24549782276153564, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8930
+EPOCH: 42 | Training Loss: 0.3560 | Validation Loss: 0.1239
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.24879688024520874, "first_view_loss": 0.24399976432323456, "second_view_loss": 0.2535940110683441, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.8966 -> 0.8986
+EPOCH: 43 | Training Loss: 0.3556 | Validation Loss: 0.1234
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.24067643284797668, "first_view_loss": 0.2406242936849594, "second_view_loss": 0.24072855710983276, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8953
+EPOCH: 44 | Training Loss: 0.3555 | Validation Loss: 0.1215
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.24349826574325562, "first_view_loss": 0.24001386761665344, "second_view_loss": 0.24698267877101898, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8970
+EPOCH: 45 | Training Loss: 0.3533 | Validation Loss: 0.1383
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.231439471244812, "first_view_loss": 0.23003385961055756, "second_view_loss": 0.23284508287906647, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8937
+EPOCH: 46 | Training Loss: 0.3543 | Validation Loss: 0.1296
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.26004135608673096, "first_view_loss": 0.2598038911819458, "second_view_loss": 0.2602787911891937, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8938
+EPOCH: 47 | Training Loss: 0.3537 | Validation Loss: 0.1379
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.24942994117736816, "first_view_loss": 0.24423924088478088, "second_view_loss": 0.25462064146995544, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8911
+EPOCH: 48 | Training Loss: 0.3532 | Validation Loss: 0.1262
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.24880509078502655, "first_view_loss": 0.23965302109718323, "second_view_loss": 0.2579571604728699, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8904
+EPOCH: 49 | Training Loss: 0.3515 | Validation Loss: 0.1270
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.24376249313354492, "first_view_loss": 0.23812754452228546, "second_view_loss": 0.2493974268436432, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8931
+EPOCH: 50 | Training Loss: 0.3517 | Validation Loss: 0.1248
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.24088528752326965, "first_view_loss": 0.2402862310409546, "second_view_loss": 0.2414843589067459, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8961
+EPOCH: 51 | Training Loss: 0.3510 | Validation Loss: 0.1354
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2613595724105835, "first_view_loss": 0.2584218382835388, "second_view_loss": 0.26429733633995056, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8901
+EPOCH: 52 | Training Loss: 0.3504 | Validation Loss: 0.1374
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2316274344921112, "first_view_loss": 0.22994165122509003, "second_view_loss": 0.2333132028579712, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8898
+EPOCH: 53 | Training Loss: 0.3506 | Validation Loss: 0.1321
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2665901184082031, "first_view_loss": 0.26311933994293213, "second_view_loss": 0.2700608968734741, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8847
+EPOCH: 54 | Training Loss: 0.3509 | Validation Loss: 0.1249
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2517011761665344, "first_view_loss": 0.24030400812625885, "second_view_loss": 0.2630983591079712, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8972
+EPOCH: 55 | Training Loss: 0.3488 | Validation Loss: 0.1374
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23857401311397552, "first_view_loss": 0.23446448147296906, "second_view_loss": 0.242683544754982, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8952
+EPOCH: 56 | Training Loss: 0.3481 | Validation Loss: 0.1308
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.24858352541923523, "first_view_loss": 0.24681104719638824, "second_view_loss": 0.2503560185432434, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8971
+EPOCH: 57 | Training Loss: 0.3488 | Validation Loss: 0.1335
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.2470966875553131, "first_view_loss": 0.24436956644058228, "second_view_loss": 0.24982379376888275, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8925
+EPOCH: 58 | Training Loss: 0.3487 | Validation Loss: 0.1339
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23757749795913696, "first_view_loss": 0.2363271266222, "second_view_loss": 0.2388278692960739, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8883
+EPOCH: 59 | Training Loss: 0.3490 | Validation Loss: 0.1263
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.24391253292560577, "first_view_loss": 0.23524528741836548, "second_view_loss": 0.25257977843284607, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8967
+EPOCH: 60 | Training Loss: 0.3476 | Validation Loss: 0.1304
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.24117733538150787, "first_view_loss": 0.2370852380990982, "second_view_loss": 0.24526943266391754, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8957
+EPOCH: 61 | Training Loss: 0.3482 | Validation Loss: 0.1414
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.23765945434570312, "first_view_loss": 0.23422156274318695, "second_view_loss": 0.2410973608493805, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8889
+EPOCH: 62 | Training Loss: 0.3476 | Validation Loss: 0.1392
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.24298810958862305, "first_view_loss": 0.23968511819839478, "second_view_loss": 0.2462911158800125, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8884
+EPOCH: 63 | Training Loss: 0.3460 | Validation Loss: 0.1449
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.24922850728034973, "first_view_loss": 0.24371568858623505, "second_view_loss": 0.2547413408756256, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8880
+EPOCH: 64 | Training Loss: 0.3468 | Validation Loss: 0.1310
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23355960845947266, "first_view_loss": 0.23145216703414917, "second_view_loss": 0.23566704988479614, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8912
+EPOCH: 65 | Training Loss: 0.3456 | Validation Loss: 0.1368
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.23862871527671814, "first_view_loss": 0.23549070954322815, "second_view_loss": 0.24176673591136932, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8892
+EPOCH: 66 | Training Loss: 0.3451 | Validation Loss: 0.1337
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23375862836837769, "first_view_loss": 0.23173652589321136, "second_view_loss": 0.2357807159423828, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8927
+EPOCH: 67 | Training Loss: 0.3455 | Validation Loss: 0.1354
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.25076791644096375, "first_view_loss": 0.24348871409893036, "second_view_loss": 0.2580471336841583, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8942
+EPOCH: 68 | Training Loss: 0.3447 | Validation Loss: 0.1346
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.22938388586044312, "first_view_loss": 0.2276591658592224, "second_view_loss": 0.23110860586166382, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8976
+EPOCH: 69 | Training Loss: 0.3442 | Validation Loss: 0.1318
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.2326027750968933, "first_view_loss": 0.22878210246562958, "second_view_loss": 0.23642343282699585, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8974
+EPOCH: 70 | Training Loss: 0.3439 | Validation Loss: 0.1384
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23501121997833252, "first_view_loss": 0.23051604628562927, "second_view_loss": 0.23950637876987457, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8962
+EPOCH: 71 | Training Loss: 0.3431 | Validation Loss: 0.1446
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.23693856596946716, "first_view_loss": 0.2351996898651123, "second_view_loss": 0.23867744207382202, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8945
+EPOCH: 72 | Training Loss: 0.3443 | Validation Loss: 0.1374
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2373192310333252, "first_view_loss": 0.23447644710540771, "second_view_loss": 0.24016201496124268, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8933
+EPOCH: 73 | Training Loss: 0.3445 | Validation Loss: 0.1389
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.23855358362197876, "first_view_loss": 0.23515409231185913, "second_view_loss": 0.24195308983325958, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8930
+EPOCH: 74 | Training Loss: 0.3441 | Validation Loss: 0.1362
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.24086156487464905, "first_view_loss": 0.2364993393421173, "second_view_loss": 0.2452237755060196, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8929
+EPOCH: 75 | Training Loss: 0.3438 | Validation Loss: 0.1352
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2349713146686554, "first_view_loss": 0.23002223670482635, "second_view_loss": 0.23992039263248444, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8919
+EPOCH: 76 | Training Loss: 0.3427 | Validation Loss: 0.1384
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23235806822776794, "first_view_loss": 0.22984066605567932, "second_view_loss": 0.23487548530101776, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8947
+EPOCH: 77 | Training Loss: 0.3434 | Validation Loss: 0.1388
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23061253130435944, "first_view_loss": 0.22815033793449402, "second_view_loss": 0.23307472467422485, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8967
+EPOCH: 78 | Training Loss: 0.3425 | Validation Loss: 0.1372
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23624742031097412, "first_view_loss": 0.23249933123588562, "second_view_loss": 0.23999550938606262, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8968
+EPOCH: 79 | Training Loss: 0.3420 | Validation Loss: 0.1325
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2421206831932068, "first_view_loss": 0.23499861359596252, "second_view_loss": 0.24924276769161224, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8961
+EPOCH: 80 | Training Loss: 0.3420 | Validation Loss: 0.1356
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.2333156019449234, "first_view_loss": 0.22946947813034058, "second_view_loss": 0.23716172575950623, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8950
+EPOCH: 81 | Training Loss: 0.3415 | Validation Loss: 0.1320
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23573534190654755, "first_view_loss": 0.23079749941825867, "second_view_loss": 0.24067318439483643, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.8986 -> 0.9000
+EPOCH: 82 | Training Loss: 0.3412 | Validation Loss: 0.1325
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23984774947166443, "first_view_loss": 0.23161767423152924, "second_view_loss": 0.24807783961296082, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8995
+EPOCH: 83 | Training Loss: 0.3420 | Validation Loss: 0.1371
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23352199792861938, "first_view_loss": 0.23185871541500092, "second_view_loss": 0.23518526554107666, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8944
+EPOCH: 84 | Training Loss: 0.3416 | Validation Loss: 0.1354
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.24207863211631775, "first_view_loss": 0.2338148057460785, "second_view_loss": 0.250342458486557, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8956
+EPOCH: 85 | Training Loss: 0.3421 | Validation Loss: 0.1322
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2415970265865326, "first_view_loss": 0.23840591311454773, "second_view_loss": 0.24478814005851746, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.9000 -> 0.9004
+EPOCH: 86 | Training Loss: 0.3420 | Validation Loss: 0.1276
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2336731255054474, "first_view_loss": 0.23559677600860596, "second_view_loss": 0.23174946010112762, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.9004 -> 0.9020
+EPOCH: 87 | Training Loss: 0.3412 | Validation Loss: 0.1349
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.23040232062339783, "first_view_loss": 0.22852711379528046, "second_view_loss": 0.232277512550354, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.9020 -> 0.9022
+EPOCH: 88 | Training Loss: 0.3408 | Validation Loss: 0.1323
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.2367226779460907, "first_view_loss": 0.23200063407421112, "second_view_loss": 0.24144472181797028, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8984
+EPOCH: 89 | Training Loss: 0.3416 | Validation Loss: 0.1339
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23247908055782318, "first_view_loss": 0.2303822785615921, "second_view_loss": 0.23457588255405426, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8989
+EPOCH: 90 | Training Loss: 0.3406 | Validation Loss: 0.1292
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.23375996947288513, "first_view_loss": 0.23481467366218567, "second_view_loss": 0.2327052652835846, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+New best Dice: 0.9022 -> 0.9027
+EPOCH: 91 | Training Loss: 0.3407 | Validation Loss: 0.1393
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.23390516638755798, "first_view_loss": 0.23173409700393677, "second_view_loss": 0.2360762357711792, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8985
+EPOCH: 92 | Training Loss: 0.3399 | Validation Loss: 0.1307
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.2293919175863266, "first_view_loss": 0.22671276330947876, "second_view_loss": 0.23207107186317444, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8997
+EPOCH: 93 | Training Loss: 0.3405 | Validation Loss: 0.1297
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23084838688373566, "first_view_loss": 0.22830212116241455, "second_view_loss": 0.23339465260505676, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.9007
+EPOCH: 94 | Training Loss: 0.3397 | Validation Loss: 0.1316
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.23048186302185059, "first_view_loss": 0.22868163883686066, "second_view_loss": 0.23228207230567932, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8984
+EPOCH: 95 | Training Loss: 0.3397 | Validation Loss: 0.1360
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.23487719893455505, "first_view_loss": 0.23162317276000977, "second_view_loss": 0.23813121020793915, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8967
+EPOCH: 96 | Training Loss: 0.3408 | Validation Loss: 0.1452
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.23262330889701843, "first_view_loss": 0.22899071872234344, "second_view_loss": 0.23625588417053223, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8922
+EPOCH: 97 | Training Loss: 0.3404 | Validation Loss: 0.1355
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.23778791725635529, "first_view_loss": 0.23540765047073364, "second_view_loss": 0.24016818404197693, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8958
+EPOCH: 98 | Training Loss: 0.3402 | Validation Loss: 0.1428
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.24180378019809723, "first_view_loss": 0.23630964756011963, "second_view_loss": 0.24729791283607483, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8952
+EPOCH: 99 | Training Loss: 0.3400 | Validation Loss: 0.1370
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "vertical", "supervised_paired_loss": 0.22877827286720276, "first_view_loss": 0.22634758055210114, "second_view_loss": 0.23120898008346558, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8950
+EPOCH: 100 | Training Loss: 0.3397 | Validation Loss: 0.1344
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"prompt_mode": "generic", "generic_count": 8, "batch_size": 8, "generic_probability": 1.0, "reflection_draw": "horizontal", "supervised_paired_loss": 0.22854527831077576, "first_view_loss": 0.22516456246376038, "second_view_loss": 0.23192597925662994, "forward_backward_passes": 2, "consistency_weight": 0.0, "text_synchronized": false}
+Dice: 0.8966

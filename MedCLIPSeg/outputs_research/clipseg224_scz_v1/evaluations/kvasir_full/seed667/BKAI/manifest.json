@@ -1,0 +1,15 @@
+{
+  "signature": {
+    "suite": "clipseg224_scz_v1",
+    "plan_digest": "f841968b271ea1d5dcc37323ec97836d4640362f66744eb66610216bf7a5a882",
+    "group": "kvasir_full",
+    "seed": 667,
+    "cohort": "BKAI",
+    "weights_sha256": "bdbc5e6b5a85175b83410e786b91d507986627de163f1ae2e8ea9327cf2dae31"
+  },
+  "complete": true,
+  "n": 200,
+  "finished_at": "2026-10-07T12:14:54.786791+00:00",
+  "sha256": "201595e113f61870599176a2645a37e4a7e087283c14ddd5e2de5fc6ee9945f4",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

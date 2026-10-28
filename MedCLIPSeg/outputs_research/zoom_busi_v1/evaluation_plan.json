@@ -1,0 +1,158 @@
+{
+  "protocol": {
+    "name": "zoom_busi_v1",
+    "locked_at": "2026-10-05",
+    "purpose": "Replication on a second dataset and modality. Two-pass zoom applied to the BUSI checkpoints of formal_detail_mix_busi_v1 (three arms, three seeds). Locked while those checkpoints were still training and before any BUSI Test result existed. Evaluation only; nothing is selected or tuned on BUSI.",
+    "source": "formal_detail_mix_busi_v1",
+    "arms": [
+      "baseline",
+      "detail",
+      "detail_global_mix"
+    ],
+    "seeds": [
+      666,
+      667,
+      668
+    ],
+    "lineage": {
+      "reports/acceptance_pilot_zoom_20261005/audit.json": "8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3",
+      "reports/acceptance_test_zoom_20261005/audit.json": "8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17"
+    },
+    "configs": [
+      {
+        "name": "tcal",
+        "target_fraction": "source_calibrated",
+        "zoom_out": false,
+        "oracle": false
+      },
+      {
+        "name": "t15",
+        "target_fraction": 0.15,
+        "zoom_out": false,
+        "oracle": false
+      }
+    ],
+    "primary_config": "tcal",
+    "source_calibration": {
+      "rule": "The target fraction is a property of the source training set. q is the share of Kvasir Train lesions whose area fraction is at most 0.15 (the value selected on Kvasir). The calibrated target for another source is the q-quantile of its own Train lesion area fractions. On Kvasir this rule returns 0.15 by construction.",
+      "reference_dataset": "Kvasir",
+      "reference_fraction": 0.15,
+      "why_primary": "BUSI Train lesions are smaller relative to the image than Kvasir Train lesions (25th percentile 2.2% versus 5.9%), so the fixed value 0.15 would enlarge most lesions beyond the scale the BUSI model was trained on. The rule is computed from Train masks only, at lock time, before any evaluation. The fixed value is reported as secondary."
+    },
+    "zoom": {
+      "margin": 1.25,
+      "min_window": 0.2,
+      "zoom_in_if_window_at_most": 0.8,
+      "zoom_out_if_fraction_at_least": 0.2,
+      "zoom_out_target_fraction": 0.1,
+      "max_window": 2.0,
+      "fusion": "second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty"
+    },
+    "single_pass_reproduction_tolerance_pp": 0.1,
+    "gate": {
+      "description": "Fixed before any BUSI Test result existed. Primary config on the primary arm; two-pass minus single-pass, three-seed mean of DSC differences in percentage points.",
+      "primary_arm": "detail",
+      "g1_macro_ood_dsc_gain_at_least_pp": 0.5,
+      "g2_min_ood_sets_with_positive_gain": 3,
+      "g3_source_test_dsc_change_at_least_pp": -0.2,
+      "g4_max_dsc_regression_any_set_pp": 0.5,
+      "g5_all_seeds_positive_on_macro_ood": true,
+      "threshold_note": "g1 is +0.5 rather than the +1.0 used on Kvasir because no error analysis of the ultrasound test sets was available to predict the size of the effect; +0.5 is the smallest gain treated as meaningful in this project.",
+      "if_fail": "reported as not replicated on BUSI; the method is then described as validated on polyp data only"
+    },
+    "known_property": "On images without a lesion the two-pass result equals the single-pass result (an empty first pass is never zoomed; an empty second pass keeps the first), so normal-image false positives are neither added nor removed.",
+    "disclosures": [
+      "BUID (35 images) and UDIAT (25 images) are small; their per-set gains are noisy.",
+      "The method and its fixed parameters were developed on polyp data."
+    ],
+    "statistics": {
+      "permutation_draws": 100000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261005
+    }
+  },
+  "protocol_sha256": "686e83893505410b77c99150de3049dbeb84db003693fd084cba5ae021e8cad6",
+  "code": {
+    "research_zoom_ext/__init__.py": "d93e19ddb4dfd86925eabd02118df0521df9795faa50d5a4af778781312202b7",
+    "research_zoom_ext/common.py": "beb9be29e6ab48b7b704f11ac2cc7dbf8ead7dd11e1302d6e30863d3a1f43591",
+    "research_zoom_ext/report.py": "8e48feab1a4514d44aa651bc3a2d7bb680339e5d2200678aed4baa6df80af664",
+    "research_zoom_ext/runner.py": "133e43f1bcd259ef38dbb27945d9116966db0f273c0803126c820ed76555a79b",
+    "research_zoom/evaluate.py": "024cef32be79463bf36e4bbbf29cf665d730bd29215f2fbe279939b8f72e4629",
+    "research_zoom/geometry.py": "23c20c342bb6fac71c135d50031db72dedcb926f890cf942f7ed0fa8dee3ed23"
+  },
+  "runs": [
+    "baseline_seed666",
+    "detail_seed666",
+    "detail_global_mix_seed666",
+    "baseline_seed667",
+    "detail_seed667",
+    "detail_global_mix_seed667",
+    "baseline_seed668",
+    "detail_seed668",
+    "detail_global_mix_seed668"
+  ],
+  "checkpoints": {
+    "baseline_seed666": "bfe69566459eb4bed961c73c5564b2cb6a0c14274c59e9fa52ea348fc00e949a",
+    "detail_seed666": "15313cd5d935e527eed840fa1e522ac4ef1bf219fd5c1ea8166b56a51ab718a8",
+    "detail_global_mix_seed666": "0bf74748f69cf5c6af3c026af2b8986912b1b3bba8d2faae69908235c72d0eae",
+    "baseline_seed667": "9a974006170062efd6f8871d8b34b105fabd20dfc277b04640a51911fa73263a",
+    "detail_seed667": "029fa59dad718938a8e19efb1ea3b3f8ace5980a00c6fa2c55c072189924d13a",
+    "detail_global_mix_seed667": "395d6c230b1dd9c962a20cfe9700fa955f4df721ac874bd19e1f2a4908b54044",
+    "baseline_seed668": "18f2bf5f4e5f7038a3b892a59c8d2f2fa0e89aeba58445ff3616f602241bd408",
+    "detail_seed668": "bc3089d076a35d7d3d6694181ccad6618ba573b29e0f5f38c3f9e9f475547ba5",
+    "detail_global_mix_seed668": "bc251578663880a724e392ebcd446401d1341bd1dde3c42eeee2581741164576"
+  },
+  "configs": [
+    {
+      "name": "tcal",
+      "target_fraction": 0.08617811389700848,
+      "zoom_out": false,
+      "oracle": false
+    },
+    {
+      "name": "t15",
+      "target_fraction": 0.15,
+      "zoom_out": false,
+      "oracle": false
+    }
+  ],
+  "calibration": {
+    "reference_n": 800,
+    "reference_quantile_rank": 0.62625,
+    "source_n": 517,
+    "target_fraction": 0.08617811389700848,
+    "source_median": 0.0555029786821,
+    "reference_median": 0.11363398379119986
+  },
+  "prompt": "a tumor in a breast ultrasound image",
+  "small_threshold": 0.021693548387096775,
+  "cohorts": {
+    "BUSI": {
+      "n": 78,
+      "list_sha256": "e114a8efc53d859a519d393b8cad7dabd90de5569a2962492db1898d81ca7ed4",
+      "files_digest": "5726cc14d5dcdb6e34b3f32ee3420eadab078daa74b4bde712e48ef5c9209d02"
+    },
+    "BUSBRA": {
+      "n": 282,
+      "list_sha256": "668ceaefc1e1b235fe6d9bd70edab669b4899647c34629b82135b281a1574cb7",
+      "files_digest": "f86b53c8949ddf36747267cc68608e2f852f694dce678d244a9a11afcc83fffd"
+    },
+    "BUSUC": {
+      "n": 122,
+      "list_sha256": "3f24c79d2c3966a6c23a146a9cece10e56e38b759e507a1c96ace005a6e24be8",
+      "files_digest": "5eee8aea34cfe64c49ee8c29897db6a57d7c9b74a823f688016387be658be91c"
+    },
+    "BUID": {
+      "n": 35,
+      "list_sha256": "05c135d11eb1362394cdf6a4bf5d0174852daa02d759aeafbc61778ea3bc5307",
+      "files_digest": "48e600d831b7bb4d73ec3d35514d7dea64e8e2ae632e1c5dd31532549ffa4ce4"
+    },
+    "UDIAT": {
+      "n": 25,
+      "list_sha256": "0a3feb0e1d5cc97297d6a356e2c0643d23dc287234f3bbd4cb2b553ca3ee450e",
+      "files_digest": "508d483b8d9f42a5746851d5c10fbb08375c1cf764b88ec9d571d9daca1d37a2"
+    }
+  },
+  "source_plan_digest": "85c752b70ba5c2487f0b323d13a90d22190ce7b5558095f7b03a9cd503f057b6",
+  "digest": "4174ff97dcef5cc1fa6421e634a2e861ef4f6b4060e7021c80afcc7034fb425b"
+}

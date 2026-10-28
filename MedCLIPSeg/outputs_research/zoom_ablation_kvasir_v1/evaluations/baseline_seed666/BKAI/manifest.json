@@ -1,0 +1,16 @@
+{
+  "signature": {
+    "suite": "zoom_ablation_kvasir_v1",
+    "run": "baseline_seed666",
+    "cohort": "BKAI",
+    "split": "Test",
+    "checkpoint_sha256": "a1a97ec45d23c866bae5f260f8de1bbc41a806a27a4e7171d856e778f8782492",
+    "plan_digest": "97486787f917828b86625c37813202ff93b715d3f649ce46244d8e964f118341",
+    "prompt": "a polyp in a colonoscopy image"
+  },
+  "complete": true,
+  "n": 200,
+  "cases_sha256": "168fbb0f47d05a0a88cf3fb98c4666c20c2ce618b60794ee079c81e28f11ee58",
+  "finished_at": "2026-10-05T12:22:39.860855+00:00",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

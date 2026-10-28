@@ -1,0 +1,10 @@
+{
+  "run": "detail_seed670",
+  "cohort": "CVC300",
+  "single_pass_DSC_percent": 81.4591666666667,
+  "accepted_DSC_percent": 81.43083333333335,
+  "difference_pp": 0.028333333333350197,
+  "largest_case_difference_pp": 0.8199999999999985,
+  "tolerance_pp": 0.25,
+  "passed": true
+}

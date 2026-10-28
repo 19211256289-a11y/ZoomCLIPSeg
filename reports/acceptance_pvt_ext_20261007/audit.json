@@ -1,0 +1,22 @@
+{
+ "suite": "pvt_ext_v1",
+ "accepted_at": "2026-10-07T13:45+09:00",
+ "verdict": "execution valid; busi_full usable; reduced-set groups await lowdata_kvasir_v1",
+ "jobs": "56/56",
+ "active_hours": 3.63,
+ "plan_digest": "67d5e4ca6ac5a31cf9cd65247d954caa5de8c7b993028a881784168c88072eb2",
+ "checks": {
+  "digests_consistent": true,
+  "protocol_file_matches_local_copy": true,
+  "training_manifests_complete": 9,
+  "per_seed_dsc_recomputed_from_cases": true,
+  "evaluation_manifest_hashes_checked": false,
+  "confidence_intervals_recomputed": false
+ },
+ "sha256": {
+  "control/research_pvt_ext/queue.json": "80fb7bfc52f1408697a57d1f1e8c01c3e745e1196e0518f194ea101e05e31ea0",
+  "MedCLIPSeg/outputs_research/pvt_ext_v1/plan.json": "5e62504a0baa1e9f05d33293e65892881947d8fc01183cfd4dfc4237c29d62be",
+  "reports/pvt_ext_v1_results/report.md": "e5bac630310253876b3e5cab707788e8399669593144af78f9194948f4f7b8c9",
+  "reports/pvt_ext_v1_results/results.json": "b95585613a538808c35fb71e5490c7502f07958dd796001a49c92b9e39ec4939"
+ }
+}

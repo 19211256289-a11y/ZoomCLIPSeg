@@ -1,0 +1,344 @@
+[
+ {
+  "dataset": "ColonDB",
+  "name": "378.png",
+  "image": "378.png",
+  "why": "scale:tiny_overseg",
+  "frac": 0.81,
+  "dsc_detail": 0.2141,
+  "dsc_base": 0.1482,
+  "dsc_two": 0.263,
+  "kind": "in",
+  "detail_mask": "masks/000292.png",
+  "base_mask": "masks/000292.png",
+  "id": "ColonDB_378",
+  "size": [
+   574,
+   500
+  ]
+ },
+ {
+  "dataset": "ColonDB",
+  "name": "356.png",
+  "image": "356.png",
+  "why": "scale:tiny_missed",
+  "frac": 0.46,
+  "dsc_detail": 0.0,
+  "dsc_base": 0.0,
+  "dsc_two": 0.0,
+  "kind": "none",
+  "detail_mask": "masks/000269.png",
+  "base_mask": "masks/000269.png",
+  "id": "ColonDB_356",
+  "size": [
+   574,
+   500
+  ]
+ },
+ {
+  "dataset": "ColonDB",
+  "name": "75.png",
+  "image": "75.png",
+  "why": "scale:typical",
+  "frac": 8.82,
+  "dsc_detail": 0.9121,
+  "dsc_base": 0.8926,
+  "dsc_two": 0.9071,
+  "kind": "in",
+  "detail_mask": "masks/000333.png",
+  "base_mask": "masks/000333.png",
+  "id": "ColonDB_75",
+  "size": [
+   574,
+   500
+  ]
+ },
+ {
+  "dataset": "ColonDB",
+  "name": "311.png",
+  "image": "311.png",
+  "why": "scale:large_underseg",
+  "frac": 40.35,
+  "dsc_detail": 0.4253,
+  "dsc_base": 0.2435,
+  "dsc_two": 0.4253,
+  "kind": "none",
+  "detail_mask": "masks/000221.png",
+  "base_mask": "masks/000221.png",
+  "id": "ColonDB_311",
+  "size": [
+   574,
+   500
+  ]
+ },
+ {
+  "dataset": "BKAI",
+  "name": "e101f07b34db8907f74aefafdacfbed3.jpeg",
+  "image": "e101f07b34db8907f74aefafdacfbed3.png",
+  "why": "scale:tiny_overseg",
+  "frac": 0.36,
+  "dsc_detail": 0.1881,
+  "dsc_base": 0.2636,
+  "dsc_two": 0.7265,
+  "kind": "in",
+  "detail_mask": "masks/000085.png",
+  "base_mask": "masks/000085.png",
+  "id": "BKAI_e101f07b34db",
+  "size": [
+   1280,
+   977
+  ]
+ },
+ {
+  "dataset": "BKAI",
+  "name": "13ccf1f4b331a412fc44655fb51f809d.jpeg",
+  "image": "13ccf1f4b331a412fc44655fb51f809d.png",
+  "why": "scale:tiny_missed",
+  "frac": 0.98,
+  "dsc_detail": 0.0,
+  "dsc_base": 0.0,
+  "dsc_two": 0.8864,
+  "kind": "in",
+  "detail_mask": "masks/000007.png",
+  "base_mask": "masks/000007.png",
+  "id": "BKAI_13ccf1f4b331",
+  "size": [
+   1280,
+   995
+  ]
+ },
+ {
+  "dataset": "BKAI",
+  "name": "b7384a5dd8c9431f046f281796061a92.jpeg",
+  "image": "b7384a5dd8c9431f046f281796061a92.png",
+  "why": "scale:typical",
+  "frac": 14.77,
+  "dsc_detail": 0.9634,
+  "dsc_base": 0.9591,
+  "dsc_two": 0.9634,
+  "kind": "none",
+  "detail_mask": "masks/000063.png",
+  "base_mask": "masks/000063.png",
+  "id": "BKAI_b7384a5dd8c9",
+  "size": [
+   1280,
+   995
+  ]
+ },
+ {
+  "dataset": "Kvasir",
+  "name": "cju8b0jr0r2oi0801jiquetd5.png",
+  "image": "cju8b0jr0r2oi0801jiquetd5.png",
+  "why": "qual:gain_p75",
+  "frac": 5.73,
+  "dsc_detail": 0.9674,
+  "dsc_base": 0.9636,
+  "dsc_two": 0.9805,
+  "kind": "in",
+  "detail_mask": "masks/000090.png",
+  "base_mask": "masks/000090.png",
+  "id": "Kvasir_cju8b0jr0r2o",
+  "size": [
+   621,
+   528
+  ]
+ },
+ {
+  "dataset": "Kvasir",
+  "name": "cju43jcqim2cp08172dvjvyui.png",
+  "image": "cju43jcqim2cp08172dvjvyui.png",
+  "why": "qual:gain_median",
+  "frac": 3.01,
+  "dsc_detail": 0.9445,
+  "dsc_base": 0.9053,
+  "dsc_two": 0.9468,
+  "kind": "in",
+  "detail_mask": "masks/000042.png",
+  "base_mask": "masks/000042.png",
+  "id": "Kvasir_cju43jcqim2c",
+  "size": [
+   626,
+   547
+  ]
+ },
+ {
+  "dataset": "ColonDB",
+  "name": "192.png",
+  "image": "192.png",
+  "why": "qual:gain_p75",
+  "frac": 3.45,
+  "dsc_detail": 0.8672,
+  "dsc_base": 0.7969,
+  "dsc_two": 0.9207,
+  "kind": "in",
+  "detail_mask": "masks/000097.png",
+  "base_mask": "masks/000097.png",
+  "id": "ColonDB_192",
+  "size": [
+   574,
+   500
+  ]
+ },
+ {
+  "dataset": "ColonDB",
+  "name": "73.png",
+  "image": "73.png",
+  "why": "qual:gain_median",
+  "frac": 5.29,
+  "dsc_detail": 0.9223,
+  "dsc_base": 0.9217,
+  "dsc_two": 0.9352,
+  "kind": "in",
+  "detail_mask": "masks/000331.png",
+  "base_mask": "masks/000331.png",
+  "id": "ColonDB_73",
+  "size": [
+   574,
+   500
+  ]
+ },
+ {
+  "dataset": "ClinicDB",
+  "name": "523.png",
+  "image": "523.png",
+  "why": "qual:gain_p75",
+  "frac": 4.4,
+  "dsc_detail": 0.872,
+  "dsc_base": 0.9189,
+  "dsc_two": 0.9382,
+  "kind": "in",
+  "detail_mask": "masks/000046.png",
+  "base_mask": "masks/000046.png",
+  "id": "ClinicDB_523",
+  "size": [
+   384,
+   288
+  ]
+ },
+ {
+  "dataset": "ClinicDB",
+  "name": "437.png",
+  "image": "437.png",
+  "why": "qual:gain_median",
+  "frac": 6.57,
+  "dsc_detail": 0.9292,
+  "dsc_base": 0.9367,
+  "dsc_two": 0.9456,
+  "kind": "in",
+  "detail_mask": "masks/000030.png",
+  "base_mask": "masks/000030.png",
+  "id": "ClinicDB_437",
+  "size": [
+   384,
+   288
+  ]
+ },
+ {
+  "dataset": "CVC300",
+  "name": "160.png",
+  "image": "160.png",
+  "why": "qual:gain_p75",
+  "frac": 2.13,
+  "dsc_detail": 0.8136,
+  "dsc_base": 0.8393,
+  "dsc_two": 0.8931,
+  "kind": "in",
+  "detail_mask": "masks/000011.png",
+  "base_mask": "masks/000011.png",
+  "id": "CVC300_160",
+  "size": [
+   574,
+   500
+  ]
+ },
+ {
+  "dataset": "CVC300",
+  "name": "169.png",
+  "image": "169.png",
+  "why": "qual:gain_median",
+  "frac": 3.96,
+  "dsc_detail": 0.8821,
+  "dsc_base": 0.9194,
+  "dsc_two": 0.929,
+  "kind": "in",
+  "detail_mask": "masks/000020.png",
+  "base_mask": "masks/000020.png",
+  "id": "CVC300_169",
+  "size": [
+   574,
+   500
+  ]
+ },
+ {
+  "dataset": "BKAI",
+  "name": "1573af7f31f04dc06992d92472facb34.jpeg",
+  "image": "1573af7f31f04dc06992d92472facb34.png",
+  "why": "qual:gain_p75",
+  "frac": 1.06,
+  "dsc_detail": 0.7826,
+  "dsc_base": 0.2187,
+  "dsc_two": 0.8733,
+  "kind": "in",
+  "detail_mask": "masks/000009.png",
+  "base_mask": "masks/000009.png",
+  "id": "BKAI_1573af7f31f0",
+  "size": [
+   1280,
+   977
+  ]
+ },
+ {
+  "dataset": "BKAI",
+  "name": "6b92633408da4bcab47c3fb256f174ae.jpeg",
+  "image": "6b92633408da4bcab47c3fb256f174ae.png",
+  "why": "qual:gain_median",
+  "frac": 1.28,
+  "dsc_detail": 0.9421,
+  "dsc_base": 0.9157,
+  "dsc_two": 0.9789,
+  "kind": "in",
+  "detail_mask": "masks/000036.png",
+  "base_mask": "masks/000036.png",
+  "id": "BKAI_6b92633408da",
+  "size": [
+   1280,
+   995
+  ]
+ },
+ {
+  "dataset": "BKAI",
+  "name": "7e6080779715c88d81a4106de1bdb8f4.jpeg",
+  "image": "7e6080779715c88d81a4106de1bdb8f4.png",
+  "why": "fail:largest_loss",
+  "frac": 2.14,
+  "dsc_detail": 0.7515,
+  "dsc_base": 0.5945,
+  "dsc_two": 0.0776,
+  "kind": "in",
+  "detail_mask": "masks/000041.png",
+  "base_mask": "masks/000041.png",
+  "id": "BKAI_7e6080779715",
+  "size": [
+   1280,
+   977
+  ]
+ },
+ {
+  "dataset": "BKAI",
+  "name": "6000fdd3a3c17a94fd7da881fe472708.jpeg",
+  "image": "6000fdd3a3c17a94fd7da881fe472708.png",
+  "why": "fail:gain_p05",
+  "frac": 1.9,
+  "dsc_detail": 0.4338,
+  "dsc_base": 0.2475,
+  "dsc_two": 0.2537,
+  "kind": "in",
+  "detail_mask": "masks/000034.png",
+  "base_mask": "masks/000034.png",
+  "id": "BKAI_6000fdd3a3c1",
+  "size": [
+   1280,
+   995
+  ]
+ }
+]

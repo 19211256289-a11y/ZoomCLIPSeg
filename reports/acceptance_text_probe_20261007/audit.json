@@ -1,0 +1,26 @@
+{
+ "suite": "text_probe_v1",
+ "accepted_at": "2026-10-07T17:25+09:00",
+ "execution_valid": true,
+ "verdicts": {
+  "text_content_matters": false,
+  "acts_as_constant": false,
+  "wording_sensitive": false
+ },
+ "checks": {
+  "jobs": "18/18",
+  "digests_consistent": true,
+  "code_and_protocol_match_local_copy": true,
+  "reproduction_max_diff_pp": 0.0018,
+  "means_recomputed": true,
+  "confidence_intervals_recomputed": false
+ },
+ "open_issue": "30-pass time 942 ms here against 760 ms in zoom_probe_v1; cause not established",
+ "sha256": {
+  "control/research_text_probe/queue.json": "365c410ca5599c81de205f75dbb1acc935019f1d0e06433811a7519611f1e4bf",
+  "MedCLIPSeg/outputs_research/text_probe_v1/evaluation_plan.json": "0294afc73f809d63b084ed2d03eacedc55d1fa415c8d1290cd2b00887a5f564a",
+  "MedCLIPSeg/outputs_research/text_probe_v1/timing.json": "1f238514c3d1d269ff1f41e1495732ba03a76b48abb8475868dffa8304879e27",
+  "reports/text_probe_v1_results/report.md": "6e7d13667ad51934bd4311f65dacbdf849f4c4fb9eabd6fc28dc6af2b5e06c40",
+  "reports/text_probe_v1_results/results.json": "ee464c42261f1f9fa4c0701f370f17b92bb5398c43652a6631139c4912a47e63"
+ }
+}

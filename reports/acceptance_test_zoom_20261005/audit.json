@@ -1,0 +1,92 @@
+{
+  "suite": "test_zoom_kvasir_v1",
+  "audited_at": "2026-10-05T00:05:00+00:00",
+  "execution_valid": true,
+  "gate_verdict": "pass",
+  "config": "t15",
+  "results_sha256": "5cb189d6a1b2b6fffbc7416127765a210b715697b59f6553b76c30c4b19ef162",
+  "plan_digest": "fa02136474c8a5accff522066b368d9a59bf469b65eea19660d84df0a164c00f",
+  "checks": {
+    "code_and_protocol_match_delivered": true,
+    "checkpoints_match_accepted": true,
+    "manifests_15_of_15_complete_and_hashed": true,
+    "table_recomputed_exactly": true,
+    "single_pass_equals_accepted_test_per_case_within": 0.001,
+    "largest_mean_difference_pp": 0.0018,
+    "single_run_no_rerun": true,
+    "log_errors": "none (one timm FutureWarning)"
+  },
+  "gate": {
+    "g1": true,
+    "g2": true,
+    "g3": true,
+    "g4": true,
+    "g5": true,
+    "macro_ood_gain_pp": 2.2142018442622953,
+    "macro_ood_gain_per_seed_pp": [
+      2.3702905282331512,
+      2.0225001138433516,
+      2.2498148907103825
+    ],
+    "gain_pp": {
+      "Kvasir": 0.4564333333333331,
+      "ColonDB": 1.2623611111111113,
+      "ClinicDB": 0.8665573770491802,
+      "CVC300": 3.0538888888888893,
+      "BKAI": 3.674000000000001
+    }
+  },
+  "secondary": {
+    "macro_ood_gain_without_CVC300_pp": 1.93,
+    "pooled_ood_image_level": {
+      "n": 581,
+      "mean_pp": 1.82,
+      "bootstrap_ci95_pp": [
+        1.12,
+        2.53
+      ]
+    },
+    "by_single_pass_quality": {
+      "DSC_below_50": {
+        "n_per_seed": 106,
+        "mean_gain_pp": 5.65
+      },
+      "DSC_50_to_80": {
+        "n_per_seed": 110,
+        "mean_gain_pp": 3.57
+      },
+      "DSC_at_least_80": {
+        "n_per_seed": 365,
+        "mean_gain_pp": 0.18
+      }
+    },
+    "rescued_per_seed": 14,
+    "broken_per_seed": 8,
+    "zoomed_precision": [
+      0.757,
+      0.821
+    ],
+    "zoomed_recall": [
+      0.844,
+      0.822
+    ],
+    "fp_pixels_change_percent": -8.6,
+    "fn_pixels_change_percent": 2.9,
+    "not_zoomed_images_unchanged": true,
+    "second_pass_share": {
+      "Kvasir": 0.41333333333333333,
+      "ColonDB": 0.6833333333333332,
+      "ClinicDB": 0.7486338797814208,
+      "CVC300": 0.9222222222222222,
+      "BKAI": 0.63
+    }
+  },
+  "limits": [
+    "ClinicDB gain is not significant at image level (CI -0.70 to +2.42) and comes mostly from one seed.",
+    "Lesions above 15% of the image are unchanged (65.8 -> 65.5); lesions below 1% remain mostly failed (25.5 -> 33.3).",
+    "About 8 images per seed turn from DSC >= 50 into DSC < 50.",
+    "The weakness was identified on these Test predictions; an independent replication (BUSI) is required before a strong claim.",
+    "Only the detail arm was evaluated; the ablation on the other arms is open."
+  ],
+  "decision": "Accepted. Two-pass zoom (t15) is a candidate component. No retuning on these data."
+}

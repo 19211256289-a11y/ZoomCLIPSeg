@@ -1,0 +1,78 @@
+name: clipseg224_scz_v1
+locked_at: '2026-10-07'
+purpose: >-
+  Companion of clipseg_scz_v1 at the input resolution of our models. The same CLIPSeg, with the same recipe, is
+  fine-tuned and evaluated at 224 x 224 instead of its native 352 x 352, with a single pass and with the locked SCZ
+  window rule, unchanged. Two questions: does SCZ help this frozen-encoder model when it sees the image at 224 x 224,
+  and is its gain larger there than at 352 x 352, as an explanation in terms of a fixed low-resolution view predicts?
+  The outcome is reported whatever it is.
+locked_before: >-
+  Written while clipseg_scz_v1 was running. Its first seed (666) had been evaluated and inspected: SCZ gained 0.41 pp
+  on the OOD mean at 352 x 352 (7.8 pp for lesions below 1% of the image, a loss of 1 to 2 pp for larger lesions).
+  This suite was added after that observation and is therefore a follow-up, not an independent confirmation. No
+  CLIPSeg model had been trained or evaluated at 224 x 224.
+companion_suite: clipseg_scz_v1
+model:
+  name: CLIPSeg (CIDAS/clipseg-rd64-refined, Hugging Face)
+  directory: checkpoints/clipseg-rd64-refined
+  trained: decoder only (the CLIP image and text encoders are frozen); the decoder starts from the released weights
+  sentence: a polyp in a colonoscopy image
+seeds: [666, 667, 668]
+groups:
+  kvasir_full:
+    dataset: Kvasir
+    train_list: Train_text.xlsx
+    cohort_source: kvasir_v1
+    targets: [Kvasir, ColonDB, ClinicDB, CVC300, BKAI]
+recipe:
+  input_size: 224                # the input resolution of our models; the position embeddings of the released model are interpolated
+  epochs: 100
+  batch_size: 24
+  optimizer: Adam
+  learning_rate: 0.0003
+  final_learning_rate: 0.0001    # cosine decay over all steps, as for our models
+  loss: 0.5 Dice + 0.5 binary cross-entropy
+  augmentation: >-
+    rotation by a random angle within +/-20 degrees with probability 0.5 (as in the MedCLIPSeg implementation), and
+    horizontal and vertical reflection with probability 0.5 each. No scale augmentation.
+  rotation_degrees: 20
+  weights: last epoch; no selection on validation or test data
+inference: one deterministic forward pass; sigmoid; threshold 0.5
+target_fraction: 0.15
+zoom:        # constants of the accepted method; must equal the pilot protocol
+  margin: 1.25
+  min_window: 0.2
+  zoom_in_if_window_at_most: 0.8
+  zoom_out_if_fraction_at_least: 0.20
+  zoom_out_target_fraction: 0.10
+  max_window: 2.0
+  fusion: second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty
+definitions:
+  single: one pass of the whole image at 224 x 224
+  scz: >-
+    the locked window rule (target fraction 0.15, constants above) applied to the first prediction; the window is cropped
+    from the original pixels, resized to 224 x 224 and segmented by the same model with the same sentence
+reading_rules_fixed_in_advance:
+  statistic: >-
+    DSC difference SCZ minus single pass in percentage points; mean over the three seeds of paired image-level
+    differences; macro mean over the four OOD sets, with a bootstrap interval and a sign-flip permutation test
+  transfers: the OOD gain is positive for every seed and its interval excludes zero
+  does_not_transfer: the interval of the OOD gain includes zero or lies below it
+  larger_at_low_resolution: >-
+    the OOD gain of SCZ at 224 x 224 minus the OOD gain at 352 x 352 (same seeds, paired by image) is positive with an
+    interval that excludes zero
+  consequence: >-
+    The manuscript reports the gain of SCZ at both resolutions as measured. If transfers holds here, it states that SCZ
+    helps CLIPSeg at the resolution of our models; if larger_at_low_resolution also holds, it states that the gain
+    shrinks when the encoder sees more pixels, in line with the explanation by a fixed low-resolution view, and names
+    a higher input resolution as an alternative remedy where the model allows it. If neither holds, it states that SCZ
+    did not help CLIPSeg and keeps the scope "MedCLIPSeg variants only". The accuracy of CLIPSeg itself is reported for
+    context and not as a ranking.
+disclosures:
+  - The five polyp test sets were used in earlier stages of this project; ETIS-Larib is not touched.
+  - The training recipe of CLIPSeg was fixed here without tuning and differs from the one used for the values reported in the MedCLIPSeg paper.
+  - The decoder starts from released weights, so that the seeds differ in mini-batch order and augmentation only.
+  - The target fraction and the zoom constants are those locked for MedCLIPSeg at 224 x 224; nothing is re-derived for this model.
+  - The released CLIPSeg was trained at 352 x 352; running it at 224 x 224 is outside its native setting.
+  - This suite was designed after one seed of the companion suite had been inspected.
+statistics: {permutation_draws: 20000, bootstrap_draws: 10000, rng_seed: 20261020}

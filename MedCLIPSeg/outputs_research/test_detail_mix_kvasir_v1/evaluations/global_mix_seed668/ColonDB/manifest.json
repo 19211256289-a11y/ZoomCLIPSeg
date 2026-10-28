@@ -1,0 +1,20 @@
+{
+  "signature": {
+    "run": "global_mix_seed668",
+    "checkpoint_sha256": "e979b3e225a8639a269ff0d1dde1cfc4ed04752792a7113b28d947e524e61138",
+    "plan_digest": "3228ea3d847aebd21cd72b2f828037a2f94fb48bce4d3e804a727c91d4e63118",
+    "prompt": "a polyp in a colonoscopy image",
+    "mc_samples": 30,
+    "batch_size": 32,
+    "threshold": 0.5,
+    "cohort": "ColonDB",
+    "split": "Test",
+    "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+    "files_digest": "d72da043e2c497295560aabde6876ae0b074e6925541a30f4734112747ff3aa7"
+  },
+  "complete": true,
+  "started_at": "2026-10-04T10:26:45.305201+00:00",
+  "n": 360,
+  "cases_sha256": "04b9a4b308456819a6389a049c5f00b84f6cb1a5b4ca568e9bcdf885cfd88454",
+  "finished_at": "2026-10-04T10:29:00.759529+00:00"
+}

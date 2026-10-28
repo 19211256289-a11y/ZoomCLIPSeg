@@ -1,0 +1,10 @@
+{
+  "run": "detail_global_mix_seed668",
+  "cohort": "BUID",
+  "single_pass_DSC_percent": 76.24342857142857,
+  "accepted_DSC_percent": 76.24314285714286,
+  "difference_pp": 0.0002857142857136198,
+  "largest_case_difference_pp": 0.009999999999998899,
+  "tolerance_pp": 0.1,
+  "passed": true
+}

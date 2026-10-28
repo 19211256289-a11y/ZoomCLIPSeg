@@ -1,0 +1,438 @@
+{
+  "protocol": {
+    "name": "zoom_probe_v1",
+    "locked_at": "2026-10-06",
+    "purpose": "Evaluation-only analyses requested by an external review of the manuscript. Nothing is trained, and nothing in this suite can change the method: the locked configuration t15 remains the method whatever the outcome. Part A (polyps): is the gain of the second pass due to scale or to the additional original pixels, and how sensitive is it to the three constants of the window rule and to the target fraction. Part B (breast ultrasound): comparison of the detail branch with the baseline at matched image-level specificity. Part C: wall-clock inference time.",
+    "lineage": {
+      "reports/acceptance_pilot_zoom_20261005/audit.json": "8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3",
+      "reports/acceptance_test_zoom_20261005/audit.json": "8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17"
+    },
+    "mc_samples": 30,
+    "batch_size": 32,
+    "threshold": 0.5,
+    "reproduction_tolerance_pp": 0.25,
+    "polyp": {
+      "sources": {
+        "kvasir_v1": [
+          666,
+          667,
+          668
+        ],
+        "formal_detail_mix_kvasir_v2": [
+          669,
+          670
+        ]
+      },
+      "arm": "detail",
+      "accepted_two_pass": {
+        "kvasir_v1": "test_zoom_kvasir_v1",
+        "formal_detail_mix_kvasir_v2": "zoom_kvasir_seeds_v1"
+      },
+      "groups": {
+        "resolution": [
+          666,
+          667,
+          668,
+          669,
+          670
+        ],
+        "sensitivity": [
+          666,
+          667,
+          668
+        ]
+      },
+      "reference": {
+        "name": "t15",
+        "tau": 0.15,
+        "margin": 1.25,
+        "min_window": 0.2,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      },
+      "variants": [
+        {
+          "name": "in224",
+          "group": "resolution",
+          "pixels": "input224",
+          "output": "original"
+        },
+        {
+          "name": "in224_out224",
+          "group": "resolution",
+          "pixels": "input224",
+          "output": "grid224"
+        },
+        {
+          "name": "margin100",
+          "group": "sensitivity",
+          "margin": 1.0
+        },
+        {
+          "name": "margin150",
+          "group": "sensitivity",
+          "margin": 1.5
+        },
+        {
+          "name": "minwin010",
+          "group": "sensitivity",
+          "min_window": 0.1
+        },
+        {
+          "name": "minwin030",
+          "group": "sensitivity",
+          "min_window": 0.3
+        },
+        {
+          "name": "trigger070",
+          "group": "sensitivity",
+          "trigger": 0.7
+        },
+        {
+          "name": "trigger090",
+          "group": "sensitivity",
+          "trigger": 0.9
+        },
+        {
+          "name": "tau010",
+          "group": "sensitivity",
+          "tau": 0.1
+        },
+        {
+          "name": "tau020",
+          "group": "sensitivity",
+          "tau": 0.2
+        }
+      ],
+      "variant_definitions": {
+        "in224": "The original image is resized to 224 x 224 exactly as for the first pass; the window is cut from this image and resized to the network inputs. The second-pass map is pasted at the original resolution. The second pass therefore sees the lesion at the canonical scale but receives no pixel that the first pass did not receive.",
+        "in224_out224": "as in224, and the second-pass map is pasted on the 224 x 224 grid, so that the output is not finer either."
+      },
+      "reading_rules_fixed_in_advance": {
+        "statistic": "mean over seeds of two-pass minus single-pass DSC, percentage points; macro mean over the four OOD sets",
+        "resolution": {
+          "ratio": "macro OOD gain of in224 divided by macro OOD gain of t15 (five seeds)",
+          "scale_explains_most_if_ratio_at_least": 0.75,
+          "original_pixels_explain_most_if_ratio_at_most": 0.25,
+          "mixed": "otherwise"
+        },
+        "sensitivity": {
+          "robust": "every variant has a macro OOD gain of at least min_gain_pp that is positive for each of the three seeds",
+          "min_gain_pp": 1.0,
+          "note": "descriptive; a variant that scores higher than t15 does not replace it"
+        }
+      },
+      "all_variants": [
+        {
+          "name": "t15",
+          "tau": 0.15,
+          "margin": 1.25,
+          "min_window": 0.2,
+          "trigger": 0.8,
+          "pixels": "original",
+          "output": "original",
+          "group": "reference"
+        },
+        {
+          "name": "in224",
+          "tau": 0.15,
+          "margin": 1.25,
+          "min_window": 0.2,
+          "trigger": 0.8,
+          "pixels": "input224",
+          "output": "original",
+          "group": "resolution"
+        },
+        {
+          "name": "in224_out224",
+          "tau": 0.15,
+          "margin": 1.25,
+          "min_window": 0.2,
+          "trigger": 0.8,
+          "pixels": "input224",
+          "output": "grid224",
+          "group": "resolution"
+        },
+        {
+          "name": "margin100",
+          "tau": 0.15,
+          "margin": 1.0,
+          "min_window": 0.2,
+          "trigger": 0.8,
+          "pixels": "original",
+          "output": "original",
+          "group": "sensitivity"
+        },
+        {
+          "name": "margin150",
+          "tau": 0.15,
+          "margin": 1.5,
+          "min_window": 0.2,
+          "trigger": 0.8,
+          "pixels": "original",
+          "output": "original",
+          "group": "sensitivity"
+        },
+        {
+          "name": "minwin010",
+          "tau": 0.15,
+          "margin": 1.25,
+          "min_window": 0.1,
+          "trigger": 0.8,
+          "pixels": "original",
+          "output": "original",
+          "group": "sensitivity"
+        },
+        {
+          "name": "minwin030",
+          "tau": 0.15,
+          "margin": 1.25,
+          "min_window": 0.3,
+          "trigger": 0.8,
+          "pixels": "original",
+          "output": "original",
+          "group": "sensitivity"
+        },
+        {
+          "name": "trigger070",
+          "tau": 0.15,
+          "margin": 1.25,
+          "min_window": 0.2,
+          "trigger": 0.7,
+          "pixels": "original",
+          "output": "original",
+          "group": "sensitivity"
+        },
+        {
+          "name": "trigger090",
+          "tau": 0.15,
+          "margin": 1.25,
+          "min_window": 0.2,
+          "trigger": 0.9,
+          "pixels": "original",
+          "output": "original",
+          "group": "sensitivity"
+        },
+        {
+          "name": "tau010",
+          "tau": 0.1,
+          "margin": 1.25,
+          "min_window": 0.2,
+          "trigger": 0.8,
+          "pixels": "original",
+          "output": "original",
+          "group": "sensitivity"
+        },
+        {
+          "name": "tau020",
+          "tau": 0.2,
+          "margin": 1.25,
+          "min_window": 0.2,
+          "trigger": 0.8,
+          "pixels": "original",
+          "output": "original",
+          "group": "sensitivity"
+        }
+      ],
+      "runs": [
+        "detail_seed666",
+        "detail_seed667",
+        "detail_seed668",
+        "detail_seed669",
+        "detail_seed670"
+      ]
+    },
+    "ultrasound": {
+      "source": "formal_detail_mix_busi_v1",
+      "arms": [
+        "baseline",
+        "detail"
+      ],
+      "seeds": [
+        666,
+        667,
+        668
+      ],
+      "cohorts": [
+        "Val",
+        "BUSI",
+        "BUSBRA",
+        "BUSUC",
+        "BUID",
+        "UDIAT"
+      ],
+      "val_list": "Val_text.xlsx",
+      "image_score": "maximum over pixels of the mean probability map of the single pass (30 stochastic passes)",
+      "gate": "A model is said to predict no lesion on an image if the image score does not exceed theta. With theta = 0.5 this is the ordinary prediction. For each seed, theta of the detail-branch model is the smallest value, not below 0.5, at which its specificity on the lesion-free images of the BUSI validation split is at least that of the baseline of the same seed at 0.5. Gated predictions keep the mask at threshold 0.5 or are empty.",
+      "primary": "theta calibrated on the validation split",
+      "secondary": "theta matched on the lesion-free images of the BUSI test set itself (optimistic; reported as such)",
+      "reading_rule_fixed_in_advance": {
+        "retained": "with the validation-calibrated gate, the macro OOD DSC gain of the detail branch over the baseline is positive for all three seeds and at least half of the ungated gain for at least two of them",
+        "reduced": "otherwise"
+      },
+      "note": "The gate is an analysis device. It is not part of the method and is not proposed as one.",
+      "runs": [
+        "baseline_seed666",
+        "detail_seed666",
+        "baseline_seed667",
+        "detail_seed667",
+        "baseline_seed668",
+        "detail_seed668"
+      ]
+    },
+    "timing": {
+      "source": "kvasir_v1",
+      "runs": [
+        "baseline_seed666",
+        "detail_seed666"
+      ],
+      "target": "Kvasir",
+      "warmup_images": 10,
+      "measured_images": 50,
+      "batch_size": 1,
+      "measured": "first pass (30 stochastic passes), second pass of the locked configuration t15 including cropping and pasting"
+    },
+    "zoom": {
+      "margin": 1.25,
+      "min_window": 0.2,
+      "zoom_in_if_window_at_most": 0.8,
+      "zoom_out_if_fraction_at_least": 0.2,
+      "zoom_out_target_fraction": 0.1,
+      "max_window": 2.0,
+      "fusion": "second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty"
+    },
+    "disclosures": [
+      "The five polyp test sets and the ultrasound test sets were used in earlier stages of this project.",
+      "CVC-300 and CVC-ColonDB share 52 exact image hashes.",
+      "ETIS-Larib is not touched; its evaluation was run once and stays closed.",
+      "The validation split of BUSI contains few lesion-free images; the calibrated gate is coarse."
+    ],
+    "statistics": {
+      "permutation_draws": 20000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261007
+    }
+  },
+  "protocol_sha256": "e9452e02e02d292556205bd35708946ff22aa79d46f2f052a8e092b6f2b7babd",
+  "code": {
+    "research_zoom_probe/__init__.py": "886f7218426a0fa93601799c08c698b3cd02cb1313d124236c767d49e0847e5b",
+    "research_zoom_probe/common.py": "52d7c1c666db0701da6320a1fd17737421a0fc0f4cac7ab4432580cfd2e8edc0",
+    "research_zoom_probe/evaluate.py": "26e3f42acd58c95a6dbea924ba9daec5d8e6a57f71f4f77bd1cb2449cff4cc25",
+    "research_zoom_probe/geometry.py": "e6a0c24369616e54f92158170afbb3e518f7dc63bdc8b1dc7214d1e5d7729f50",
+    "research_zoom_probe/report.py": "aac3d017ba85f8b107f1bab6eb96fcab20a91534d73a70722bde6af74d1bc05c",
+    "research_zoom_probe/runner.py": "3211192abc3ee9f4729a7e3b63c100f95b4f0a69dc2759d5809f1ae227e95e30",
+    "research_zoom/evaluate.py": "024cef32be79463bf36e4bbbf29cf665d730bd29215f2fbe279939b8f72e4629",
+    "research_zoom/geometry.py": "23c20c342bb6fac71c135d50031db72dedcb926f890cf942f7ed0fa8dee3ed23"
+  },
+  "checkpoints": {
+    "kvasir_v1": {
+      "detail_seed666": "3e06610d8c4c9ed408d8bfb001f66d1e11eb068266fabac0c6d1b60d7eddda2d",
+      "detail_seed667": "c52f1579255a1ed967b866ef1697b649728f5df373e487030205362f969718d4",
+      "detail_seed668": "23d496a12cae07450b6a8dd20960f18b312f392be9d2b17b62ec871b57e929cc",
+      "baseline_seed666": "a1a97ec45d23c866bae5f260f8de1bbc41a806a27a4e7171d856e778f8782492"
+    },
+    "formal_detail_mix_kvasir_v2": {
+      "detail_seed669": "8e3fa4610262baa7dfa94c2bad4a375d9fc117e9ccfb9a4800ffba040c19c95a",
+      "detail_seed670": "1a94007125c9bd0bc29b7dc7dafbadd3cc57b27231c49251dc5ab8ced79c799d"
+    },
+    "formal_detail_mix_busi_v1": {
+      "baseline_seed666": "bfe69566459eb4bed961c73c5564b2cb6a0c14274c59e9fa52ea348fc00e949a",
+      "detail_seed666": "15313cd5d935e527eed840fa1e522ac4ef1bf219fd5c1ea8166b56a51ab718a8",
+      "baseline_seed667": "9a974006170062efd6f8871d8b34b105fabd20dfc277b04640a51911fa73263a",
+      "detail_seed667": "029fa59dad718938a8e19efb1ea3b3f8ace5980a00c6fa2c55c072189924d13a",
+      "baseline_seed668": "18f2bf5f4e5f7038a3b892a59c8d2f2fa0e89aeba58445ff3616f602241bd408",
+      "detail_seed668": "bc3089d076a35d7d3d6694181ccad6618ba573b29e0f5f38c3f9e9f475547ba5"
+    }
+  },
+  "cohorts": {
+    "kvasir_v1": {
+      "Kvasir": {
+        "n": 100,
+        "list_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+        "files_digest": "cdce78c1bce73e983e65ed9bd8222b50ac7fe6d0cc09dfa306cb819a2d326c78"
+      },
+      "ColonDB": {
+        "n": 360,
+        "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+        "files_digest": "9ff335e0a7bc989b1a07759410533f00f5157316917fbea7df438de737b7d896"
+      },
+      "ClinicDB": {
+        "n": 61,
+        "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+        "files_digest": "3b4fbf76e51d2b479fea9973bd9ac476006a9e7b16b935e6d95fe2de4c7e74ee"
+      },
+      "CVC300": {
+        "n": 60,
+        "list_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+        "files_digest": "998180409607f38f475a0400a8d3f8084a7c805148d0d2b1921ad2af973d100b"
+      },
+      "BKAI": {
+        "n": 100,
+        "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+        "files_digest": "fb61d517acc1cc17935cd9aadf0e914a33bafd25acc3c0558611a7c1e6d836a5"
+      }
+    },
+    "formal_detail_mix_kvasir_v2": {
+      "Kvasir": {
+        "n": 100,
+        "list_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+        "files_digest": "cdce78c1bce73e983e65ed9bd8222b50ac7fe6d0cc09dfa306cb819a2d326c78"
+      },
+      "ColonDB": {
+        "n": 360,
+        "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+        "files_digest": "9ff335e0a7bc989b1a07759410533f00f5157316917fbea7df438de737b7d896"
+      },
+      "ClinicDB": {
+        "n": 61,
+        "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+        "files_digest": "3b4fbf76e51d2b479fea9973bd9ac476006a9e7b16b935e6d95fe2de4c7e74ee"
+      },
+      "CVC300": {
+        "n": 60,
+        "list_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+        "files_digest": "998180409607f38f475a0400a8d3f8084a7c805148d0d2b1921ad2af973d100b"
+      },
+      "BKAI": {
+        "n": 100,
+        "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+        "files_digest": "fb61d517acc1cc17935cd9aadf0e914a33bafd25acc3c0558611a7c1e6d836a5"
+      }
+    },
+    "formal_detail_mix_busi_v1": {
+      "BUSI": {
+        "n": 78,
+        "list_sha256": "e114a8efc53d859a519d393b8cad7dabd90de5569a2962492db1898d81ca7ed4",
+        "files_digest": "5726cc14d5dcdb6e34b3f32ee3420eadab078daa74b4bde712e48ef5c9209d02"
+      },
+      "BUSBRA": {
+        "n": 282,
+        "list_sha256": "668ceaefc1e1b235fe6d9bd70edab669b4899647c34629b82135b281a1574cb7",
+        "files_digest": "f86b53c8949ddf36747267cc68608e2f852f694dce678d244a9a11afcc83fffd"
+      },
+      "BUSUC": {
+        "n": 122,
+        "list_sha256": "3f24c79d2c3966a6c23a146a9cece10e56e38b759e507a1c96ace005a6e24be8",
+        "files_digest": "5eee8aea34cfe64c49ee8c29897db6a57d7c9b74a823f688016387be658be91c"
+      },
+      "BUID": {
+        "n": 35,
+        "list_sha256": "05c135d11eb1362394cdf6a4bf5d0174852daa02d759aeafbc61778ea3bc5307",
+        "files_digest": "48e600d831b7bb4d73ec3d35514d7dea64e8e2ae632e1c5dd31532549ffa4ce4"
+      },
+      "UDIAT": {
+        "n": 25,
+        "list_sha256": "0a3feb0e1d5cc97297d6a356e2c0643d23dc287234f3bbd4cb2b553ca3ee450e",
+        "files_digest": "508d483b8d9f42a5746851d5c10fbb08375c1cf764b88ec9d571d9daca1d37a2"
+      }
+    }
+  },
+  "val_list_sha256": "5200f6202c206f2edc24a14081db7bbe72d9788b226c7da6a1ab35348659bad8",
+  "prompts": {
+    "kvasir_v1": "a polyp in a colonoscopy image",
+    "formal_detail_mix_kvasir_v2": "a polyp in a colonoscopy image",
+    "formal_detail_mix_busi_v1": "a tumor in a breast ultrasound image"
+  },
+  "digest": "b4fa32ddad87eaf65d75a3727c734014eaf2ec7b19979893369502b84530bc5b"
+}

@@ -1,0 +1,53 @@
+{
+  "created_at": "2026-10-01T20:31:35.691354+08:00",
+  "source_queue": "E:\\BaiduNetdiskDownload\\paper\\control\\research_v7\\confirm_kvasir_v7\\queue.json",
+  "source_sha256": "771ba350765654565f69c6a279dd56f4cf5eff3b0009fa8b4b32eb0ecfc1aef2",
+  "measured_v7_training_seconds": [
+    1274.9729665999766,
+    1277.340439600055,
+    1276.2363229000475,
+    1277.7698955999222,
+    1276.6297325000633,
+    1277.0208095000125,
+    1327.5869247000664,
+    1339.8100870000198,
+    1388.939885300002
+  ],
+  "measured_v7_val_seconds": [
+    71.98014010000043,
+    52.53305950004142,
+    51.94137330004014,
+    52.23672639997676,
+    51.89086769998539,
+    52.16970249998849,
+    52.79191589995753,
+    68.13146639999468,
+    54.44324829999823
+  ],
+  "mean_epoch_seconds": 65.09059479833425,
+  "median_epoch_seconds": 63.867021980002754,
+  "formal_training_hours": 16.272648699583563,
+  "source_final_val_hours": 0.14114402780555085,
+  "automatic_test_hours": 0.9611908293558012,
+  "projected_total_hours": 17.374983556744915,
+  "planning_range_hours": [
+    17,
+    20
+  ],
+  "test_images_per_checkpoint": 681,
+  "test_predictions_total": 6129,
+  "test_cohort_sizes": {
+    "Kvasir": 100,
+    "ColonDB": 360,
+    "ClinicDB": 61,
+    "CVC300": 60,
+    "BKAI": 100
+  },
+  "assumptions": [
+    "same GPU, batch24, FP32, checkpointing, two views and no competing GPU load",
+    "100-epoch training extrapolates nine completed 20-epoch runs",
+    "test estimate scales measured 100-image source MC30 evaluation with image count",
+    "formal fresh initialization may change checkpoint I/O and epoch duration",
+    "range includes normal overhead but excludes pauses, sleep, power loss and competing tasks"
+  ]
+}

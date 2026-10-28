@@ -1,0 +1,62 @@
+{
+  "n": 100,
+  "n_positive": 100,
+  "n_negative": 0,
+  "n_small": 25,
+  "DSC_percent": 89.0359,
+  "NSD_percent": 90.93410000000002,
+  "positive_DSC_percent": 89.0359,
+  "small_DSC_percent": 85.2152,
+  "micro_foreground_precision_percent": 89.80573600284168,
+  "micro_foreground_recall_percent": 88.50108409799272,
+  "empty_positive": 0,
+  "zero_overlap_positive": 1,
+  "recall_below_50": 1,
+  "precision_below_50": 2,
+  "small_empty_positive": 0,
+  "positive_DSC_below_10_percent": 1,
+  "positive_DSC_below_50_percent": 2,
+  "negative_false_positive": 0,
+  "brier_224": 0.031421344744157975,
+  "local_area_quartile_DSC_percent": [
+    85.2152,
+    89.4092,
+    92.584,
+    88.9352
+  ],
+  "source_train_area_threshold": 0.058989688326573426,
+  "run_id": "paired_image_seed668",
+  "variant": "paired_image",
+  "seed": 668,
+  "condition": "hflip_sync",
+  "mc_samples": 30,
+  "batch_size": 32,
+  "split": "Val",
+  "target": "Kvasir",
+  "diagnostic": true,
+  "prompt_changed_count": 56,
+  "subsets": {
+    "all": {
+      "n": 100,
+      "mean_delta_DSC_pp": -0.7119999999999997,
+      "aligned_probability_mae": 0.019145623083459212,
+      "binary_disagreement_fraction": 0.019097576530612247
+    },
+    "direction_bearing": {
+      "n": 66,
+      "mean_delta_DSC_pp": -0.9603030303030309,
+      "aligned_probability_mae": 0.02149977926764581,
+      "binary_disagreement_fraction": 0.02147682581555349
+    },
+    "prompt_changed": {
+      "n": 56,
+      "mean_delta_DSC_pp": -0.7941071428571435,
+      "aligned_probability_mae": 0.023641729820935455,
+      "binary_disagreement_fraction": 0.023636442579263846
+    }
+  },
+  "inference_seconds": 31.99545410007704,
+  "peak_allocated_gib": 1.5975065231323242,
+  "completed_at": "2026-10-03T03:56:21.984516+00:00",
+  "checkpoint_sha256": "5e37c24d9566bb3c76a3d64b2198fc1705603b3736bce4acd4ac694ca8bcc48b"
+}

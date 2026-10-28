@@ -1,0 +1,128 @@
+{
+  "protocol": {
+    "name": "text_probe_v1",
+    "locked_at": "2026-10-07",
+    "purpose": "Evaluation-only analysis requested by external reviews. Three questions. (1) With one sentence for all images, does the content of the sentence still matter to a model trained with it? The trained detail-branch models are evaluated with the training sentence, with an empty text, with the class sentence of another modality and with two other wordings of the same class. (2) What is the accuracy with a single stochastic forward pass? (3) What is the measured time of one inference run with 1, 5, 15 and 30 stochastic passes? Nothing is trained and nothing here can change the method; the outcome is reported whatever it is.",
+    "locked_before": "Written after zoom_budget_v1 had been accepted. No result of the fixed-sentence models with any other text at test time, with one stochastic pass, or any timing with fewer than 30 passes existed.",
+    "lineage": {
+      "reports/acceptance_pilot_zoom_20261005/audit.json": "8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3",
+      "reports/acceptance_test_zoom_20261005/audit.json": "8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17"
+    },
+    "mc_samples": 30,
+    "batch_size": 32,
+    "threshold": 0.5,
+    "reproduction_tolerance_pp": 0.25,
+    "sources": {
+      "kvasir_v1": [
+        666,
+        667,
+        668
+      ]
+    },
+    "arm": "detail",
+    "prompts": {
+      "empty": "",
+      "empty_fallback": ".",
+      "wrong_class": "a breast tumor in an ultrasound image",
+      "paraphrase_a": "polyp",
+      "paraphrase_b": "a colorectal polyp seen during endoscopy"
+    },
+    "definitions": {
+      "inference": "single pass of the whole image, mean of 30 stochastic forward passes, as in the accepted evaluation",
+      "noise": "the random stream is reset before every text condition, so that the conditions share their random draws",
+      "single01": "the training sentence with one stochastic forward pass (an actual run, not a prefix of the 30)"
+    },
+    "timing": {
+      "model": "detail_seed666",
+      "dataset": "Kvasir",
+      "warmup_images": 10,
+      "images": 50,
+      "passes": [
+        1,
+        5,
+        15,
+        30
+      ],
+      "note": "batch size 1; one inference run of the whole image; GPU synchronised before and after; data loading excluded"
+    },
+    "reading_rules_fixed_in_advance": {
+      "statistic": "DSC difference to the training sentence in percentage points; mean over the three seeds of paired image-level differences; macro mean over the four OOD sets, with a bootstrap interval and a sign-flip permutation test",
+      "text_content_matters": "the class sentence of the other modality lowers the OOD mean, with an interval that excludes zero",
+      "acts_as_constant": "for both the empty text and the other-modality sentence the OOD mean changes by less than 0.5 pp in absolute value with an interval that includes zero",
+      "wording_sensitive": "at least one of the two other wordings changes the OOD mean with an interval that excludes zero",
+      "consequence": "The manuscript reports each outcome as it is. If acts_as_constant holds, it states that with one sentence per dataset the text acts as a constant input of the trained model and that \"text-guided\" names the model family. If text_content_matters holds, it states that the trained model still depends on the content of its sentence. The sensitivity to the wording is reported with its size in either case."
+    },
+    "disclosures": [
+      "The five polyp test sets were used in earlier stages of this project.",
+      "Only the detail-branch model and the seeds 666-668 are evaluated; SCZ is not applied.",
+      "ETIS-Larib is not touched.",
+      "The models were never trained with the alternative texts; the analysis measures sensitivity at test time only."
+    ],
+    "statistics": {
+      "permutation_draws": 20000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261016
+    },
+    "seeds": [
+      666,
+      667,
+      668
+    ],
+    "runs": [
+      "detail_seed666",
+      "detail_seed667",
+      "detail_seed668"
+    ]
+  },
+  "protocol_sha256": "132cb95904b1aa3dc0d92babbe717d1b8b6cf0582ce820d2e7142ce311371912",
+  "code": {
+    "research_text_probe/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research_text_probe/common.py": "488a89414c0576e6d2f2844ab722af08a5c3f485ee41d62170c5445fd394606c",
+    "research_text_probe/evaluate.py": "f55c5383caa3a476390148e3cd72156886643684a4f2eb13cb27f15c16bb99b2",
+    "research_text_probe/report.py": "173389e4f776e0c4fe617f3c2bfb1b52f3e67d5fa7c7146153f1a1e7d87bf7ad",
+    "research_text_probe/runner.py": "01f4600c8fb35d42cdfdd52ab7e132485c1e9d2ce1f4212c78ea710bed3fa350",
+    "research_zoom/evaluate.py": "024cef32be79463bf36e4bbbf29cf665d730bd29215f2fbe279939b8f72e4629",
+    "research_zoom_probe/evaluate.py": "26e3f42acd58c95a6dbea924ba9daec5d8e6a57f71f4f77bd1cb2449cff4cc25",
+    "research_formal/metrics.py": "9e1b65b1729baa14be536fa8a9ad2a99992730c0dc80b92467519f24ac734318"
+  },
+  "checkpoints": {
+    "kvasir_v1": {
+      "detail_seed666": "3e06610d8c4c9ed408d8bfb001f66d1e11eb068266fabac0c6d1b60d7eddda2d",
+      "detail_seed667": "c52f1579255a1ed967b866ef1697b649728f5df373e487030205362f969718d4",
+      "detail_seed668": "23d496a12cae07450b6a8dd20960f18b312f392be9d2b17b62ec871b57e929cc"
+    }
+  },
+  "cohorts": {
+    "kvasir_v1": {
+      "Kvasir": {
+        "n": 100,
+        "list_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+        "files_digest": "cdce78c1bce73e983e65ed9bd8222b50ac7fe6d0cc09dfa306cb819a2d326c78"
+      },
+      "ColonDB": {
+        "n": 360,
+        "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+        "files_digest": "9ff335e0a7bc989b1a07759410533f00f5157316917fbea7df438de737b7d896"
+      },
+      "ClinicDB": {
+        "n": 61,
+        "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+        "files_digest": "3b4fbf76e51d2b479fea9973bd9ac476006a9e7b16b935e6d95fe2de4c7e74ee"
+      },
+      "CVC300": {
+        "n": 60,
+        "list_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+        "files_digest": "998180409607f38f475a0400a8d3f8084a7c805148d0d2b1921ad2af973d100b"
+      },
+      "BKAI": {
+        "n": 100,
+        "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+        "files_digest": "fb61d517acc1cc17935cd9aadf0e914a33bafd25acc3c0558611a7c1e6d836a5"
+      }
+    }
+  },
+  "prompts": {
+    "kvasir_v1": "a polyp in a colonoscopy image"
+  },
+  "digest": "099744ece5aa7e63d0ad247bf302de4014be7d1e1421fc20e715b9bfceef625a"
+}

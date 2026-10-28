@@ -1,0 +1,11 @@
+{
+  "run": "detail_seed667",
+  "accepted_DSC_percent": 89.09819999999999,
+  "local_DSC_percent": 89.10849999999999,
+  "difference_pp": 0.010300000000000864,
+  "accepted_small_DSC_percent": 87.008,
+  "local_small_DSC_percent": 87.0228,
+  "tolerance_pp": 0.25,
+  "passed": true,
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

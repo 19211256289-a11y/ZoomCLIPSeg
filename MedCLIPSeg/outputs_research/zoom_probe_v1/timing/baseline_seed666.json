@@ -1,0 +1,33 @@
+{
+  "n": 50,
+  "warmup": 10,
+  "batch_size": 1,
+  "mc_samples": 30,
+  "device": "NVIDIA GeForce RTX 5060 Ti",
+  "first_pass": {
+    "mean_ms": 746.7266639904119,
+    "sd_ms": 9.794964858448985,
+    "median_ms": 744.686699938029
+  },
+  "second_pass_when_run": {
+    "mean_ms": 751.9111500053745,
+    "sd_ms": 7.078739490790662,
+    "median_ms": 751.5940500306897
+  },
+  "second_pass_forward_only": {
+    "mean_ms": 745.4827541708559,
+    "sd_ms": 7.045124209953649,
+    "median_ms": 745.3023500274867
+  },
+  "second_pass_share": 0.48,
+  "two_pass_total": {
+    "mean_ms": 1107.6440159929916,
+    "sd_ms": 381.19298159540097,
+    "median_ms": 769.9035499827005
+  },
+  "relative_cost_two_pass": 1.4833326160792004,
+  "measured_at": "2026-10-06T01:42:48.845072+00:00",
+  "run": "baseline_seed666",
+  "checkpoint_sha256": "a1a97ec45d23c866bae5f260f8de1bbc41a806a27a4e7171d856e778f8782492",
+  "plan_digest": "b4fa32ddad87eaf65d75a3727c734014eaf2ec7b19979893369502b84530bc5b"
+}

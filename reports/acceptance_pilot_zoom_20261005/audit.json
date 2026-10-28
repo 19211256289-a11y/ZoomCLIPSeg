@@ -1,0 +1,58 @@
+{
+  "suite": "pilot_zoom_kvasir_v1",
+  "audited_at": "2026-10-04T15:45:00+00:00",
+  "execution_valid": true,
+  "gate_verdict": "pass",
+  "selected": "t15",
+  "results_sha256": "e474b4337dece33c47901c810a4fab56f1f4d31d07a5c45c6a5b1cc039186254",
+  "plan_digest": "c5b9dbe2dcff8c0a40e47d43d0b21b47224b9842d0ddeed81b63398941825a7f",
+  "checks": {
+    "code_and_protocol_match_delivered": true,
+    "checkpoints_match_accepted": true,
+    "manifests_15_of_15_complete_and_hashed": true,
+    "table_recomputed_exactly": true,
+    "val_reproduction_pp": [
+      0.0087,
+      0.0103,
+      -0.0091
+    ],
+    "ground_truth_consistent": true,
+    "no_test_or_ood_image_read": true,
+    "log_errors": "none (one timm FutureWarning)"
+  },
+  "gate": {
+    "p0": true,
+    "g1": true,
+    "g2": true,
+    "g3": true,
+    "shrink_gain_pp": 24.605,
+    "unshifted_change_pp": 0.34036666666666804
+  },
+  "validity_finding": {
+    "summary": "At scale 0.25 the first pass marks most of the pasted image region (prediction covers >60% of the pasted rectangle in 90/100 images; 32/100 at 0.35; 2/100 at 0.5). The second pass then largely undoes the synthetic shrink. Gains at 0.25 and 0.35 are therefore not an estimate of the gain on real small lesions.",
+    "artifact_free_evidence": {
+      "s100_gain_pp": 0.34036666666666804,
+      "s100_gain_per_seed_pp": [
+        0.06,
+        0.24,
+        0.72
+      ],
+      "s100_lesions_below_3_percent": {
+        "n": 7,
+        "single": 65.84,
+        "two_pass": 68.95
+      }
+    },
+    "least_affected_shrink_condition": {
+      "s050_gain_pp": 11.225966666666679,
+      "failures_single": 16.0,
+      "failures_two_pass": 6.3
+    }
+  },
+  "other_findings": [
+    "Zoom-out lowers unshifted DSC by about 1.3 pp and does not help at scale 2.0; it is dropped.",
+    "Scale 2.0 (large lesions): no gain from any non-oracle config; oracle gain 1.4 pp. The large-lesion weakness is not addressed.",
+    "Oracle windows recover 89-90 DSC at every shrink level: localisation by the first pass is the limiting factor."
+  ],
+  "decision": "Accepted as executed. The pre-set gate is passed; the size of the effect must come from the one-time locked Test confirmation."
+}

@@ -1,0 +1,59 @@
+name: text_probe_v1
+locked_at: '2026-10-07'
+purpose: >-
+  Evaluation-only analysis requested by external reviews. Three questions. (1) With one sentence for all images, does
+  the content of the sentence still matter to a model trained with it? The trained detail-branch models are evaluated
+  with the training sentence, with an empty text, with the class sentence of another modality and with two other
+  wordings of the same class. (2) What is the accuracy with a single stochastic forward pass? (3) What is the measured
+  time of one inference run with 1, 5, 15 and 30 stochastic passes? Nothing is trained and nothing here can change the
+  method; the outcome is reported whatever it is.
+locked_before: >-
+  Written after zoom_budget_v1 had been accepted. No result of the fixed-sentence models with any other text at test
+  time, with one stochastic pass, or any timing with fewer than 30 passes existed.
+lineage:
+  reports/acceptance_pilot_zoom_20261005/audit.json: 8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3
+  reports/acceptance_test_zoom_20261005/audit.json: 8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17
+mc_samples: 30
+batch_size: 32
+threshold: 0.5
+reproduction_tolerance_pp: 0.25
+sources:
+  kvasir_v1: [666, 667, 668]
+arm: detail
+prompts:           # 'fixed' is the sentence the models were trained with (read from the accepted source, not written here)
+  empty: ''
+  empty_fallback: '.'      # used only if the text encoder cannot process an empty string; the string used is recorded
+  wrong_class: 'a breast tumor in an ultrasound image'
+  paraphrase_a: 'polyp'
+  paraphrase_b: 'a colorectal polyp seen during endoscopy'
+definitions:
+  inference: single pass of the whole image, mean of 30 stochastic forward passes, as in the accepted evaluation
+  noise: the random stream is reset before every text condition, so that the conditions share their random draws
+  single01: the training sentence with one stochastic forward pass (an actual run, not a prefix of the 30)
+timing:
+  model: detail_seed666
+  dataset: Kvasir
+  warmup_images: 10
+  images: 50
+  passes: [1, 5, 15, 30]
+  note: batch size 1; one inference run of the whole image; GPU synchronised before and after; data loading excluded
+reading_rules_fixed_in_advance:
+  statistic: >-
+    DSC difference to the training sentence in percentage points; mean over the three seeds of paired image-level
+    differences; macro mean over the four OOD sets, with a bootstrap interval and a sign-flip permutation test
+  text_content_matters: the class sentence of the other modality lowers the OOD mean, with an interval that excludes zero
+  acts_as_constant: >-
+    for both the empty text and the other-modality sentence the OOD mean changes by less than 0.5 pp in absolute value
+    with an interval that includes zero
+  wording_sensitive: at least one of the two other wordings changes the OOD mean with an interval that excludes zero
+  consequence: >-
+    The manuscript reports each outcome as it is. If acts_as_constant holds, it states that with one sentence per
+    dataset the text acts as a constant input of the trained model and that "text-guided" names the model family. If
+    text_content_matters holds, it states that the trained model still depends on the content of its sentence. The
+    sensitivity to the wording is reported with its size in either case.
+disclosures:
+  - The five polyp test sets were used in earlier stages of this project.
+  - Only the detail-branch model and the seeds 666-668 are evaluated; SCZ is not applied.
+  - ETIS-Larib is not touched.
+  - The models were never trained with the alternative texts; the analysis measures sensitivity at test time only.
+statistics: {permutation_draws: 20000, bootstrap_draws: 10000, rng_seed: 20261016}

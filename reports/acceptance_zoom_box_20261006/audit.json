@@ -1,0 +1,149 @@
+{
+  "suite": "zoom_box_v1",
+  "audited_at": "2026-10-06T09:44:20.760662+00:00",
+  "execution_valid": true,
+  "gate_verdict": "not_applicable_descriptive",
+  "checks": {
+    "queue_state": "completed",
+    "jobs_completed": "27/27",
+    "error": null,
+    "plan_digest_consistent": true,
+    "active_hours": 1.54,
+    "case_files": "all 25 fetched: 5 x cohort size rows each",
+    "manifests_and_reproduction": "2 of 25 fetched and verified (first and last); the runner aborts on any failed reproduction and the queue completed",
+    "code_hashes": "6 of 8 sealed code files identical to the auditor copy; research_zoom/evaluate.py and geometry.py belong to the accepted package and were not compared",
+    "independent_recomputation": "OOD DSC of single pass and the four variants recomputed from the 25 case files: identical to results.json to 0.01",
+    "t15_reference": "79.48 OOD, the accepted five-seed value"
+  },
+  "files": {
+    "results_json_sha256": "96cd730260830694d951464319cfbf381cd1f094a58c90e5475acf97380dac20",
+    "report_md_sha256": "b81678dc9e09ccffd4098c04be75ab7a02c53d5c531887fde95f4a6605577267",
+    "plan_digest": "25d87236e9c137421c25c759dbab019c661218809d3a5bea201a91010a960285"
+  },
+  "findings": {
+    "single": {
+      "ood_dsc": 77.36,
+      "second_pass_share": 0.0,
+      "median_window": null,
+      "gain_over_single": null,
+      "t15_minus_this": {
+        "mean_pp": 2.119553110200364,
+        "ci95_pp": [
+          1.3061875257285973,
+          2.912446451958105
+        ],
+        "p": 4.999750012499375e-05
+      }
+    },
+    "t15": {
+      "ood_dsc": 79.48,
+      "second_pass_share": 0.752,
+      "median_window": 0.5189732142857143,
+      "gain_over_single": {
+        "mean_pp": 2.119553110200364,
+        "ci95_pp": [
+          1.311959329690346,
+          2.9004649277094714
+        ],
+        "p": 4.999750012499375e-05
+      },
+      "t15_minus_this": null
+    },
+    "plain125": {
+      "ood_dsc": 77.18,
+      "second_pass_share": 0.878,
+      "median_window": 0.36830357142857145,
+      "gain_over_single": {
+        "mean_pp": -0.17727464025500939,
+        "ci95_pp": [
+          -1.3077267420309657,
+          0.9016591834016392
+        ],
+        "p": 0.7650117494125294
+      },
+      "t15_minus_this": {
+        "mean_pp": 2.2968277504553734,
+        "ci95_pp": [
+          1.7067530941484519,
+          2.9260112036657553
+        ],
+        "p": 4.999750012499375e-05
+      }
+    },
+    "plain150": {
+      "ood_dsc": 78.69,
+      "second_pass_share": 0.8,
+      "median_window": 0.41517857142857145,
+      "gain_over_single": {
+        "mean_pp": 1.3303323816029142,
+        "ci95_pp": [
+          0.4866622937158468,
+          2.145722855077414
+        ],
+        "p": 0.0015499225038748063
+      },
+      "t15_minus_this": {
+        "mean_pp": 0.7892207285974497,
+        "ci95_pp": [
+          0.38718034187158457,
+          1.2187771605191253
+        ],
+        "p": 9.99950002499875e-05
+      }
+    },
+    "plain200": {
+      "ood_dsc": 79.15,
+      "second_pass_share": 0.617,
+      "median_window": 0.5000000000000001,
+      "gain_over_single": {
+        "mean_pp": 1.7982598269581054,
+        "ci95_pp": [
+          1.112654935678506,
+          2.4398521535746807
+        ],
+        "p": 4.999750012499375e-05
+      },
+      "t15_minus_this": {
+        "mean_pp": 0.3212932832422587,
+        "ci95_pp": [
+          -0.05894546948998176,
+          0.7278952683287793
+        ],
+        "p": 0.112044397780111
+      }
+    },
+    "box125": {
+      "ood_dsc": 77.34,
+      "second_pass_share": 0.878,
+      "median_window": 0.36830357142857145,
+      "gain_over_single": {
+        "mean_pp": -0.016947695810564878,
+        "ci95_pp": [
+          -1.1415552252959933,
+          1.0512903960610192
+        ],
+        "p": 0.976201189940503
+      },
+      "t15_minus_this": {
+        "mean_pp": 2.136500806010929,
+        "ci95_pp": [
+          1.5593912058287795,
+          2.7306341345628415
+        ],
+        "p": 4.999750012499375e-05
+      }
+    }
+  },
+  "verdicts_by_rule": {
+    "plain125": "t15_better",
+    "plain150": "t15_better",
+    "plain200": "not_distinguishable",
+    "box125": "t15_better"
+  },
+  "overall_by_rule": "plain_crop_sufficient",
+  "auditor_notes": [
+    "Overall verdict plain_crop_sufficient: plain200 is not distinguishable from t15 (+0.32 pp, CI -0.06 to 0.73, p=0.112). By the consequence fixed in the protocol the manuscript does not claim that the window rule is more accurate than a well-chosen fixed crop.",
+    "A tight crop (factor 1.25) and t15 without its area term give no gain; the gain increases with the window size. This supports the reading that scale, not cropping, drives the gain.",
+    "Factors above 2.0 were not evaluated; whether a larger fixed factor exceeds t15 is unknown."
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "protocol": {
+    "name": "clipseg224_scz_v1",
+    "locked_at": "2026-10-07",
+    "purpose": "Companion of clipseg_scz_v1 at the input resolution of our models. The same CLIPSeg, with the same recipe, is fine-tuned and evaluated at 224 x 224 instead of its native 352 x 352, with a single pass and with the locked SCZ window rule, unchanged. Two questions: does SCZ help this frozen-encoder model when it sees the image at 224 x 224, and is its gain larger there than at 352 x 352, as an explanation in terms of a fixed low-resolution view predicts? The outcome is reported whatever it is.",
+    "locked_before": "Written while clipseg_scz_v1 was running. Its first seed (666) had been evaluated and inspected: SCZ gained 0.41 pp on the OOD mean at 352 x 352 (7.8 pp for lesions below 1% of the image, a loss of 1 to 2 pp for larger lesions). This suite was added after that observation and is therefore a follow-up, not an independent confirmation. No CLIPSeg model had been trained or evaluated at 224 x 224.",
+    "companion_suite": "clipseg_scz_v1",
+    "model": {
+      "name": "CLIPSeg (CIDAS/clipseg-rd64-refined, Hugging Face)",
+      "directory": "checkpoints/clipseg-rd64-refined",
+      "trained": "decoder only (the CLIP image and text encoders are frozen); the decoder starts from the released weights",
+      "sentence": "a polyp in a colonoscopy image"
+    },
+    "seeds": [
+      666,
+      667,
+      668
+    ],
+    "groups": {
+      "kvasir_full": {
+        "dataset": "Kvasir",
+        "train_list": "Train_text.xlsx",
+        "cohort_source": "kvasir_v1",
+        "targets": [
+          "Kvasir",
+          "ColonDB",
+          "ClinicDB",
+          "CVC300",
+          "BKAI"
+        ]
+      }
+    },
+    "recipe": {
+      "input_size": 224,
+      "epochs": 100,
+      "batch_size": 24,
+      "optimizer": "Adam",
+      "learning_rate": 0.0003,
+      "final_learning_rate": 0.0001,
+      "loss": "0.5 Dice + 0.5 binary cross-entropy",
+      "augmentation": "rotation by a random angle within +/-20 degrees with probability 0.5 (as in the MedCLIPSeg implementation), and horizontal and vertical reflection with probability 0.5 each. No scale augmentation.",
+      "rotation_degrees": 20,
+      "weights": "last epoch; no selection on validation or test data"
+    },
+    "inference": "one deterministic forward pass; sigmoid; threshold 0.5",
+    "target_fraction": 0.15,
+    "zoom": {
+      "margin": 1.25,
+      "min_window": 0.2,
+      "zoom_in_if_window_at_most": 0.8,
+      "zoom_out_if_fraction_at_least": 0.2,
+      "zoom_out_target_fraction": 0.1,
+      "max_window": 2.0,
+      "fusion": "second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty"
+    },
+    "definitions": {
+      "single": "one pass of the whole image at 224 x 224",
+      "scz": "the locked window rule (target fraction 0.15, constants above) applied to the first prediction; the window is cropped from the original pixels, resized to 224 x 224 and segmented by the same model with the same sentence"
+    },
+    "reading_rules_fixed_in_advance": {
+      "statistic": "DSC difference SCZ minus single pass in percentage points; mean over the three seeds of paired image-level differences; macro mean over the four OOD sets, with a bootstrap interval and a sign-flip permutation test",
+      "transfers": "the OOD gain is positive for every seed and its interval excludes zero",
+      "does_not_transfer": "the interval of the OOD gain includes zero or lies below it",
+      "larger_at_low_resolution": "the OOD gain of SCZ at 224 x 224 minus the OOD gain at 352 x 352 (same seeds, paired by image) is positive with an interval that excludes zero",
+      "consequence": "The manuscript reports the gain of SCZ at both resolutions as measured. If transfers holds here, it states that SCZ helps CLIPSeg at the resolution of our models; if larger_at_low_resolution also holds, it states that the gain shrinks when the encoder sees more pixels, in line with the explanation by a fixed low-resolution view, and names a higher input resolution as an alternative remedy where the model allows it. If neither holds, it states that SCZ did not help CLIPSeg and keeps the scope \"MedCLIPSeg variants only\". The accuracy of CLIPSeg itself is reported for context and not as a ranking."
+    },
+    "disclosures": [
+      "The five polyp test sets were used in earlier stages of this project; ETIS-Larib is not touched.",
+      "The training recipe of CLIPSeg was fixed here without tuning and differs from the one used for the values reported in the MedCLIPSeg paper.",
+      "The decoder starts from released weights, so that the seeds differ in mini-batch order and augmentation only.",
+      "The target fraction and the zoom constants are those locked for MedCLIPSeg at 224 x 224; nothing is re-derived for this model.",
+      "The released CLIPSeg was trained at 352 x 352; running it at 224 x 224 is outside its native setting.",
+      "This suite was designed after one seed of the companion suite had been inspected."
+    ],
+    "statistics": {
+      "permutation_draws": 20000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261020
+    }
+  },
+  "protocol_sha256": "b30f8e78181b3c78eaafd164d0639670af73383df7eb91fa40ea91a8084c878b",
+  "code": {
+    "research_clipseg224/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research_clipseg224/common.py": "d1034ed2e15f20cbc3c43e3e2c005d6b584c34dfbff9add5f48afb27dd892ea7",
+    "research_clipseg224/evaluate.py": "e83946c772f750e42b1abf77a41d28a501b88248fe4f0f54e90d0c55e56a4d03",
+    "research_clipseg224/report.py": "616604e4980e19dc477c742dcb828612032043e8f039177ca7702e5a67262f0c",
+    "research_clipseg224/runner.py": "f0189301ae950c4f231174bf1779ce189c6ab1e5288c289efae90d1ee2452d89",
+    "research_clipseg224/work.py": "fe25a274dead0106c3d16b27fa38ed63ca7ee7554798b4556a52ea27180ccb52",
+    "research_polyp_pvt/data.py": "03b6b28bc600bad1066ce1d7e3c8f6f987091b4d696904e35c7baeb90bc31713",
+    "research_zoom/geometry.py": "23c20c342bb6fac71c135d50031db72dedcb926f890cf942f7ed0fa8dee3ed23",
+    "research_formal/metrics.py": "9e1b65b1729baa14be536fa8a9ad2a99992730c0dc80b92467519f24ac734318"
+  },
+  "released_weights": {
+    "file": "model.safetensors",
+    "sha256": "d00ca85d6b859f9d07b7cfb8ef26fe9771cb275b34c9368f2ecf603139307f55",
+    "bytes": 603049496
+  },
+  "groups": {
+    "kvasir_full": {
+      "train_n": 800,
+      "train": {
+        "n": 800,
+        "list_sha256": "13929e6a9e10dc2327f9146b05f0387336ea5a92f4cceab667f40c14fde481ea",
+        "files_digest": "7557ffd85c5d436974b3f27c3ea06e82f6eacb37e53520429c42f02077d2fd30"
+      },
+      "cohorts": {
+        "Kvasir": {
+          "n": 100,
+          "list_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+          "files_digest": "cdce78c1bce73e983e65ed9bd8222b50ac7fe6d0cc09dfa306cb819a2d326c78"
+        },
+        "ColonDB": {
+          "n": 360,
+          "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+          "files_digest": "9ff335e0a7bc989b1a07759410533f00f5157316917fbea7df438de737b7d896"
+        },
+        "ClinicDB": {
+          "n": 61,
+          "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+          "files_digest": "3b4fbf76e51d2b479fea9973bd9ac476006a9e7b16b935e6d95fe2de4c7e74ee"
+        },
+        "CVC300": {
+          "n": 60,
+          "list_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+          "files_digest": "998180409607f38f475a0400a8d3f8084a7c805148d0d2b1921ad2af973d100b"
+        },
+        "BKAI": {
+          "n": 100,
+          "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+          "files_digest": "fb61d517acc1cc17935cd9aadf0e914a33bafd25acc3c0558611a7c1e6d836a5"
+        }
+      },
+      "test_list": "Test_text_original.xlsx"
+    }
+  },
+  "digest": "f841968b271ea1d5dcc37323ec97836d4640362f66744eb66610216bf7a5a882"
+}

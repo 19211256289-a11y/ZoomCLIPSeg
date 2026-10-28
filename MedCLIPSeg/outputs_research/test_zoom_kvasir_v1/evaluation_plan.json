@@ -1,0 +1,120 @@
+{
+  "protocol": {
+    "name": "test_zoom_kvasir_v1",
+    "locked_at": "2026-10-05",
+    "purpose": "One-time confirmation on Test/OOD of the two-pass zoom configuration selected in pilot_zoom_kvasir_v1. Evaluation only. No training, no selection, no parameter change.",
+    "pilot": "pilot_zoom_kvasir_v1",
+    "pilot_acceptance_audit": "reports/acceptance_pilot_zoom_20261005/audit.json",
+    "pilot_acceptance_sha256": "8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3",
+    "runs": [
+      "detail_seed666",
+      "detail_seed667",
+      "detail_seed668"
+    ],
+    "test_targets": [
+      "Kvasir",
+      "ColonDB",
+      "ClinicDB",
+      "CVC300",
+      "BKAI"
+    ],
+    "ood_targets": [
+      "ColonDB",
+      "ClinicDB",
+      "CVC300",
+      "BKAI"
+    ],
+    "test_list": "Test_text_original.xlsx",
+    "prompt": "a polyp in a colonoscopy image",
+    "mc_samples": 30,
+    "batch_size": 32,
+    "threshold": 0.5,
+    "config": {
+      "name": "t15",
+      "target_fraction": 0.15,
+      "zoom_out": false,
+      "oracle": false
+    },
+    "zoom": {
+      "margin": 1.25,
+      "min_window": 0.2,
+      "zoom_in_if_window_at_most": 0.8,
+      "zoom_out_if_fraction_at_least": 0.2,
+      "zoom_out_target_fraction": 0.1,
+      "max_window": 2.0,
+      "fusion": "second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty"
+    },
+    "single_pass_reproduction_tolerance_pp": 0.1,
+    "gate": {
+      "description": "Fixed before any two-pass Test number was computed. Contrast: two-pass (t15) minus single-pass, same checkpoints, three-seed mean of DSC differences in percentage points.",
+      "g1_macro_ood_dsc_gain_at_least_pp": 1.0,
+      "g2_min_ood_sets_with_positive_gain": 3,
+      "g3_source_test_dsc_change_at_least_pp": -0.2,
+      "g4_max_dsc_regression_any_set_pp": 0.5,
+      "g5_all_seeds_positive_on_macro_ood": true,
+      "pass_rule": "g1 and g2 and g3 and g4 and g5",
+      "if_fail": "the two-pass direction is dropped; no retuning on these data"
+    },
+    "if_final_model_is_the_combination_arm": "the same locked configuration is applied without re-selection",
+    "secondary_reported_not_gating": [
+      "image-level permutation and Wilcoxon tests, bootstrap interval, per-seed consistency",
+      "small-target and lesion-size strata, failure counts, share of images given a second pass",
+      "unique-image sensitivity for ColonDB and CVC300"
+    ],
+    "disclosures": [
+      "The size-prior weakness that motivated the method was quantified on Test/OOD predictions of these same checkpoints.",
+      "The configuration was selected on synthetically rescaled source Val images; that proxy overstates the effect (see pilot acceptance).",
+      "The five test sets were used before with earlier models; they are not untouched holdouts.",
+      "ColonDB and CVC300 share 52 exact image hashes and are not independent cohorts.",
+      "The second pass adds one MC30 inference for every zoomed image."
+    ],
+    "statistics": {
+      "permutation_draws": 100000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261005
+    }
+  },
+  "protocol_sha256": "dec79bc2b4d97a04e2e193e7043c74761bb07d3b0f7a67d0c6da9a329de1da6d",
+  "code": {
+    "research_zoom_test/__init__.py": "bd7a64fea60b0976ea4a8d8768c33a027409a0d6254b411a54bb973a6c27f6cb",
+    "research_zoom_test/common.py": "99f9e45ff1562b5e57c2124e7a316d7b07fdea4302f3c73b301361ce3306fdff",
+    "research_zoom_test/report.py": "29595908e164763d8abe22043d28d78dd5bfb81d1280249a221e3b9982c0dbf3",
+    "research_zoom_test/runner.py": "973824b8abcda3cd4b2e94a88fe7b7a9bc8ed489a761474b7829fa0a8338feba",
+    "research_zoom/evaluate.py": "024cef32be79463bf36e4bbbf29cf665d730bd29215f2fbe279939b8f72e4629",
+    "research_zoom/geometry.py": "23c20c342bb6fac71c135d50031db72dedcb926f890cf942f7ed0fa8dee3ed23"
+  },
+  "test_cohorts": {
+    "Kvasir": {
+      "n": 100,
+      "prompt_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+      "files_digest": "4e38f9df12744673114a73e4f27fb23f7a848519325322b9de0deea5fca260b7"
+    },
+    "ColonDB": {
+      "n": 360,
+      "prompt_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+      "files_digest": "d72da043e2c497295560aabde6876ae0b074e6925541a30f4734112747ff3aa7"
+    },
+    "ClinicDB": {
+      "n": 61,
+      "prompt_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+      "files_digest": "627e1eb644c29d161dfb5a325d8c6c6aa828fc3ddde021c97c980fe2ce5fe02b"
+    },
+    "CVC300": {
+      "n": 60,
+      "prompt_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+      "files_digest": "f69a526ff3947b47b119d964e057cf9d8d148233443fabde7a0525e90d40181a"
+    },
+    "BKAI": {
+      "n": 100,
+      "prompt_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+      "files_digest": "b9d010906ecd204d30868a3bc916eb329a419f560f256ae837ae8380fb8bba0b"
+    }
+  },
+  "accepted_test_plan_digest": "3228ea3d847aebd21cd72b2f828037a2f94fb48bce4d3e804a727c91d4e63118",
+  "checkpoints": {
+    "detail_seed666": "3e06610d8c4c9ed408d8bfb001f66d1e11eb068266fabac0c6d1b60d7eddda2d",
+    "detail_seed667": "c52f1579255a1ed967b866ef1697b649728f5df373e487030205362f969718d4",
+    "detail_seed668": "23d496a12cae07450b6a8dd20960f18b312f392be9d2b17b62ec871b57e929cc"
+  },
+  "digest": "fa02136474c8a5accff522066b368d9a59bf469b65eea19660d84df0a164c00f"
+}

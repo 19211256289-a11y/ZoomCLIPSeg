@@ -1,0 +1,9 @@
+{
+  "run": "detail_seed666",
+  "cohort": "UDIAT",
+  "single_pass_DSC_percent": 72.07959999999999,
+  "accepted_DSC_percent": 72.07959999999999,
+  "difference_pp": 0.0,
+  "tolerance_pp": 0.25,
+  "passed": true
+}

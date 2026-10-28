@@ -1,0 +1,22 @@
+{
+  "baseline_seed666": {
+    "frozen_unchanged": true,
+    "trainable_changed": true,
+    "all_model_tensors_finite": true
+  },
+  "global_mix_seed666": {
+    "frozen_unchanged": true,
+    "trainable_changed": true,
+    "all_model_tensors_finite": true
+  },
+  "detail_seed666": {
+    "frozen_unchanged": true,
+    "trainable_changed": true,
+    "all_model_tensors_finite": true
+  },
+  "detail_global_mix_seed666": {
+    "frozen_unchanged": true,
+    "trainable_changed": true,
+    "all_model_tensors_finite": true
+  }
+}

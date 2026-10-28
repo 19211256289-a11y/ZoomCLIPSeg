@@ -1,0 +1,21 @@
+{
+  "signature": {
+    "suite": "formal_detail_mix_kvasir_v2",
+    "run": "detail_global_mix_seed669",
+    "checkpoint_sha256": "1bb81dc0568cb0820b19a1c0fb7d937cb2c0b364caf86f4a36d9a6bfa14eb100",
+    "science_digest": "933f993ba80cf44b342ec6e7d185df4d41fb7dd1c33badafa1a365814c9844a4",
+    "prompt": "a polyp in a colonoscopy image",
+    "cohort": "BKAI",
+    "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+    "mc_samples": 30,
+    "batch_size": 32,
+    "threshold": 0.5,
+    "small_threshold": 0.058989688326573426,
+    "files_digest": "16d5df5eb034d1ecc52c37102ac6b9ea205c19d460e2c5adf647f47f8e80429b"
+  },
+  "complete": true,
+  "started_at": "2026-10-05T10:47:59.883152+00:00",
+  "n": 100,
+  "cases_sha256": "8a4e40b4b6df8fffe105c8b00e2c7e83a3133edaa5cf92fe8c55ef8aafd010f8",
+  "finished_at": "2026-10-05T10:48:42.905257+00:00"
+}

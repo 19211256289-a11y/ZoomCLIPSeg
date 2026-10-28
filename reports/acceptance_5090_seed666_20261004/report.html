@@ -1,0 +1,16 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>5090 seed666 正式实验验收</title>
+<style>body{font:16px/1.75 system-ui,"Microsoft YaHei",sans-serif;color:#192b3e;max-width:1120px;margin:40px auto;padding:0 24px}h1{font-size:28px}h2{font-size:21px;margin-top:32px}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:10px;border-bottom:1px solid #dde4ed;text-align:right}th:first-child{text-align:left}thead{background:#edf4fa}.lead{background:#eaf5ee;padding:18px;border-left:4px solid #237d4d}.note{color:#59677b}a{color:#1765a0}</style>
+<h1>5090 seed666：四组100轮正式实验验收</h1><p class="note">2026-10-04 · Kvasir 源域 Val · 最终 epoch100 · MC30 · 阈值0.5</p>
+<p class="lead">训练与评估完整性通过。当前最明确的收益来自448细节支路；global_mix单独几乎无增益，加入细节模型也未进一步提高总体DSC。本页不代表三种子正式结论。</p>
+<h2>最终结果</h2><table><thead><tr><th>模型</th><th>DSC %</th><th>NSD %</th><th>小目标DSC %</th><th>精确率 %</th><th>召回率 %</th><th>DSC较基线 / pp</th></tr></thead><tbody><tr><th>Baseline</th><td>88.4621</td><td>90.4137</td><td>85.0284</td><td>89.9117</td><td>87.0683</td><td>+0.0000</td></tr><tr><th>+ global_mix</th><td>88.4660</td><td>90.4097</td><td>85.2456</td><td>89.7664</td><td>87.1447</td><td>+0.0039</td></tr><tr><th>+ 448 detail</th><td>89.1884</td><td>91.0597</td><td>86.6380</td><td>90.9056</td><td>86.9498</td><td>+0.7263</td></tr><tr><th>+ 448 detail + global_mix</th><td>89.0510</td><td>90.8853</td><td>86.6400</td><td>89.7943</td><td>88.1127</td><td>+0.5889</td></tr></tbody></table>
+<p>100张验证图均有病灶，小目标25张。小目标阈值固定为源域训练集前景占比第25百分位（约5.899%）；无阴性病例，因此本轮不能检验无病灶图像假阳性。</p>
+<h2>能支持什么</h2><ul>
+<li><b>448细节支路有正向证据：</b>总体DSC +0.7263 pp、小目标DSC +1.6096 pp、像素精确率 +0.9939 pp；65/100病例DSC改善。源域病例配对bootstrap 95%区间为[+0.0571,+1.4281] pp。</li>
+<li><b>global_mix独立收益尚未确认：</b>DSC仅+0.0039 pp，49例改善、51例下降，病例bootstrap区间跨零。</li>
+<li><b>组合未证明优于细节支路：</b>相对基线总体DSC +0.5889 pp、小目标DSC +1.6116 pp，但相对单独细节DSC -0.1374 pp。组合提高召回、降低精确率，表现为分割取舍变化，尚不能称为模块协同。</li>
+</ul><p>组合模型DSC低于50%的严重失败为4例，基线及细节模型为3例；细节模型存在1例零交集预测，组合和基线为0例。所有模型整张空预测均为0例。不能将平均指标提高直接解释为所有漏检问题得到解决。</p>
+<h2>验收范围与限制</h2><p>逐一检查四个最终checkpoint轮次、完成阶段、研究签名、初始化指纹及SHA256；四份评估各202个输出哈希通过。100个唯一病例/组，PNG二值掩膜与浮点概率阈值结果一致，概率、方差和熵有限。用原GT重新计算总体、小目标及失败统计，结果与保存summary一致。四组最终冻结编码器指纹均与初始值一致，可训练参数均已变化，所有模型浮点张量有限。所有队列任务完成，验收时无GPU计算进程。</p>
+<p>病例bootstrap使用20000次重采样，随机种子666，针对同一源域验证集，不代表跨训练种子稳定性或未见测试集表现。应等待4090上的seed667、668，并结合预先锁定的后续独立测试判断。</p>
+<p>硬件差异必须保留：baseline和global_mix由本机5060Ti训练到第16轮中途后迁移5090；detail和组合从开始使用5090。迁移状态和原初始化已核验，但不能声称四组全程同GPU或跨硬件后续数值轨迹完全一致。</p>
+<h2>备份与关机凭证</h2><p>本机备份目录：E:\BaiduNetdiskDownload\paper\server_backups\server5090\formal_detail_mix_kvasir_v1。backup_verified.json已确认完整备份。用户随后改为要求5090串行训练DG667与DG668，因此未执行关机。传输临时分片与压缩包已在校验后清理，完整解压成果保留。</p>
+</html>

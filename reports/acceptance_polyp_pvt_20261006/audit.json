@@ -1,0 +1,195 @@
+{
+  "suite": "polyp_pvt_kvasir_v1",
+  "audited_at": "2026-10-06T12:55:56.696726+00:00",
+  "execution_valid": true,
+  "gate_verdict": "not_applicable_descriptive",
+  "checks": {
+    "queue": "completed, 23/23 jobs, no error",
+    "plan_digest_consistent": true,
+    "training": "three seeds, 99 epochs each, about 1.0 h per seed, last-epoch weights",
+    "final_training_loss": [
+      0.20700056612491607,
+      0.08187060728669167,
+      0.08151996552944184
+    ],
+    "note_seed666": "the loss of the last epoch of seed 666 is 0.207 against about 0.085 in the preceding epochs; its weights are evaluated as the protocol prescribes, and this seed has the lowest accuracy of the three",
+    "code_hashes": "7 of 8 sealed code files identical to the auditor copy; research_formal/metrics.py is an accepted file not held by the auditor",
+    "independent_recomputation": "per-seed and mean DSC of all six test sets recomputed from the 18 case files: identical to the report",
+    "case_alignment": "case lists identical to the accepted results of our models for every seed and set (checked by the report code and, for seeds 666 and 667, by the auditor)"
+  },
+  "files": {
+    "results_json_sha256": "787dab019413a1641eee0f91cf4575e217a3c5e0a2026737d7e11cdf849e9df6",
+    "report_md_sha256": "0a4a3e3bf63ca0fe30f6ee559f62946eb3c4ab6c85ca49bd525a21f727e100e2",
+    "plan_digest": "736dbf2be36a193a98c72eb58abe7b37c7bbdd0a6e1e2a11b37f38cdba25ac67"
+  },
+  "findings": {
+    "summary": {
+      "pvt": {
+        "OOD_DSC": {
+          "mean": 83.86088763661202,
+          "sd": 1.8541636992821768,
+          "per_seed": [
+            81.73655425774135,
+            84.69212404371584,
+            85.15398460837886
+          ]
+        },
+        "ETIS_DSC": {
+          "mean": 74.41659863945578,
+          "sd": 3.2554355653828497,
+          "per_seed": [
+            71.26617346938775,
+            74.21586734693878,
+            77.76775510204081
+          ]
+        },
+        "Kvasir_DSC": {
+          "mean": 91.59353333333335,
+          "sd": 0.33334338651507245,
+          "per_seed": [
+            91.211,
+            91.74779999999998,
+            91.82180000000002
+          ]
+        }
+      },
+      "baseline": {
+        "OOD_DSC": {
+          "mean": 76.28410143442622,
+          "sd": 0.23052805471814936,
+          "per_seed": [
+            76.09060801457194,
+            76.22253387978142,
+            76.5391624089253
+          ]
+        },
+        "ETIS_DSC": {
+          "mean": 54.93981292517007,
+          "sd": 1.1792011021492494,
+          "per_seed": [
+            56.020306122448986,
+            53.681989795918376,
+            55.11714285714285
+          ]
+        },
+        "Kvasir_DSC": {
+          "mean": 88.93409999999999,
+          "sd": 0.11615696277019916,
+          "per_seed": [
+            89.05229999999997,
+            88.92989999999998,
+            88.8201
+          ]
+        }
+      },
+      "full": {
+        "OOD_DSC": {
+          "mean": 79.15454481633274,
+          "sd": 0.548474044445247,
+          "per_seed": [
+            79.20220466757742,
+            78.58379608378871,
+            79.67763369763206
+          ]
+        },
+        "ETIS_DSC": {
+          "mean": 60.799727891156465,
+          "sd": 1.1104540984207463,
+          "per_seed": [
+            61.766938775510205,
+            59.58709183673469,
+            61.04515306122449
+          ]
+        },
+        "Kvasir_DSC": {
+          "mean": 89.9227,
+          "sd": 0.3525289917155813,
+          "per_seed": [
+            90.175,
+            90.07320000000001,
+            89.51989999999999
+          ]
+        }
+      }
+    },
+    "pvt_minus_ours": {
+      "baseline": {
+        "ood": {
+          "mean_pp": 7.576786202185792,
+          "ci95_pp": [
+            6.24925962621433,
+            8.94169279656193
+          ],
+          "p": 4.999750012499375e-05
+        },
+        "etis": {
+          "mean_pp": 19.476785714285715,
+          "ci95_pp": [
+            16.487670918367343,
+            22.503735544217687
+          ],
+          "p": 4.999750012499375e-05,
+          "n": 196
+        },
+        "kvasir": {
+          "mean_pp": 2.659433333333335,
+          "ci95_pp": [
+            1.2064891666666688,
+            4.171860833333334
+          ],
+          "p": 0.00024998750062496874,
+          "n": 100
+        }
+      },
+      "full": {
+        "ood": {
+          "mean_pp": 4.706342820279296,
+          "ci95_pp": [
+            3.332569689587129,
+            6.12596716473133
+          ],
+          "p": 4.999750012499375e-05
+        },
+        "etis": {
+          "mean_pp": 13.61687074829932,
+          "ci95_pp": [
+            10.47759693877551,
+            16.888651785714284
+          ],
+          "p": 4.999750012499375e-05,
+          "n": 196
+        },
+        "kvasir": {
+          "mean_pp": 1.670833333333334,
+          "ci95_pp": [
+            0.018807500000000168,
+            3.2642475000000006
+          ],
+          "p": 0.04269786510674466,
+          "n": 100
+        }
+      }
+    },
+    "cost": {
+      "parameters": 25107604,
+      "trainable_parameters": 25107604,
+      "peak_training_memory_gb": 11.74164342880249,
+      "training_hours_per_seed": [
+        1.0018606158609167,
+        0.9992942261666111,
+        1.0173907228330952
+      ],
+      "final_training_loss": [
+        0.20700056612491607,
+        0.08187060728669167,
+        0.08151996552944184
+      ],
+      "inference_ms_per_image": 11.903437031260518,
+      "device": "NVIDIA GeForce RTX 5060 Ti"
+    }
+  },
+  "auditor_notes": [
+    "Polyp-PVT is more accurate than both of our models on every test set, with every interval excluding zero.",
+    "The comparison is between different classes of method (end-to-end training at 352 with three training scales against a frozen 224 encoder); data, test sets, metric code and the absence of test-based selection are identical."
+  ]
+}

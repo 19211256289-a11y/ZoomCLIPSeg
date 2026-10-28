@@ -1,0 +1,10 @@
+{
+  "run": "baseline_seed669",
+  "cohort": "ColonDB",
+  "single_pass_DSC_percent": 69.82119444444442,
+  "accepted_DSC_percent": 69.8224722222222,
+  "difference_pp": -0.001277777777788616,
+  "largest_case_difference_pp": 0.8499999999999952,
+  "tolerance_pp": 0.25,
+  "passed": true
+}

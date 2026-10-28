@@ -1,0 +1,62 @@
+DATASET:
+  NAME: Kvasir
+  TRAIN_PATH: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\data\Kvasir\Train_Folder\
+  VAL_PATH: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\data\Kvasir\Val_Folder\
+  TEST_PATH: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\data\Kvasir\Test_Folder\
+  TEXT_PROMPT_PATH: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\data\Kvasir\Prompts_Folder\
+  SIZE: 224
+  DETAIL_SIZE: 448
+TRAIN:
+  BATCH_SIZE: 24
+  NUM_EPOCHS: 100
+  LEARNING_RATE: 0.0003
+  DICE_WEIGHT: 0.5
+  CE_WEIGHT: 0.5
+  CLIP_WEIGHT: 0.1
+  CONSISTENCY_WEIGHT: 0.0
+  NEW_LEARNING_RATE: 0.0003
+  MIN_LEARNING_RATE: 0.0001
+  DICE_MODE: image
+  BETA_WEIGHT: 0.001
+  AUX_WEIGHT: 0.0
+  HARD_BG_FRACTION: 0.1
+TEST:
+  NUM_SAMPLES: 30
+  USE_LATEST: true
+MODEL:
+  CLIP_MODEL: unimedclip
+  BACKBONE: ViT-B/16
+  ADAPTER_DIM: 256
+  NUM_UPSCALE: 2
+  BETA: 2.35
+  GATE_INIT: 0.0
+  LAYERS:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  TEMPERATURE: 0.2
+  DEVICE: cuda
+  VARIANT: paired_image
+  GRAD_CHECKPOINTING: true
+RESEARCH:
+  BASE_WEIGHTS: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\checkpoints\unimed_clip_vit_b16.pt
+  INITIALIZATION: unimedclip_base_fresh_adapters_and_head_per_seed
+  SUITE: formal_detail_mix_kvasir_v1
+  RUN_ID: detail_global_mix_seed666
+  INITIALIZATION_SEED: 666
+  PROTOCOL_SHA256: d1f1164d0f4f82511b04ebacb22ff2ec35fd4db4b2a19f6305d39fe15f535d4c
+  PROMPT_MODE: generic
+  QUERY_MODE: detail_global_mix
+  DETAIL_CHECKPOINTING: true
+  DETAIL_INITIALIZATION_SEED: 1114
+  PARENT_ACCEPTANCE_SHA256: 8fedcb34890123bf364389c1928360ac4003145a98f30f5b4dc7751f2ba8e78a
+  GENERIC_PROMPT: a polyp in a colonoscopy image
+  GENERIC_PROBABILITY: 1.0
+  VALIDATION_PROMPT: generic

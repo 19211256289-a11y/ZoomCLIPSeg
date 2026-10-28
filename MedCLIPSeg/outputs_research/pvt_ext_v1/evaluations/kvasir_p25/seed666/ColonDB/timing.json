@@ -1,0 +1,10 @@
+{
+  "n": 350,
+  "warmup": 10,
+  "batch_size": 1,
+  "passes": 1,
+  "mean_ms": 12.0566691365093,
+  "sd_ms": 1.0406958366828194,
+  "median_ms": 11.875650030560791,
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

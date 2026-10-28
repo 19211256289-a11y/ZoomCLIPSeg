@@ -1,0 +1,10 @@
+{
+  "run": "detail_seed668",
+  "cohort": "Kvasir",
+  "single_pass_DSC_percent": 89.41410000000003,
+  "accepted_DSC_percent": 89.41410000000003,
+  "difference_pp": 0.0,
+  "largest_case_difference_pp": 0.0,
+  "tolerance_pp": 0.1,
+  "passed": true
+}

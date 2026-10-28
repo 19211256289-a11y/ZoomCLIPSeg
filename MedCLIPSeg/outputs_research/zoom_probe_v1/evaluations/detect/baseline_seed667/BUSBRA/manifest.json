@@ -1,0 +1,16 @@
+{
+  "signature": {
+    "suite": "zoom_probe_v1",
+    "plan_digest": "b4fa32ddad87eaf65d75a3727c734014eaf2ec7b19979893369502b84530bc5b",
+    "part": "detect",
+    "run": "baseline_seed667",
+    "cohort": "BUSBRA",
+    "checkpoint_sha256": "9a974006170062efd6f8871d8b34b105fabd20dfc277b04640a51911fa73263a",
+    "prompt": "a tumor in a breast ultrasound image"
+  },
+  "complete": true,
+  "n": 282,
+  "finished_at": "2026-10-06T01:54:14.586876+00:00",
+  "sha256": "95efa336a4f7ac2e6912bec807ff0b566904b6d5213314e7dc1a43faefadffa2",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

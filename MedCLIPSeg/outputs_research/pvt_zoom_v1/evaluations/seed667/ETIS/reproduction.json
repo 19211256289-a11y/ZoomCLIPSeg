@@ -1,0 +1,10 @@
+{
+  "seed": 667,
+  "cohort": "ETIS",
+  "single_pass_DSC_percent": 74.21561224489793,
+  "accepted_DSC_percent": 74.21586734693877,
+  "difference_pp": -0.0002551020408392959,
+  "largest_case_difference_pp": 0.01000000000000445,
+  "tolerance_pp": 0.05,
+  "passed": true
+}

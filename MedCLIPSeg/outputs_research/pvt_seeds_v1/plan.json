@@ -1,0 +1,126 @@
+{
+  "protocol": {
+    "name": "pvt_seeds_v1",
+    "locked_at": "2026-10-07",
+    "purpose": "Two further training seeds (669, 670) of the Polyp-PVT reference of polyp_pvt_kvasir_v1 on the full Kvasir-SEG training split, requested by external reviews, so that the comparison with our models rests on the same five seeds (666-670) as the main results of the manuscript. Recipe, model code, backbone weights and evaluation code are those of polyp_pvt_kvasir_v1, unchanged. The results are reported whatever they are.",
+    "locked_before": "Written after polyp_pvt_kvasir_v1 (seeds 666-668) and pvt_ext_v1 had been accepted. No result of this network for the seeds 669 and 670 existed.",
+    "source_protocol": "polyp_pvt_kvasir_v1",
+    "seeds": [
+      669,
+      670
+    ],
+    "groups": {
+      "kvasir_full": {
+        "dataset": "Kvasir",
+        "train_list": "Train_text.xlsx",
+        "cohort_source": "kvasir_v1",
+        "targets": [
+          "Kvasir",
+          "ColonDB",
+          "ClinicDB",
+          "CVC300",
+          "BKAI"
+        ]
+      }
+    },
+    "held_out_target": "ETIS",
+    "threshold": 0.5,
+    "timing": {
+      "warmup_images": 10
+    },
+    "comparison": {},
+    "reading_rule_fixed_in_advance": "The manuscript replaces the three-seed values of the reference by the five-seed values (seeds 666-670) wherever it compares with five-seed results of our models, whatever the direction of the change, and keeps the three-seed values only in analyses that are defined on the seeds 666-668.",
+    "rules": [
+      "No checkpoint, epoch or threshold is selected on validation or test data; the weights of the last epoch are evaluated.",
+      "ETIS-Larib is used for the reference network only; no model of ours is evaluated on it here."
+    ],
+    "disclosures": [
+      "The five polyp test sets were used in earlier stages of this project.",
+      "ETIS-Larib was evaluated once for our method and three times before for this reference (seeds 666-668)."
+    ],
+    "statistics": {
+      "permutation_draws": 20000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261017
+    },
+    "recipe": {
+      "input_size": 352,
+      "epochs": 99,
+      "batch_size": 16,
+      "optimizer": "AdamW",
+      "learning_rate": 0.0001,
+      "weight_decay": 0.0001,
+      "gradient_clip": 0.5,
+      "scales": [
+        0.75,
+        1.0,
+        1.25
+      ],
+      "augmentation": "none besides the three scales (default of the released script)",
+      "loss": "structure loss of the released code on both outputs, as executed. Its BCE term is called with the legacy argument reduce='none', which PyTorch reads as a mean over all pixels, so the term is the unweighted mean BCE; the IoU term is weighted by the 31 x 31 boundary weights.",
+      "precision": "single"
+    }
+  },
+  "protocol_sha256": "915435c1e4e1f13a870f1f12f9cd2c8e73c6549c41f8fd72361264138a3f47be",
+  "code": {
+    "research_polyp_pvt/lib/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "research_polyp_pvt/lib/pvt.py": "2bbfd2d019acddbfcdd4224833d1a511c0a5a3d6b35a0edc095f7dcfee476066",
+    "research_polyp_pvt/lib/pvtv2.py": "e42ed169654ac83d0c07e0d7cbc0b68624c1f6c0de67c796c1f95b2b64569752",
+    "research_polyp_pvt/common.py": "b3c27cad5116890f13f9b740330ec05a756e96f3b6a87f8eb6ac17e0bfea1455",
+    "research_polyp_pvt/data.py": "03b6b28bc600bad1066ce1d7e3c8f6f987091b4d696904e35c7baeb90bc31713",
+    "research_polyp_pvt/train.py": "f131feaef9d9b1f1d4a25a0b99c62cac447e4cec38a7ff9a980d6190296a9896",
+    "research_polyp_pvt/evaluate.py": "75e8efbc823c1e5ad3ce39177c87bbb50939260dcd762451764b3b523d8e04f1",
+    "research_pvt_seeds/common.py": "976ed34605797860fcaec61e219375dd54b941ca01e32541a4b79a6d1d4014ba",
+    "research_pvt_seeds/work.py": "abf30d0498f74fca196d7181a01e01753e7c4bdd3bbf22811f15835bdb418fba",
+    "research_formal/metrics.py": "9e1b65b1729baa14be536fa8a9ad2a99992730c0dc80b92467519f24ac734318"
+  },
+  "backbone_weights": {
+    "sha256": "80711cd1b37ffba12bec6c7a2a7c54efe2315ed635e6d2055fd51c3e909ede4d",
+    "bytes": 101501299
+  },
+  "groups": {
+    "kvasir_full": {
+      "train_n": 800,
+      "train": {
+        "n": 800,
+        "list_sha256": "13929e6a9e10dc2327f9146b05f0387336ea5a92f4cceab667f40c14fde481ea",
+        "files_digest": "7557ffd85c5d436974b3f27c3ea06e82f6eacb37e53520429c42f02077d2fd30"
+      },
+      "cohorts": {
+        "Kvasir": {
+          "n": 100,
+          "list_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+          "files_digest": "cdce78c1bce73e983e65ed9bd8222b50ac7fe6d0cc09dfa306cb819a2d326c78"
+        },
+        "ColonDB": {
+          "n": 360,
+          "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+          "files_digest": "9ff335e0a7bc989b1a07759410533f00f5157316917fbea7df438de737b7d896"
+        },
+        "ClinicDB": {
+          "n": 61,
+          "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+          "files_digest": "3b4fbf76e51d2b479fea9973bd9ac476006a9e7b16b935e6d95fe2de4c7e74ee"
+        },
+        "CVC300": {
+          "n": 60,
+          "list_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+          "files_digest": "998180409607f38f475a0400a8d3f8084a7c805148d0d2b1921ad2af973d100b"
+        },
+        "BKAI": {
+          "n": 100,
+          "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+          "files_digest": "fb61d517acc1cc17935cd9aadf0e914a33bafd25acc3c0558611a7c1e6d836a5"
+        },
+        "ETIS": {
+          "n": 196,
+          "manifest_sha256": "cd779b682130a142ae3509af5d059c5a3732854e7a7cf541a4a11bdfd8eb498d",
+          "files_digest": "33d39654ae7fe262281f3e2507f85ec78a6e52cdc5887d956e10092c74fef51c"
+        }
+      },
+      "test_list": "Test_text_original.xlsx"
+    }
+  },
+  "accepted": {},
+  "digest": "17fbca8494d04fdb1ebf0439b934a24e9aa3351c93c4a145db9d07aa023c5558"
+}

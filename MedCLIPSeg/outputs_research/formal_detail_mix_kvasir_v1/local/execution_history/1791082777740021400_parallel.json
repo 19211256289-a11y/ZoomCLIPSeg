@@ -1,0 +1,22 @@
+{
+  "started_at": "2026-10-04T02:59:37.742022+00:00",
+  "mode": "two_experiment_lanes",
+  "max_training_processes": 2,
+  "experiment_lanes": {
+    "0": [
+      "baseline_seed666",
+      "detail_seed666"
+    ],
+    "1": [
+      "global_mix_seed666",
+      "detail_global_mix_seed666"
+    ]
+  },
+  "final_evaluation": "serial_after_all_training",
+  "scientific_plan_digest": "d9563c5825ae088468c98730270cceafa7703794a9abe3f8d6d03b999bdc259a",
+  "scheduler_sha256": "f602f07c9c0411fe0b4ed3479b5edc264f7786e8c851a6e364c0067bac0712e6",
+  "launcher_sha256": "f779c25999506916fe5642a2c2db7279a1c3ed7f5734c1f6c46b93b9da09ad36",
+  "host": "local",
+  "shared_protocol_digest": "4faf1c2cd1648448fcf73f84f2aa22583640a49b1da14fe317262b34f8f6e9a9",
+  "benchmark": {}
+}

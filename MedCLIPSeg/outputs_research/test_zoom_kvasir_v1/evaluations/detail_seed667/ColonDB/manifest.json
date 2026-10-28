@@ -1,0 +1,14 @@
+{
+  "signature": {
+    "run": "detail_seed667",
+    "cohort": "ColonDB",
+    "split": "Test",
+    "checkpoint_sha256": "c52f1579255a1ed967b866ef1697b649728f5df373e487030205362f969718d4",
+    "plan_digest": "fa02136474c8a5accff522066b368d9a59bf469b65eea19660d84df0a164c00f"
+  },
+  "complete": true,
+  "n": 720,
+  "cases_sha256": "9203a13baa7b0aebbf61d4bb3f151fdbf32d90bf4a3575f3ff6003814911c130",
+  "finished_at": "2026-10-04T23:39:24.082585+00:00",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

@@ -1,0 +1,21 @@
+{
+  "signature": {
+    "suite": "formal_detail_mix_busi_v1",
+    "run": "detail_global_mix_seed666",
+    "checkpoint_sha256": "0bf74748f69cf5c6af3c026af2b8986912b1b3bba8d2faae69908235c72d0eae",
+    "science_digest": "85c752b70ba5c2487f0b323d13a90d22190ce7b5558095f7b03a9cd503f057b6",
+    "prompt": "a tumor in a breast ultrasound image",
+    "cohort": "BUSBRA",
+    "list_sha256": "668ceaefc1e1b235fe6d9bd70edab669b4899647c34629b82135b281a1574cb7",
+    "mc_samples": 30,
+    "batch_size": 32,
+    "threshold": 0.5,
+    "small_threshold": 0.021693548387096775,
+    "files_digest": "931af2f643494a185c5820a270909fbf95d7e8fa057686f88eb7aa29bedc80f2"
+  },
+  "complete": true,
+  "started_at": "2026-10-05T10:52:16.853153+00:00",
+  "n": 282,
+  "cases_sha256": "de8a209f9cdeebe3900eb6b301effde9924c002550d2d0c01487fbb80779db33",
+  "finished_at": "2026-10-05T10:54:03.323475+00:00"
+}

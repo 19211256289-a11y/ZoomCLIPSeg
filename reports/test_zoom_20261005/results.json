@@ -1,0 +1,1622 @@
+{
+  "config": "t15",
+  "targets": {
+    "Kvasir": {
+      "n": 100,
+      "single_DSC": 89.46626666666667,
+      "two_pass_DSC": 89.9227,
+      "single_NSD": 91.4646,
+      "two_pass_NSD": 91.84126666666667,
+      "n_small": 22,
+      "single_small_DSC": 89.0739393939394,
+      "two_pass_small_DSC": 90.92712121212121,
+      "failures_single": 2.3333333333333335,
+      "failures_two_pass": 2.0,
+      "zoomed_share": 0.41333333333333333,
+      "second_pass_empty": 0.0,
+      "contrast": {
+        "DSC": {
+          "all": {
+            "n": 100,
+            "mean_pp": 0.4564333333333331,
+            "median_pp": 0.0,
+            "improved": 27,
+            "worsened": 18,
+            "tied": 55,
+            "per_seed_mean_pp": [
+              0.3111999999999998,
+              0.9522999999999996,
+              0.10579999999999995
+            ],
+            "per_seed_improved": [
+              21,
+              24,
+              25
+            ],
+            "per_seed_worsened": [
+              19,
+              17,
+              18
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.020430833333333075,
+              0.9726724999999995
+            ],
+            "permutation_p": 0.056939430605693946,
+            "wilcoxon_p": 0.1362355892460405,
+            "top2_gain_contribution_to_mean_pp": 0.2527333333333333,
+            "mean_of_others_without_top2_gains_pp": 0.2078571428571426,
+            "mean_of_others_without_top2_losses_pp": 0.5603741496598637,
+            "trimmed_mean_10pct_pp": 0.0990833333333331,
+            "seed_level_paired_t": {
+              "t": 1.7904619977331486,
+              "df": 2,
+              "p": 0.21526453572633875
+            }
+          },
+          "small": {
+            "n": 22,
+            "mean_pp": 1.8531818181818176,
+            "median_pp": 0.7683333333333339,
+            "improved": 13,
+            "worsened": 9,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              1.6936363636363632,
+              3.4704545454545452,
+              0.39545454545454467
+            ],
+            "per_seed_improved": [
+              13,
+              12,
+              14
+            ],
+            "per_seed_worsened": [
+              9,
+              10,
+              8
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.005424242424241749,
+              3.8616212121212103
+            ],
+            "permutation_p": 0.08210917890821091,
+            "wilcoxon_p": 0.12703836718877778,
+            "top2_gain_contribution_to_mean_pp": 1.1487878787878787,
+            "mean_of_others_without_top2_gains_pp": 0.7748333333333328,
+            "mean_of_others_without_top2_losses_pp": 2.502166666666666,
+            "trimmed_mean_10pct_pp": 1.3761111111111104,
+            "seed_level_paired_t": {
+              "t": 2.0792986977429786,
+              "df": 2,
+              "p": 0.17312720893882383
+            }
+          },
+          "not_small": {
+            "n": 78,
+            "mean_pp": 0.06247863247863235,
+            "median_pp": 0.0,
+            "improved": 14,
+            "worsened": 9,
+            "tied": 55,
+            "per_seed_mean_pp": [
+              -0.07871794871794893,
+              0.24205128205128182,
+              0.02410256410256426
+            ],
+            "per_seed_improved": [
+              8,
+              12,
+              11
+            ],
+            "per_seed_worsened": [
+              10,
+              7,
+              10
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              -0.09628311965811989,
+              0.2293194444444444
+            ],
+            "permutation_p": 0.46905530944690554,
+            "wilcoxon_p": 0.4561711599840146,
+            "top2_gain_contribution_to_mean_pp": 0.07337606837606833,
+            "mean_of_others_without_top2_gains_pp": -0.011184210526315878,
+            "mean_of_others_without_top2_losses_pp": 0.12771929824561382,
+            "trimmed_mean_10pct_pp": 0.02578124999999982,
+            "seed_level_paired_t": {
+              "t": 0.6606932671490301,
+              "df": 2,
+              "p": 0.5767321486656183
+            }
+          },
+          "unique_images": {
+            "n": 100,
+            "mean_pp": 0.4564333333333331,
+            "per_seed_mean_pp": [
+              0.3111999999999997,
+              0.9522999999999996,
+              0.1058
+            ]
+          }
+        },
+        "NSD": {
+          "all": {
+            "n": 100,
+            "mean_pp": 0.3766666666666666,
+            "median_pp": 0.0,
+            "improved": 23,
+            "worsened": 21,
+            "tied": 56,
+            "per_seed_mean_pp": [
+              0.24180000000000004,
+              0.8811999999999999,
+              0.006999999999999882
+            ],
+            "per_seed_improved": [
+              18,
+              21,
+              21
+            ],
+            "per_seed_worsened": [
+              22,
+              20,
+              21
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              -0.04643583333333367,
+              0.8751733333333334
+            ],
+            "permutation_p": 0.12011879881201187,
+            "wilcoxon_p": 0.45512472150715144,
+            "top2_gain_contribution_to_mean_pp": 0.2507666666666667,
+            "mean_of_others_without_top2_gains_pp": 0.1284693877551019,
+            "mean_of_others_without_top2_losses_pp": 0.48248299319727883,
+            "trimmed_mean_10pct_pp": 0.03700000000000011,
+            "seed_level_paired_t": {
+              "t": 1.4419852981910966,
+              "df": 2,
+              "p": 0.2860515418287407
+            }
+          },
+          "small": {
+            "n": 22,
+            "mean_pp": 1.5771212121212121,
+            "median_pp": 0.476666666666666,
+            "improved": 13,
+            "worsened": 9,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              1.4468181818181813,
+              3.181818181818181,
+              0.10272727272727238
+            ],
+            "per_seed_improved": [
+              12,
+              11,
+              12
+            ],
+            "per_seed_worsened": [
+              10,
+              11,
+              10
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              -0.20828409090909036,
+              3.629249999999999
+            ],
+            "permutation_p": 0.13784862151378485,
+            "wilcoxon_p": 0.3633299585561837,
+            "top2_gain_contribution_to_mean_pp": 1.139848484848485,
+            "mean_of_others_without_top2_gains_pp": 0.4809999999999997,
+            "mean_of_others_without_top2_losses_pp": 2.2156666666666665,
+            "trimmed_mean_10pct_pp": 1.068703703703703,
+            "seed_level_paired_t": {
+              "t": 1.7695777949066769,
+              "df": 2,
+              "p": 0.2188193282192652
+            }
+          },
+          "not_small": {
+            "n": 78,
+            "mean_pp": 0.038076923076923105,
+            "median_pp": 0.0,
+            "improved": 10,
+            "worsened": 12,
+            "tied": 56,
+            "per_seed_mean_pp": [
+              -0.09807692307692299,
+              0.23230769230769246,
+              -0.02000000000000007
+            ],
+            "per_seed_improved": [
+              6,
+              10,
+              9
+            ],
+            "per_seed_worsened": [
+              12,
+              9,
+              11
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.12431944444444441,
+              0.2131645299145297
+            ],
+            "permutation_p": 0.6747032529674704,
+            "wilcoxon_p": 0.9224111661972636,
+            "top2_gain_contribution_to_mean_pp": 0.08478632478632474,
+            "mean_of_others_without_top2_gains_pp": -0.04793859649122799,
+            "mean_of_others_without_top2_losses_pp": 0.09973684210526314,
+            "trimmed_mean_10pct_pp": 0.005468750000000178,
+            "seed_level_paired_t": {
+              "t": 0.3819282621828335,
+              "df": 2,
+              "p": 0.7392765022015295
+            }
+          }
+        },
+        "pixels_and_failures_per_seed": {
+          "fp_pixels_relative_change_percent": [
+            -1.864373098813303,
+            -5.393491831774167,
+            -2.9174076786274714
+          ],
+          "fn_pixels_relative_change_percent": [
+            1.0919099399900736,
+            -0.41380806464734116,
+            0.8656807602521096
+          ],
+          "micro_foreground_precision_percent_delta": [
+            0.11667049949987529,
+            0.4886587669900564,
+            0.18728239934097246
+          ],
+          "micro_foreground_recall_percent_delta": [
+            -0.12018367385670103,
+            0.040599236932990834,
+            -0.10957714537877905
+          ],
+          "positive_DSC_below_50_percent_delta": [
+            -1,
+            0,
+            0
+          ],
+          "zero_overlap_positive_delta": [
+            0,
+            0,
+            0
+          ],
+          "empty_positive_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        "seeds": [
+          666,
+          667,
+          668
+        ]
+      }
+    },
+    "ColonDB": {
+      "n": 360,
+      "single_DSC": 70.26274074074074,
+      "two_pass_DSC": 71.52510185185186,
+      "single_NSD": 73.23973148148148,
+      "two_pass_NSD": 74.55146296296296,
+      "n_small": 241,
+      "single_small_DSC": 67.86278008298753,
+      "two_pass_small_DSC": 70.02903181189488,
+      "failures_single": 76.66666666666667,
+      "failures_two_pass": 71.33333333333333,
+      "zoomed_share": 0.6833333333333332,
+      "second_pass_empty": 0.0,
+      "contrast": {
+        "DSC": {
+          "all": {
+            "n": 360,
+            "mean_pp": 1.2623611111111113,
+            "median_pp": 0.0,
+            "improved": 166,
+            "worsened": 97,
+            "tied": 97,
+            "per_seed_mean_pp": [
+              1.059555555555556,
+              0.8416944444444444,
+              1.8858333333333337
+            ],
+            "per_seed_improved": [
+              145,
+              140,
+              154
+            ],
+            "per_seed_worsened": [
+              90,
+              98,
+              77
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.4207199074074075,
+              2.1504152777777774
+            ],
+            "permutation_p": 0.004089959100408996,
+            "wilcoxon_p": 0.003906663515053807,
+            "top2_gain_contribution_to_mean_pp": 0.3025740740740741,
+            "mean_of_others_without_top2_gains_pp": 0.965148975791434,
+            "mean_of_others_without_top2_losses_pp": 1.4724022346368715,
+            "trimmed_mean_10pct_pp": 0.5993518518518521,
+            "seed_level_paired_t": {
+              "t": 3.9694791921018346,
+              "df": 2,
+              "p": 0.05799847583983664
+            }
+          },
+          "small": {
+            "n": 241,
+            "mean_pp": 2.166251728907331,
+            "median_pp": 1.2633333333333348,
+            "improved": 140,
+            "worsened": 69,
+            "tied": 32,
+            "per_seed_mean_pp": [
+              1.8249792531120328,
+              1.4997510373443979,
+              3.1740248962655606
+            ],
+            "per_seed_improved": [
+              130,
+              113,
+              133
+            ],
+            "per_seed_worsened": [
+              60,
+              74,
+              57
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.9267887275242048,
+              3.469303941908714
+            ],
+            "permutation_p": 0.0004899951000489995,
+            "wilcoxon_p": 0.0004461753486296829,
+            "top2_gain_contribution_to_mean_pp": 0.4519778699861688,
+            "mean_of_others_without_top2_gains_pp": 1.7286192468619248,
+            "mean_of_others_without_top2_losses_pp": 2.488437935843794,
+            "trimmed_mean_10pct_pp": 1.35119170984456,
+            "seed_level_paired_t": {
+              "t": 4.2263508415209525,
+              "df": 2,
+              "p": 0.051682850525488044
+            }
+          },
+          "not_small": {
+            "n": 119,
+            "mean_pp": -0.5682072829131655,
+            "median_pp": 0.0,
+            "improved": 26,
+            "worsened": 28,
+            "tied": 65,
+            "per_seed_mean_pp": [
+              -0.49058823529411677,
+              -0.491008403361345,
+              -0.7230252100840339
+            ],
+            "per_seed_improved": [
+              15,
+              27,
+              21
+            ],
+            "per_seed_worsened": [
+              30,
+              24,
+              20
+            ],
+            "seeds_positive": 0,
+            "bootstrap_ci95_pp": [
+              -1.1175637254901962,
+              -0.07713235294117679
+            ],
+            "permutation_p": 0.031139688603113967,
+            "wilcoxon_p": 0.20561977572205403,
+            "top2_gain_contribution_to_mean_pp": 0.11851540616246498,
+            "mean_of_others_without_top2_gains_pp": -0.6984615384615387,
+            "mean_of_others_without_top2_losses_pp": -0.37199430199430217,
+            "trimmed_mean_10pct_pp": -0.13491408934707902,
+            "seed_level_paired_t": {
+              "t": -7.340320281686337,
+              "df": 2,
+              "p": 0.018058447435747582
+            }
+          },
+          "unique_images": {
+            "n": 329,
+            "mean_pp": 1.4936460896415302,
+            "per_seed_mean_pp": [
+              1.3552082428716172,
+              1.0517305326385873,
+              2.073999493414387
+            ]
+          }
+        },
+        "NSD": {
+          "all": {
+            "n": 360,
+            "mean_pp": 1.3117314814814816,
+            "median_pp": 0.0,
+            "improved": 162,
+            "worsened": 101,
+            "tied": 97,
+            "per_seed_mean_pp": [
+              1.0744444444444445,
+              0.9010000000000002,
+              1.9597499999999999
+            ],
+            "per_seed_improved": [
+              143,
+              135,
+              152
+            ],
+            "per_seed_worsened": [
+              92,
+              103,
+              79
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.46280393518518526,
+              2.2478907407407402
+            ],
+            "permutation_p": 0.0035999640003599965,
+            "wilcoxon_p": 0.009047806632306928,
+            "top2_gain_contribution_to_mean_pp": 0.32027777777777783,
+            "mean_of_others_without_top2_gains_pp": 0.9969925512104283,
+            "mean_of_others_without_top2_losses_pp": 1.518947858472998,
+            "trimmed_mean_10pct_pp": 0.5299768518518522,
+            "seed_level_paired_t": {
+              "t": 4.000949804250225,
+              "df": 2,
+              "p": 0.05716609173458653
+            }
+          },
+          "small": {
+            "n": 241,
+            "mean_pp": 2.2795850622406637,
+            "median_pp": 1.123333333333328,
+            "improved": 137,
+            "worsened": 72,
+            "tied": 32,
+            "per_seed_mean_pp": [
+              1.8816597510373445,
+              1.6525726141078836,
+              3.3045228215767617
+            ],
+            "per_seed_improved": [
+              129,
+              109,
+              132
+            ],
+            "per_seed_worsened": [
+              61,
+              78,
+              57
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              1.0189820193637622,
+              3.647201244813278
+            ],
+            "permutation_p": 0.0004199958000419996,
+            "wilcoxon_p": 0.0007930439370419603,
+            "top2_gain_contribution_to_mean_pp": 0.47842323651452284,
+            "mean_of_others_without_top2_gains_pp": 1.8162343096234308,
+            "mean_of_others_without_top2_losses_pp": 2.5980753138075316,
+            "trimmed_mean_10pct_pp": 1.3225734024179623,
+            "seed_level_paired_t": {
+              "t": 4.411659563304538,
+              "df": 2,
+              "p": 0.047731522470075394
+            }
+          },
+          "not_small": {
+            "n": 119,
+            "mean_pp": -0.6483753501400559,
+            "median_pp": 0.0,
+            "improved": 25,
+            "worsened": 29,
+            "tied": 65,
+            "per_seed_mean_pp": [
+              -0.5603361344537813,
+              -0.6210924369747897,
+              -0.763697478991597
+            ],
+            "per_seed_improved": [
+              14,
+              26,
+              20
+            ],
+            "per_seed_worsened": [
+              31,
+              25,
+              22
+            ],
+            "seeds_positive": 0,
+            "bootstrap_ci95_pp": [
+              -1.1964376750700283,
+              -0.15017156862745132
+            ],
+            "permutation_p": 0.014179858201417987,
+            "wilcoxon_p": 0.07611197430119941,
+            "top2_gain_contribution_to_mean_pp": 0.11834733893557425,
+            "mean_of_others_without_top2_gains_pp": -0.7798290598290597,
+            "mean_of_others_without_top2_losses_pp": -0.4517663817663817,
+            "trimmed_mean_10pct_pp": -0.20051546391752573,
+            "seed_level_paired_t": {
+              "t": -10.7579400921231,
+              "df": 2,
+              "p": 0.008530157232187086
+            }
+          }
+        },
+        "pixels_and_failures_per_seed": {
+          "fp_pixels_relative_change_percent": [
+            -10.162822185783828,
+            -9.006835775885847,
+            -12.569261671446682
+          ],
+          "fn_pixels_relative_change_percent": [
+            3.7019922661490132,
+            2.535348066528438,
+            3.0391952734001313
+          ],
+          "micro_foreground_precision_percent_delta": [
+            1.6871829737322344,
+            1.5128917819452425,
+            2.3457876131223827
+          ],
+          "micro_foreground_recall_percent_delta": [
+            -1.1178333375300298,
+            -0.8849681573966706,
+            -0.9719178169314375
+          ],
+          "positive_DSC_below_50_percent_delta": [
+            -2,
+            -6,
+            -8
+          ],
+          "zero_overlap_positive_delta": [
+            -1,
+            -1,
+            -3
+          ],
+          "empty_positive_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        "seeds": [
+          666,
+          667,
+          668
+        ]
+      }
+    },
+    "ClinicDB": {
+      "n": 61,
+      "single_DSC": 82.70213114754097,
+      "two_pass_DSC": 83.56868852459017,
+      "single_NSD": 86.6491256830601,
+      "two_pass_NSD": 87.25005464480876,
+      "n_small": 24,
+      "single_small_DSC": 82.01958333333333,
+      "two_pass_small_DSC": 82.41347222222221,
+      "failures_single": 5.333333333333333,
+      "failures_two_pass": 5.666666666666667,
+      "zoomed_share": 0.7486338797814208,
+      "second_pass_empty": 0.0,
+      "contrast": {
+        "DSC": {
+          "all": {
+            "n": 61,
+            "mean_pp": 0.8665573770491802,
+            "median_pp": 0.0,
+            "improved": 29,
+            "worsened": 20,
+            "tied": 12,
+            "per_seed_mean_pp": [
+              2.353606557377049,
+              0.16163934426229515,
+              0.0844262295081961
+            ],
+            "per_seed_improved": [
+              30,
+              26,
+              27
+            ],
+            "per_seed_worsened": [
+              12,
+              23,
+              19
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              -0.7004986338797822,
+              2.4172540983606545
+            ],
+            "permutation_p": 0.2954970450295497,
+            "wilcoxon_p": 0.1492014845570278,
+            "top2_gain_contribution_to_mean_pp": 0.6414754098360655,
+            "mean_of_others_without_top2_gains_pp": 0.2327118644067796,
+            "mean_of_others_without_top2_losses_pp": 1.596101694915254,
+            "trimmed_mean_10pct_pp": 0.6256462585034009,
+            "seed_level_paired_t": {
+              "t": 1.1649490376706584,
+              "df": 2,
+              "p": 0.36419434984720733
+            }
+          },
+          "small": {
+            "n": 24,
+            "mean_pp": 0.3938888888888877,
+            "median_pp": 0.15166666666666476,
+            "improved": 13,
+            "worsened": 11,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              4.412499999999998,
+              -2.342083333333335,
+              -0.8887500000000012
+            ],
+            "per_seed_improved": [
+              14,
+              10,
+              14
+            ],
+            "per_seed_worsened": [
+              8,
+              14,
+              10
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -3.3177986111111113,
+              3.8320416666666635
+            ],
+            "permutation_p": 0.8329416705832942,
+            "wilcoxon_p": 0.786061429732223,
+            "top2_gain_contribution_to_mean_pp": 1.5993055555555555,
+            "mean_of_others_without_top2_gains_pp": -1.3150000000000013,
+            "mean_of_others_without_top2_losses_pp": 2.307424242424241,
+            "trimmed_mean_10pct_pp": 0.6189999999999983,
+            "seed_level_paired_t": {
+              "t": 0.19189396676803955,
+              "df": 2,
+              "p": 0.8655426201640875
+            }
+          },
+          "not_small": {
+            "n": 37,
+            "mean_pp": 1.1731531531531534,
+            "median_pp": 0.0,
+            "improved": 16,
+            "worsened": 9,
+            "tied": 12,
+            "per_seed_mean_pp": [
+              1.0181081081081083,
+              1.7856756756756762,
+              0.7156756756756752
+            ],
+            "per_seed_improved": [
+              16,
+              16,
+              13
+            ],
+            "per_seed_worsened": [
+              4,
+              9,
+              9
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.14459234234234242,
+              2.4240878378378374
+            ],
+            "permutation_p": 0.03956960430395696,
+            "wilcoxon_p": 0.04950637439853126,
+            "top2_gain_contribution_to_mean_pp": 0.6736036036036036,
+            "mean_of_others_without_top2_gains_pp": 0.5280952380952383,
+            "mean_of_others_without_top2_losses_pp": 1.4418095238095239,
+            "trimmed_mean_10pct_pp": 0.7197849462365593,
+            "seed_level_paired_t": {
+              "t": 3.683808376455395,
+              "df": 2,
+              "p": 0.06643076711678686
+            }
+          },
+          "unique_images": {
+            "n": 61,
+            "mean_pp": 0.8665573770491799,
+            "per_seed_mean_pp": [
+              2.3536065573770486,
+              0.16163934426229498,
+              0.08442622950819594
+            ]
+          }
+        },
+        "NSD": {
+          "all": {
+            "n": 61,
+            "mean_pp": 0.6009289617486337,
+            "median_pp": 0.0,
+            "improved": 29,
+            "worsened": 20,
+            "tied": 12,
+            "per_seed_mean_pp": [
+              2.118524590163935,
+              -0.21000000000000038,
+              -0.10573770491803253
+            ],
+            "per_seed_improved": [
+              29,
+              26,
+              28
+            ],
+            "per_seed_worsened": [
+              13,
+              22,
+              18
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -1.014170765027322,
+              2.2066803278688516
+            ],
+            "permutation_p": 0.4820151798482015,
+            "wilcoxon_p": 0.22491199001818613,
+            "top2_gain_contribution_to_mean_pp": 0.6543715846994536,
+            "mean_of_others_without_top2_gains_pp": -0.05525423728813568,
+            "mean_of_others_without_top2_losses_pp": 1.3754237288135593,
+            "trimmed_mean_10pct_pp": 0.40258503401360524,
+            "seed_level_paired_t": {
+              "t": 0.7913264592341585,
+              "df": 2,
+              "p": 0.5116940793137317
+            }
+          },
+          "small": {
+            "n": 24,
+            "mean_pp": -0.04555555555555516,
+            "median_pp": 0.3249999999999975,
+            "improved": 13,
+            "worsened": 11,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              3.9187500000000024,
+              -3.1091666666666664,
+              -0.9462499999999991
+            ],
+            "per_seed_improved": [
+              14,
+              10,
+              14
+            ],
+            "per_seed_worsened": [
+              8,
+              14,
+              10
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -3.8505729166666662,
+              3.6444548611111123
+            ],
+            "permutation_p": 0.980860191398086,
+            "wilcoxon_p": 0.8976967753236552,
+            "top2_gain_contribution_to_mean_pp": 1.597916666666667,
+            "mean_of_others_without_top2_gains_pp": -1.792878787878788,
+            "mean_of_others_without_top2_losses_pp": 1.9727272727272733,
+            "trimmed_mean_10pct_pp": 0.2525000000000005,
+            "seed_level_paired_t": {
+              "t": -0.021921021562611043,
+              "df": 2,
+              "p": 0.9845013587858297
+            }
+          },
+          "not_small": {
+            "n": 37,
+            "mean_pp": 1.02027027027027,
+            "median_pp": 0.0,
+            "improved": 16,
+            "worsened": 9,
+            "tied": 12,
+            "per_seed_mean_pp": [
+              0.9508108108108104,
+              1.6705405405405407,
+              0.439459459459459
+            ],
+            "per_seed_improved": [
+              15,
+              16,
+              14
+            ],
+            "per_seed_worsened": [
+              5,
+              8,
+              8
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.03457657657657595,
+              2.2714481981981973
+            ],
+            "permutation_p": 0.07194928050719493,
+            "wilcoxon_p": 0.08029978979344915,
+            "top2_gain_contribution_to_mean_pp": 0.6816216216216215,
+            "mean_of_others_without_top2_gains_pp": 0.3579999999999997,
+            "mean_of_others_without_top2_losses_pp": 1.286380952380952,
+            "trimmed_mean_10pct_pp": 0.53763440860215,
+            "seed_level_paired_t": {
+              "t": 2.8572960859425014,
+              "df": 2,
+              "p": 0.10376911225316676
+            }
+          }
+        },
+        "pixels_and_failures_per_seed": {
+          "fp_pixels_relative_change_percent": [
+            -17.540876805491553,
+            -21.00820633059789,
+            -9.591067646692412
+          ],
+          "fn_pixels_relative_change_percent": [
+            -1.440780287751344,
+            2.0036673671248644,
+            -0.02453258000966435
+          ],
+          "micro_foreground_precision_percent_delta": [
+            1.978680973078994,
+            2.1799036377959737,
+            1.0400671335559224
+          ],
+          "micro_foreground_recall_percent_delta": [
+            0.35793703592608495,
+            -0.5017151149638153,
+            0.005529926116835782
+          ],
+          "positive_DSC_below_50_percent_delta": [
+            -2,
+            2,
+            1
+          ],
+          "zero_overlap_positive_delta": [
+            0,
+            0,
+            0
+          ],
+          "empty_positive_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        "seeds": [
+          666,
+          667,
+          668
+        ]
+      }
+    },
+    "CVC300": {
+      "n": 60,
+      "single_DSC": 78.88683333333334,
+      "two_pass_DSC": 81.94072222222222,
+      "single_NSD": 82.32566666666666,
+      "two_pass_NSD": 85.36477777777777,
+      "n_small": 56,
+      "single_small_DSC": 77.97874999999999,
+      "two_pass_small_DSC": 81.43517857142858,
+      "failures_single": 7.0,
+      "failures_two_pass": 7.333333333333333,
+      "zoomed_share": 0.9222222222222222,
+      "second_pass_empty": 0.0,
+      "contrast": {
+        "DSC": {
+          "all": {
+            "n": 60,
+            "mean_pp": 3.0538888888888893,
+            "median_pp": 3.356666666666667,
+            "improved": 47,
+            "worsened": 11,
+            "tied": 2,
+            "per_seed_mean_pp": [
+              3.0789999999999997,
+              3.0276666666666667,
+              3.055
+            ],
+            "per_seed_improved": [
+              43,
+              43,
+              40
+            ],
+            "per_seed_worsened": [
+              12,
+              12,
+              13
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.4427944444444442,
+              5.362947222222222
+            ],
+            "permutation_p": 0.014259857401425985,
+            "wilcoxon_p": 9.844166971627833e-05,
+            "top2_gain_contribution_to_mean_pp": 0.8404444444444444,
+            "mean_of_others_without_top2_gains_pp": 2.2897701149425287,
+            "mean_of_others_without_top2_losses_pp": 4.183620689655173,
+            "trimmed_mean_10pct_pp": 3.6796527777777777,
+            "seed_level_paired_t": {
+              "t": 205.93937864811195,
+              "df": 2,
+              "p": 2.3577939228913714e-05
+            }
+          },
+          "small": {
+            "n": 56,
+            "mean_pp": 3.4564285714285714,
+            "median_pp": 3.5833333333333344,
+            "improved": 45,
+            "worsened": 10,
+            "tied": 1,
+            "per_seed_mean_pp": [
+              3.359285714285714,
+              3.442321428571429,
+              3.567678571428572
+            ],
+            "per_seed_improved": [
+              43,
+              41,
+              39
+            ],
+            "per_seed_worsened": [
+              10,
+              11,
+              12
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.7520773809523817,
+              5.797175595238095
+            ],
+            "permutation_p": 0.006679933200667993,
+            "wilcoxon_p": 4.578479109525006e-05,
+            "top2_gain_contribution_to_mean_pp": 0.9004761904761905,
+            "mean_of_others_without_top2_gains_pp": 2.6506172839506172,
+            "mean_of_others_without_top2_losses_pp": 4.680679012345679,
+            "trimmed_mean_10pct_pp": 4.028260869565217,
+            "seed_level_paired_t": {
+              "t": 57.06507790851376,
+              "df": 2,
+              "p": 0.00030694402161601797
+            }
+          },
+          "not_small": {
+            "n": 4,
+            "mean_pp": -2.5816666666666688,
+            "median_pp": 0.1083333333333325,
+            "improved": 2,
+            "worsened": 1,
+            "tied": 1,
+            "per_seed_mean_pp": [
+              -0.8450000000000013,
+              -2.7775000000000047,
+              -4.1225000000000005
+            ],
+            "per_seed_improved": [
+              0,
+              2,
+              1
+            ],
+            "per_seed_worsened": [
+              2,
+              1,
+              1
+            ],
+            "seeds_positive": 0,
+            "bootstrap_ci95_pp": [
+              -9.840833333333334,
+              1.987499999999995
+            ],
+            "permutation_p": 1.0,
+            "wilcoxon_p": null,
+            "top2_gain_contribution_to_mean_pp": 0.7166666666666646,
+            "mean_of_others_without_top2_gains_pp": -6.596666666666667,
+            "mean_of_others_without_top2_losses_pp": 1.4333333333333291,
+            "trimmed_mean_10pct_pp": -2.5816666666666688,
+            "seed_level_paired_t": {
+              "t": -2.7141553690747964,
+              "df": 2,
+              "p": 0.11316504015035067
+            }
+          },
+          "unique_images": {
+            "n": 58,
+            "mean_pp": 3.0139942528735637,
+            "per_seed_mean_pp": [
+              2.980086206896552,
+              2.983706896551725,
+              3.078189655172414
+            ]
+          }
+        },
+        "NSD": {
+          "all": {
+            "n": 60,
+            "mean_pp": 3.0391111111111115,
+            "median_pp": 3.266666666666666,
+            "improved": 48,
+            "worsened": 10,
+            "tied": 2,
+            "per_seed_mean_pp": [
+              2.9550000000000005,
+              3.0306666666666677,
+              3.131666666666667
+            ],
+            "per_seed_improved": [
+              44,
+              42,
+              41
+            ],
+            "per_seed_worsened": [
+              11,
+              13,
+              12
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.4303069444444452,
+              5.38334722222222
+            ],
+            "permutation_p": 0.014759852401475985,
+            "wilcoxon_p": 8.942453350208966e-05,
+            "top2_gain_contribution_to_mean_pp": 0.8751666666666668,
+            "mean_of_others_without_top2_gains_pp": 2.238563218390805,
+            "mean_of_others_without_top2_losses_pp": 4.169137931034483,
+            "trimmed_mean_10pct_pp": 3.608541666666667,
+            "seed_level_paired_t": {
+              "t": 59.38808237701772,
+              "df": 2,
+              "p": 0.0002834110239543497
+            }
+          },
+          "small": {
+            "n": 56,
+            "mean_pp": 3.4431547619047627,
+            "median_pp": 3.4050000000000007,
+            "improved": 46,
+            "worsened": 9,
+            "tied": 1,
+            "per_seed_mean_pp": [
+              3.234107142857144,
+              3.435535714285716,
+              3.6598214285714286
+            ],
+            "per_seed_improved": [
+              44,
+              40,
+              40
+            ],
+            "per_seed_worsened": [
+              9,
+              12,
+              11
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.6548110119047628,
+              5.80274255952381
+            ],
+            "permutation_p": 0.007719922800771993,
+            "wilcoxon_p": 4.259732417253922e-05,
+            "top2_gain_contribution_to_mean_pp": 0.9376785714285715,
+            "mean_of_others_without_top2_gains_pp": 2.598271604938273,
+            "mean_of_others_without_top2_losses_pp": 4.671851851851853,
+            "trimmed_mean_10pct_pp": 3.964492753623189,
+            "seed_level_paired_t": {
+              "t": 28.00402019770812,
+              "df": 2,
+              "p": 0.0012727101948135644
+            }
+          },
+          "not_small": {
+            "n": 4,
+            "mean_pp": -2.617500000000001,
+            "median_pp": 0.06333333333333376,
+            "improved": 2,
+            "worsened": 1,
+            "tied": 1,
+            "per_seed_mean_pp": [
+              -0.9525000000000006,
+              -2.637500000000001,
+              -4.262499999999999
+            ],
+            "per_seed_improved": [
+              0,
+              2,
+              1
+            ],
+            "per_seed_worsened": [
+              2,
+              1,
+              1
+            ],
+            "seeds_positive": 0,
+            "bootstrap_ci95_pp": [
+              -9.638333333333335,
+              1.7224999999999993
+            ],
+            "permutation_p": 1.0,
+            "wilcoxon_p": null,
+            "top2_gain_contribution_to_mean_pp": 0.6058333333333332,
+            "mean_of_others_without_top2_gains_pp": -6.446666666666669,
+            "mean_of_others_without_top2_losses_pp": 1.211666666666666,
+            "trimmed_mean_10pct_pp": -2.617500000000001,
+            "seed_level_paired_t": {
+              "t": -2.739211316448655,
+              "df": 2,
+              "p": 0.11143581216609721
+            }
+          }
+        },
+        "pixels_and_failures_per_seed": {
+          "fp_pixels_relative_change_percent": [
+            -16.226766854676914,
+            -23.014395081434188,
+            -19.149514403798623
+          ],
+          "fn_pixels_relative_change_percent": [
+            47.647844184402736,
+            19.195801741083965,
+            33.77241126966703
+          ],
+          "micro_foreground_precision_percent_delta": [
+            2.793544248638611,
+            4.16810873252517,
+            3.4551008164050785
+          ],
+          "micro_foreground_recall_percent_delta": [
+            -3.1445932381138277,
+            -1.8895893766963923,
+            -2.5514726081240013
+          ],
+          "positive_DSC_below_50_percent_delta": [
+            1,
+            1,
+            -1
+          ],
+          "zero_overlap_positive_delta": [
+            1,
+            0,
+            0
+          ],
+          "empty_positive_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        "seeds": [
+          666,
+          667,
+          668
+        ]
+      }
+    },
+    "BKAI": {
+      "n": 100,
+      "single_DSC": 75.90966666666667,
+      "two_pass_DSC": 79.58366666666667,
+      "single_NSD": 77.41643333333333,
+      "two_pass_NSD": 80.9999,
+      "n_small": 71,
+      "single_small_DSC": 69.9293896713615,
+      "two_pass_small_DSC": 74.94239436619718,
+      "failures_single": 17.0,
+      "failures_two_pass": 15.333333333333334,
+      "zoomed_share": 0.63,
+      "second_pass_empty": 0.0,
+      "contrast": {
+        "DSC": {
+          "all": {
+            "n": 100,
+            "mean_pp": 3.674000000000001,
+            "median_pp": 1.053333333333336,
+            "improved": 55,
+            "worsened": 14,
+            "tied": 31,
+            "per_seed_mean_pp": [
+              2.9890000000000003,
+              4.059,
+              3.974
+            ],
+            "per_seed_improved": [
+              48,
+              52,
+              49
+            ],
+            "per_seed_worsened": [
+              16,
+              10,
+              12
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              1.8713300000000002,
+              5.873341666666663
+            ],
+            "permutation_p": 7.999920000799993e-05,
+            "wilcoxon_p": 8.184730987651613e-06,
+            "top2_gain_contribution_to_mean_pp": 1.1178666666666666,
+            "mean_of_others_without_top2_gains_pp": 2.6082993197278923,
+            "mean_of_others_without_top2_losses_pp": 4.086904761904763,
+            "trimmed_mean_10pct_pp": 2.53375,
+            "seed_level_paired_t": {
+              "t": 10.69958422329658,
+              "df": 2,
+              "p": 0.008622255214815744
+            }
+          },
+          "small": {
+            "n": 71,
+            "mean_pp": 5.01300469483568,
+            "median_pp": 2.8866666666666703,
+            "improved": 50,
+            "worsened": 12,
+            "tied": 9,
+            "per_seed_mean_pp": [
+              4.1452112676056325,
+              5.580985915492959,
+              5.312816901408452
+            ],
+            "per_seed_improved": [
+              45,
+              47,
+              44
+            ],
+            "per_seed_worsened": [
+              13,
+              8,
+              11
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              2.59525234741784,
+              7.918176056338025
+            ],
+            "permutation_p": 3.999960000399996e-05,
+            "wilcoxon_p": 1.5195713890502436e-05,
+            "top2_gain_contribution_to_mean_pp": 1.5744600938967135,
+            "mean_of_others_without_top2_gains_pp": 3.538212560386473,
+            "mean_of_others_without_top2_losses_pp": 5.638260869565217,
+            "trimmed_mean_10pct_pp": 3.8150292397660817,
+            "seed_level_paired_t": {
+              "t": 11.373843945355468,
+              "df": 2,
+              "p": 0.0076416139096996405
+            }
+          },
+          "not_small": {
+            "n": 29,
+            "mean_pp": 0.3957471264367817,
+            "median_pp": 0.0,
+            "improved": 5,
+            "worsened": 2,
+            "tied": 22,
+            "per_seed_mean_pp": [
+              0.15827586206896496,
+              0.332758620689656,
+              0.6962068965517244
+            ],
+            "per_seed_improved": [
+              3,
+              5,
+              5
+            ],
+            "per_seed_worsened": [
+              3,
+              2,
+              1
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              -0.42380459770114975,
+              1.4235632183908045
+            ],
+            "permutation_p": 0.48398516014839854,
+            "wilcoxon_p": 0.2718987108196485,
+            "top2_gain_contribution_to_mean_pp": 0.528735632183908,
+            "mean_of_others_without_top2_gains_pp": -0.14283950617283933,
+            "mean_of_others_without_top2_losses_pp": 0.6879012345679011,
+            "trimmed_mean_10pct_pp": 0.12960000000000008,
+            "seed_level_paired_t": {
+              "t": 2.497633328663938,
+              "df": 2,
+              "p": 0.12981168540221866
+            }
+          },
+          "unique_images": {
+            "n": 100,
+            "mean_pp": 3.674,
+            "per_seed_mean_pp": [
+              2.9890000000000003,
+              4.059,
+              3.974
+            ]
+          }
+        },
+        "NSD": {
+          "all": {
+            "n": 100,
+            "mean_pp": 3.583466666666667,
+            "median_pp": 0.7700000000000022,
+            "improved": 55,
+            "worsened": 14,
+            "tied": 31,
+            "per_seed_mean_pp": [
+              2.9351000000000003,
+              3.955100000000001,
+              3.8602
+            ],
+            "per_seed_improved": [
+              46,
+              51,
+              46
+            ],
+            "per_seed_worsened": [
+              18,
+              11,
+              15
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              1.7368475,
+              5.777280833333334
+            ],
+            "permutation_p": 5.999940000599994e-05,
+            "wilcoxon_p": 1.8611759866508665e-05,
+            "top2_gain_contribution_to_mean_pp": 1.1566,
+            "mean_of_others_without_top2_gains_pp": 2.4763945578231294,
+            "mean_of_others_without_top2_losses_pp": 3.9965306122448983,
+            "trimmed_mean_10pct_pp": 2.370916666666667,
+            "seed_level_paired_t": {
+              "t": 11.014569035230307,
+              "df": 2,
+              "p": 0.008142083447362669
+            }
+          },
+          "small": {
+            "n": 71,
+            "mean_pp": 4.907042253521128,
+            "median_pp": 2.6900000000000035,
+            "improved": 50,
+            "worsened": 12,
+            "tied": 9,
+            "per_seed_mean_pp": [
+              4.09169014084507,
+              5.4543661971830995,
+              5.175070422535211
+            ],
+            "per_seed_improved": [
+              43,
+              46,
+              42
+            ],
+            "per_seed_worsened": [
+              15,
+              9,
+              13
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              2.3984483568075117,
+              7.944620892018777
+            ],
+            "permutation_p": 5.999940000599994e-05,
+            "wilcoxon_p": 2.8440049971685778e-05,
+            "top2_gain_contribution_to_mean_pp": 1.6290140845070422,
+            "mean_of_others_without_top2_gains_pp": 3.373043478260871,
+            "mean_of_others_without_top2_losses_pp": 5.532077294685991,
+            "trimmed_mean_10pct_pp": 3.6018128654970774,
+            "seed_level_paired_t": {
+              "t": 11.807916670450432,
+              "df": 2,
+              "p": 0.007095967205053677
+            }
+          },
+          "not_small": {
+            "n": 29,
+            "mean_pp": 0.3429885057471264,
+            "median_pp": 0.0,
+            "improved": 5,
+            "worsened": 2,
+            "tied": 22,
+            "per_seed_mean_pp": [
+              0.10344827586206908,
+              0.28448275862068884,
+              0.6410344827586213
+            ],
+            "per_seed_improved": [
+              3,
+              5,
+              4
+            ],
+            "per_seed_worsened": [
+              3,
+              2,
+              2
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              -0.502183908045977,
+              1.3674712643678155
+            ],
+            "permutation_p": 0.5627643723562764,
+            "wilcoxon_p": 0.44687282071083084,
+            "top2_gain_contribution_to_mean_pp": 0.5159770114942527,
+            "mean_of_others_without_top2_gains_pp": -0.1858024691358023,
+            "mean_of_others_without_top2_losses_pp": 0.6541975308641974,
+            "trimmed_mean_10pct_pp": 0.1080000000000001,
+            "seed_level_paired_t": {
+              "t": 2.1719022153223424,
+              "df": 2,
+              "p": 0.16199338563367405
+            }
+          }
+        },
+        "pixels_and_failures_per_seed": {
+          "fp_pixels_relative_change_percent": [
+            -6.274557268593765,
+            -4.197460962221692,
+            -9.391877059456162
+          ],
+          "fn_pixels_relative_change_percent": [
+            8.146944860907515,
+            -11.583542719224777,
+            3.70070743756132
+          ],
+          "micro_foreground_precision_percent_delta": [
+            1.3370526288494915,
+            1.1026341248827123,
+            2.143713657143749
+          ],
+          "micro_foreground_recall_percent_delta": [
+            -0.42330032036934995,
+            0.7435685131852523,
+            -0.21751066344221215
+          ],
+          "positive_DSC_below_50_percent_delta": [
+            0,
+            -1,
+            -4
+          ],
+          "zero_overlap_positive_delta": [
+            -1,
+            -1,
+            0
+          ],
+          "empty_positive_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        "seeds": [
+          666,
+          667,
+          668
+        ]
+      }
+    }
+  },
+  "gain_pp": {
+    "Kvasir": 0.4564333333333331,
+    "ColonDB": 1.2623611111111113,
+    "ClinicDB": 0.8665573770491802,
+    "CVC300": 3.0538888888888893,
+    "BKAI": 3.674000000000001
+  },
+  "macro_ood_gain_pp": 2.2142018442622953,
+  "macro_ood_gain_per_seed_pp": [
+    2.3702905282331512,
+    2.0225001138433516,
+    2.2498148907103825
+  ],
+  "seeds": [
+    666,
+    667,
+    668
+  ],
+  "checks": {
+    "g1": true,
+    "g2": true,
+    "g3": true,
+    "g4": true,
+    "g5": true
+  },
+  "verdict": "pass",
+  "ood_lesion_size_strata": [
+    {
+      "stratum": "<1%",
+      "n": 55.0,
+      "single_DSC": 25.54230303030303,
+      "two_pass_DSC": 33.343212121212126,
+      "zoomed_share": 0.6909090909090909,
+      "failures_single": 41.0,
+      "failures_two_pass": 35.666666666666664
+    },
+    {
+      "stratum": "1-3%",
+      "n": 179.0,
+      "single_DSC": 73.14128491620112,
+      "two_pass_DSC": 76.47208566108009,
+      "zoomed_share": 0.851024208566108,
+      "failures_single": 31.666666666666668,
+      "failures_two_pass": 27.666666666666668
+    },
+    {
+      "stratum": "3-5.9%",
+      "n": 158.0,
+      "single_DSC": 83.27898734177215,
+      "two_pass_DSC": 83.63177215189874,
+      "zoomed_share": 0.8966244725738397,
+      "failures_single": 11.333333333333334,
+      "failures_two_pass": 13.0
+    },
+    {
+      "stratum": "5.9-15%",
+      "n": 129.0,
+      "single_DSC": 85.7524031007752,
+      "two_pass_DSC": 85.68940568475452,
+      "zoomed_share": 0.5452196382428941,
+      "failures_single": 4.333333333333333,
+      "failures_two_pass": 4.666666666666667
+    },
+    {
+      "stratum": ">15%",
+      "n": 60.0,
+      "single_DSC": 65.77227777777777,
+      "two_pass_DSC": 65.52338888888889,
+      "zoomed_share": 0.12777777777777777,
+      "failures_single": 17.666666666666668,
+      "failures_two_pass": 18.666666666666668
+    }
+  ],
+  "name": "test_zoom_kvasir_v1",
+  "created_at": "2026-10-04T23:49:50.655673+00:00",
+  "reproduction": {
+    "detail_seed666/Kvasir": 0.0,
+    "detail_seed666/ColonDB": 0.0,
+    "detail_seed666/ClinicDB": 0.0006557377049165045,
+    "detail_seed666/CVC300": -0.00016666666667219943,
+    "detail_seed666/BKAI": 0.0,
+    "detail_seed667/Kvasir": -0.0007999999999981355,
+    "detail_seed667/ColonDB": -5.555555554160997e-05,
+    "detail_seed667/ClinicDB": 0.0,
+    "detail_seed667/CVC300": -0.0018333333333468242,
+    "detail_seed667/BKAI": 0.0,
+    "detail_seed668/Kvasir": 0.0,
+    "detail_seed668/ColonDB": 8.333333333609971e-05,
+    "detail_seed668/ClinicDB": 0.0,
+    "detail_seed668/CVC300": -0.0010000000000095117,
+    "detail_seed668/BKAI": -0.0002999999999957481
+  }
+}

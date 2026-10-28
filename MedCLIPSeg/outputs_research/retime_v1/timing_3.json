@@ -1,0 +1,35 @@
+{
+  "model": "detail_seed666",
+  "dataset": "Kvasir",
+  "device": "NVIDIA GeForce RTX 5060 Ti",
+  "torch": "2.9.0+cu128",
+  "batch_size": 1,
+  "passes": {
+    "1": {
+      "mean_ms": 63.85819801129401,
+      "sd_ms": 6.486044440448977,
+      "median_ms": 63.26340010855347,
+      "n": 50
+    },
+    "5": {
+      "mean_ms": 186.37975798919797,
+      "sd_ms": 4.506991446026403,
+      "median_ms": 185.207600123249,
+      "n": 50
+    },
+    "15": {
+      "mean_ms": 520.926732015796,
+      "sd_ms": 31.213896102880902,
+      "median_ms": 514.8404000792652,
+      "n": 50
+    },
+    "30": {
+      "mean_ms": 935.1735279941931,
+      "sd_ms": 31.517895832588213,
+      "median_ms": 934.4050500076264,
+      "n": 50
+    }
+  },
+  "note": "batch size 1; one inference run of the whole image; GPU synchronised before and after; data loading excluded",
+  "measured_at": "2026-10-07T10:50:18.519787+00:00"
+}

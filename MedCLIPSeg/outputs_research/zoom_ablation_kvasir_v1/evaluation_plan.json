@@ -1,0 +1,126 @@
+{
+  "protocol": {
+    "name": "zoom_ablation_kvasir_v1",
+    "locked_at": "2026-10-05",
+    "purpose": "Ablation. The two-pass zoom configuration confirmed on the detail arm (test_zoom_kvasir_v1) is applied, unchanged, to the other three accepted Kvasir arms. Evaluation only; nothing is selected or tuned.",
+    "source": "kvasir_v1",
+    "arms": [
+      "baseline",
+      "global_mix",
+      "detail_global_mix"
+    ],
+    "seeds": [
+      666,
+      667,
+      668
+    ],
+    "lineage": {
+      "reports/acceptance_pilot_zoom_20261005/audit.json": "8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3",
+      "reports/acceptance_test_zoom_20261005/audit.json": "8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17"
+    },
+    "configs": [
+      {
+        "name": "t15",
+        "target_fraction": 0.15,
+        "zoom_out": false,
+        "oracle": false
+      }
+    ],
+    "primary_config": "t15",
+    "zoom": {
+      "margin": 1.25,
+      "min_window": 0.2,
+      "zoom_in_if_window_at_most": 0.8,
+      "zoom_out_if_fraction_at_least": 0.2,
+      "zoom_out_target_fraction": 0.1,
+      "max_window": 2.0,
+      "fusion": "second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty"
+    },
+    "single_pass_reproduction_tolerance_pp": 0.1,
+    "gate": null,
+    "interpretation_fixed_in_advance": [
+      "Descriptive only. The detail-arm numbers come from test_zoom_kvasir_v1 and are not recomputed here.",
+      "The final-model rule of formal_detail_mix_kvasir_v2 is unchanged; no arm is chosen because of its two-pass score."
+    ],
+    "disclosures": [
+      "The size-prior weakness that motivated the method was quantified on Test/OOD predictions of these checkpoints.",
+      "The five test sets were used before; ColonDB and CVC300 share 52 exact image hashes."
+    ],
+    "statistics": {
+      "permutation_draws": 100000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261005
+    }
+  },
+  "protocol_sha256": "7825ee5057b7f744c6f3f61c9b2d9d280c51e2a3566c701fcf496477cd1cedf8",
+  "code": {
+    "research_zoom_ext/__init__.py": "d93e19ddb4dfd86925eabd02118df0521df9795faa50d5a4af778781312202b7",
+    "research_zoom_ext/common.py": "beb9be29e6ab48b7b704f11ac2cc7dbf8ead7dd11e1302d6e30863d3a1f43591",
+    "research_zoom_ext/report.py": "8e48feab1a4514d44aa651bc3a2d7bb680339e5d2200678aed4baa6df80af664",
+    "research_zoom_ext/runner.py": "133e43f1bcd259ef38dbb27945d9116966db0f273c0803126c820ed76555a79b",
+    "research_zoom/evaluate.py": "024cef32be79463bf36e4bbbf29cf665d730bd29215f2fbe279939b8f72e4629",
+    "research_zoom/geometry.py": "23c20c342bb6fac71c135d50031db72dedcb926f890cf942f7ed0fa8dee3ed23"
+  },
+  "runs": [
+    "baseline_seed666",
+    "global_mix_seed666",
+    "detail_global_mix_seed666",
+    "baseline_seed667",
+    "global_mix_seed667",
+    "detail_global_mix_seed667",
+    "baseline_seed668",
+    "global_mix_seed668",
+    "detail_global_mix_seed668"
+  ],
+  "checkpoints": {
+    "baseline_seed666": "a1a97ec45d23c866bae5f260f8de1bbc41a806a27a4e7171d856e778f8782492",
+    "global_mix_seed666": "0a3dcfbd9fcaba8e33ffa1d3df994c1ee31cfee31abc660a47cf2a3653deda30",
+    "detail_global_mix_seed666": "975659100722ad67bf111d5c20168ec76959c2605225c9ca4d3acb580bb4c6df",
+    "baseline_seed667": "9291eea0951e5cf586ee415927bd6ef3eae0dc4617c27e5f060866c09815ae7b",
+    "global_mix_seed667": "2e82e5e3cd2bc7d8507b2346fa470ada5810beafc6c74bc7467320a0c2b6c9a0",
+    "detail_global_mix_seed667": "e9a66c38a8bcefe5c924e05dff82df9eeb4cf224085da793fb4ad64a8794f881",
+    "baseline_seed668": "2214c8dac9bf370826b3eee6cf4c2ffb3a62abef8904bea21d211726c3f6c47b",
+    "global_mix_seed668": "e979b3e225a8639a269ff0d1dde1cfc4ed04752792a7113b28d947e524e61138",
+    "detail_global_mix_seed668": "79050ada0638e5703157eb7995b4b405b56571a296e0493c75d6d68b1aacf9e7"
+  },
+  "configs": [
+    {
+      "name": "t15",
+      "target_fraction": 0.15,
+      "zoom_out": false,
+      "oracle": false
+    }
+  ],
+  "calibration": null,
+  "prompt": "a polyp in a colonoscopy image",
+  "small_threshold": 0.058989688326573426,
+  "cohorts": {
+    "Kvasir": {
+      "n": 100,
+      "list_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+      "files_digest": "cdce78c1bce73e983e65ed9bd8222b50ac7fe6d0cc09dfa306cb819a2d326c78"
+    },
+    "ColonDB": {
+      "n": 360,
+      "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+      "files_digest": "9ff335e0a7bc989b1a07759410533f00f5157316917fbea7df438de737b7d896"
+    },
+    "ClinicDB": {
+      "n": 61,
+      "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+      "files_digest": "3b4fbf76e51d2b479fea9973bd9ac476006a9e7b16b935e6d95fe2de4c7e74ee"
+    },
+    "CVC300": {
+      "n": 60,
+      "list_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+      "files_digest": "998180409607f38f475a0400a8d3f8084a7c805148d0d2b1921ad2af973d100b"
+    },
+    "BKAI": {
+      "n": 100,
+      "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+      "files_digest": "fb61d517acc1cc17935cd9aadf0e914a33bafd25acc3c0558611a7c1e6d836a5"
+    }
+  },
+  "source_plan_digest": "3228ea3d847aebd21cd72b2f828037a2f94fb48bce4d3e804a727c91d4e63118",
+  "digest": "97486787f917828b86625c37813202ff93b715d3f649ce46244d8e964f118341"
+}

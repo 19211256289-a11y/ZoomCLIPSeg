@@ -1,0 +1,9 @@
+{
+  "run": "detail_seed666",
+  "cohort": "ClinicDB",
+  "single_pass_DSC_percent": 81.9737704918033,
+  "accepted_DSC_percent": 81.97295081967215,
+  "difference_pp": 0.0008196721311398065,
+  "tolerance_pp": 0.25,
+  "passed": true
+}

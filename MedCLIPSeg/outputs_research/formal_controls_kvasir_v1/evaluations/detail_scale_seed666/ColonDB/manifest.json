@@ -1,0 +1,18 @@
+{
+  "signature": {
+    "suite": "formal_controls_kvasir_v1",
+    "run": "detail_scale_seed666",
+    "cohort": "ColonDB",
+    "checkpoint_sha256": "17f70bc27c5a412bd6c07b5d4f1192bbbe29accbe9edb6644e519fb9c427151c",
+    "science_digest": "b84c6e4ea2724d536e58bcb4f10ae1ddc0eed4b8964abfec0cfb3672c3fbab49",
+    "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+    "configs": [
+      "t15"
+    ]
+  },
+  "complete": true,
+  "n": 720,
+  "cases_sha256": "5ed2387395bcecae021de2a064eb8943ae1afcf1fbbb2033cdb3cbc366427426",
+  "finished_at": "2026-10-08T05:50:20.912808+00:00",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

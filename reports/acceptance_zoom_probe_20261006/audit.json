@@ -1,0 +1,111 @@
+{
+ "suite": "zoom_probe_v1",
+ "accepted_at": "2026-10-06T13:10+08:00",
+ "execution_valid": true,
+ "gate_verdict": "not_applicable",
+ "note": "Evaluation-only review analyses. No gate; reading rules fixed in the protocol. The locked configuration t15 remains the method.",
+ "inputs": {
+  "reports/zoom_probe_v1_results/results.json": "fbecc6d1d24af601e7d3d52b106e437af185a16e4dfed418e7c257a08e25583b",
+  "reports/zoom_probe_v1_results/report.md": "e5d9b1e461c8ef751939ea88ee28698cb4641f617882e6266a375192b3daf154",
+  "control/research_zoom_probe/queue.json": "12ef9ac468d7df38c550e3edd0a163cb0e45350fa320d5c64e6db5594058b83d",
+  "MedCLIPSeg/outputs_research/zoom_probe_v1/evaluation_plan.json": "3690c5d1e5207236f451d7ff3564b6a98f99440d81cb838c2aa900e609c61c9e"
+ },
+ "integrity": {
+  "jobs_completed": 65,
+  "jobs_total": 65,
+  "plan_digest": "b4fa32ddad87eaf65d75a3727c734014eaf2ec7b19979893369502b84530bc5b",
+  "code_hashes_match_delivered_code": true,
+  "protocol_hash_matches": true,
+  "polyp_reproduction_files": 25,
+  "single_pass_max_mean_diff_pp": 0.027,
+  "t15_max_mean_diff_to_accepted_pp": 0.092,
+  "largest_single_case_diff_pp": 9.18,
+  "reproduction_note": "Means agree within the 0.25 pp tolerance; individual cases differ because the 30 stochastic passes are not bit-identical between runs.",
+  "ultrasound_single_pass_max_mean_diff_pp": 0.0003,
+  "part_A_recomputed_from_case_files_max_diff_pp": 0.0,
+  "part_B_recomputed_from_score_files": true,
+  "etis_touched": false
+ },
+ "part_A": {
+  "t15_ood_gain_pp": {
+   "mean_pp": 2.128629162112933,
+   "ci95_pp": [
+    1.32577545787796,
+    2.906255928392532
+   ],
+   "p": 4.999750012499375e-05
+  },
+  "in224": {
+   "gain_pp": 1.728379872495446,
+   "reference_gain_pp": 2.128629162112933,
+   "ratio": 0.81196852098926,
+   "t15_minus_variant": {
+    "mean_pp": 0.4002492896174863,
+    "ci95_pp": [
+     0.15352441507285972,
+     0.6605611267076501
+    ],
+    "p": 0.0012499375031248437
+   }
+  },
+  "in224_out224": {
+   "gain_pp": 1.5316128005464478,
+   "reference_gain_pp": 2.128629162112933,
+   "ratio": 0.7195301219241631,
+   "t15_minus_variant": {
+    "mean_pp": 0.5970163615664845,
+    "ci95_pp": [
+     0.33906457365664855,
+     0.8706344908925322
+    ],
+    "p": 4.999750012499375e-05
+   }
+  },
+  "resolution_verdict": "scale_explains_most",
+  "sensitivity_robust": true,
+  "sensitivity_ood_gain_pp": {
+   "margin100": 2.2715024514268367,
+   "margin150": 2.1290948391013966,
+   "minwin010": 2.2231506299332118,
+   "minwin030": 2.214070544930176,
+   "trigger070": 2.1390936475409834,
+   "trigger090": 2.183744899817851,
+   "tau010": 2.1309128870673955,
+   "tau020": 2.1148031724347303
+  },
+  "reference_three_seed_gain_pp": 2.2222918336369153
+ },
+ "part_B": {
+  "verdict": "retained",
+  "per_seed_ood_gain_pp": {
+   "ungated": [
+    4.384747467902404,
+    18.865306459381802,
+    8.783902885046588
+   ],
+   "val_gate": [
+    3.7799475692195257,
+    18.27139944109489,
+    8.741100594615244
+   ],
+   "test_gate": [
+    -1.092883521019151,
+    18.017514718388227,
+    8.696783218728719
+   ]
+  },
+  "caveat": "With the gate matched on the test images, the gain of seed 666 is -1.09 pp (interval includes zero)."
+ },
+ "part_C": {
+  "baseline_seed666": {
+   "first_pass_ms": 746.7266639904119,
+   "second_pass_ms": 751.9111500053745,
+   "device": "NVIDIA GeForce RTX 5060 Ti"
+  },
+  "detail_seed666": {
+   "first_pass_ms": 759.7177999932319,
+   "second_pass_ms": 766.9699500062658,
+   "device": "NVIDIA GeForce RTX 5060 Ti"
+  }
+ }
+}

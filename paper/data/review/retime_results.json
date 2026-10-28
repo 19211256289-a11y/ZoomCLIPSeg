@@ -1,0 +1,44 @@
+{
+  "name": "retime_v1",
+  "created_at": "2026-10-07T10:50:18.526584+00:00",
+  "run": "detail_seed666",
+  "checkpoint_sha256": "3e06610d8c4c9ed408d8bfb001f66d1e11eb068266fabac0c6d1b60d7eddda2d",
+  "device": "NVIDIA GeForce RTX 5060 Ti",
+  "torch": "2.9.0+cu128",
+  "repeats": 3,
+  "passes": {
+    "1": {
+      "mean_ms_per_repeat": [
+        66.32207002025098,
+        62.35817002132535,
+        63.85819801129401
+      ],
+      "mean_ms": 64.17947935095678
+    },
+    "5": {
+      "mean_ms_per_repeat": [
+        178.2366740098223,
+        179.64661000762135,
+        186.37975798919797
+      ],
+      "mean_ms": 181.42101400221387
+    },
+    "15": {
+      "mean_ms_per_repeat": [
+        484.3508199695498,
+        498.18314398638904,
+        520.926732015796
+      ],
+      "mean_ms": 501.1535653239116
+    },
+    "30": {
+      "mean_ms_per_repeat": [
+        933.4033240238205,
+        965.0488780206069,
+        935.1735279941931
+      ],
+      "mean_ms": 944.5419100128735
+    }
+  },
+  "note": "batch size 1; one inference run of the whole image; GPU synchronised before and after; data loading excluded"
+}

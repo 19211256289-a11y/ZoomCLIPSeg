@@ -1,0 +1,18 @@
+{
+  "signature": {
+    "suite": "formal_controls_kvasir_v1",
+    "run": "detail_seed668",
+    "cohort": "ClinicDB",
+    "checkpoint_sha256": "65c2dd5a6c8ed39987c562c7703a41b797b3dd373b1d94515630774845919db0",
+    "science_digest": "b84c6e4ea2724d536e58bcb4f10ae1ddc0eed4b8964abfec0cfb3672c3fbab49",
+    "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+    "configs": [
+      "t15"
+    ]
+  },
+  "complete": true,
+  "n": 122,
+  "cases_sha256": "20546a71b678aee7eb2ced3011478b40c40ad12e73e5f5e7b4d2751b1c98954f",
+  "finished_at": "2026-10-07T23:11:13.591879+00:00",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

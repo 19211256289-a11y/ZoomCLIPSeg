@@ -1,0 +1,10 @@
+{"passed": true, "suite": "test_detail_mix_kvasir_v1", "accepted_at": "2026-10-04T18:55+08:00",
+ "run": {"started_utc": "2026-10-04T09:34:39", "completed_utc": "2026-10-04T10:41:45", "jobs": "74/74", "error": null, "single_process": true},
+ "protocol_sha256": "a43c0685c54a271650dddf9a2a12175664574e71f3b384b1bdfcfe80c12e69a7",
+ "plan_digest": "3228ea3d847aebd21cd72b2f828037a2f94fb48bce4d3e804a727c91d4e63118",
+ "checks": {"code_identical_to_prepared": true, "val_reproduction_max_abs_dsc_pp": 0.0103, "cohort_sizes_ok": true,
+            "dsc_recomputed_from_pixel_counts_max_diff": 0.0, "independent_recomputation_max_diff": 3e-14,
+            "masks_and_probabilities_reread": false},
+ "gate": {"primary_contrast": "detail - baseline", "passed": true, "kvasir_pp": 0.532, "colondb_pp": 0.543, "clinicdb_pp": 0.845, "cvc300_pp": -0.284, "bkai_pp": 1.522, "macro_small_pp": 1.16},
+ "secondary": {"detail_global_mix_minus_baseline_macro_pp": 1.331, "detail_global_mix_minus_detail_macro_pp": 0.70, "pooled_unique_ood_detail_minus_baseline_pp": 0.671},
+ "model_selection_from_test": false, "independent_untouched_test": false}

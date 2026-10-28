@@ -1,0 +1,426 @@
+************
+** Config **
+************
+DATASET:
+  DETAIL_SIZE: 448
+  NAME: Kvasir
+  SIZE: 224
+  TEST_PATH: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\data\Kvasir\Test_Folder\
+  TEXT_PROMPT_PATH: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\data\Kvasir\Prompts_Folder\
+  TRAIN_PATH: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\data\Kvasir\Train_Folder\
+  VAL_PATH: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\data\Kvasir\Val_Folder\
+MODEL:
+  ADAPTER_DIM: 256
+  BACKBONE: ViT-B/16
+  BETA: 2.35
+  CLIP_MODEL: unimedclip
+  DEVICE: cuda
+  GATE_INIT: 0.0
+  GRAD_CHECKPOINTING: True
+  LAYERS: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  NUM_UPSCALE: 2
+  TEMPERATURE: 0.2
+  VARIANT: paired_aug
+RESEARCH:
+  BASE_WEIGHTS: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\checkpoints\unimed_clip_vit_b16.pt
+  INITIALIZATION: unimedclip_base_fresh_adapters_and_head_per_seed
+  INITIALIZATION_SEED: 668
+  PROTOCOL_SHA256: a850cecee3cf76bc4364262654dd22ca784bf99b8800138bb1e30725c325f85e
+  RUN_ID: paired_aug_seed668
+  SUITE: formal_kvasir_v1
+TEST:
+  NUM_SAMPLES: 30
+  USE_LATEST: True
+TRAIN:
+  AUX_WEIGHT: 0.0
+  BATCH_SIZE: 24
+  BETA_WEIGHT: 0.001
+  CE_WEIGHT: 0.5
+  CLIP_WEIGHT: 0.1
+  CONSISTENCY_WEIGHT: 0.0
+  DICE_MODE: image
+  DICE_WEIGHT: 0.5
+  HARD_BG_FRACTION: 0.1
+  LEARNING_RATE: 0.0003
+  MIN_LEARNING_RATE: 0.0001
+  NEW_LEARNING_RATE: 0.0003
+  NUM_EPOCHS: 100
+config_file: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\outputs_research\formal_kvasir_v1\configs\paired_aug_seed668.yaml
+control_dir: E:\BaiduNetdiskDownload\paper\control\research_formal\formal_kvasir_v1
+data_percentage: 100
+gradient_checkpointing: True
+init_from: None
+num_workers: 0
+opts: []
+output_dir: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\outputs_research\formal_kvasir_v1\paired_aug_seed668
+resume: False
+seed: 668
+Setting fixed seed: 668
+Loading ViT-B-16-quickgelu model config.
+FROM_BASE_INITIALIZATION: {"frozen": "a247070c83f2dac9030e98595c097d71deeba691b18066199ae4b8547b4a6932", "trainable": "adbeb98212d3e99d36abf159c785378850d126ce8adc0a35862419416b5f6ec6"}
+Parameters to be updated: {'pvl_adapters.2.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.6.proj_txt_up.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.norm_k.weight', 'mask_head.2.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.3.proj_txt_up.weight', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.1.proj_vis_up.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.7.proj_txt_up.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.8.proj_vis_down.0.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.3.proj_vis_down.0.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.k_proj.bias', 'upscale.1.conv1.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.8.proj_vis_up.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.k_proj.bias', 'mask_head.2.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.2.proj_txt_up.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.v_proj.bias', 'upscale.1.conv1.bias', 'pvl_adapters.1.proj_txt_up.weight', 'pvl_adapters.3.proj_txt_down.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.v_proj.weight', 'mask_head.0.bias', 'pvl_adapters.6.proj_txt_down.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.3.proj_vis_up.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.6.proj_vis_up.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.2.proj_txt_down.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.5.proj_vis_up.weight', 'upscale.1.norm.bias', 'pvl_adapters.8.proj_txt_down.weight', 'upscale.1.norm.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.0.proj_txt_up.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.7.proj_vis_up.weight', 'upscale.0.conv2.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.gate', 'upscale.0.conv1.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.2.proj_vis_up.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.out_proj.bias', 'upscale.0.norm.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.v_proj.weight', 'mask_head.4.weight', 'pvl_adapters.4.proj_vis_down.0.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.k_proj.bias', 'upscale.0.conv1.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.k_proj.bias', 'upscale.1.conv2.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.6.proj_vis_down.0.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.0.proj_vis_down.0.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.out_proj.bias', 'mask_head.4.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.5.proj_txt_down.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.1.proj_txt_down.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.7.proj_txt_down.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.4.proj_txt_down.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.5.proj_txt_up.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.2.proj_vis_down.0.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.9.proj_vis_up.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.1.proj_vis_down.0.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.0.proj_vis_up.weight', 'pvl_adapters.9.proj_vis_down.0.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.4.proj_txt_up.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.0.proj_txt_down.weight', 'pvl_adapters.9.proj_txt_up.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.4.proj_vis_up.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.9.proj_txt_down.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.norm_k.bias', 'upscale.0.norm.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.7.proj_vis_down.0.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.5.proj_vis_down.0.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.8.proj_txt_up.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.norm_k.bias', 'mask_head.0.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.out_proj.weight'}
+Number of trainable parameters: 18677268
+EPOCH: 1 | Training Loss: 0.7977 | Validation Loss: 0.2764
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.5306169390678406, "first_view_loss": 0.5353610515594482, "second_view_loss": 0.5258728265762329, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.0000 -> 0.7297
+Paused after epoch 2, train batch 7: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\outputs_research\formal_kvasir_v1\paired_aug_seed668\Kvasir\trained_models\seed668\MedCLIPSeg_unimedclip_ViT-B-16_latest.pth
+************
+** Config **
+************
+DATASET:
+  DETAIL_SIZE: 448
+  NAME: Kvasir
+  SIZE: 224
+  TEST_PATH: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\data\Kvasir\Test_Folder\
+  TEXT_PROMPT_PATH: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\data\Kvasir\Prompts_Folder\
+  TRAIN_PATH: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\data\Kvasir\Train_Folder\
+  VAL_PATH: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\data\Kvasir\Val_Folder\
+MODEL:
+  ADAPTER_DIM: 256
+  BACKBONE: ViT-B/16
+  BETA: 2.35
+  CLIP_MODEL: unimedclip
+  DEVICE: cuda
+  GATE_INIT: 0.0
+  GRAD_CHECKPOINTING: True
+  LAYERS: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  NUM_UPSCALE: 2
+  TEMPERATURE: 0.2
+  VARIANT: paired_aug
+RESEARCH:
+  BASE_WEIGHTS: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\checkpoints\unimed_clip_vit_b16.pt
+  INITIALIZATION: unimedclip_base_fresh_adapters_and_head_per_seed
+  INITIALIZATION_SEED: 668
+  PROTOCOL_SHA256: a850cecee3cf76bc4364262654dd22ca784bf99b8800138bb1e30725c325f85e
+  RUN_ID: paired_aug_seed668
+  SUITE: formal_kvasir_v1
+TEST:
+  NUM_SAMPLES: 30
+  USE_LATEST: True
+TRAIN:
+  AUX_WEIGHT: 0.0
+  BATCH_SIZE: 24
+  BETA_WEIGHT: 0.001
+  CE_WEIGHT: 0.5
+  CLIP_WEIGHT: 0.1
+  CONSISTENCY_WEIGHT: 0.0
+  DICE_MODE: image
+  DICE_WEIGHT: 0.5
+  HARD_BG_FRACTION: 0.1
+  LEARNING_RATE: 0.0003
+  MIN_LEARNING_RATE: 0.0001
+  NEW_LEARNING_RATE: 0.0003
+  NUM_EPOCHS: 100
+config_file: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\outputs_research\formal_kvasir_v1\configs\paired_aug_seed668.yaml
+control_dir: E:\BaiduNetdiskDownload\paper\control\research_formal\formal_kvasir_v1
+data_percentage: 100
+gradient_checkpointing: True
+init_from: None
+num_workers: 0
+opts: []
+output_dir: E:\BaiduNetdiskDownload\paper\MedCLIPSeg\outputs_research\formal_kvasir_v1\paired_aug_seed668
+resume: True
+seed: 668
+Setting fixed seed: 668
+Loading ViT-B-16-quickgelu model config.
+FROM_BASE_INITIALIZATION: {"frozen": "a247070c83f2dac9030e98595c097d71deeba691b18066199ae4b8547b4a6932", "trainable": "adbeb98212d3e99d36abf159c785378850d126ce8adc0a35862419416b5f6ec6"}
+Parameters to be updated: {'pvl_adapters.4.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.k_proj.bias', 'upscale.1.conv2.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.k_proj.weight', 'upscale.0.norm.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.7.proj_txt_down.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.9.proj_vis_down.0.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.norm_v.bias', 'upscale.1.conv1.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.2.proj_txt_down.weight', 'pvl_adapters.4.proj_txt_down.weight', 'upscale.0.norm.weight', 'pvl_adapters.7.proj_txt_up.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.k_proj.bias', 'upscale.0.conv2.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.0.proj_txt_up.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.norm_v.weight', 'mask_head.2.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.2.proj_vis_up.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.out_proj.weight', 'mask_head.0.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.6.proj_txt_up.weight', 'pvl_adapters.3.proj_vis_down.0.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.9.proj_vis_up.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.2.proj_vis_down.0.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.8.proj_vis_down.0.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.1.proj_vis_up.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.norm_v.bias', 'mask_head.2.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.8.proj_txt_up.weight', 'pvl_adapters.1.proj_vis_down.0.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.8.proj_txt_down.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.9.proj_txt_down.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.4.proj_vis_up.weight', 'mask_head.4.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.5.proj_txt_up.weight', 'pvl_adapters.6.proj_vis_up.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.2.proj_txt_up.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.7.proj_vis_down.0.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.1.proj_txt_up.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.norm_k.bias', 'mask_head.4.bias', 'pvl_adapters.5.proj_vis_down.0.weight', 'pvl_adapters.3.proj_vis_up.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.1.proj_txt_down.weight', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.8.proj_vis_up.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.4.proj_txt_up.weight', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.v_proj.bias', 'upscale.0.conv1.bias', 'pvl_adapters.5.proj_txt_down.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.6.proj_txt_down.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.k_proj.weight', 'upscale.1.conv1.bias', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.out_proj.bias', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.k_proj.bias', 'upscale.0.conv1.weight', 'pvl_adapters.3.proj_txt_up.weight', 'pvl_adapters.0.proj_vis_down.0.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.gate', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.2.two_way.cross_attn_txt_to_img.q_proj.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.q_proj.weight', 'upscale.1.norm.bias', 'pvl_adapters.8.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.9.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.6.proj_vis_down.0.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.out_proj.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.q_proj.bias', 'pvl_adapters.3.proj_txt_down.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.norm_v.bias', 'pvl_adapters.0.proj_vis_up.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.7.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.4.two_way.cross_attn_img_to_txt.k_proj.bias', 'pvl_adapters.5.two_way.cross_attn_txt_to_img.norm_k.bias', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.out_proj.weight', 'pvl_adapters.8.two_way.cross_attn_txt_to_img.out_proj.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.v_proj.weight', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.norm_k.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.3.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.0.proj_txt_down.weight', 'pvl_adapters.3.two_way.cross_attn_txt_to_img.k_proj.bias', 'pvl_adapters.5.two_way.cross_attn_img_to_txt.q_proj.weight', 'pvl_adapters.2.two_way.cross_attn_img_to_txt.norm_k.bias', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.k_proj.weight', 'pvl_adapters.7.two_way.cross_attn_txt_to_img.v_proj.bias', 'pvl_adapters.9.proj_txt_up.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.gate', 'pvl_adapters.1.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.5.proj_vis_up.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.k_proj.weight', 'pvl_adapters.1.two_way.cross_attn_img_to_txt.norm_v.bias', 'pvl_adapters.0.two_way.cross_attn_img_to_txt.q_proj.bias', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.norm_v.weight', 'pvl_adapters.4.proj_vis_down.0.weight', 'pvl_adapters.7.proj_vis_up.weight', 'pvl_adapters.0.two_way.cross_attn_txt_to_img.v_proj.weight', 'pvl_adapters.9.two_way.cross_attn_img_to_txt.v_proj.bias', 'mask_head.0.weight', 'pvl_adapters.4.two_way.cross_attn_txt_to_img.norm_v.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.norm_k.weight', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.v_proj.bias', 'pvl_adapters.6.two_way.cross_attn_img_to_txt.out_proj.bias', 'upscale.1.norm.weight', 'pvl_adapters.6.two_way.cross_attn_txt_to_img.norm_v.weight'}
+Number of trainable parameters: 18677268
+Loaded checkpoint: next epoch=2, partial_epoch=True
+EPOCH: 2 | Training Loss: 0.5498 | Validation Loss: 0.1817
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.465790331363678, "first_view_loss": 0.4975437819957733, "second_view_loss": 0.43403685092926025, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.7297 -> 0.8332
+EPOCH: 3 | Training Loss: 0.4852 | Validation Loss: 0.1618
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.31406617164611816, "first_view_loss": 0.31022608280181885, "second_view_loss": 0.3179062604904175, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.8332 -> 0.8458
+EPOCH: 4 | Training Loss: 0.4543 | Validation Loss: 0.1685
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.40517765283584595, "first_view_loss": 0.4069331884384155, "second_view_loss": 0.40342211723327637, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.8458 -> 0.8463
+EPOCH: 5 | Training Loss: 0.4377 | Validation Loss: 0.1507
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.28417354822158813, "first_view_loss": 0.2800491154193878, "second_view_loss": 0.28829795122146606, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.8463 -> 0.8595
+EPOCH: 6 | Training Loss: 0.4232 | Validation Loss: 0.1641
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.27044278383255005, "first_view_loss": 0.2698456346988678, "second_view_loss": 0.2710399031639099, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.8595 -> 0.8625
+EPOCH: 7 | Training Loss: 0.4132 | Validation Loss: 0.1472
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.27237042784690857, "first_view_loss": 0.27053749561309814, "second_view_loss": 0.274203360080719, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.8625 -> 0.8659
+EPOCH: 8 | Training Loss: 0.4115 | Validation Loss: 0.1396
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.26613909006118774, "first_view_loss": 0.262611448764801, "second_view_loss": 0.26966673135757446, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.8659 -> 0.8751
+EPOCH: 9 | Training Loss: 0.4050 | Validation Loss: 0.1352
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.36964166164398193, "first_view_loss": 0.35286909341812134, "second_view_loss": 0.3864142596721649, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8733
+EPOCH: 10 | Training Loss: 0.3997 | Validation Loss: 0.1304
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.3346998989582062, "first_view_loss": 0.34590280055999756, "second_view_loss": 0.3234969973564148, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.8751 -> 0.8812
+EPOCH: 11 | Training Loss: 0.3997 | Validation Loss: 0.1298
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2797050476074219, "first_view_loss": 0.27856093645095825, "second_view_loss": 0.2808491289615631, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8791
+EPOCH: 12 | Training Loss: 0.3921 | Validation Loss: 0.1362
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.27998587489128113, "first_view_loss": 0.28477033972740173, "second_view_loss": 0.2752014100551605, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.8812 -> 0.8869
+EPOCH: 13 | Training Loss: 0.3881 | Validation Loss: 0.1291
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2844880223274231, "first_view_loss": 0.27735015749931335, "second_view_loss": 0.29162585735321045, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8868
+EPOCH: 14 | Training Loss: 0.3858 | Validation Loss: 0.1161
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.30226191878318787, "first_view_loss": 0.30684417486190796, "second_view_loss": 0.2976796627044678, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.8869 -> 0.8979
+EPOCH: 15 | Training Loss: 0.3838 | Validation Loss: 0.1395
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2844861149787903, "first_view_loss": 0.2857477068901062, "second_view_loss": 0.283224493265152, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8850
+EPOCH: 16 | Training Loss: 0.3822 | Validation Loss: 0.1402
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2657022476196289, "first_view_loss": 0.26203256845474243, "second_view_loss": 0.269371896982193, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8840
+EPOCH: 17 | Training Loss: 0.3798 | Validation Loss: 0.1426
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.30798470973968506, "first_view_loss": 0.29477131366729736, "second_view_loss": 0.32119807600975037, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8813
+EPOCH: 18 | Training Loss: 0.3799 | Validation Loss: 0.1297
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2922412157058716, "first_view_loss": 0.2815437614917755, "second_view_loss": 0.30293869972229004, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8859
+EPOCH: 19 | Training Loss: 0.3765 | Validation Loss: 0.1423
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.26288729906082153, "first_view_loss": 0.25720322132110596, "second_view_loss": 0.2685714066028595, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8869
+EPOCH: 20 | Training Loss: 0.3790 | Validation Loss: 0.1257
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2617797255516052, "first_view_loss": 0.2573186457157135, "second_view_loss": 0.26624077558517456, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8907
+EPOCH: 21 | Training Loss: 0.3723 | Validation Loss: 0.1211
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.25000810623168945, "first_view_loss": 0.24523751437664032, "second_view_loss": 0.2547786831855774, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8979
+EPOCH: 22 | Training Loss: 0.3713 | Validation Loss: 0.1275
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2504414916038513, "first_view_loss": 0.2487988919019699, "second_view_loss": 0.25208407640457153, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8935
+EPOCH: 23 | Training Loss: 0.3688 | Validation Loss: 0.1353
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2640722990036011, "first_view_loss": 0.2609398066997528, "second_view_loss": 0.26720479130744934, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8908
+EPOCH: 24 | Training Loss: 0.3678 | Validation Loss: 0.1268
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2505985498428345, "first_view_loss": 0.2516258656978607, "second_view_loss": 0.24957123398780823, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8944
+EPOCH: 25 | Training Loss: 0.3666 | Validation Loss: 0.1349
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2520923614501953, "first_view_loss": 0.2459958791732788, "second_view_loss": 0.25818881392478943, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8923
+EPOCH: 26 | Training Loss: 0.3655 | Validation Loss: 0.1301
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.26040658354759216, "first_view_loss": 0.25506359338760376, "second_view_loss": 0.26574957370758057, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.8979 -> 0.8997
+EPOCH: 27 | Training Loss: 0.3636 | Validation Loss: 0.1239
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2601630687713623, "first_view_loss": 0.2593241333961487, "second_view_loss": 0.26100197434425354, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8992
+EPOCH: 28 | Training Loss: 0.3626 | Validation Loss: 0.1292
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2513115406036377, "first_view_loss": 0.24631023406982422, "second_view_loss": 0.2563128173351288, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8943
+EPOCH: 29 | Training Loss: 0.3628 | Validation Loss: 0.1307
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2520933151245117, "first_view_loss": 0.247971773147583, "second_view_loss": 0.25621482729911804, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8974
+EPOCH: 30 | Training Loss: 0.3614 | Validation Loss: 0.1289
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2462121844291687, "first_view_loss": 0.23895759880542755, "second_view_loss": 0.25346678495407104, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.8997 -> 0.9010
+EPOCH: 31 | Training Loss: 0.3601 | Validation Loss: 0.1346
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.24550983309745789, "first_view_loss": 0.24147740006446838, "second_view_loss": 0.24954228103160858, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8950
+EPOCH: 32 | Training Loss: 0.3596 | Validation Loss: 0.1281
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.24505753815174103, "first_view_loss": 0.24184927344322205, "second_view_loss": 0.24826580286026, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8923
+EPOCH: 33 | Training Loss: 0.3593 | Validation Loss: 0.1325
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.25106513500213623, "first_view_loss": 0.24851271510124207, "second_view_loss": 0.2536175847053528, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8956
+EPOCH: 34 | Training Loss: 0.3588 | Validation Loss: 0.1402
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.27299076318740845, "first_view_loss": 0.2701796889305115, "second_view_loss": 0.2758018672466278, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8923
+EPOCH: 35 | Training Loss: 0.3604 | Validation Loss: 0.1296
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2692704200744629, "first_view_loss": 0.2549091577529907, "second_view_loss": 0.28363171219825745, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8974
+EPOCH: 36 | Training Loss: 0.3586 | Validation Loss: 0.1379
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.260718435049057, "first_view_loss": 0.2540217339992523, "second_view_loss": 0.2674151360988617, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8977
+EPOCH: 37 | Training Loss: 0.3575 | Validation Loss: 0.1255
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.24362969398498535, "first_view_loss": 0.2377709597349167, "second_view_loss": 0.2494884431362152, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8951
+EPOCH: 38 | Training Loss: 0.3559 | Validation Loss: 0.1399
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.24356043338775635, "first_view_loss": 0.24229678511619568, "second_view_loss": 0.24482408165931702, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8985
+EPOCH: 39 | Training Loss: 0.3543 | Validation Loss: 0.1304
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23858404159545898, "first_view_loss": 0.2344438135623932, "second_view_loss": 0.24272426962852478, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8995
+EPOCH: 40 | Training Loss: 0.3544 | Validation Loss: 0.1411
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23657354712486267, "first_view_loss": 0.23330050706863403, "second_view_loss": 0.23984657227993011, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8921
+EPOCH: 41 | Training Loss: 0.3530 | Validation Loss: 0.1425
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.24709010124206543, "first_view_loss": 0.24205321073532104, "second_view_loss": 0.2521269917488098, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8933
+EPOCH: 42 | Training Loss: 0.3538 | Validation Loss: 0.1425
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.24974320828914642, "first_view_loss": 0.24514511227607727, "second_view_loss": 0.2543413043022156, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8964
+EPOCH: 43 | Training Loss: 0.3543 | Validation Loss: 0.1305
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2562141418457031, "first_view_loss": 0.2549925744533539, "second_view_loss": 0.25743570923805237, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.9010 -> 0.9048
+EPOCH: 44 | Training Loss: 0.3521 | Validation Loss: 0.1336
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2396177351474762, "first_view_loss": 0.23509526252746582, "second_view_loss": 0.24414022266864777, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9017
+EPOCH: 45 | Training Loss: 0.3518 | Validation Loss: 0.1389
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23858243227005005, "first_view_loss": 0.23676103353500366, "second_view_loss": 0.24040381610393524, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9005
+EPOCH: 46 | Training Loss: 0.3521 | Validation Loss: 0.1320
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2452290654182434, "first_view_loss": 0.23862849175930023, "second_view_loss": 0.2518296539783478, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8973
+EPOCH: 47 | Training Loss: 0.3515 | Validation Loss: 0.1413
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23846036195755005, "first_view_loss": 0.23274032771587372, "second_view_loss": 0.24418039619922638, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8972
+EPOCH: 48 | Training Loss: 0.3530 | Validation Loss: 0.1341
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.24472486972808838, "first_view_loss": 0.24048104882240295, "second_view_loss": 0.2489686906337738, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8978
+EPOCH: 49 | Training Loss: 0.3531 | Validation Loss: 0.1399
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.24529190361499786, "first_view_loss": 0.24139481782913208, "second_view_loss": 0.24918898940086365, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8972
+EPOCH: 50 | Training Loss: 0.3514 | Validation Loss: 0.1397
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.24740003049373627, "first_view_loss": 0.24473175406455994, "second_view_loss": 0.2500683069229126, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8973
+EPOCH: 51 | Training Loss: 0.3506 | Validation Loss: 0.1416
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23816373944282532, "first_view_loss": 0.23631782829761505, "second_view_loss": 0.2400096356868744, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8996
+EPOCH: 52 | Training Loss: 0.3491 | Validation Loss: 0.1293
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23719468712806702, "first_view_loss": 0.23426958918571472, "second_view_loss": 0.2401197850704193, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9021
+EPOCH: 53 | Training Loss: 0.3488 | Validation Loss: 0.1336
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23853176832199097, "first_view_loss": 0.2357492595911026, "second_view_loss": 0.24131429195404053, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9043
+EPOCH: 54 | Training Loss: 0.3498 | Validation Loss: 0.1308
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.24348244071006775, "first_view_loss": 0.240700364112854, "second_view_loss": 0.2462645173072815, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8988
+EPOCH: 55 | Training Loss: 0.3477 | Validation Loss: 0.1441
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23346452414989471, "first_view_loss": 0.2315271496772766, "second_view_loss": 0.23540189862251282, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9010
+EPOCH: 56 | Training Loss: 0.3479 | Validation Loss: 0.1502
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23872756958007812, "first_view_loss": 0.23386166989803314, "second_view_loss": 0.2435934841632843, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9008
+EPOCH: 57 | Training Loss: 0.3476 | Validation Loss: 0.1461
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.24733464419841766, "first_view_loss": 0.24100100994110107, "second_view_loss": 0.25366827845573425, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9014
+EPOCH: 58 | Training Loss: 0.3467 | Validation Loss: 0.1550
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2397029995918274, "first_view_loss": 0.23578688502311707, "second_view_loss": 0.2436191290616989, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8990
+EPOCH: 59 | Training Loss: 0.3470 | Validation Loss: 0.1351
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23768168687820435, "first_view_loss": 0.2356593757867813, "second_view_loss": 0.23970401287078857, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8982
+EPOCH: 60 | Training Loss: 0.3465 | Validation Loss: 0.1554
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.24293342232704163, "first_view_loss": 0.23841427266597748, "second_view_loss": 0.24745255708694458, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8983
+EPOCH: 61 | Training Loss: 0.3458 | Validation Loss: 0.1520
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23336532711982727, "first_view_loss": 0.23101548850536346, "second_view_loss": 0.23571518063545227, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9021
+EPOCH: 62 | Training Loss: 0.3475 | Validation Loss: 0.1492
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23037120699882507, "first_view_loss": 0.2268957793712616, "second_view_loss": 0.23384661972522736, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8995
+EPOCH: 63 | Training Loss: 0.3455 | Validation Loss: 0.1475
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.22984431684017181, "first_view_loss": 0.2284659743309021, "second_view_loss": 0.23122265934944153, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8948
+EPOCH: 64 | Training Loss: 0.3457 | Validation Loss: 0.1576
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23116111755371094, "first_view_loss": 0.22856365144252777, "second_view_loss": 0.2337585687637329, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8971
+EPOCH: 65 | Training Loss: 0.3448 | Validation Loss: 0.1644
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2287382334470749, "first_view_loss": 0.22633996605873108, "second_view_loss": 0.2311365008354187, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8975
+EPOCH: 66 | Training Loss: 0.3448 | Validation Loss: 0.1483
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2368350625038147, "first_view_loss": 0.23462721705436707, "second_view_loss": 0.23904289305210114, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9004
+EPOCH: 67 | Training Loss: 0.3452 | Validation Loss: 0.1531
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23458190262317657, "first_view_loss": 0.2324574589729309, "second_view_loss": 0.23670634627342224, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9001
+EPOCH: 68 | Training Loss: 0.3447 | Validation Loss: 0.1384
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23738335072994232, "first_view_loss": 0.23473690450191498, "second_view_loss": 0.24002979695796967, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9048
+EPOCH: 69 | Training Loss: 0.3434 | Validation Loss: 0.1448
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2358872890472412, "first_view_loss": 0.23591278493404388, "second_view_loss": 0.23586177825927734, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.9048 -> 0.9057
+EPOCH: 70 | Training Loss: 0.3433 | Validation Loss: 0.1476
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2322929948568344, "first_view_loss": 0.22908826172351837, "second_view_loss": 0.23549772799015045, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9011
+EPOCH: 71 | Training Loss: 0.3439 | Validation Loss: 0.1512
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2375325858592987, "first_view_loss": 0.235783189535141, "second_view_loss": 0.23928199708461761, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9037
+EPOCH: 72 | Training Loss: 0.3438 | Validation Loss: 0.1526
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23762831091880798, "first_view_loss": 0.2339307814836502, "second_view_loss": 0.24132582545280457, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9044
+EPOCH: 73 | Training Loss: 0.3435 | Validation Loss: 0.1479
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23449954390525818, "first_view_loss": 0.23338583111763, "second_view_loss": 0.23561324179172516, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9052
+EPOCH: 74 | Training Loss: 0.3422 | Validation Loss: 0.1482
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.22938469052314758, "first_view_loss": 0.2283734679222107, "second_view_loss": 0.23039592802524567, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9055
+EPOCH: 75 | Training Loss: 0.3431 | Validation Loss: 0.1482
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2353993058204651, "first_view_loss": 0.23088786005973816, "second_view_loss": 0.23991073668003082, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8997
+EPOCH: 76 | Training Loss: 0.3432 | Validation Loss: 0.1435
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2324809432029724, "first_view_loss": 0.23130890727043152, "second_view_loss": 0.2336529642343521, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8985
+EPOCH: 77 | Training Loss: 0.3428 | Validation Loss: 0.1530
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23609988391399384, "first_view_loss": 0.232661634683609, "second_view_loss": 0.23953813314437866, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8995
+EPOCH: 78 | Training Loss: 0.3418 | Validation Loss: 0.1590
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23959432542324066, "first_view_loss": 0.2366175502538681, "second_view_loss": 0.24257110059261322, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9017
+EPOCH: 79 | Training Loss: 0.3420 | Validation Loss: 0.1578
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.22990629076957703, "first_view_loss": 0.22805826365947723, "second_view_loss": 0.231754332780838, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9032
+EPOCH: 80 | Training Loss: 0.3417 | Validation Loss: 0.1599
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23656517267227173, "first_view_loss": 0.23391969501972198, "second_view_loss": 0.23921063542366028, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9021
+EPOCH: 81 | Training Loss: 0.3421 | Validation Loss: 0.1534
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23630735278129578, "first_view_loss": 0.2362501621246338, "second_view_loss": 0.23636452853679657, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9012
+EPOCH: 82 | Training Loss: 0.3417 | Validation Loss: 0.1609
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23511648178100586, "first_view_loss": 0.23126637935638428, "second_view_loss": 0.23896659910678864, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.8988
+EPOCH: 83 | Training Loss: 0.3412 | Validation Loss: 0.1772
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23719093203544617, "first_view_loss": 0.23617404699325562, "second_view_loss": 0.23820781707763672, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9044
+EPOCH: 84 | Training Loss: 0.3407 | Validation Loss: 0.1544
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23517131805419922, "first_view_loss": 0.23411458730697632, "second_view_loss": 0.23622804880142212, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.9057 -> 0.9062
+EPOCH: 85 | Training Loss: 0.3400 | Validation Loss: 0.1589
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.22786670923233032, "first_view_loss": 0.22587081789970398, "second_view_loss": 0.22986260056495667, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9021
+EPOCH: 86 | Training Loss: 0.3407 | Validation Loss: 0.1677
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2331930547952652, "first_view_loss": 0.23124898970127106, "second_view_loss": 0.23513711988925934, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9002
+EPOCH: 87 | Training Loss: 0.3395 | Validation Loss: 0.1623
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.2373540848493576, "first_view_loss": 0.2342427670955658, "second_view_loss": 0.24046540260314941, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9024
+EPOCH: 88 | Training Loss: 0.3397 | Validation Loss: 0.1629
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23153455555438995, "first_view_loss": 0.22886542975902557, "second_view_loss": 0.23420368134975433, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9009
+EPOCH: 89 | Training Loss: 0.3400 | Validation Loss: 0.1699
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.22966298460960388, "first_view_loss": 0.22615131735801697, "second_view_loss": 0.2331746518611908, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9029
+EPOCH: 90 | Training Loss: 0.3393 | Validation Loss: 0.1641
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.22895216941833496, "first_view_loss": 0.22583436965942383, "second_view_loss": 0.2320699691772461, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9014
+EPOCH: 91 | Training Loss: 0.3396 | Validation Loss: 0.1794
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23232722282409668, "first_view_loss": 0.22967283427715302, "second_view_loss": 0.23498159646987915, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9028
+EPOCH: 92 | Training Loss: 0.3403 | Validation Loss: 0.1740
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.22886675596237183, "first_view_loss": 0.22711580991744995, "second_view_loss": 0.2306176871061325, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9043
+EPOCH: 93 | Training Loss: 0.3397 | Validation Loss: 0.1714
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.22974839806556702, "first_view_loss": 0.22709421813488007, "second_view_loss": 0.23240259289741516, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9017
+EPOCH: 94 | Training Loss: 0.3404 | Validation Loss: 0.1655
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.22968359291553497, "first_view_loss": 0.22628529369831085, "second_view_loss": 0.2330818921327591, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9016
+EPOCH: 95 | Training Loss: 0.3397 | Validation Loss: 0.1667
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.22886233031749725, "first_view_loss": 0.22604340314865112, "second_view_loss": 0.23168125748634338, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9038
+EPOCH: 96 | Training Loss: 0.3391 | Validation Loss: 0.1608
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.22860583662986755, "first_view_loss": 0.22696471214294434, "second_view_loss": 0.23024696111679077, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+New best Dice: 0.9062 -> 0.9068
+EPOCH: 97 | Training Loss: 0.3387 | Validation Loss: 0.1613
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.228499636054039, "first_view_loss": 0.225134015083313, "second_view_loss": 0.23186525702476501, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9039
+EPOCH: 98 | Training Loss: 0.3393 | Validation Loss: 0.1581
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.25047844648361206, "first_view_loss": 0.24737490713596344, "second_view_loss": 0.2535819709300995, "reflection_draw": "vertical", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9042
+EPOCH: 99 | Training Loss: 0.3392 | Validation Loss: 0.1645
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23287256062030792, "first_view_loss": 0.23234835267066956, "second_view_loss": 0.2333967685699463, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9062
+EPOCH: 100 | Training Loss: 0.3392 | Validation Loss: 0.1616
+LAST_TRAIN_BATCH_DIAGNOSTICS: {"supervised_paired_loss": 0.23162014782428741, "first_view_loss": 0.22696444392204285, "second_view_loss": 0.23627585172653198, "reflection_draw": "horizontal", "image_reflected": true, "text_synchronized": true, "forward_backward_passes": 2, "consistency_weight": 0.0}
+Dice: 0.9034

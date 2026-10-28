@@ -1,0 +1,33 @@
+name: pvt_seeds_v1
+locked_at: '2026-10-07'
+purpose: >-
+  Two further training seeds (669, 670) of the Polyp-PVT reference of polyp_pvt_kvasir_v1 on the full Kvasir-SEG
+  training split, requested by external reviews, so that the comparison with our models rests on the same five seeds
+  (666-670) as the main results of the manuscript. Recipe, model code, backbone weights and evaluation code are those
+  of polyp_pvt_kvasir_v1, unchanged. The results are reported whatever they are.
+locked_before: >-
+  Written after polyp_pvt_kvasir_v1 (seeds 666-668) and pvt_ext_v1 had been accepted. No result of this network for
+  the seeds 669 and 670 existed.
+source_protocol: polyp_pvt_kvasir_v1
+seeds: [669, 670]
+groups:
+  kvasir_full:
+    dataset: Kvasir
+    train_list: Train_text.xlsx
+    cohort_source: kvasir_v1
+    targets: [Kvasir, ColonDB, ClinicDB, CVC300, BKAI]
+held_out_target: ETIS      # scored for this reference network only, as in polyp_pvt_kvasir_v1
+threshold: 0.5
+timing: {warmup_images: 10}
+comparison: {}             # the five-seed comparison with our models is made from the accepted per-image files
+reading_rule_fixed_in_advance: >-
+  The manuscript replaces the three-seed values of the reference by the five-seed values (seeds 666-670) wherever it
+  compares with five-seed results of our models, whatever the direction of the change, and keeps the three-seed values
+  only in analyses that are defined on the seeds 666-668.
+rules:
+  - No checkpoint, epoch or threshold is selected on validation or test data; the weights of the last epoch are evaluated.
+  - ETIS-Larib is used for the reference network only; no model of ours is evaluated on it here.
+disclosures:
+  - The five polyp test sets were used in earlier stages of this project.
+  - ETIS-Larib was evaluated once for our method and three times before for this reference (seeds 666-668).
+statistics: {permutation_draws: 20000, bootstrap_draws: 10000, rng_seed: 20261017}

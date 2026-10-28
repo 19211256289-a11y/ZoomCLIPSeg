@@ -1,0 +1,23 @@
+{
+  "checks": [
+    {
+      "what": "detail_seed667/ClinicDB single pass",
+      "DSC_percent": 82.38409836065573,
+      "accepted_DSC_percent": 82.3819672131147,
+      "difference_pp": 0.00213114754100776,
+      "largest_case_difference_pp": 0.09000000000000119,
+      "tolerance_pp": 0.25,
+      "passed": true
+    },
+    {
+      "what": "detail_seed667/ClinicDB accepted two-pass (t15)",
+      "DSC_percent": 82.54327868852458,
+      "accepted_DSC_percent": 82.54360655737703,
+      "difference_pp": -0.00032786885245825225,
+      "largest_case_difference_pp": 0.019999999999997797,
+      "tolerance_pp": 0.25,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

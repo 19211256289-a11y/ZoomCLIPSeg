@@ -1,0 +1,31 @@
+{
+ "suite": "zoom_mc1_v1",
+ "plan_digest": "32ff39313eed83bb27a5b16002743d75a900b8f148347b083b9d86b9a9f6d9b0",
+ "results_sha256": "12f309c5b21f5b70730f5131b0515be5ffad47441e9c6e7e596de4752d2430e6",
+ "gate_verdict": "pass",
+ "verdicts": {
+  "one_pass_non_inferior": true,
+  "scz_gain_with_one_pass": true
+ },
+ "ood": {
+  "single30": 77.35600137978142,
+  "single01": 77.35030258652095,
+  "scz01": 79.53158785974499,
+  "t15": 79.47554959016395
+ },
+ "events": [
+  "07:56 JST first start; the console window was frozen (Windows QuickEdit) after the second batch of detail_seed666/Kvasir; restarted 08:46 JST with the same plan digest; the interrupted job was recomputed from scratch"
+ ],
+ "accepted_at": "2026-10-11T02:38:55.707470+00:00",
+ "accepted_by": "Claude (on behalf of Yanan Liu)",
+ "execution_valid": true,
+ "checks": [
+  "plan digest in queue equals evaluation_plan.json digest",
+  "code SHA-256 of every file in the plan equals the deployed package",
+  "protocol SHA-256 equals the deployed suite YAML",
+  "all jobs completed, no error recorded",
+  "means of every configuration recomputed from the 25 per-image case files equal the report (max deviation 0.0000 pp)",
+  "single-pass reproduction against the accepted evaluation passed for every run and cohort (runner gate, tolerance 0.25 pp)",
+  "ETIS-Larib not evaluated"
+ ]
+}

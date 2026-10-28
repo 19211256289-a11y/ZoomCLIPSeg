@@ -1,0 +1,15 @@
+{
+  "signature": {
+    "suite": "pvt_seeds_v1",
+    "plan_digest": "17fbca8494d04fdb1ebf0439b934a24e9aa3351c93c4a145db9d07aa023c5558",
+    "group": "kvasir_full",
+    "seed": 669,
+    "cohort": "ETIS",
+    "weights_sha256": "3417cd5d21c917b1b8a4d2102b954a26cd53a1298561a562d6cd5338270a9649"
+  },
+  "complete": true,
+  "n": 196,
+  "finished_at": "2026-10-07T09:20:03.674371+00:00",
+  "sha256": "054c7a28d21aa829eee9db875f19e598269fed4652df95e56f353f952b5f8eb3",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

@@ -1,0 +1,10 @@
+{
+  "run": "detail_seed668",
+  "cohort": "BUSUC",
+  "single_pass_DSC_percent": 83.25836065573768,
+  "accepted_DSC_percent": 83.25786885245901,
+  "difference_pp": 0.000491803278669906,
+  "largest_case_difference_pp": 0.0400000000000067,
+  "tolerance_pp": 0.1,
+  "passed": true
+}

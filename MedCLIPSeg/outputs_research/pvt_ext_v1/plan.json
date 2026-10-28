@@ -1,0 +1,288 @@
+{
+  "protocol": {
+    "name": "pvt_ext_v1",
+    "locked_at": "2026-10-06",
+    "purpose": "Text-free reference in two further settings, requested by external reviews. (1) Breast ultrasound: the dedicated network of polyp_pvt_kvasir_v1 (Polyp-PVT architecture, released recipe, unchanged) is trained on the BUSI training split that our ultrasound models use and evaluated on the same five test sets with the same metric code. (2) Reduced training sets: the same network is trained on the 10% and 25% subsets of the Kvasir-SEG training split that are distributed with MedCLIPSeg, as the reference for our models trained on the same subsets (lowdata_kvasir_v1). The results are reported whatever they are.",
+    "locked_before": "Written after polyp_pvt_kvasir_v1 (full Kvasir-SEG training set) had been accepted. No result of this network on ultrasound or on a reduced training set existed.",
+    "source_protocol": "polyp_pvt_kvasir_v1",
+    "seeds": [
+      666,
+      667,
+      668
+    ],
+    "groups": {
+      "busi_full": {
+        "dataset": "BUSI",
+        "train_list": "Train_text.xlsx",
+        "cohort_source": "formal_detail_mix_busi_v1",
+        "targets": [
+          "BUSI",
+          "BUSBRA",
+          "BUSUC",
+          "BUID",
+          "UDIAT"
+        ],
+        "note": "lesion-free training and test images are kept, as for our models; an empty prediction on an empty mask scores 100"
+      },
+      "kvasir_p10": {
+        "dataset": "Kvasir",
+        "train_list": "Train_text_10.xlsx",
+        "cohort_source": "kvasir_v1",
+        "targets": [
+          "Kvasir",
+          "ColonDB",
+          "ClinicDB",
+          "CVC300",
+          "BKAI"
+        ]
+      },
+      "kvasir_p25": {
+        "dataset": "Kvasir",
+        "train_list": "Train_text_25.xlsx",
+        "cohort_source": "kvasir_v1",
+        "targets": [
+          "Kvasir",
+          "ColonDB",
+          "ClinicDB",
+          "CVC300",
+          "BKAI"
+        ]
+      }
+    },
+    "epochs_note": "The number of epochs of the released recipe (99) is kept for every group, as the number of epochs of our models is kept (100). With a reduced training set both families therefore make proportionally fewer optimisation steps.",
+    "conditional_follow_up": "If, on a reduced training set, this network is not ahead of our full method on the mean of the four OOD sets, it is trained again on that subset with the number of optimisation steps of the full-data run (epochs multiplied by the inverse of the fraction) in a separate suite, and both results are reported. This guards against an advantage of our models that would only reflect an under-trained reference.",
+    "threshold": 0.5,
+    "timing": {
+      "warmup_images": 10
+    },
+    "comparison": {
+      "busi_full": {
+        "baseline": {
+          "label": "MedCLIPSeg baseline, single pass",
+          "suite": "formal_detail_mix_busi_v1",
+          "arm": "baseline",
+          "config": null
+        },
+        "detail": {
+          "label": "Detail branch, single pass",
+          "suite": "formal_detail_mix_busi_v1",
+          "arm": "detail",
+          "config": null
+        },
+        "full": {
+          "label": "ZoomCLIPSeg (detail branch + SCZ)",
+          "suite": "zoom_busi_v1",
+          "arm": "detail",
+          "config": "tcal"
+        }
+      }
+    },
+    "rules": [
+      "No checkpoint, epoch or threshold is selected on validation or test data; the weights of the last epoch are evaluated.",
+      "ETIS-Larib is not used in this suite."
+    ],
+    "disclosures": [
+      "The network was designed for polyp images; its recipe is applied to ultrasound without any change or tuning.",
+      "It uses a 352 x 352 input and an ImageNet-pretrained backbone trained end to end; our models use a 224 x 224 input and frozen encoders.",
+      "The ultrasound and polyp test sets were used in earlier stages of this project.",
+      "BUID (35 images) and UDIAT (25 images) are small."
+    ],
+    "statistics": {
+      "permutation_draws": 20000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261015
+    },
+    "recipe": {
+      "input_size": 352,
+      "epochs": 99,
+      "batch_size": 16,
+      "optimizer": "AdamW",
+      "learning_rate": 0.0001,
+      "weight_decay": 0.0001,
+      "gradient_clip": 0.5,
+      "scales": [
+        0.75,
+        1.0,
+        1.25
+      ],
+      "augmentation": "none besides the three scales (default of the released script)",
+      "loss": "structure loss of the released code on both outputs, as executed. Its BCE term is called with the legacy argument reduce='none', which PyTorch reads as a mean over all pixels, so the term is the unweighted mean BCE; the IoU term is weighted by the 31 x 31 boundary weights.",
+      "precision": "single"
+    }
+  },
+  "protocol_sha256": "2d4030d86b27764699898d544ebad0832837de27d2484724978227b88c187383",
+  "code": {
+    "research_polyp_pvt/lib/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "research_polyp_pvt/lib/pvt.py": "2bbfd2d019acddbfcdd4224833d1a511c0a5a3d6b35a0edc095f7dcfee476066",
+    "research_polyp_pvt/lib/pvtv2.py": "e42ed169654ac83d0c07e0d7cbc0b68624c1f6c0de67c796c1f95b2b64569752",
+    "research_polyp_pvt/common.py": "b3c27cad5116890f13f9b740330ec05a756e96f3b6a87f8eb6ac17e0bfea1455",
+    "research_polyp_pvt/data.py": "03b6b28bc600bad1066ce1d7e3c8f6f987091b4d696904e35c7baeb90bc31713",
+    "research_polyp_pvt/train.py": "f131feaef9d9b1f1d4a25a0b99c62cac447e4cec38a7ff9a980d6190296a9896",
+    "research_polyp_pvt/evaluate.py": "75e8efbc823c1e5ad3ce39177c87bbb50939260dcd762451764b3b523d8e04f1",
+    "research_pvt_ext/common.py": "507485a8fcff71e0c20237044db30674adb9faca657874eb67f239e25f255c1d",
+    "research_pvt_ext/work.py": "abf30d0498f74fca196d7181a01e01753e7c4bdd3bbf22811f15835bdb418fba",
+    "research_formal/metrics.py": "9e1b65b1729baa14be536fa8a9ad2a99992730c0dc80b92467519f24ac734318"
+  },
+  "backbone_weights": {
+    "sha256": "80711cd1b37ffba12bec6c7a2a7c54efe2315ed635e6d2055fd51c3e909ede4d",
+    "bytes": 101501299
+  },
+  "groups": {
+    "busi_full": {
+      "train_n": 624,
+      "train": {
+        "n": 624,
+        "list_sha256": "f3206634503d41713cfb35fd0992310798cf2dfb0f0ad30edf8962ae6ba69892",
+        "files_digest": "0a24469a30a5323358fc6a5136c9f81ce73533a9d6644b979e355f297e736e98"
+      },
+      "cohorts": {
+        "BUSI": {
+          "n": 78,
+          "list_sha256": "e114a8efc53d859a519d393b8cad7dabd90de5569a2962492db1898d81ca7ed4",
+          "files_digest": "5726cc14d5dcdb6e34b3f32ee3420eadab078daa74b4bde712e48ef5c9209d02"
+        },
+        "BUSBRA": {
+          "n": 282,
+          "list_sha256": "668ceaefc1e1b235fe6d9bd70edab669b4899647c34629b82135b281a1574cb7",
+          "files_digest": "f86b53c8949ddf36747267cc68608e2f852f694dce678d244a9a11afcc83fffd"
+        },
+        "BUSUC": {
+          "n": 122,
+          "list_sha256": "3f24c79d2c3966a6c23a146a9cece10e56e38b759e507a1c96ace005a6e24be8",
+          "files_digest": "5eee8aea34cfe64c49ee8c29897db6a57d7c9b74a823f688016387be658be91c"
+        },
+        "BUID": {
+          "n": 35,
+          "list_sha256": "05c135d11eb1362394cdf6a4bf5d0174852daa02d759aeafbc61778ea3bc5307",
+          "files_digest": "48e600d831b7bb4d73ec3d35514d7dea64e8e2ae632e1c5dd31532549ffa4ce4"
+        },
+        "UDIAT": {
+          "n": 25,
+          "list_sha256": "0a3feb0e1d5cc97297d6a356e2c0643d23dc287234f3bbd4cb2b553ca3ee450e",
+          "files_digest": "508d483b8d9f42a5746851d5c10fbb08375c1cf764b88ec9d571d9daca1d37a2"
+        }
+      },
+      "test_list": "Test_text_original.xlsx"
+    },
+    "kvasir_p10": {
+      "train_n": 80,
+      "train": {
+        "n": 80,
+        "list_sha256": "5e3da0dbcaa257f0e9ded289fa68dbb851e367994a41078da791210c94d49feb",
+        "files_digest": "20c3af3d58e64ee9128e063794b55c66ba3be845be3b21bcc11cdb631ea8b128"
+      },
+      "cohorts": {
+        "Kvasir": {
+          "n": 100,
+          "list_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+          "files_digest": "cdce78c1bce73e983e65ed9bd8222b50ac7fe6d0cc09dfa306cb819a2d326c78"
+        },
+        "ColonDB": {
+          "n": 360,
+          "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+          "files_digest": "9ff335e0a7bc989b1a07759410533f00f5157316917fbea7df438de737b7d896"
+        },
+        "ClinicDB": {
+          "n": 61,
+          "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+          "files_digest": "3b4fbf76e51d2b479fea9973bd9ac476006a9e7b16b935e6d95fe2de4c7e74ee"
+        },
+        "CVC300": {
+          "n": 60,
+          "list_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+          "files_digest": "998180409607f38f475a0400a8d3f8084a7c805148d0d2b1921ad2af973d100b"
+        },
+        "BKAI": {
+          "n": 100,
+          "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+          "files_digest": "fb61d517acc1cc17935cd9aadf0e914a33bafd25acc3c0558611a7c1e6d836a5"
+        }
+      },
+      "test_list": "Test_text_original.xlsx"
+    },
+    "kvasir_p25": {
+      "train_n": 200,
+      "train": {
+        "n": 200,
+        "list_sha256": "31f9cf2a956cd01e50ced455510c33c8221c55673256c89492290c15cf7acc15",
+        "files_digest": "098200e62a8415d83e81ce1d6fb64f6586547cc3cc83dfb2652ef161e7bb28c0"
+      },
+      "cohorts": {
+        "Kvasir": {
+          "n": 100,
+          "list_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+          "files_digest": "cdce78c1bce73e983e65ed9bd8222b50ac7fe6d0cc09dfa306cb819a2d326c78"
+        },
+        "ColonDB": {
+          "n": 360,
+          "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+          "files_digest": "9ff335e0a7bc989b1a07759410533f00f5157316917fbea7df438de737b7d896"
+        },
+        "ClinicDB": {
+          "n": 61,
+          "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+          "files_digest": "3b4fbf76e51d2b479fea9973bd9ac476006a9e7b16b935e6d95fe2de4c7e74ee"
+        },
+        "CVC300": {
+          "n": 60,
+          "list_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+          "files_digest": "998180409607f38f475a0400a8d3f8084a7c805148d0d2b1921ad2af973d100b"
+        },
+        "BKAI": {
+          "n": 100,
+          "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+          "files_digest": "fb61d517acc1cc17935cd9aadf0e914a33bafd25acc3c0558611a7c1e6d836a5"
+        }
+      },
+      "test_list": "Test_text_original.xlsx"
+    }
+  },
+  "accepted": {
+    "busi_full/baseline/seed666/BUSI": "38a53dc0317c02ac7f7dbb4ea61fb7f068a39536b6f9d4b9597c411e79f55f1a",
+    "busi_full/baseline/seed666/BUSBRA": "6a3436dc896cf846d3ed31602ca2045d6a05dbe0b056b67f76f24be53ba425d7",
+    "busi_full/baseline/seed666/BUSUC": "c1eca45af38381b291f330d92d6ba9a7aa398fb33572606ff20fea2d232f355f",
+    "busi_full/baseline/seed666/BUID": "80373c2a13f86b305a215eabf706bc3bcae21ae3e52a610e01359ca788000628",
+    "busi_full/baseline/seed666/UDIAT": "6de764cdd2b93e571af45b1f41dd548a8d771f0dc33e0261cafb5342c77f8f8f",
+    "busi_full/baseline/seed667/BUSI": "cdcb20c0cbd564d28fdde0a1277fe7a18a6ec0122b24bd95d78c3b59acd3b3ee",
+    "busi_full/baseline/seed667/BUSBRA": "68e64df0c1d702ece7a85e0896cba6e74046b1befaa4078f1b9c6475b7f47a81",
+    "busi_full/baseline/seed667/BUSUC": "b0f9ccbfc69566790d4ec121e58906bce5c15bf7b3af05cb3f8d24bd11b0dd7f",
+    "busi_full/baseline/seed667/BUID": "c3878355ae37d3432ca62ae69a2d980f6ec002c543d574a89be1bcfe12c568c7",
+    "busi_full/baseline/seed667/UDIAT": "ff62efab166e5c49e0d2a558ca06e12a2613d43fbb26494d074ddf5988521230",
+    "busi_full/baseline/seed668/BUSI": "1d1e57e1ffd9f1d955392027331c6cef58ab2173136526d9c2ab1c8aab4a26c7",
+    "busi_full/baseline/seed668/BUSBRA": "eec3b4f4ede070bd4451b7b403deed500caf9f18e7a0c4efade9a450f6323439",
+    "busi_full/baseline/seed668/BUSUC": "ad24ca7fe38fea92d97f8a320028207195e101a0cfe37bc6d31bf399795674b2",
+    "busi_full/baseline/seed668/BUID": "c91effb5db6326343459b90134a24c1f381546ad184033708e4d95f6aee87695",
+    "busi_full/baseline/seed668/UDIAT": "ed19ed7cfa21a46b09d8ced004f03b469e07154c5d9f8261b3259e47ec4eaf3f",
+    "busi_full/detail/seed666/BUSI": "b652fbf0c7bb1ad64f8df32c963f98c76ad18859307ec313103d39c0103ccd07",
+    "busi_full/detail/seed666/BUSBRA": "22c14353d42c8b15c8e9a8a4dda7f7bc3bb97f651a1041f69f43b5b5e87a9335",
+    "busi_full/detail/seed666/BUSUC": "1d18b0579823b445b0090a447ea8ee5b1a4ac3621ec1c5507a6e77ea3a90560f",
+    "busi_full/detail/seed666/BUID": "513c4f4ab8040215b8fa7a8264f54359f49bc802934f46aab4c18e1f18960403",
+    "busi_full/detail/seed666/UDIAT": "71ba8733d4f2b9e9ce8e0b3964b41c900d9413962d0ba267c916437e3046d71f",
+    "busi_full/detail/seed667/BUSI": "0309e52992d62595368f24f3d22bb63a9aa09dca885dddf08b1d2ead68817b9e",
+    "busi_full/detail/seed667/BUSBRA": "10c7ee89d1e1109f3182b6e7b7dfcea3908343d06d615c8d410b5ec562691f75",
+    "busi_full/detail/seed667/BUSUC": "a940dd83d3c4d9d041ac21aa3da44dcf880b823f47517d4b085ea27c5da0a959",
+    "busi_full/detail/seed667/BUID": "e87e7c6cf8a3b1ea3ec39f1fc90ce38d545f83ede76b7288d5c98ac6de45a0a9",
+    "busi_full/detail/seed667/UDIAT": "605ce3e2710401dad5d0e9593a49570521bfceb5845f2a7803db0201179b6241",
+    "busi_full/detail/seed668/BUSI": "f56a0a851b8f143f6ffd9df6965e49213e657b1f8cc0610e2f41d97d67695fe1",
+    "busi_full/detail/seed668/BUSBRA": "aa1fc40a6dd0683c68fe303313dd443468974c0a79066b00656d7729b9ec9967",
+    "busi_full/detail/seed668/BUSUC": "27018a5a6b0e0afd4898d69114153747bb2cf8d5e779ef242d1707e9bda004d1",
+    "busi_full/detail/seed668/BUID": "fd3ae48f0eb02afc226c744e21a61cc2eb3fc96dddd382edaa70e28502d0e2e1",
+    "busi_full/detail/seed668/UDIAT": "bd9391c0eecf7c8d8a9c7ee83762ee06eab107069a8472774535a2847950cf27",
+    "busi_full/full/seed666/BUSI": "62a18786472928d500b578087dd87e7d5abcf0ba6ce7e42c6c13918fb012c100",
+    "busi_full/full/seed666/BUSBRA": "240873a7e27f6bae55e3bb87a6ed90de848b25e1a9ff1f7ff9c6aa0891bfea43",
+    "busi_full/full/seed666/BUSUC": "4df0fdf44991e2ac277a0f02b48d4190c066406a5b2d0d89078c190eacd38daf",
+    "busi_full/full/seed666/BUID": "a0b9b94579f92fbf5b68c68264c69c79830efe4b5f75ba319834e101264680f5",
+    "busi_full/full/seed666/UDIAT": "b335a78b57f31c0c4e7807ec1284f062a940e7e8a8fddcb31361c76a00709db4",
+    "busi_full/full/seed667/BUSI": "c7929707f32abb359014fb1e90ffffe5e37428a21e478e3319faf6aaa185252b",
+    "busi_full/full/seed667/BUSBRA": "10e065a6247f65ac1e88f3cb5980709b58132062db73933b4054686562391bd3",
+    "busi_full/full/seed667/BUSUC": "ada3c1610a1ade4a577b0f3bf4842112a716bd9fc7c7f39229aed8d53b205ad0",
+    "busi_full/full/seed667/BUID": "2dcfda0463bc96bd5c090d4e9d90c1298039eabcc477c67c7471821f3053e7b4",
+    "busi_full/full/seed667/UDIAT": "0adab894a293eb25cf275ece047afe442f1868c2b01384430901c847ad1f7a81",
+    "busi_full/full/seed668/BUSI": "a286626e35f9130309bae8f6518d4536a83ee4447eb7ee281a10286a0e5df492",
+    "busi_full/full/seed668/BUSBRA": "95dd2b7778a694abe783014d9c88dd1b8e8c52fe9533038d59c351fe76df607a",
+    "busi_full/full/seed668/BUSUC": "1d4290ec73c5bd03313a1ab4b6b89e7558c60a3bf19483cc07e33b4b593341e5",
+    "busi_full/full/seed668/BUID": "463d096c5ceffdd596979fb74ef48da16d3b00f01e0d2b739dc6e4dc1c25c1c7",
+    "busi_full/full/seed668/UDIAT": "80b74e77529112bb2825158997b8e9a398d70296a5b2bf17c83adbfcc5e5334d"
+  },
+  "digest": "67d5e4ca6ac5a31cf9cd65247d954caa5de8c7b993028a881784168c88072eb2"
+}

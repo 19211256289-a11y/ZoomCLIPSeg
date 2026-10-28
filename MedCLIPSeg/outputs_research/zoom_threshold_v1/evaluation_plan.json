@@ -1,0 +1,198 @@
+{
+  "protocol": {
+    "name": "zoom_threshold_v1",
+    "locked_at": "2026-10-11",
+    "purpose": "Evaluation-only analysis requested by external reviews. The binarisation threshold of 0.5, inherited from the public code, enters SCZ three times: in the window rule (the predicted region), in the fallback when the second pass is empty, and in the final mask. Question: does the gain of SCZ over the single pass depend on this threshold? Nothing is trained and nothing here can change the method: the locked configuration with threshold 0.5 remains the method whatever the outcome, and the outcome is reported whatever it is.",
+    "locked_before": "Written after zoom_budget_v1, retime_v1 and the formal controls had been accepted. No result at a threshold other than 0.5 existed for any model.",
+    "lineage": {
+      "reports/acceptance_pilot_zoom_20261005/audit.json": "8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3",
+      "reports/acceptance_test_zoom_20261005/audit.json": "8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17"
+    },
+    "mc_samples": 30,
+    "batch_size": 32,
+    "threshold": 0.5,
+    "reproduction_tolerance_pp": 0.25,
+    "sources": {
+      "kvasir_v1": [
+        666,
+        667,
+        668
+      ],
+      "formal_detail_mix_kvasir_v2": [
+        669,
+        670
+      ]
+    },
+    "arm": "detail",
+    "accepted_two_pass": {
+      "kvasir_v1": "test_zoom_kvasir_v1",
+      "formal_detail_mix_kvasir_v2": "zoom_kvasir_seeds_v1"
+    },
+    "target_fraction": 0.15,
+    "thresholds": [
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7
+    ],
+    "definitions": {
+      "single_t": "mean probability map of 30 stochastic passes of the whole image, computed exactly as in the accepted evaluation, binarised at t (single_t50 is the accepted single pass and serves as the reproduction check)",
+      "scz_t": "the locked two-pass rule with threshold t in the window rule, in the fallback (first prediction kept if the second map has no pixel above t) and in the final mask; the second run draws 30 new stochastic passes for every t",
+      "t15": "the locked method (threshold 0.5); read from the accepted results; scz_t50 must reproduce it within the tolerance",
+      "metrics": "DSC and NSD as in the accepted evaluation; Brier scores are not computed at shifted thresholds"
+    },
+    "zoom": {
+      "margin": 1.25,
+      "min_window": 0.2,
+      "zoom_in_if_window_at_most": 0.8,
+      "zoom_out_if_fraction_at_least": 0.2,
+      "zoom_out_target_fraction": 0.1,
+      "max_window": 2.0,
+      "fusion": "second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty"
+    },
+    "reading_rules_fixed_in_advance": {
+      "statistic": "DSC difference in percentage points; mean over the five seeds of paired image-level differences; equal-weight macro mean over the four OOD sets, with a bootstrap interval (10 000 draws) and a sign-flip permutation test",
+      "robust": "The gain of SCZ is robust to the threshold if scz_t minus single_t (OOD mean) is positive with a 95% interval that excludes zero at every threshold in 0.3 to 0.7",
+      "consequence": "The manuscript reports the verdict and the gain at every threshold as they are. If the rule fails, it states at which thresholds the gain is not demonstrated. No threshold of this suite replaces 0.5 in the locked method."
+    },
+    "disclosures": [
+      "The five polyp test sets were used in earlier stages of this project.",
+      "CVC-300 and CVC-ColonDB share 52 exact image hashes.",
+      "Only the detail-branch model is evaluated.",
+      "ETIS-Larib is not touched.",
+      "The thresholds share one first pass per image; the second pass is drawn anew for every threshold."
+    ],
+    "statistics": {
+      "permutation_draws": 20000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261012
+    },
+    "seeds": [
+      666,
+      667,
+      668,
+      669,
+      670
+    ],
+    "runs": [
+      "detail_seed666",
+      "detail_seed667",
+      "detail_seed668",
+      "detail_seed669",
+      "detail_seed670"
+    ]
+  },
+  "protocol_sha256": "2b40a9ccdcba772f19607ed9e3fb6b600fe4979b95514ff07d499cf993d2f777",
+  "code": {
+    "research_zoom_threshold/__init__.py": "5b48aff410bbce94d4170779034c3baa5b85d5008956a47eff873e1df1901523",
+    "research_zoom_threshold/common.py": "1485d28356330a24360b759a73b7aa62516d2e2c930d9d4b00d581e32893c14c",
+    "research_zoom_threshold/evaluate.py": "6dee827b39f26cae4776738800782a940f8e123bb9cb473fa8eefce0491de38f",
+    "research_zoom_threshold/report.py": "d2ee3a586a4c97558d7ea08119febce49d261d62d783c4eb8a2f93c0ffc40056",
+    "research_zoom_threshold/runner.py": "b98abd234e14caf95d2151f102d4a47228db708f36ee4f2c18590fe695450da9",
+    "research_zoom/evaluate.py": "024cef32be79463bf36e4bbbf29cf665d730bd29215f2fbe279939b8f72e4629",
+    "research_zoom/geometry.py": "23c20c342bb6fac71c135d50031db72dedcb926f890cf942f7ed0fa8dee3ed23",
+    "research_zoom_probe/evaluate.py": "26e3f42acd58c95a6dbea924ba9daec5d8e6a57f71f4f77bd1cb2449cff4cc25",
+    "research_zoom_budget/evaluate.py": "9110dc0f4cfe000bfa1d797325ddcbfc6390cd2bc2184432e50b57d41324802e",
+    "research_formal/metrics.py": "9e1b65b1729baa14be536fa8a9ad2a99992730c0dc80b92467519f24ac734318"
+  },
+  "checkpoints": {
+    "kvasir_v1": {
+      "detail_seed666": "3e06610d8c4c9ed408d8bfb001f66d1e11eb068266fabac0c6d1b60d7eddda2d",
+      "detail_seed667": "c52f1579255a1ed967b866ef1697b649728f5df373e487030205362f969718d4",
+      "detail_seed668": "23d496a12cae07450b6a8dd20960f18b312f392be9d2b17b62ec871b57e929cc"
+    },
+    "formal_detail_mix_kvasir_v2": {
+      "detail_seed669": "8e3fa4610262baa7dfa94c2bad4a375d9fc117e9ccfb9a4800ffba040c19c95a",
+      "detail_seed670": "1a94007125c9bd0bc29b7dc7dafbadd3cc57b27231c49251dc5ab8ced79c799d"
+    }
+  },
+  "cohorts": {
+    "kvasir_v1": {
+      "Kvasir": {
+        "n": 100,
+        "list_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+        "files_digest": "cdce78c1bce73e983e65ed9bd8222b50ac7fe6d0cc09dfa306cb819a2d326c78"
+      },
+      "ColonDB": {
+        "n": 360,
+        "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+        "files_digest": "9ff335e0a7bc989b1a07759410533f00f5157316917fbea7df438de737b7d896"
+      },
+      "ClinicDB": {
+        "n": 61,
+        "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+        "files_digest": "3b4fbf76e51d2b479fea9973bd9ac476006a9e7b16b935e6d95fe2de4c7e74ee"
+      },
+      "CVC300": {
+        "n": 60,
+        "list_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+        "files_digest": "998180409607f38f475a0400a8d3f8084a7c805148d0d2b1921ad2af973d100b"
+      },
+      "BKAI": {
+        "n": 100,
+        "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+        "files_digest": "fb61d517acc1cc17935cd9aadf0e914a33bafd25acc3c0558611a7c1e6d836a5"
+      }
+    },
+    "formal_detail_mix_kvasir_v2": {
+      "Kvasir": {
+        "n": 100,
+        "list_sha256": "c4314d8d6fddb1f81a21325558be4c7afda70d82b291f11ea47da708ad5ab178",
+        "files_digest": "cdce78c1bce73e983e65ed9bd8222b50ac7fe6d0cc09dfa306cb819a2d326c78"
+      },
+      "ColonDB": {
+        "n": 360,
+        "list_sha256": "0c30a0648e6cf1ab5626d353e29692d82a1509967149543afe91c208880eda2a",
+        "files_digest": "9ff335e0a7bc989b1a07759410533f00f5157316917fbea7df438de737b7d896"
+      },
+      "ClinicDB": {
+        "n": 61,
+        "list_sha256": "72cd386e4d5fc4a88de8c2eb41ccff980a68018252dac7aa43b174845f7d036b",
+        "files_digest": "3b4fbf76e51d2b479fea9973bd9ac476006a9e7b16b935e6d95fe2de4c7e74ee"
+      },
+      "CVC300": {
+        "n": 60,
+        "list_sha256": "86ec513f7af1f29afbc3d0daf745af876af84363703f4f4630904eae9192cecf",
+        "files_digest": "998180409607f38f475a0400a8d3f8084a7c805148d0d2b1921ad2af973d100b"
+      },
+      "BKAI": {
+        "n": 100,
+        "list_sha256": "22e5d812c176591ac73746a02d76078a3a3171ac28a0f9a0d8bd3ceb22deb54b",
+        "files_digest": "fb61d517acc1cc17935cd9aadf0e914a33bafd25acc3c0558611a7c1e6d836a5"
+      }
+    }
+  },
+  "accepted_two_pass": {
+    "detail_seed666/Kvasir": "81d01494a7782d69187caa8ea70343c0b52e930701899395beeeb7a087e7d64e",
+    "detail_seed666/ColonDB": "8c952198e83748b141ffa6c206803591c71f193a7b0e183ed3fb85c022b9bd95",
+    "detail_seed666/ClinicDB": "555038715e3bf8d60ed512eeb23cf3f5bd4b87edd11b16e4775c01f041059489",
+    "detail_seed666/CVC300": "ab470320382671d6061f4e1111b81f812f4b506d2be7a8239943187ed3f606c3",
+    "detail_seed666/BKAI": "1804a4ca09e6361a4ab4b7499fc3ff5b2675e2bcc42bb49beab52bd8479a8d53",
+    "detail_seed667/Kvasir": "d35dbf6385ac367b74b1073f3eab610eb04eafafc56b621d216d6b3824fd4846",
+    "detail_seed667/ColonDB": "9203a13baa7b0aebbf61d4bb3f151fdbf32d90bf4a3575f3ff6003814911c130",
+    "detail_seed667/ClinicDB": "d8075f571eb1a6a15d63d40f844a656db820dbf2561bb70b411542838713774b",
+    "detail_seed667/CVC300": "c81cf7a893c6658fdffd4bbb40db78593996e5fb5ae5e6436672a9a0c1c13596",
+    "detail_seed667/BKAI": "a277da091d817b798aea70b02de70c02096ea7a4d33a656e984e72438f138cc0",
+    "detail_seed668/Kvasir": "04e84dd20635f135ac8dc6403db04ba439412400e516cb492d7b0e4227ac618b",
+    "detail_seed668/ColonDB": "1c37ea0616f243a07ca6ee1123571d4a42ceec7c38cd1b1a00d44c265bd95944",
+    "detail_seed668/ClinicDB": "e7255fd0f01871b5eb866e5245827c4de18868b6f781c54eb5014549f1969b4a",
+    "detail_seed668/CVC300": "3073a1a486cf61fa03281c3b89e86d3cfb78e7160a2e21eca3db1fc3ef660fdd",
+    "detail_seed668/BKAI": "a7316be95ecbf54cb21124ae2e8bc41c54f88d8093fa699a633b19949ee6fdba",
+    "detail_seed669/Kvasir": "f50d2050c8e7190e8124ca1223c7f2364175a21eb87ac6aeb549f3de3b34db60",
+    "detail_seed669/ColonDB": "a6afb7171accdc97dbd74f0fe8a9f6b1b695a167d73f0fcd7dfada613620458c",
+    "detail_seed669/ClinicDB": "8d46031a03d9703c9585ea6a0035d0b5c4ffaba0094214a90bad8c68b296f226",
+    "detail_seed669/CVC300": "13645f7fe9e2587a30d8e6d44341380037a68e94b03a9bb03c6ccaa78af86d41",
+    "detail_seed669/BKAI": "e85437e72aa44ad13564ff08d092fb07192af0eb509890e5cb2ed077eec1f52c",
+    "detail_seed670/Kvasir": "ba72ddd1d010cbb564bba82cffbc23160a27673f067da917c15d1adfc166243a",
+    "detail_seed670/ColonDB": "a4260b4e38f71161a4bc2a180259bbd245d45a9bd832e0589e2afac2e9f8cd85",
+    "detail_seed670/ClinicDB": "a5f2e39df3540f932c869759be818f2541a31d286dee55fc25854a13e4d25d5a",
+    "detail_seed670/CVC300": "0a6bc38716b86a393ffefb64bc2b949fae950a5b19f36c7af5f88defa5be5e7f",
+    "detail_seed670/BKAI": "fd94f101c6c007e290110a0cef873613b27670c37a11308cd50b623026e5da39"
+  },
+  "prompts": {
+    "kvasir_v1": "a polyp in a colonoscopy image",
+    "formal_detail_mix_kvasir_v2": "a polyp in a colonoscopy image"
+  },
+  "digest": "a06e8852378aace647b9995a1ab28a3509d3286a622a693753e1c5cf92a8ecf6"
+}

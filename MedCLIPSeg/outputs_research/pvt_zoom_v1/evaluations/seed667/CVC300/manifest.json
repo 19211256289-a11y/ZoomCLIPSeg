@@ -1,0 +1,14 @@
+{
+  "signature": {
+    "suite": "pvt_zoom_v1",
+    "plan_digest": "cf3b9414f22c3a7dfca69e9d166c442555473a64567588e3010a9f7b73b92c21",
+    "seed": 667,
+    "cohort": "CVC300",
+    "weights_sha256": "f52cbea8e6595ec25b10c3b03748157ee67e9f326e2c6d0bbb486f523e6e748e"
+  },
+  "complete": true,
+  "n": 120,
+  "finished_at": "2026-10-06T12:49:28.673306+00:00",
+  "sha256": "0ab43db1effeb45ff2837725a25cadf05b948a800df7ab28f40b72bb8a3f7e8b",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

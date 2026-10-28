@@ -1,0 +1,54 @@
+{
+ "suites": [
+  "zoom_busi_v1",
+  "zoom_ablation_kvasir_v1"
+ ],
+ "accepted_at": "2026-10-05T22:50+09:00",
+ "inputs": {
+  "reports/zoom_busi_v1_results/results.json": "5f4243b824ef52da9d0003a9efe6f6e4edd4ba960059c999d130c7ab430f723a",
+  "reports/zoom_busi_v1_results/report.md": "e9c2c81bfafabc22520f3ce09bc382e9c6503bdafe8bbaf6925f0645fd285a3c",
+  "reports/zoom_ablation_kvasir_v1_results/results.json": "159c0d91f024730ed0b90edb4fc18fffc2a9e71f8b2efbfebad18d2109901596",
+  "reports/zoom_ablation_kvasir_v1_results/report.md": "3e59bea9907fe22679a1318e2c5953a6c19a0a680dc5221581ea5c423cea3ca2",
+  "MedCLIPSeg/outputs_research/zoom_busi_v1/evaluation_plan.json": "7152d8d75092522aef8b87a0c76427f47d46c6f5a16597cf6e94f8c84c186397",
+  "control/research_zoom_ext/zoom_busi_v1/queue.json": "39549284c29b0f4c4ec054cce2ce565bd15be22df89c46b44a6e41b28294dc8a",
+  "control/research_zoom_ext/zoom_ablation_kvasir_v1/queue.json": "2801097d81e211c7fe5a66cf939e2df9ca2f678699ec27ad9d481b75b95be3ff"
+ },
+ "zoom_busi_v1": {
+  "gate_verdict": "pass",
+  "primary": "detail arm, tcal (target fraction 0.0862 from Train masks)",
+  "gate_recomputed_from_15_case_files": true,
+  "macro_ood_gain_pp": 1.06,
+  "per_seed_pp": [
+   1.38,
+   0.41,
+   1.4
+  ],
+  "per_set_pp": {
+   "BUSI": 0.21,
+   "BUSBRA": 1.06,
+   "BUSUC": 0.16,
+   "BUID": 0.62,
+   "UDIAT": 2.41
+  },
+  "secondary_t15": {
+   "macro_ood_gain_pp": 0.42,
+   "source_pp": -1.34
+  },
+  "single_pass_reproduces_accepted_within_pp": 0.0028
+ },
+ "zoom_ablation_kvasir_v1": {
+  "descriptive": true,
+  "macro_ood_gain_pp": {
+   "baseline": 2.32,
+   "global_mix": 2.98,
+   "detail_global_mix": 1.55,
+   "detail_reference": 2.21
+  },
+  "checked": "report and queue consistency, single-pass reproduction 0.0014 pp; per-image files not recomputed"
+ },
+ "cautions": [
+  "On BUSI only BUSBRA has a per-set interval excluding zero; the effect is about half the polyp effect.",
+  "With the polyp target fraction (0.15) unchanged, BUSI source DSC drops by 1.34 pp: the target fraction must be derived from the training masks of each dataset.",
+  "On polyps with two-pass inference the OOD macro DSC of global_mix (79.60) and baseline (78.60) is close to detail (79.15): the detail branch adds less once two-pass is used. Three seeds; arms are not to be re-chosen on these numbers."
+ ]
+}

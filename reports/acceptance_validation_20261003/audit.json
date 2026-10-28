@@ -1,0 +1,303 @@
+{
+  "passed": true,
+  "checked_at": "2026-10-03T12:15:24.113826+08:00",
+  "scope": "CPU artifacts/metrics audit; no new inference or training",
+  "plan_digest": "57b7f721943100680bc569c83a7664f9e392455b7fa42636ee0b4680c2fc56e3",
+  "jobs": 54,
+  "predictions_recomputed": 5400,
+  "output_hashes_verified": 10908,
+  "formal_and_diagnostic_locked_inputs_reverified": true,
+  "original_replays": 900,
+  "unchanged_opposite_replays": 306,
+  "maximum_replay_probability_difference": 0.0,
+  "unique_val_image_hashes": 100,
+  "queue_completed_at": "2026-10-03T03:57:36.856041+00:00",
+  "first_job_started_at": "2026-10-03T03:17:19.719271+00:00",
+  "active_seconds": 2360.1477800003486,
+  "cpu_audit_seconds": 596.295999999973,
+  "n_negative": 0,
+  "n_small": 25,
+  "subset_counts": {
+    "paired_repeat_seed666/original": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 0
+    },
+    "paired_repeat_seed666/no_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_repeat_seed666/generic": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_repeat_seed666/opposite_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 66
+    },
+    "paired_repeat_seed666/hflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 56
+    },
+    "paired_repeat_seed666/vflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 37
+    },
+    "paired_image_seed666/original": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 0
+    },
+    "paired_image_seed666/no_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_image_seed666/generic": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_image_seed666/opposite_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 66
+    },
+    "paired_image_seed666/hflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 56
+    },
+    "paired_image_seed666/vflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 37
+    },
+    "paired_aug_seed666/original": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 0
+    },
+    "paired_aug_seed666/no_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_aug_seed666/generic": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_aug_seed666/opposite_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 66
+    },
+    "paired_aug_seed666/hflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 56
+    },
+    "paired_aug_seed666/vflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 37
+    },
+    "paired_image_seed667/original": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 0
+    },
+    "paired_image_seed667/no_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_image_seed667/generic": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_image_seed667/opposite_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 66
+    },
+    "paired_image_seed667/hflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 56
+    },
+    "paired_image_seed667/vflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 37
+    },
+    "paired_aug_seed667/original": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 0
+    },
+    "paired_aug_seed667/no_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_aug_seed667/generic": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_aug_seed667/opposite_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 66
+    },
+    "paired_aug_seed667/hflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 56
+    },
+    "paired_aug_seed667/vflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 37
+    },
+    "paired_repeat_seed667/original": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 0
+    },
+    "paired_repeat_seed667/no_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_repeat_seed667/generic": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_repeat_seed667/opposite_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 66
+    },
+    "paired_repeat_seed667/hflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 56
+    },
+    "paired_repeat_seed667/vflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 37
+    },
+    "paired_aug_seed668/original": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 0
+    },
+    "paired_aug_seed668/no_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_aug_seed668/generic": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_aug_seed668/opposite_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 66
+    },
+    "paired_aug_seed668/hflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 56
+    },
+    "paired_aug_seed668/vflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 37
+    },
+    "paired_repeat_seed668/original": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 0
+    },
+    "paired_repeat_seed668/no_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_repeat_seed668/generic": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_repeat_seed668/opposite_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 66
+    },
+    "paired_repeat_seed668/hflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 56
+    },
+    "paired_repeat_seed668/vflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 37
+    },
+    "paired_image_seed668/original": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 0
+    },
+    "paired_image_seed668/no_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_image_seed668/generic": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 100
+    },
+    "paired_image_seed668/opposite_location": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 66
+    },
+    "paired_image_seed668/hflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 56
+    },
+    "paired_image_seed668/vflip_sync": {
+      "all": 100,
+      "direction_bearing": 66,
+      "prompt_changed": 37
+    }
+  },
+  "result_sources": {
+    "protocol.json": "c2a3b95862bdb93172312a45ef893cd17bf5b4e76f1625657137dbbbf1a785e6",
+    "diagnostic_results.json": "c1582b06a58e7e531a82c453543dbd46d7a7dada3114566feeabb50cb5862257",
+    "diagnostic_report.md": "799e9bdd82ce8b5135f62f87f1231251d597e809f0762b88b396e8c3d7d4b646"
+  },
+  "limitations": [
+    "Source Val reused for development; not independent confirmation",
+    "Fixed weights saw attribute prompts during training; generic intervention is not retrained class-only baseline",
+    "MC variance accepted as saved finite arrays; cannot regenerate draw variance without inference",
+    "No inference of patient independence or clinical applicability"
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "suite": "zoom_box_v2",
+  "audited_at": "2026-10-06T14:24:35.831477+00:00",
+  "execution_valid": true,
+  "gate_verdict": "not_applicable_descriptive",
+  "checks": {
+    "queue_state": "completed",
+    "jobs_completed": "27/27",
+    "error": null,
+    "plan_digest_consistent": true,
+    "active_hours": 0.73,
+    "case_files": "all 25 fetched: 4 configurations x cohort size rows each",
+    "manifests_and_reproduction": "all 25 fetched: complete, case-file hashes and plan digest match, every reproduction check passed (largest difference of a cohort mean 0.029 pp, tolerance 0.25)",
+    "single_pass_differences": "270 of 3405 image-by-seed single-pass DSC values differ from the accepted evaluations, by at most 0.19 pp (numerical non-determinism of the stochastic passes)",
+    "code_hashes": "4 of 8 sealed code files identical to the auditor copy (the files of this suite); the other 4 belong to accepted packages and were not compared",
+    "protocol_sha256_matches_auditor_copy": true,
+    "independent_recomputation": "Kvasir and OOD DSC, second-pass share, median window, gain over single pass and t15-minus-variant recomputed from the 25 case files and the accepted t15 rows: means identical to results.json; intervals agree within bootstrap noise (0.03 pp)",
+    "t15_reference": "79.48 OOD, the accepted five-seed value"
+  },
+  "files": {
+    "results_json_sha256": "532187dc6adf60556817bf739a99e4282ecb79a8f6b0056ada184978787dcf92",
+    "report_md_sha256": "4b0c444d216968a3d09594f0aa4f272c82976167382459a78a7b49e0a0f34a41",
+    "plan_digest": "c973fda57ef4b79cdfbfe12da54673d8cbf8b4340832aaa2402c5a3b0aa3942b"
+  },
+  "findings": {
+    "single": {
+      "kvasir_dsc": 89.54,
+      "ood_dsc": 77.36,
+      "second_pass_share": 0.0,
+      "median_window": null,
+      "gain_over_single": null,
+      "t15_minus_this": {
+        "mean_pp": 2.1190200409836066,
+        "ci95_pp": [
+          1.312458095173042,
+          2.9012992896174863
+        ],
+        "p": 4.999750012499375e-05
+      },
+      "t15_minus_this_per_seed": [
+        2.37014121129326,
+        2.0221098816029146,
+        2.2486072176684875,
+        2.5662491575591986,
+        1.3879927367941707
+      ]
+    },
+    "t15": {
+      "kvasir_dsc": 89.92,
+      "ood_dsc": 79.48,
+      "second_pass_share": 0.752,
+      "median_window": 0.5189732142857143,
+      "gain_over_single": {
+        "mean_pp": 2.1190200409836066,
+        "ci95_pp": [
+          1.3089583423269577,
+          2.9093504462659374
+        ],
+        "p": 4.999750012499375e-05
+      },
+      "t15_minus_this": null,
+      "t15_minus_this_per_seed": null
+    },
+    "plain250": {
+      "kvasir_dsc": 89.81,
+      "ood_dsc": 78.75,
+      "second_pass_share": 0.487,
+      "median_window": 0.5803571428571428,
+      "gain_over_single": {
+        "mean_pp": 1.3941187067395262,
+        "ci95_pp": [
+          0.9906538375455374,
+          1.8007375531648449
+        ],
+        "p": 4.999750012499375e-05
+      },
+      "t15_minus_this": {
+        "mean_pp": 0.72490133424408,
+        "ci95_pp": [
+          0.11871404906648457,
+          1.3163564846311473
+        ],
+        "p": 0.01654917254137293
+      },
+      "t15_minus_this_per_seed": [
+        1.37564633424408,
+        0.029499612932605113,
+        1.010209130236794,
+        1.2177905054644813,
+        -0.008638911657559256
+      ]
+    },
+    "plain300": {
+      "kvasir_dsc": 89.83,
+      "ood_dsc": 78.33,
+      "second_pass_share": 0.363,
+      "median_window": 0.6428571428571428,
+      "gain_over_single": {
+        "mean_pp": 0.9783074681238617,
+        "ci95_pp": [
+          0.6742186988843353,
+          1.297635786202186
+        ],
+        "p": 4.999750012499375e-05
+      },
+      "t15_minus_this": {
+        "mean_pp": 1.140712572859745,
+        "ci95_pp": [
+          0.42163158310564686,
+          1.8507034297586522
+        ],
+        "p": 0.0012499375031248437
+      },
+      "t15_minus_this_per_seed": [
+        1.4483238615664842,
+        1.014928369763206,
+        1.2458332422586516,
+        1.619501138433516,
+        0.37497625227686626
+      ]
+    },
+    "plain400": {
+      "kvasir_dsc": 89.63,
+      "ood_dsc": 77.54,
+      "second_pass_share": 0.119,
+      "median_window": 0.6785714285714288,
+      "gain_over_single": {
+        "mean_pp": 0.1784861976320582,
+        "ci95_pp": [
+          0.03074347381602915,
+          0.32622027197176673
+        ],
+        "p": 0.015549222538873057
+      },
+      "t15_minus_this": {
+        "mean_pp": 1.9405338433515484,
+        "ci95_pp": [
+          1.1204638964025502,
+          2.6878059121129327
+        ],
+        "p": 4.999750012499375e-05
+      },
+      "t15_minus_this_per_seed": [
+        2.2145486338797817,
+        1.9949030737704925,
+        2.01818242258652,
+        2.411453187613844,
+        1.0635818989071035
+      ]
+    }
+  },
+  "verdicts_by_rule": {
+    "plain250": "t15_better",
+    "plain300": "t15_better",
+    "plain400": "t15_better"
+  },
+  "overall_by_rule": "rule_not_exceeded",
+  "auditor_notes": [
+    "Overall verdict rule_not_exceeded: t15 is significantly better than each of the factors 2.5, 3.0 and 4.0 (+0.72, +1.14 and +1.94 pp). By the consequence fixed in the protocol the manuscript may state that no fixed factor between 1.25 and 4.0 exceeded the rule on polyps.",
+    "Together with zoom_box_v1 the OOD gain over single-pass inference is an inverted U in the factor: -0.18 (1.25), +1.33 (1.5), +1.80 (2.0), +1.39 (2.5), +0.98 (3.0), +0.18 (4.0); the rule gives +2.12. Larger factors trigger fewer second passes (49%, 36%, 12%).",
+    "The rule is not distinguishable from the factor 2.0 (zoom_box_v1: +0.32 pp, CI -0.06 to 0.73); this suite does not change that reading.",
+    "For plain250 two of the five seeds show no advantage of the rule (+0.03 and -0.01 pp)."
+  ]
+}

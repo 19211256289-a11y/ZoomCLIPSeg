@@ -1,0 +1,123 @@
+{
+  "protocol": {
+    "name": "zoom_etis_v1",
+    "locked_at": "2026-10-06",
+    "purpose": "One-time evaluation on a polyp dataset that was never used in this project (ETIS-LaribPolypDB, 196 images). The accepted Kvasir-trained checkpoints (baseline and detail branch, five seeds) are evaluated with single-pass inference and with the locked two-pass zoom configuration. Nothing is trained, selected or tuned.",
+    "dataset": {
+      "folder": "data/ETIS",
+      "manifest": "manifest.csv",
+      "manifest_sha256": "cd779b682130a142ae3509af5d059c5a3732854e7a7cf541a4a11bdfd8eb498d",
+      "n": 196,
+      "pairing": "images/<id>.tif with masks/p<id>.tif, as listed in the manifest",
+      "preprocessing": "none; the original TIFF files are read directly"
+    },
+    "prompt": "a polyp in a colonoscopy image",
+    "arms": [
+      "baseline",
+      "detail"
+    ],
+    "sources": {
+      "kvasir_v1": [
+        666,
+        667,
+        668
+      ],
+      "formal_detail_mix_kvasir_v2": [
+        669,
+        670
+      ]
+    },
+    "lineage": {
+      "reports/acceptance_pilot_zoom_20261005/audit.json": "8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3",
+      "reports/acceptance_test_zoom_20261005/audit.json": "8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17"
+    },
+    "configs": [
+      {
+        "name": "t15",
+        "target_fraction": 0.15,
+        "zoom_out": false,
+        "oracle": false
+      }
+    ],
+    "primary_config": "t15",
+    "zoom": {
+      "margin": 1.25,
+      "min_window": 0.2,
+      "zoom_in_if_window_at_most": 0.8,
+      "zoom_out_if_fraction_at_least": 0.2,
+      "zoom_out_target_fraction": 0.1,
+      "max_window": 2.0,
+      "fusion": "second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty"
+    },
+    "mc_samples": 30,
+    "batch_size": 32,
+    "threshold": 0.5,
+    "small_target_threshold": 0.058989688326573426,
+    "gate": {
+      "description": "Fixed before any prediction on this dataset was computed. Two-pass minus single-pass DSC of the detail-branch model, percentage points, mean over the five seeds of the per-seed mean over images.",
+      "primary_arm": "detail",
+      "g1_dsc_gain_at_least_pp": 1.0,
+      "g2_all_seeds_positive": true
+    },
+    "reported_not_gating": [
+      "two-pass gain of the baseline arm",
+      "detail branch minus baseline, with single-pass and with two-pass inference",
+      "NSD, failures (DSC below 50%), results by lesion size, share of images with a second pass",
+      "image-level bootstrap intervals and sign-flip permutation tests on seed-averaged differences"
+    ],
+    "rules": [
+      "The evaluation is run once. Its result is reported whatever the outcome.",
+      "A paused or interrupted job is rerun from its start with the same seeds; completed jobs are never recomputed."
+    ],
+    "disclosures": [
+      "ETIS-Larib was not used for training, model selection or any analysis in this project before this evaluation.",
+      "Patient-level independence from the training data and absence from the pre-training data of the frozen encoders cannot be established from the archive.",
+      "The dataset has one acquisition source; every image contains a polyp."
+    ],
+    "statistics": {
+      "permutation_draws": 100000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261006
+    }
+  },
+  "protocol_sha256": "7e118f4ecc0b4716fe5e6fb2676ad7121e3ee481d003a8cb981a7974cb2c3f6a",
+  "code": {
+    "research_zoom_etis/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research_zoom_etis/common.py": "66d94a8e86149645d375fd53dbe37b44ddb241ba4addbe52435c33374d7d3b12",
+    "research_zoom_etis/report.py": "0df0347c4b11cf0c596e3ff841ce4cf94739785bd2ea41cbc917f9b541ac158b",
+    "research_zoom_etis/runner.py": "3fd65d0add17611b6e64f4e4a7e2ae6090b9e578ddcc79c360224924c7942cc8",
+    "research_zoom/evaluate.py": "024cef32be79463bf36e4bbbf29cf665d730bd29215f2fbe279939b8f72e4629",
+    "research_zoom/geometry.py": "23c20c342bb6fac71c135d50031db72dedcb926f890cf942f7ed0fa8dee3ed23"
+  },
+  "runs": [
+    "baseline_seed666",
+    "detail_seed666",
+    "baseline_seed667",
+    "detail_seed667",
+    "baseline_seed668",
+    "detail_seed668",
+    "baseline_seed669",
+    "detail_seed669",
+    "baseline_seed670",
+    "detail_seed670"
+  ],
+  "checkpoints": {
+    "baseline_seed666": "a1a97ec45d23c866bae5f260f8de1bbc41a806a27a4e7171d856e778f8782492",
+    "detail_seed666": "3e06610d8c4c9ed408d8bfb001f66d1e11eb068266fabac0c6d1b60d7eddda2d",
+    "baseline_seed667": "9291eea0951e5cf586ee415927bd6ef3eae0dc4617c27e5f060866c09815ae7b",
+    "detail_seed667": "c52f1579255a1ed967b866ef1697b649728f5df373e487030205362f969718d4",
+    "baseline_seed668": "2214c8dac9bf370826b3eee6cf4c2ffb3a62abef8904bea21d211726c3f6c47b",
+    "detail_seed668": "23d496a12cae07450b6a8dd20960f18b312f392be9d2b17b62ec871b57e929cc",
+    "baseline_seed669": "9f0c2145d380286a09711efac15a24e6fe11256b9860252025e1163745e5c7c1",
+    "detail_seed669": "8e3fa4610262baa7dfa94c2bad4a375d9fc117e9ccfb9a4800ffba040c19c95a",
+    "baseline_seed670": "07da10aab5ad4e79b8c6342443adb59bc211ab1a64f111d022d97598f6ca65a6",
+    "detail_seed670": "1a94007125c9bd0bc29b7dc7dafbadd3cc57b27231c49251dc5ab8ced79c799d"
+  },
+  "cohort": {
+    "n": 196,
+    "manifest_sha256": "cd779b682130a142ae3509af5d059c5a3732854e7a7cf541a4a11bdfd8eb498d",
+    "files_digest": "33d39654ae7fe262281f3e2507f85ec78a6e52cdc5887d956e10092c74fef51c"
+  },
+  "overlap_with_known_data": {},
+  "digest": "690c2728194b2a690ac4c04e659005e4e6ceab177ff680cc093c1e5fd964ca5b"
+}

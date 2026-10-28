@@ -1,0 +1,56 @@
+{
+ "suite": "zoom_kvasir_seeds_v1",
+ "accepted_at": "2026-10-05T23:45+09:00",
+ "inputs": {
+  "reports/zoom_kvasir_seeds_v1_results/results.json": "8d94c3589d5b49f20b28762937ffbfb0b5a034c029e673e702d35698115a0ec9",
+  "reports/zoom_kvasir_seeds_v1_results/report.md": "0289f1624ee4e31716e633111458e821e7adcff00431647af5b4d0c92ffdf474",
+  "control/research_zoom_ext/zoom_kvasir_seeds_v1/queue.json": "b48cc42e9cd0ff7be260f788ba7580113ae28606f627d451f8393f6f482a2ce9",
+  "MedCLIPSeg/outputs_research/zoom_kvasir_seeds_v1/evaluation_plan.json": "92339e8ad215c99225674a4dc1c58daec82f5f8ea8b1dc0cccc2ece45a326178"
+ },
+ "gate_verdict": "pass",
+ "gate_recomputed_from_10_case_files": true,
+ "jobs_completed": 41,
+ "detail_arm": {
+  "macro_ood_gain_pp": 1.98,
+  "per_seed_pp": [
+   2.57,
+   1.39
+  ],
+  "source_gain_pp": 0.25,
+  "per_set_pp": {
+   "ColonDB": 1.2,
+   "ClinicDB": 1.41,
+   "CVC300": 1.43,
+   "BKAI": 3.87
+  }
+ },
+ "other_arms_macro_ood_gain_pp": {
+  "baseline": 2.79,
+  "global_mix": 1.83,
+  "detail_global_mix": 1.81
+ },
+ "ood_mean_with_scz_new_seeds": {
+  "baseline": 79.21,
+  "global_mix": 78.69,
+  "detail": 79.96,
+  "detail_global_mix": 79.87
+ },
+ "five_seed_detail": {
+  "scz_gain_per_seed_pp": [
+   2.37,
+   2.02,
+   2.25,
+   2.57,
+   1.39
+  ],
+  "scz_gain_mean_pp": 2.12,
+  "ood_mean_single": 77.36,
+  "ood_mean_scz": 79.47,
+  "baseline_ood_mean_single": 76.34
+ },
+ "single_pass_reproduces_accepted_within_pp": 0.03,
+ "cautions": [
+  "Same test sets as the three-seed confirmation: new training seeds, not new data.",
+  "On seed 670 CVC-300 does not change (-0.05 pp)."
+ ]
+}

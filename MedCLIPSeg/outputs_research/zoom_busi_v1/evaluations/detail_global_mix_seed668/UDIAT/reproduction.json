@@ -1,0 +1,10 @@
+{
+  "run": "detail_global_mix_seed668",
+  "cohort": "UDIAT",
+  "single_pass_DSC_percent": 75.71840000000002,
+  "accepted_DSC_percent": 75.71840000000002,
+  "difference_pp": 0.0,
+  "largest_case_difference_pp": 0.0,
+  "tolerance_pp": 0.1,
+  "passed": true
+}

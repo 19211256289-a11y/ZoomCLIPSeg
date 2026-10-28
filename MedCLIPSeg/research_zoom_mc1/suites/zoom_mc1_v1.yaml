@@ -1,0 +1,81 @@
+name: zoom_mc1_v1
+locked_at: '2026-10-11'
+purpose: >-
+  Evaluation-only analysis requested by external reviews. Every inference run of the locked method averages 30
+  stochastic forward passes, inherited from MedCLIPSeg. Without the zoom, one stochastic pass gave the accuracy of 30
+  (zoom_budget_v1, text_probe). Question: does one stochastic pass per run also suffice when SCZ is applied, and what is
+  the end-to-end time per image then? Nothing is trained and nothing here can change the method: the locked configuration
+  t15 with 30 passes remains the method whatever the outcome, and the outcome is reported whatever it is.
+locked_before: >-
+  Written after zoom_budget_v1, retime_v1 and the formal controls had been accepted. No result of SCZ with one stochastic
+  pass per run existed for any model, and no end-to-end time of SCZ with one pass had been measured.
+lineage:
+  reports/acceptance_pilot_zoom_20261005/audit.json: 8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3
+  reports/acceptance_test_zoom_20261005/audit.json: 8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17
+mc_samples: 30
+batch_size: 32
+threshold: 0.5
+reproduction_tolerance_pp: 0.25
+sources:
+  kvasir_v1: [666, 667, 668]
+  formal_detail_mix_kvasir_v2: [669, 670]
+arm: detail
+accepted_two_pass:            # the accepted t15 results of these checkpoints (30 passes); read, not recomputed
+  kvasir_v1: test_zoom_kvasir_v1
+  formal_detail_mix_kvasir_v2: zoom_kvasir_seeds_v1
+target_fraction: 0.15
+definitions:
+  single30: mean probability map of 30 stochastic passes of the whole image, computed exactly as in the accepted evaluation (reproduction check)
+  single01: the first of these 30 stochastic passes (one stochastic pass of the whole image)
+  scz01: >-
+    the locked two-pass rule applied to single01; the second run on the window uses one newly drawn stochastic pass
+  t15: the locked method (SCZ, 30 stochastic passes in each run); read from the accepted results
+  time: >-
+    wall-clock time per image at batch size 1 on one GPU, from the preprocessed input tensors to the final probability
+    map at image resolution, including the window rule, reading and cropping the original image, the second run and
+    pasting; data loading of the first input is not included. Measured for single01, scz01, single30 and t15 in one
+    session, after warm-up images, in three repetitions.
+zoom:        # constants of the accepted method; must equal the pilot protocol
+  margin: 1.25
+  min_window: 0.2
+  zoom_in_if_window_at_most: 0.8
+  zoom_out_if_fraction_at_least: 0.20
+  zoom_out_target_fraction: 0.10
+  max_window: 2.0
+  fusion: second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty
+contrasts:      # [configuration, reference]; difference = configuration minus reference
+  scz01_vs_t15:      [scz01, t15]
+  scz01_vs_single01: [scz01, single01]
+  scz01_vs_single30: [scz01, single30]
+  single01_vs_single30: [single01, single30]
+reading_rules_fixed_in_advance:
+  statistic: >-
+    DSC difference in percentage points; mean over the five seeds of paired image-level differences; equal-weight macro
+    mean over the four OOD sets, with a bootstrap interval (10 000 draws) and a sign-flip permutation test
+  non_inferiority_margin_pp: 0.5
+  one_pass_non_inferior: >-
+    SCZ with one stochastic pass is non-inferior to the locked method if the lower bound of the 95% interval of
+    scz01 minus t15 (OOD mean) is above -0.5 pp
+  scz_gain_with_one_pass: >-
+    SCZ keeps its gain with one stochastic pass if scz01 minus single01 (OOD mean) is positive for every seed and its
+    95% interval excludes zero
+  consequence: >-
+    The manuscript reports both verdicts and the times as they are. If both rules are met, it states that SCZ with one
+    stochastic pass per run gives the accuracy of the locked method at the measured time per image; otherwise it states
+    which rule failed. No configuration of this suite replaces the locked method.
+timing:
+  run: detail_seed666
+  dataset: ColonDB
+  warmup_images: 10
+  images: 150
+  repetitions: 3
+  note: >-
+    One GPU (RTX 5060 Ti), batch size 1, torch.cuda.synchronize before and after each image; images are the first
+    images of the CVC-ColonDB test list. Accuracy is not taken from the timing run.
+disclosures:
+  - The five polyp test sets were used in earlier stages of this project.
+  - CVC-300 and CVC-ColonDB share 52 exact image hashes.
+  - Only the detail-branch model is evaluated.
+  - ETIS-Larib is not touched.
+  - single01 is the first of the 30 passes of the accepted first run and is therefore correlated with single30.
+statistics: {permutation_draws: 20000, bootstrap_draws: 10000, rng_seed: 20261011}

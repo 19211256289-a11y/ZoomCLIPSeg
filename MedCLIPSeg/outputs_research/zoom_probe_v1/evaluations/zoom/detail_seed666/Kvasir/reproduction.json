@@ -1,0 +1,23 @@
+{
+  "checks": [
+    {
+      "what": "detail_seed666/Kvasir single pass",
+      "DSC_percent": 89.86329999999998,
+      "accepted_DSC_percent": 89.86379999999997,
+      "difference_pp": -0.0004999999999881766,
+      "largest_case_difference_pp": 0.029999999999996696,
+      "tolerance_pp": 0.25,
+      "passed": true
+    },
+    {
+      "what": "detail_seed666/Kvasir accepted two-pass (t15)",
+      "DSC_percent": 90.17509999999999,
+      "accepted_DSC_percent": 90.17499999999997,
+      "difference_pp": 0.00010000000001753051,
+      "largest_case_difference_pp": 0.009999999999998899,
+      "tolerance_pp": 0.25,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,172 @@
+{
+  "suite": "zoom_compare_v1",
+  "audited_at": "2026-10-06T08:08:35.919211+00:00",
+  "execution_valid": true,
+  "gate_verdict": "not_applicable_descriptive",
+  "checks": {
+    "queue_state": "completed",
+    "jobs_completed": "27/27",
+    "error": null,
+    "plan_digest_matches_queue_and_results": true,
+    "all_25_manifests_complete_with_matching_case_hashes": true,
+    "rows_per_file": "6 x cohort size in all 25 files",
+    "single_pass_reproduction_max_abs_difference_pp": 0.029,
+    "tolerance_pp": 0.25,
+    "code_hashes": "6 of 9 sealed code files compared with the auditor copy: identical; the other 3 are accepted packages not held by the auditor",
+    "independent_recomputation": "per-method OOD and in-domain DSC recomputed from the 25 case files: identical to results.json to 0.01",
+    "t15_reference": "79.48 OOD, identical to the accepted five-seed value",
+    "active_hours": 3.69
+  },
+  "files": {
+    "results_json_sha256": "cebd77c0fee17c0d8e6b4a02cf00ea71da570438d0baca20b31e1f848006c320",
+    "report_md_sha256": "664adf41e1223acf15941adeff3df04589820bb0b22ebaa51c7415e4143633f3",
+    "plan_digest": "a6e31cfa970f8d21a5b74bcc77e4e29e01d2adad939d7a3a99a72e3ee7d21c93"
+  },
+  "findings": {
+    "single": {
+      "runs_per_image": 1.0,
+      "ood_dsc": 77.36,
+      "kvasir_dsc": 89.54,
+      "gain_over_single": null,
+      "t15_minus_this": {
+        "mean_pp": 2.1192926411657558,
+        "ci95_pp": [
+          1.317523029826958,
+          2.91178635496357
+        ],
+        "p": 4.999750012499375e-05
+      }
+    },
+    "t15": {
+      "runs_per_image": 1.7516908014571948,
+      "ood_dsc": 79.48,
+      "kvasir_dsc": 89.92,
+      "gain_over_single": {
+        "mean_pp": 2.1192926411657558,
+        "ci95_pp": [
+          1.3032551789617486,
+          2.9130211424180326
+        ],
+        "p": 4.999750012499375e-05
+      },
+      "t15_minus_this": null
+    },
+    "hflip": {
+      "runs_per_image": 2.0,
+      "ood_dsc": 78.75,
+      "kvasir_dsc": 90.31,
+      "gain_over_single": {
+        "mean_pp": 1.3899089571949,
+        "ci95_pp": [
+          0.9617038098816031,
+          1.858466870787796
+        ],
+        "p": 4.999750012499375e-05
+      },
+      "t15_minus_this": {
+        "mean_pp": 0.7293836839708558,
+        "ci95_pp": [
+          -0.12486368875227759,
+          1.5380800624999997
+        ],
+        "p": 0.08974551272436378
+      }
+    },
+    "tile2": {
+      "runs_per_image": 4.0,
+      "ood_dsc": 55.77,
+      "kvasir_dsc": 70.1,
+      "gain_over_single": {
+        "mean_pp": -21.587284567395265,
+        "ci95_pp": [
+          -23.478393518556466,
+          -19.745706389002734
+        ],
+        "p": 4.999750012499375e-05
+      },
+      "t15_minus_this": {
+        "mean_pp": 23.706577208561022,
+        "ci95_pp": [
+          21.849520745787796,
+          25.58991371368397
+        ],
+        "p": 4.999750012499375e-05
+      }
+    },
+    "ms12": {
+      "runs_per_image": 5.0,
+      "ood_dsc": 77.5,
+      "kvasir_dsc": 88.36,
+      "gain_over_single": {
+        "mean_pp": 0.14563338342440807,
+        "ci95_pp": [
+          -0.7126075410974495,
+          1.034156521174863
+        ],
+        "p": 0.7568621568921554
+      },
+      "t15_minus_this": {
+        "mean_pp": 1.9736592577413477,
+        "ci95_pp": [
+          1.1320163085154824,
+          2.785189534836065
+        ],
+        "p": 4.999750012499375e-05
+      }
+    },
+    "tile15": {
+      "runs_per_image": 4.0,
+      "ood_dsc": 75.63,
+      "kvasir_dsc": 87.38,
+      "gain_over_single": {
+        "mean_pp": -1.7311285519125679,
+        "ci95_pp": [
+          -3.02798937568306,
+          -0.43533135701275044
+        ],
+        "p": 0.008349582520873956
+      },
+      "t15_minus_this": {
+        "mean_pp": 3.8504211930783243,
+        "ci95_pp": [
+          2.7700752706056466,
+          4.9370663061247715
+        ],
+        "p": 4.999750012499375e-05
+      }
+    },
+    "ms123": {
+      "runs_per_image": 9.0,
+      "ood_dsc": 78.26,
+      "kvasir_dsc": 88.97,
+      "gain_over_single": {
+        "mean_pp": 0.9053318624772315,
+        "ci95_pp": [
+          -0.08586049590163893,
+          1.9491628697632055
+        ],
+        "p": 0.0872456377181141
+      },
+      "t15_minus_this": {
+        "mean_pp": 1.2139607786885243,
+        "ci95_pp": [
+          0.3789116049635699,
+          2.0532112821038244
+        ],
+        "p": 0.004099795010249488
+      }
+    }
+  },
+  "verdicts_by_rule": {
+    "hflip": "t15_preferable",
+    "tile2": "t15_preferable",
+    "ms12": "t15_preferable",
+    "tile15": "t15_preferable",
+    "ms123": "t15_preferable"
+  },
+  "auditor_notes": [
+    "By the rule fixed in advance every alternative is labelled t15_preferable. For hflip this label rests on cost (1.75 against 2.00 runs) and a difference that is not significant (+0.73 pp, CI -0.12 to 1.54, p=0.090); the manuscript states this explicitly and does not claim superiority over reflection averaging.",
+    "The combination of SCZ with reflection averaging was not evaluated.",
+    "Only the detail-branch model was evaluated."
+  ]
+}

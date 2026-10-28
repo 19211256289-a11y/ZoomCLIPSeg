@@ -1,0 +1,14 @@
+{
+  "signature": {
+    "suite": "pvt_zoom_v1",
+    "plan_digest": "cf3b9414f22c3a7dfca69e9d166c442555473a64567588e3010a9f7b73b92c21",
+    "seed": 667,
+    "cohort": "ClinicDB",
+    "weights_sha256": "f52cbea8e6595ec25b10c3b03748157ee67e9f326e2c6d0bbb486f523e6e748e"
+  },
+  "complete": true,
+  "n": 122,
+  "finished_at": "2026-10-06T12:49:24.752375+00:00",
+  "sha256": "2c3dfa77f76ed7980ede283915b221568f4be76ec8bd299a413eb8d1fa7724e2",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

@@ -1,0 +1,23 @@
+{
+  "checks": [
+    {
+      "what": "detail_seed668/ColonDB single pass",
+      "DSC_percent": 70.62274999999998,
+      "accepted_DSC_percent": 70.62263888888886,
+      "difference_pp": 0.0001111111111069047,
+      "largest_case_difference_pp": 0.039999999999995595,
+      "tolerance_pp": 0.25,
+      "passed": true
+    },
+    {
+      "what": "detail_seed668/ColonDB accepted two-pass (t15)",
+      "DSC_percent": 72.50702777777782,
+      "accepted_DSC_percent": 72.50855555555559,
+      "difference_pp": -0.0015277777777732303,
+      "largest_case_difference_pp": 1.9000000000000017,
+      "tolerance_pp": 0.25,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

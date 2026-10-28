@@ -1,0 +1,16 @@
+{
+  "signature": {
+    "suite": "zoom_etis_v1",
+    "run": "detail_seed670",
+    "cohort": "ETIS",
+    "split": "Test",
+    "checkpoint_sha256": "1a94007125c9bd0bc29b7dc7dafbadd3cc57b27231c49251dc5ab8ced79c799d",
+    "plan_digest": "690c2728194b2a690ac4c04e659005e4e6ceab177ff680cc093c1e5fd964ca5b",
+    "prompt": "a polyp in a colonoscopy image"
+  },
+  "complete": true,
+  "n": 392,
+  "cases_sha256": "92d3876d4647361def4ef79066feac982f76932de84da6f329e93ac055058bc6",
+  "finished_at": "2026-10-05T23:57:36.360422+00:00",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

@@ -1,0 +1,9 @@
+{
+  "run": "detail_seed666",
+  "cohort": "BUSI",
+  "single_pass_DSC_percent": 82.05346153846153,
+  "accepted_DSC_percent": 82.05371794871796,
+  "difference_pp": -0.00025641025641876837,
+  "tolerance_pp": 0.25,
+  "passed": true
+}

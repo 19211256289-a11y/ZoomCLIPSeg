@@ -1,0 +1,13 @@
+{
+  "signature": {
+    "run": "detail_seed668",
+    "condition": "s100",
+    "checkpoint_sha256": "23d496a12cae07450b6a8dd20960f18b312f392be9d2b17b62ec871b57e929cc",
+    "plan_digest": "c5b9dbe2dcff8c0a40e47d43d0b21b47224b9842d0ddeed81b63398941825a7f"
+  },
+  "complete": true,
+  "n": 700,
+  "cases_sha256": "3626970c693d508e48c3c45de48988a9918ada92393f4def4034706dfa3baa92",
+  "finished_at": "2026-10-04T15:19:03.710958+00:00",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

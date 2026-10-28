@@ -1,0 +1,10 @@
+{
+  "run": "detail_global_mix_seed668",
+  "cohort": "BUSBRA",
+  "single_pass_DSC_percent": 73.14996453900709,
+  "accepted_DSC_percent": 73.15014184397161,
+  "difference_pp": -0.00017730496453481439,
+  "largest_case_difference_pp": 0.060000000000004494,
+  "tolerance_pp": 0.1,
+  "passed": true
+}

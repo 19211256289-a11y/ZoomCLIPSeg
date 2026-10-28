@@ -1,0 +1,14 @@
+{
+  "signature": {
+    "suite": "polyp_pvt_kvasir_v1",
+    "plan_digest": "736dbf2be36a193a98c72eb58abe7b37c7bbdd0a6e1e2a11b37f38cdba25ac67",
+    "seed": 667,
+    "cohort": "Kvasir",
+    "weights_sha256": "f52cbea8e6595ec25b10c3b03748157ee67e9f326e2c6d0bbb486f523e6e748e"
+  },
+  "complete": true,
+  "n": 100,
+  "finished_at": "2026-10-06T11:41:43.113062+00:00",
+  "sha256": "938cbe1e32f00af19be4f609900491ed339228f598c3337c4e44aff171a8cabc",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

@@ -1,0 +1,15 @@
+{
+  "signature": {
+    "suite": "zoom_budget_v1",
+    "plan_digest": "f4d09c7713bd7efbc98f6106fefe2febeeb814e3a5384a667aaebd4b1a8336b0",
+    "run": "detail_seed667",
+    "cohort": "ClinicDB",
+    "checkpoint_sha256": "c52f1579255a1ed967b866ef1697b649728f5df373e487030205362f969718d4",
+    "prompt": "a polyp in a colonoscopy image"
+  },
+  "complete": true,
+  "n": 732,
+  "finished_at": "2026-10-06T15:09:13.909105+00:00",
+  "sha256": "2b43dbdc65fcdacab5f121b124789dcb3549a3cab084e9bdb9021f044028fbd6",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

@@ -1,0 +1,15 @@
+{
+  "signature": {
+    "suite": "pvt_ext_v1",
+    "plan_digest": "67d5e4ca6ac5a31cf9cd65247d954caa5de8c7b993028a881784168c88072eb2",
+    "group": "busi_full",
+    "seed": 667,
+    "cohort": "BUSBRA",
+    "weights_sha256": "e524473b8d0dd158867262944819c3c6b711bff0bf9d4ccbec3b1faa2a072509"
+  },
+  "complete": true,
+  "n": 282,
+  "finished_at": "2026-10-07T02:28:15.345599+00:00",
+  "sha256": "028eb9c8827e4820750ecb091b82d84795e611565dc58f4872e517ed4a461ff8",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

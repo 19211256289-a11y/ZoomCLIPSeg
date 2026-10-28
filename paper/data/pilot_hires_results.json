@@ -1,0 +1,2243 @@
+{
+  "suite": {
+    "name": "pilot_hires_kvasir_v1",
+    "locked_at": "2026-10-04",
+    "purpose": "Screening pilot. The detail branch reads a 448 input but its output and supervision are 224. Tests whether producing and supervising the prediction at 448 helps, and separates the effect of supervision resolution from the effect of the detail features. Source Val only; no Test access.",
+    "dataset": "Kvasir",
+    "seeds": [
+      666,
+      667
+    ],
+    "epochs": 30,
+    "prompt": "a polyp in a colonoscopy image",
+    "arms": {
+      "baseline": {
+        "query_mode": "baseline",
+        "hires": "none"
+      },
+      "detail224": {
+        "query_mode": "detail",
+        "hires": "none"
+      },
+      "sup448": {
+        "query_mode": "baseline",
+        "hires": "sup448"
+      },
+      "detail448": {
+        "query_mode": "detail",
+        "hires": "detail448"
+      }
+    },
+    "arm_notes": {
+      "sup448": "no detail branch; native 56x56 logits upsampled bilinearly to 448 and supervised with a 448 mask",
+      "detail448": "detail decoder continued by one stage to 448 (8-channel 448 stem, fuse, zero-initialised 1x1 output); 448 supervision"
+    },
+    "hyperparameters": "identical to the accepted 30-epoch Kvasir pilots (config derived from the accepted configuration)",
+    "mc_samples": 30,
+    "batch_size": 32,
+    "threshold": 0.5,
+    "small_target_threshold": 0.058989688326573426,
+    "evaluation": "source Val, final epoch 30, fixed sentence",
+    "contrasts": [
+      [
+        "detail448",
+        "detail224"
+      ],
+      [
+        "detail448",
+        "sup448"
+      ],
+      [
+        "sup448",
+        "baseline"
+      ],
+      [
+        "detail224",
+        "baseline"
+      ],
+      [
+        "detail448",
+        "baseline"
+      ]
+    ],
+    "gate": {
+      "description": "Fixed before training. Statistic is the mean over the two seeds of paired differences, in percentage points.",
+      "detail448_vs_detail224": {
+        "small_dsc_gain_min_pp": 0.5,
+        "nsd_gain_min_pp": 0.3,
+        "overall_dsc_max_drop_pp": 0.2,
+        "both_seeds_small_gain_positive": true
+      },
+      "detail448_vs_sup448": {
+        "small_dsc_gain_min_pp": 0.5,
+        "both_seeds_small_gain_positive": true
+      },
+      "if_pass": "formal three-seed 100-epoch training on Kvasir and BUSI, new locked suite",
+      "if_fail": "stop this direction; keep the accepted 224 detail branch"
+    },
+    "reference_30_epoch_results": {
+      "note": "accepted earlier pilots with the same configuration; used only as a reproduction check",
+      "baseline_seed666": {
+        "DSC_percent": 86.8269,
+        "small_DSC_percent": 84.6728
+      },
+      "detail224_seed666": {
+        "DSC_percent": 87.3879,
+        "small_DSC_percent": 86.0712
+      },
+      "baseline_seed667": {
+        "DSC_percent": 87.4296,
+        "small_DSC_percent": 85.3096
+      }
+    },
+    "statistics": {
+      "permutation_draws": 100000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261004
+    },
+    "modes": [
+      "baseline",
+      "detail224",
+      "sup448",
+      "detail448"
+    ],
+    "runs": [
+      "baseline_seed666",
+      "detail224_seed666",
+      "sup448_seed666",
+      "detail448_seed666",
+      "baseline_seed667",
+      "detail224_seed667",
+      "sup448_seed667",
+      "detail448_seed667"
+    ]
+  },
+  "gate": {
+    "checks": {
+      "448 vs 224 detail: small-target DSC gain": {
+        "value": 0.14800000000000016,
+        "need": ">= +0.5",
+        "passed": false
+      },
+      "448 vs 224 detail: NSD gain": {
+        "value": -0.12699999999999997,
+        "need": ">= +0.3",
+        "passed": false
+      },
+      "448 vs 224 detail: overall DSC": {
+        "value": 0.023299999999999824,
+        "need": ">= -0.2",
+        "passed": true
+      },
+      "448 vs 224 detail: small gain positive in both seeds": {
+        "value": -0.23840000000000103,
+        "need": "> 0",
+        "passed": false
+      },
+      "448 detail vs 448 supervision only: small-target DSC gain": {
+        "value": 1.419,
+        "need": ">= +0.5",
+        "passed": true
+      },
+      "448 detail vs 448 supervision only: positive in both seeds": {
+        "value": 0.9356,
+        "need": "> 0",
+        "passed": true
+      }
+    },
+    "passed": false
+  },
+  "result": {
+    "arms": {
+      "baseline": {
+        "n": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100
+          ]
+        },
+        "n_positive": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100
+          ]
+        },
+        "n_negative": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "n_small": {
+          "mean": 25.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            25,
+            25
+          ]
+        },
+        "DSC_percent": {
+          "mean": 87.3079,
+          "sample_sd": 0.07297341981844241,
+          "per_seed": [
+            87.3595,
+            87.25630000000001
+          ]
+        },
+        "NSD_percent": {
+          "mean": 89.33940000000001,
+          "sample_sd": 0.08852976900455041,
+          "per_seed": [
+            89.402,
+            89.27680000000001
+          ]
+        },
+        "small_DSC_percent": {
+          "mean": 85.0206,
+          "sample_sd": 0.14679536777431676,
+          "per_seed": [
+            85.1244,
+            84.91680000000001
+          ]
+        },
+        "small_NSD_percent": {
+          "mean": 88.1126,
+          "sample_sd": 0.11568266940212088,
+          "per_seed": [
+            88.1944,
+            88.0308
+          ]
+        },
+        "micro_foreground_precision_percent": {
+          "mean": 89.88990873088227,
+          "sample_sd": 0.2591963145530884,
+          "per_seed": [
+            89.70662925920323,
+            90.07318820256133
+          ]
+        },
+        "micro_foreground_recall_percent": {
+          "mean": 84.61906096672487,
+          "sample_sd": 0.03573439058819993,
+          "per_seed": [
+            84.59379293681839,
+            84.64432899663136
+          ]
+        },
+        "fp_pixels": {
+          "mean": 511700.5,
+          "sample_sd": 14377.60218186607,
+          "per_seed": [
+            521867,
+            501534
+          ]
+        },
+        "fn_pixels": {
+          "mean": 826934.5,
+          "sample_sd": 1921.2091244838496,
+          "per_seed": [
+            828293,
+            825576
+          ]
+        },
+        "empty_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "zero_overlap_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "positive_DSC_below_50_percent": {
+          "mean": 4.5,
+          "sample_sd": 0.7071067811865476,
+          "per_seed": [
+            4,
+            5
+          ]
+        },
+        "negative_false_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "positive_DSC_percent": {
+          "mean": 87.3079,
+          "sample_sd": 0.07297341981844241,
+          "per_seed": [
+            87.3595,
+            87.25630000000001
+          ]
+        }
+      },
+      "detail224": {
+        "n": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100
+          ]
+        },
+        "n_positive": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100
+          ]
+        },
+        "n_negative": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "n_small": {
+          "mean": 25.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            25,
+            25
+          ]
+        },
+        "DSC_percent": {
+          "mean": 88.33200000000001,
+          "sample_sd": 0.4136574669941158,
+          "per_seed": [
+            88.6245,
+            88.03950000000002
+          ]
+        },
+        "NSD_percent": {
+          "mean": 90.2071,
+          "sample_sd": 0.4351535131422071,
+          "per_seed": [
+            90.51480000000001,
+            89.8994
+          ]
+        },
+        "small_DSC_percent": {
+          "mean": 86.4676,
+          "sample_sd": 0.00905096679919686,
+          "per_seed": [
+            86.47400000000002,
+            86.4612
+          ]
+        },
+        "small_NSD_percent": {
+          "mean": 89.32939999999999,
+          "sample_sd": 0.0681650937063851,
+          "per_seed": [
+            89.3776,
+            89.2812
+          ]
+        },
+        "micro_foreground_precision_percent": {
+          "mean": 90.03509618183261,
+          "sample_sd": 1.3906267258921894,
+          "per_seed": [
+            91.01841776981023,
+            89.051774593855
+          ]
+        },
+        "micro_foreground_recall_percent": {
+          "mean": 85.98371128118491,
+          "sample_sd": 0.22774262327025116,
+          "per_seed": [
+            85.8226729279053,
+            86.14474963446452
+          ]
+        },
+        "fp_pixels": {
+          "mean": 512359.0,
+          "sample_sd": 80669.57002488608,
+          "per_seed": [
+            455317,
+            569401
+          ]
+        },
+        "fn_pixels": {
+          "mean": 753566.0,
+          "sample_sd": 12244.261023026256,
+          "per_seed": [
+            762224,
+            744908
+          ]
+        },
+        "empty_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "zero_overlap_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "positive_DSC_below_50_percent": {
+          "mean": 4.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            4,
+            4
+          ]
+        },
+        "negative_false_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "positive_DSC_percent": {
+          "mean": 88.33200000000001,
+          "sample_sd": 0.4136574669941158,
+          "per_seed": [
+            88.6245,
+            88.03950000000002
+          ]
+        }
+      },
+      "sup448": {
+        "n": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100
+          ]
+        },
+        "n_positive": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100
+          ]
+        },
+        "n_negative": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "n_small": {
+          "mean": 25.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            25,
+            25
+          ]
+        },
+        "DSC_percent": {
+          "mean": 87.36130000000001,
+          "sample_sd": 0.19219162312649282,
+          "per_seed": [
+            87.4972,
+            87.22540000000002
+          ]
+        },
+        "NSD_percent": {
+          "mean": 89.28424999999999,
+          "sample_sd": 0.19226233380462388,
+          "per_seed": [
+            89.4202,
+            89.14829999999999
+          ]
+        },
+        "small_DSC_percent": {
+          "mean": 85.19659999999999,
+          "sample_sd": 0.1462296823493789,
+          "per_seed": [
+            85.3,
+            85.0932
+          ]
+        },
+        "small_NSD_percent": {
+          "mean": 88.13640000000001,
+          "sample_sd": 0.08768124086713856,
+          "per_seed": [
+            88.1984,
+            88.0744
+          ]
+        },
+        "micro_foreground_precision_percent": {
+          "mean": 89.31950418905069,
+          "sample_sd": 0.11981712072508044,
+          "per_seed": [
+            89.23478069048373,
+            89.40422768761763
+          ]
+        },
+        "micro_foreground_recall_percent": {
+          "mean": 85.12149207298098,
+          "sample_sd": 0.2845336054417063,
+          "per_seed": [
+            85.32268771486427,
+            84.9202964310977
+          ]
+        },
+        "fp_pixels": {
+          "mean": 547249.5,
+          "sample_sd": 8702.36315606284,
+          "per_seed": [
+            553403,
+            541096
+          ]
+        },
+        "fn_pixels": {
+          "mean": 799922.0,
+          "sample_sd": 15297.54810418977,
+          "per_seed": [
+            789105,
+            810739
+          ]
+        },
+        "empty_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "zero_overlap_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "positive_DSC_below_50_percent": {
+          "mean": 4.5,
+          "sample_sd": 0.7071067811865476,
+          "per_seed": [
+            4,
+            5
+          ]
+        },
+        "negative_false_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "positive_DSC_percent": {
+          "mean": 87.36130000000001,
+          "sample_sd": 0.19219162312649282,
+          "per_seed": [
+            87.4972,
+            87.22540000000002
+          ]
+        }
+      },
+      "detail448": {
+        "n": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100
+          ]
+        },
+        "n_positive": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100
+          ]
+        },
+        "n_negative": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "n_small": {
+          "mean": 25.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            25,
+            25
+          ]
+        },
+        "DSC_percent": {
+          "mean": 88.3553,
+          "sample_sd": 0.027011479041338528,
+          "per_seed": [
+            88.33619999999999,
+            88.37440000000001
+          ]
+        },
+        "NSD_percent": {
+          "mean": 90.08010000000002,
+          "sample_sd": 0.010040916292850696,
+          "per_seed": [
+            90.07300000000001,
+            90.08720000000001
+          ]
+        },
+        "small_DSC_percent": {
+          "mean": 86.6156,
+          "sample_sd": 0.5374011537017798,
+          "per_seed": [
+            86.23559999999999,
+            86.9956
+          ]
+        },
+        "small_NSD_percent": {
+          "mean": 89.245,
+          "sample_sd": 0.5190163773909221,
+          "per_seed": [
+            88.878,
+            89.612
+          ]
+        },
+        "micro_foreground_precision_percent": {
+          "mean": 90.11620585710757,
+          "sample_sd": 0.5069694848780509,
+          "per_seed": [
+            90.4746874177195,
+            89.75772429649565
+          ]
+        },
+        "micro_foreground_recall_percent": {
+          "mean": 85.89694252188144,
+          "sample_sd": 0.5385542237046826,
+          "per_seed": [
+            85.5161271782632,
+            86.27775786549968
+          ]
+        },
+        "fp_pixels": {
+          "mean": 506680.0,
+          "sample_sd": 32006.481343627886,
+          "per_seed": [
+            484048,
+            529312
+          ]
+        },
+        "fn_pixels": {
+          "mean": 758231.0,
+          "sample_sd": 28954.608476026748,
+          "per_seed": [
+            778705,
+            737757
+          ]
+        },
+        "empty_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "zero_overlap_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "positive_DSC_below_50_percent": {
+          "mean": 4.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            4,
+            4
+          ]
+        },
+        "negative_false_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0
+          ]
+        },
+        "positive_DSC_percent": {
+          "mean": 88.3553,
+          "sample_sd": 0.027011479041338528,
+          "per_seed": [
+            88.33619999999999,
+            88.37440000000001
+          ]
+        }
+      }
+    },
+    "contrasts": {
+      "detail448 - detail224": {
+        "DSC": {
+          "all": {
+            "n": 100,
+            "mean_pp": 0.023299999999999824,
+            "median_pp": 0.12499999999999734,
+            "improved": 62,
+            "worsened": 38,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              -0.2882999999999999,
+              0.33489999999999936
+            ],
+            "per_seed_improved": [
+              52,
+              67
+            ],
+            "per_seed_worsened": [
+              47,
+              33
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.22315875000000016,
+              0.2674524999999996
+            ],
+            "permutation_p": 0.8558014419855802,
+            "wilcoxon_p": 0.22550599891581025,
+            "top2_gain_contribution_to_mean_pp": 0.06995000000000001,
+            "mean_of_others_without_top2_gains_pp": -0.04760204081632672,
+            "mean_of_others_without_top2_losses_pp": 0.09877551020408147,
+            "trimmed_mean_10pct_pp": 0.08218749999999962,
+            "seed_level_t": null
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 0.14800000000000016,
+            "median_pp": 0.13500000000000179,
+            "improved": 16,
+            "worsened": 9,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              -0.23840000000000103,
+              0.5344000000000013
+            ],
+            "per_seed_improved": [
+              13,
+              17
+            ],
+            "per_seed_worsened": [
+              12,
+              8
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.17100500000000074,
+              0.45080999999999993
+            ],
+            "permutation_p": 0.3735562644373556,
+            "wilcoxon_p": 0.24727350200082499,
+            "top2_gain_contribution_to_mean_pp": 0.11480000000000007,
+            "mean_of_others_without_top2_gains_pp": 0.03608695652173921,
+            "mean_of_others_without_top2_losses_pp": 0.2941304347826089,
+            "trimmed_mean_10pct_pp": 0.18547619047619066
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": -0.01826666666666697,
+            "median_pp": 0.11999999999999789,
+            "improved": 46,
+            "worsened": 29,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              -0.30493333333333295,
+              0.2683999999999989
+            ],
+            "per_seed_improved": [
+              39,
+              50
+            ],
+            "per_seed_worsened": [
+              35,
+              25
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.33388666666666744,
+              0.2888749999999999
+            ],
+            "permutation_p": 0.9104608953910461,
+            "wilcoxon_p": 0.429847362994244,
+            "top2_gain_contribution_to_mean_pp": 0.09326666666666668,
+            "mean_of_others_without_top2_gains_pp": -0.11458904109589073,
+            "mean_of_others_without_top2_losses_pp": 0.0819178082191778,
+            "trimmed_mean_10pct_pp": 0.030081967213114257
+          }
+        },
+        "NSD": {
+          "all": {
+            "n": 100,
+            "mean_pp": -0.12699999999999997,
+            "median_pp": 0.015000000000001124,
+            "improved": 51,
+            "worsened": 49,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              -0.44180000000000036,
+              0.18780000000000033
+            ],
+            "per_seed_improved": [
+              49,
+              64
+            ],
+            "per_seed_worsened": [
+              50,
+              36
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.3780075000000006,
+              0.11505374999999957
+            ],
+            "permutation_p": 0.3222767772322277,
+            "wilcoxon_p": 0.633923700652257,
+            "top2_gain_contribution_to_mean_pp": 0.06614999999999999,
+            "mean_of_others_without_top2_gains_pp": -0.19709183673469385,
+            "mean_of_others_without_top2_losses_pp": -0.05525510204081639,
+            "trimmed_mean_10pct_pp": -0.07287499999999991
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": -0.08439999999999995,
+            "median_pp": 0.07500000000000284,
+            "improved": 14,
+            "worsened": 11,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              -0.4995999999999999,
+              0.3307999999999999
+            ],
+            "per_seed_improved": [
+              12,
+              17
+            ],
+            "per_seed_worsened": [
+              13,
+              8
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.42420999999999975,
+              0.23360499999999865
+            ],
+            "permutation_p": 0.6339836601633984,
+            "wilcoxon_p": 0.9785339807274146,
+            "top2_gain_contribution_to_mean_pp": 0.10619999999999974,
+            "mean_of_others_without_top2_gains_pp": -0.2071739130434779,
+            "mean_of_others_without_top2_losses_pp": 0.08326086956521724,
+            "trimmed_mean_10pct_pp": -0.03523809523809509
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": -0.14119999999999994,
+            "median_pp": -0.0050000000000050004,
+            "improved": 37,
+            "worsened": 38,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              -0.42253333333333376,
+              0.1401333333333339
+            ],
+            "per_seed_improved": [
+              37,
+              47
+            ],
+            "per_seed_worsened": [
+              37,
+              28
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.44873833333333335,
+              0.16514833333333298
+            ],
+            "permutation_p": 0.3842961570384296,
+            "wilcoxon_p": 0.6159086278165106,
+            "top2_gain_contribution_to_mean_pp": 0.08819999999999997,
+            "mean_of_others_without_top2_gains_pp": -0.2356849315068492,
+            "mean_of_others_without_top2_losses_pp": -0.04527397260273977,
+            "trimmed_mean_10pct_pp": -0.10254098360655735
+          }
+        },
+        "pixels_and_failures_per_seed": {
+          "fp_pixels_relative_change_percent": [
+            6.310109220608938,
+            -7.040556655151642
+          ],
+          "fn_pixels_relative_change_percent": [
+            2.162225277608682,
+            -0.9599843202113549
+          ],
+          "micro_foreground_precision_percent_delta": [
+            -0.5437303520907335,
+            0.7059497026406518
+          ],
+          "micro_foreground_recall_percent_delta": [
+            -0.3065457496420976,
+            0.1330082310351628
+          ],
+          "positive_DSC_below_50_percent_delta": [
+            0,
+            0
+          ],
+          "zero_overlap_positive_delta": [
+            0,
+            0
+          ],
+          "empty_positive_delta": [
+            0,
+            0
+          ]
+        },
+        "seeds": [
+          666,
+          667
+        ],
+        "positive_only_DSC_per_seed_pp": [
+          -0.288300000000008,
+          0.33489999999999354
+        ],
+        "negative_false_positive_delta_per_seed": [
+          0,
+          0
+        ]
+      },
+      "detail448 - sup448": {
+        "DSC": {
+          "all": {
+            "n": 100,
+            "mean_pp": 0.9940000000000001,
+            "median_pp": 0.9075000000000027,
+            "improved": 77,
+            "worsened": 23,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.8390000000000002,
+              1.149
+            ],
+            "per_seed_improved": [
+              76,
+              82
+            ],
+            "per_seed_worsened": [
+              24,
+              18
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.6570387499999998,
+              1.3476524999999997
+            ],
+            "permutation_p": 9.99990000099999e-06,
+            "wilcoxon_p": 5.608495741473497e-08,
+            "top2_gain_contribution_to_mean_pp": 0.13235000000000002,
+            "mean_of_others_without_top2_gains_pp": 0.879234693877551,
+            "mean_of_others_without_top2_losses_pp": 1.0871938775510204,
+            "trimmed_mean_10pct_pp": 0.9146874999999998,
+            "seed_level_t": null
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 1.419,
+            "median_pp": 1.5249999999999986,
+            "improved": 20,
+            "worsened": 5,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.9356,
+              1.9023999999999999
+            ],
+            "per_seed_improved": [
+              19,
+              22
+            ],
+            "per_seed_worsened": [
+              6,
+              3
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.6963799999999998,
+              2.177849999999999
+            ],
+            "permutation_p": 0.0007799922000779992,
+            "wilcoxon_p": 0.0012429801513024268,
+            "top2_gain_contribution_to_mean_pp": 0.4588000000000001,
+            "mean_of_others_without_top2_gains_pp": 1.043695652173913,
+            "mean_of_others_without_top2_losses_pp": 1.6902173913043481,
+            "trimmed_mean_10pct_pp": 1.305
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": 0.8523333333333333,
+            "median_pp": 0.8399999999999963,
+            "improved": 57,
+            "worsened": 18,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.8068000000000004,
+              0.8978666666666664
+            ],
+            "per_seed_improved": [
+              57,
+              60
+            ],
+            "per_seed_worsened": [
+              18,
+              15
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.4686566666666665,
+              1.2388716666666661
+            ],
+            "permutation_p": 1.999980000199998e-05,
+            "wilcoxon_p": 6.825274199571888e-06,
+            "top2_gain_contribution_to_mean_pp": 0.17646666666666672,
+            "mean_of_others_without_top2_gains_pp": 0.6943835616438356,
+            "mean_of_others_without_top2_losses_pp": 0.9735616438356164,
+            "trimmed_mean_10pct_pp": 0.8099999999999995
+          }
+        },
+        "NSD": {
+          "all": {
+            "n": 100,
+            "mean_pp": 0.7958499999999996,
+            "median_pp": 0.7524999999999976,
+            "improved": 76,
+            "worsened": 24,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.6527999999999995,
+              0.9389000000000003
+            ],
+            "per_seed_improved": [
+              73,
+              80
+            ],
+            "per_seed_worsened": [
+              27,
+              20
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.45154750000000027,
+              1.1365037499999997
+            ],
+            "permutation_p": 1.999980000199998e-05,
+            "wilcoxon_p": 1.0118324377360295e-06,
+            "top2_gain_contribution_to_mean_pp": 0.13114999999999996,
+            "mean_of_others_without_top2_gains_pp": 0.6782653061224487,
+            "mean_of_others_without_top2_losses_pp": 0.8919387755102037,
+            "trimmed_mean_10pct_pp": 0.7374375000000001
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 1.1086000000000005,
+            "median_pp": 1.1749999999999983,
+            "improved": 20,
+            "worsened": 5,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.6796,
+              1.5376000000000007
+            ],
+            "per_seed_improved": [
+              19,
+              21
+            ],
+            "per_seed_worsened": [
+              6,
+              4
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.4309950000000009,
+              1.8160049999999999
+            ],
+            "permutation_p": 0.003819961800381996,
+            "wilcoxon_p": 0.0065757661142712516,
+            "top2_gain_contribution_to_mean_pp": 0.4261999999999999,
+            "mean_of_others_without_top2_gains_pp": 0.7417391304347831,
+            "mean_of_others_without_top2_losses_pp": 1.369130434782609,
+            "trimmed_mean_10pct_pp": 0.9921428571428577
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": 0.6915999999999994,
+            "median_pp": 0.7350000000000023,
+            "improved": 56,
+            "worsened": 19,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.6438666666666663,
+              0.7393333333333331
+            ],
+            "per_seed_improved": [
+              54,
+              59
+            ],
+            "per_seed_worsened": [
+              21,
+              16
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.30332666666666663,
+              1.087808333333332
+            ],
+            "permutation_p": 0.0006899931000689993,
+            "wilcoxon_p": 4.621826308032669e-05,
+            "top2_gain_contribution_to_mean_pp": 0.1748666666666666,
+            "mean_of_others_without_top2_gains_pp": 0.5308904109589037,
+            "mean_of_others_without_top2_losses_pp": 0.8177397260273966,
+            "trimmed_mean_10pct_pp": 0.6597540983606557
+          }
+        },
+        "pixels_and_failures_per_seed": {
+          "fp_pixels_relative_change_percent": [
+            -12.532458262784987,
+            -2.1778020905717286
+          ],
+          "fn_pixels_relative_change_percent": [
+            -1.3179488154301393,
+            -9.001910602549032
+          ],
+          "micro_foreground_precision_percent_delta": [
+            1.2399067272357627,
+            0.35349660887801804
+          ],
+          "micro_foreground_recall_percent_delta": [
+            0.19343946339893137,
+            1.3574614344019835
+          ],
+          "positive_DSC_below_50_percent_delta": [
+            0,
+            -1
+          ],
+          "zero_overlap_positive_delta": [
+            0,
+            0
+          ],
+          "empty_positive_delta": [
+            0,
+            0
+          ]
+        },
+        "seeds": [
+          666,
+          667
+        ],
+        "positive_only_DSC_per_seed_pp": [
+          0.8389999999999787,
+          1.148999999999989
+        ],
+        "negative_false_positive_delta_per_seed": [
+          0,
+          0
+        ]
+      },
+      "sup448 - baseline": {
+        "DSC": {
+          "all": {
+            "n": 100,
+            "mean_pp": 0.053400000000000315,
+            "median_pp": 0.12000000000000066,
+            "improved": 66,
+            "worsened": 33,
+            "tied": 1,
+            "per_seed_mean_pp": [
+              0.1377000000000003,
+              -0.030899999999999705
+            ],
+            "per_seed_improved": [
+              66,
+              60
+            ],
+            "per_seed_worsened": [
+              34,
+              38
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.13139999999999932,
+              0.2142037500000003
+            ],
+            "permutation_p": 0.5573744262557374,
+            "wilcoxon_p": 0.010890721061023888,
+            "top2_gain_contribution_to_mean_pp": 0.0460000000000001,
+            "mean_of_others_without_top2_gains_pp": 0.007551020408163485,
+            "mean_of_others_without_top2_losses_pp": 0.1333673469387759,
+            "trimmed_mean_10pct_pp": 0.11187500000000039,
+            "seed_level_t": null
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 0.17599999999999982,
+            "median_pp": 0.19500000000000073,
+            "improved": 17,
+            "worsened": 8,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.1756000000000001,
+              0.1763999999999995
+            ],
+            "per_seed_improved": [
+              16,
+              14
+            ],
+            "per_seed_worsened": [
+              9,
+              11
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              -0.021410000000000606,
+              0.37980500000000017
+            ],
+            "permutation_p": 0.10814891851081489,
+            "wilcoxon_p": 0.10643750408982258,
+            "top2_gain_contribution_to_mean_pp": 0.09560000000000013,
+            "mean_of_others_without_top2_gains_pp": 0.08739130434782577,
+            "mean_of_others_without_top2_losses_pp": 0.2645652173913042,
+            "trimmed_mean_10pct_pp": 0.17595238095238058
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": 0.012533333333333813,
+            "median_pp": 0.10499999999999954,
+            "improved": 49,
+            "worsened": 25,
+            "tied": 1,
+            "per_seed_mean_pp": [
+              0.12506666666666713,
+              -0.09999999999999938
+            ],
+            "per_seed_improved": [
+              50,
+              46
+            ],
+            "per_seed_worsened": [
+              25,
+              27
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.22006999999999932,
+              0.2187400000000003
+            ],
+            "permutation_p": 0.914280857191428,
+            "wilcoxon_p": 0.04506140090069536,
+            "top2_gain_contribution_to_mean_pp": 0.06133333333333347,
+            "mean_of_others_without_top2_gains_pp": -0.050136986301369514,
+            "mean_of_others_without_top2_losses_pp": 0.11876712328767179,
+            "trimmed_mean_10pct_pp": 0.08827868852459071
+          }
+        },
+        "NSD": {
+          "all": {
+            "n": 100,
+            "mean_pp": -0.05514999999999974,
+            "median_pp": 0.017500000000000848,
+            "improved": 53,
+            "worsened": 46,
+            "tied": 1,
+            "per_seed_mean_pp": [
+              0.018200000000000292,
+              -0.12849999999999973
+            ],
+            "per_seed_improved": [
+              57,
+              53
+            ],
+            "per_seed_worsened": [
+              41,
+              45
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.23210874999999961,
+              0.10375000000000002
+            ],
+            "permutation_p": 0.5446245537544625,
+            "wilcoxon_p": 0.6563074477267657,
+            "top2_gain_contribution_to_mean_pp": 0.04090000000000004,
+            "mean_of_others_without_top2_gains_pp": -0.09801020408163244,
+            "mean_of_others_without_top2_losses_pp": 0.0264285714285717,
+            "trimmed_mean_10pct_pp": 0.01012500000000024
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 0.023799999999999728,
+            "median_pp": 0.029999999999996696,
+            "improved": 14,
+            "worsened": 11,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.004000000000000821,
+              0.04359999999999865
+            ],
+            "per_seed_improved": [
+              14,
+              13
+            ],
+            "per_seed_worsened": [
+              10,
+              12
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              -0.16500500000000054,
+              0.2170049999999999
+            ],
+            "permutation_p": 0.8177418225817742,
+            "wilcoxon_p": 0.7063989674926869,
+            "top2_gain_contribution_to_mean_pp": 0.07640000000000002,
+            "mean_of_others_without_top2_gains_pp": -0.05717391304347859,
+            "mean_of_others_without_top2_losses_pp": 0.1099999999999997,
+            "trimmed_mean_10pct_pp": 0.02952380952380918
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": -0.08146666666666623,
+            "median_pp": 0.015000000000003899,
+            "improved": 39,
+            "worsened": 35,
+            "tied": 1,
+            "per_seed_mean_pp": [
+              0.022933333333333413,
+              -0.18586666666666582
+            ],
+            "per_seed_improved": [
+              43,
+              40
+            ],
+            "per_seed_worsened": [
+              31,
+              33
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.3200133333333331,
+              0.12193333333333355
+            ],
+            "permutation_p": 0.4871751282487175,
+            "wilcoxon_p": 0.7546877526831178,
+            "top2_gain_contribution_to_mean_pp": 0.05453333333333339,
+            "mean_of_others_without_top2_gains_pp": -0.13972602739725987,
+            "mean_of_others_without_top2_losses_pp": 0.027328767123288123,
+            "trimmed_mean_10pct_pp": 0.0011475409836070242
+          }
+        },
+        "pixels_and_failures_per_seed": {
+          "fp_pixels_relative_change_percent": [
+            6.042918981273006,
+            7.888199005451275
+          ],
+          "fn_pixels_relative_change_percent": [
+            -4.731176045191738,
+            -1.7971694913611829
+          ],
+          "micro_foreground_precision_percent_delta": [
+            -0.4718485687194942,
+            -0.6689605149436915
+          ],
+          "micro_foreground_recall_percent_delta": [
+            0.7288947780458841,
+            0.2759674344663381
+          ],
+          "positive_DSC_below_50_percent_delta": [
+            0,
+            0
+          ],
+          "zero_overlap_positive_delta": [
+            0,
+            0
+          ],
+          "empty_positive_delta": [
+            0,
+            0
+          ]
+        },
+        "seeds": [
+          666,
+          667
+        ],
+        "positive_only_DSC_per_seed_pp": [
+          0.13770000000000726,
+          -0.03089999999998927
+        ],
+        "negative_false_positive_delta_per_seed": [
+          0,
+          0
+        ]
+      },
+      "detail224 - baseline": {
+        "DSC": {
+          "all": {
+            "n": 100,
+            "mean_pp": 1.0241000000000005,
+            "median_pp": 0.9374999999999994,
+            "improved": 79,
+            "worsened": 21,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              1.2650000000000003,
+              0.7832000000000003
+            ],
+            "per_seed_improved": [
+              78,
+              81
+            ],
+            "per_seed_worsened": [
+              22,
+              19
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.5994487500000006,
+              1.4548524999999997
+            ],
+            "permutation_p": 9.99990000099999e-06,
+            "wilcoxon_p": 1.5489767107340234e-08,
+            "top2_gain_contribution_to_mean_pp": 0.17825000000000002,
+            "mean_of_others_without_top2_gains_pp": 0.8631122448979596,
+            "mean_of_others_without_top2_losses_pp": 1.167244897959184,
+            "trimmed_mean_10pct_pp": 0.9386875000000003,
+            "seed_level_t": null
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 1.4469999999999998,
+            "median_pp": 1.5449999999999964,
+            "improved": 21,
+            "worsened": 4,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              1.3496000000000012,
+              1.5443999999999982
+            ],
+            "per_seed_improved": [
+              18,
+              21
+            ],
+            "per_seed_worsened": [
+              7,
+              4
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.6507950000000009,
+              2.2511999999999994
+            ],
+            "permutation_p": 0.0012799872001279988,
+            "wilcoxon_p": 0.0009344602525591302,
+            "top2_gain_contribution_to_mean_pp": 0.4832000000000001,
+            "mean_of_others_without_top2_gains_pp": 1.0476086956521737,
+            "mean_of_others_without_top2_losses_pp": 1.8028260869565214,
+            "trimmed_mean_10pct_pp": 1.3992857142857136
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": 0.8831333333333341,
+            "median_pp": 0.7900000000000018,
+            "improved": 58,
+            "worsened": 17,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              1.2368000000000006,
+              0.5294666666666681
+            ],
+            "per_seed_improved": [
+              60,
+              60
+            ],
+            "per_seed_worsened": [
+              15,
+              15
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.3880533333333342,
+              1.3741483333333333
+            ],
+            "permutation_p": 0.00037999620003799963,
+            "wilcoxon_p": 4.869755793162521e-06,
+            "top2_gain_contribution_to_mean_pp": 0.21813333333333323,
+            "mean_of_others_without_top2_gains_pp": 0.6832191780821927,
+            "mean_of_others_without_top2_losses_pp": 1.0539726027397267,
+            "trimmed_mean_10pct_pp": 0.7883606557377055
+          }
+        },
+        "NSD": {
+          "all": {
+            "n": 100,
+            "mean_pp": 0.8677000000000001,
+            "median_pp": 0.7800000000000001,
+            "improved": 78,
+            "worsened": 22,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              1.1127999999999998,
+              0.6226
+            ],
+            "per_seed_improved": [
+              76,
+              80
+            ],
+            "per_seed_worsened": [
+              24,
+              20
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.4501975000000004,
+              1.3057625
+            ],
+            "permutation_p": 2.999970000299997e-05,
+            "wilcoxon_p": 2.8713137522045797e-07,
+            "top2_gain_contribution_to_mean_pp": 0.1745,
+            "mean_of_others_without_top2_gains_pp": 0.7073469387755102,
+            "mean_of_others_without_top2_losses_pp": 1.0088775510204082,
+            "trimmed_mean_10pct_pp": 0.7746250000000001
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 1.2168000000000003,
+            "median_pp": 1.1450000000000016,
+            "improved": 21,
+            "worsened": 4,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              1.1832000000000007,
+              1.2503999999999997
+            ],
+            "per_seed_improved": [
+              18,
+              21
+            ],
+            "per_seed_worsened": [
+              7,
+              4
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.4679350000000013,
+              1.9716299999999987
+            ],
+            "permutation_p": 0.002819971800281997,
+            "wilcoxon_p": 0.0010283872597180617,
+            "top2_gain_contribution_to_mean_pp": 0.44999999999999973,
+            "mean_of_others_without_top2_gains_pp": 0.8334782608695659,
+            "mean_of_others_without_top2_losses_pp": 1.5626086956521745,
+            "trimmed_mean_10pct_pp": 1.175714285714286
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": 0.7513333333333332,
+            "median_pp": 0.6649999999999934,
+            "improved": 57,
+            "worsened": 18,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              1.089333333333333,
+              0.4133333333333332
+            ],
+            "per_seed_improved": [
+              58,
+              59
+            ],
+            "per_seed_worsened": [
+              17,
+              16
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.25819833333333353,
+              1.2556299999999994
+            ],
+            "permutation_p": 0.0024999750002499977,
+            "wilcoxon_p": 6.923296174087882e-05,
+            "top2_gain_contribution_to_mean_pp": 0.22199999999999998,
+            "mean_of_others_without_top2_gains_pp": 0.543835616438356,
+            "mean_of_others_without_top2_losses_pp": 0.9209589041095889,
+            "trimmed_mean_10pct_pp": 0.6474590163934426
+          }
+        },
+        "pixels_and_failures_per_seed": {
+          "fp_pixels_relative_change_percent": [
+            -12.752291292609037,
+            13.531884179337792
+          ],
+          "fn_pixels_relative_change_percent": [
+            -7.976525215111078,
+            -9.771117377443142
+          ],
+          "micro_foreground_precision_percent_delta": [
+            1.311788510607002,
+            -1.0214136087063252
+          ],
+          "micro_foreground_recall_percent_delta": [
+            1.228879991086913,
+            1.5004206378331588
+          ],
+          "positive_DSC_below_50_percent_delta": [
+            0,
+            -1
+          ],
+          "zero_overlap_positive_delta": [
+            0,
+            0
+          ],
+          "empty_positive_delta": [
+            0,
+            0
+          ]
+        },
+        "seeds": [
+          666,
+          667
+        ],
+        "positive_only_DSC_per_seed_pp": [
+          1.264999999999994,
+          0.7832000000000061
+        ],
+        "negative_false_positive_delta_per_seed": [
+          0,
+          0
+        ]
+      },
+      "detail448 - baseline": {
+        "DSC": {
+          "all": {
+            "n": 100,
+            "mean_pp": 1.0474000000000003,
+            "median_pp": 1.044999999999996,
+            "improved": 80,
+            "worsened": 20,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.9767000000000005,
+              1.1181
+            ],
+            "per_seed_improved": [
+              77,
+              83
+            ],
+            "per_seed_worsened": [
+              23,
+              17
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.6914375000000006,
+              1.4119037500000005
+            ],
+            "permutation_p": 9.99990000099999e-06,
+            "wilcoxon_p": 2.754881830439225e-08,
+            "top2_gain_contribution_to_mean_pp": 0.12850000000000003,
+            "mean_of_others_without_top2_gains_pp": 0.9376530612244901,
+            "mean_of_others_without_top2_losses_pp": 1.1563775510204084,
+            "trimmed_mean_10pct_pp": 1.0331875000000001,
+            "seed_level_t": null
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 1.5949999999999998,
+            "median_pp": 1.7249999999999988,
+            "improved": 22,
+            "worsened": 3,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              1.1112000000000002,
+              2.0787999999999993
+            ],
+            "per_seed_improved": [
+              19,
+              23
+            ],
+            "per_seed_worsened": [
+              6,
+              2
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.8657999999999997,
+              2.3432249999999986
+            ],
+            "permutation_p": 0.00044999550004499957,
+            "wilcoxon_p": 0.0008485353611475586,
+            "top2_gain_contribution_to_mean_pp": 0.44799999999999995,
+            "mean_of_others_without_top2_gains_pp": 1.2467391304347823,
+            "mean_of_others_without_top2_losses_pp": 1.9280434782608693,
+            "trimmed_mean_10pct_pp": 1.5783333333333331
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": 0.8648666666666671,
+            "median_pp": 0.9199999999999986,
+            "improved": 58,
+            "worsened": 17,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.9318666666666676,
+              0.7978666666666665
+            ],
+            "per_seed_improved": [
+              58,
+              60
+            ],
+            "per_seed_worsened": [
+              17,
+              15
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.4603266666666672,
+              1.25514
+            ],
+            "permutation_p": 3.999960000399996e-05,
+            "wilcoxon_p": 9.178404098165241e-06,
+            "top2_gain_contribution_to_mean_pp": 0.15960000000000002,
+            "mean_of_others_without_top2_gains_pp": 0.724589041095891,
+            "mean_of_others_without_top2_losses_pp": 1.0061643835616443,
+            "trimmed_mean_10pct_pp": 0.8710655737704919
+          }
+        },
+        "NSD": {
+          "all": {
+            "n": 100,
+            "mean_pp": 0.7407,
+            "median_pp": 0.7824999999999999,
+            "improved": 74,
+            "worsened": 26,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.6709999999999997,
+              0.8104000000000005
+            ],
+            "per_seed_improved": [
+              72,
+              80
+            ],
+            "per_seed_worsened": [
+              27,
+              20
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.38643999999999995,
+              1.0957499999999998
+            ],
+            "permutation_p": 9.99990000099999e-05,
+            "wilcoxon_p": 4.927960893588851e-06,
+            "top2_gain_contribution_to_mean_pp": 0.12344999999999995,
+            "mean_of_others_without_top2_gains_pp": 0.6298469387755103,
+            "mean_of_others_without_top2_losses_pp": 0.8487755102040817,
+            "trimmed_mean_10pct_pp": 0.7391875000000002
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 1.1324000000000003,
+            "median_pp": 1.150000000000001,
+            "improved": 20,
+            "worsened": 5,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.6836000000000009,
+              1.5812000000000004
+            ],
+            "per_seed_improved": [
+              20,
+              21
+            ],
+            "per_seed_worsened": [
+              5,
+              4
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.4389900000000014,
+              1.8186049999999998
+            ],
+            "permutation_p": 0.003829961700382996,
+            "wilcoxon_p": 0.0036614408124745253,
+            "top2_gain_contribution_to_mean_pp": 0.3974,
+            "mean_of_others_without_top2_gains_pp": 0.7989130434782613,
+            "mean_of_others_without_top2_losses_pp": 1.439130434782609,
+            "trimmed_mean_10pct_pp": 1.1030952380952384
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": 0.6101333333333333,
+            "median_pp": 0.6699999999999984,
+            "improved": 54,
+            "worsened": 21,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.6667999999999992,
+              0.5534666666666673
+            ],
+            "per_seed_improved": [
+              52,
+              59
+            ],
+            "per_seed_worsened": [
+              22,
+              16
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              0.2020599999999999,
+              1.0084133333333332
+            ],
+            "permutation_p": 0.0035399646003539966,
+            "wilcoxon_p": 0.0003263358598139941,
+            "top2_gain_contribution_to_mean_pp": 0.1628,
+            "mean_of_others_without_top2_gains_pp": 0.4595890410958904,
+            "mean_of_others_without_top2_losses_pp": 0.7516438356164382,
+            "trimmed_mean_10pct_pp": 0.6130327868852462
+          }
+        },
+        "pixels_and_failures_per_seed": {
+          "fp_pixels_relative_change_percent": [
+            -7.246865580693932,
+            5.538607552030371
+          ],
+          "fn_pixels_relative_change_percent": [
+            -5.986770381978358,
+            -10.637300502921596
+          ],
+          "micro_foreground_precision_percent_delta": [
+            0.7680581585162685,
+            -0.3154639060656734
+          ],
+          "micro_foreground_recall_percent_delta": [
+            0.9223342414448155,
+            1.6334288688683216
+          ],
+          "positive_DSC_below_50_percent_delta": [
+            0,
+            -1
+          ],
+          "zero_overlap_positive_delta": [
+            0,
+            0
+          ],
+          "empty_positive_delta": [
+            0,
+            0
+          ]
+        },
+        "seeds": [
+          666,
+          667
+        ],
+        "positive_only_DSC_per_seed_pp": [
+          0.9766999999999859,
+          1.1180999999999996
+        ],
+        "negative_false_positive_delta_per_seed": [
+          0,
+          0
+        ]
+      }
+    },
+    "seeds": [
+      666,
+      667
+    ]
+  },
+  "reproduction": {
+    "baseline_seed666": {
+      "reference": 86.8269,
+      "now": 87.3595,
+      "difference_pp": 0.5326000000000022
+    },
+    "detail224_seed666": {
+      "reference": 87.3879,
+      "now": 88.6245,
+      "difference_pp": 1.2365999999999957
+    },
+    "baseline_seed667": {
+      "reference": 87.4296,
+      "now": 87.25630000000001,
+      "difference_pp": -0.17329999999998336
+    }
+  },
+  "summaries": {
+    "baseline_seed666": {
+      "n": 100,
+      "n_positive": 100,
+      "n_negative": 0,
+      "n_small": 25,
+      "DSC_percent": 87.3595,
+      "NSD_percent": 89.402,
+      "positive_DSC_percent": 87.3595,
+      "small_DSC_percent": 85.1244,
+      "micro_foreground_precision_percent": 89.70662925920323,
+      "micro_foreground_recall_percent": 84.59379293681839,
+      "empty_positive": 0,
+      "zero_overlap_positive": 0,
+      "recall_below_50": 4,
+      "precision_below_50": 5,
+      "small_empty_positive": 0,
+      "positive_DSC_below_10_percent": 2,
+      "positive_DSC_below_50_percent": 4,
+      "negative_false_positive": 0,
+      "brier_224": 0.03458905042964034,
+      "local_area_quartile_DSC_percent": [
+        85.1244,
+        87.2652,
+        90.66,
+        86.38839999999999
+      ],
+      "source_train_area_threshold": 0.058989688326573426,
+      "run_id": "baseline_seed666",
+      "query_mode": "baseline",
+      "seed": 666,
+      "cohort": "Val",
+      "prompt": "a polyp in a colonoscopy image",
+      "mc_samples": 30,
+      "batch_size": 32,
+      "inference_seconds": 13.096588272601366,
+      "milliseconds_per_image": 130.96588272601366,
+      "peak_allocated_gib": 2.9668612480163574,
+      "trainable_parameters": 18677268,
+      "total_parameters": 214580757,
+      "device": "NVIDIA GeForce RTX 4090",
+      "completed_at": "2026-10-05T00:07:29.213705+00:00"
+    },
+    "baseline_seed667": {
+      "n": 100,
+      "n_positive": 100,
+      "n_negative": 0,
+      "n_small": 25,
+      "DSC_percent": 87.25630000000001,
+      "NSD_percent": 89.27680000000001,
+      "positive_DSC_percent": 87.25630000000001,
+      "small_DSC_percent": 84.91680000000001,
+      "micro_foreground_precision_percent": 90.07318820256133,
+      "micro_foreground_recall_percent": 84.64432899663136,
+      "empty_positive": 0,
+      "zero_overlap_positive": 0,
+      "recall_below_50": 4,
+      "precision_below_50": 6,
+      "small_empty_positive": 0,
+      "positive_DSC_below_10_percent": 2,
+      "positive_DSC_below_50_percent": 5,
+      "negative_false_positive": 0,
+      "brier_224": 0.03461257066228427,
+      "local_area_quartile_DSC_percent": [
+        84.9168,
+        87.7084,
+        91.48479999999999,
+        84.91519999999998
+      ],
+      "source_train_area_threshold": 0.058989688326573426,
+      "run_id": "baseline_seed667",
+      "query_mode": "baseline",
+      "seed": 667,
+      "cohort": "Val",
+      "prompt": "a polyp in a colonoscopy image",
+      "mc_samples": 30,
+      "batch_size": 32,
+      "inference_seconds": 10.94901630282402,
+      "milliseconds_per_image": 109.4901630282402,
+      "peak_allocated_gib": 1.6831083297729492,
+      "trainable_parameters": 18677268,
+      "total_parameters": 214580757,
+      "device": "NVIDIA GeForce RTX 4090",
+      "completed_at": "2026-10-05T01:27:35.908215+00:00"
+    },
+    "detail224_seed666": {
+      "n": 100,
+      "n_positive": 100,
+      "n_negative": 0,
+      "n_small": 25,
+      "DSC_percent": 88.6245,
+      "NSD_percent": 90.51480000000001,
+      "positive_DSC_percent": 88.6245,
+      "small_DSC_percent": 86.47400000000002,
+      "micro_foreground_precision_percent": 91.01841776981023,
+      "micro_foreground_recall_percent": 85.8226729279053,
+      "empty_positive": 0,
+      "zero_overlap_positive": 0,
+      "recall_below_50": 3,
+      "precision_below_50": 4,
+      "small_empty_positive": 0,
+      "positive_DSC_below_10_percent": 2,
+      "positive_DSC_below_50_percent": 4,
+      "negative_false_positive": 0,
+      "brier_224": 0.032018678536987866,
+      "local_area_quartile_DSC_percent": [
+        86.474,
+        89.2616,
+        91.56720000000001,
+        87.19519999999999
+      ],
+      "source_train_area_threshold": 0.058989688326573426,
+      "run_id": "detail224_seed666",
+      "query_mode": "detail",
+      "seed": 666,
+      "cohort": "Val",
+      "prompt": "a polyp in a colonoscopy image",
+      "mc_samples": 30,
+      "batch_size": 32,
+      "inference_seconds": 12.18216959387064,
+      "milliseconds_per_image": 121.8216959387064,
+      "peak_allocated_gib": 3.1569156646728516,
+      "trainable_parameters": 18891269,
+      "total_parameters": 214794758,
+      "device": "NVIDIA GeForce RTX 4090",
+      "completed_at": "2026-10-05T00:27:38.354733+00:00"
+    },
+    "detail224_seed667": {
+      "n": 100,
+      "n_positive": 100,
+      "n_negative": 0,
+      "n_small": 25,
+      "DSC_percent": 88.03950000000002,
+      "NSD_percent": 89.8994,
+      "positive_DSC_percent": 88.03950000000002,
+      "small_DSC_percent": 86.4612,
+      "micro_foreground_precision_percent": 89.051774593855,
+      "micro_foreground_recall_percent": 86.14474963446452,
+      "empty_positive": 0,
+      "zero_overlap_positive": 0,
+      "recall_below_50": 4,
+      "precision_below_50": 6,
+      "small_empty_positive": 0,
+      "positive_DSC_below_10_percent": 3,
+      "positive_DSC_below_50_percent": 4,
+      "negative_false_positive": 0,
+      "brier_224": 0.03425190513255075,
+      "local_area_quartile_DSC_percent": [
+        86.46119999999999,
+        88.7612,
+        91.6396,
+        85.296
+      ],
+      "source_train_area_threshold": 0.058989688326573426,
+      "run_id": "detail224_seed667",
+      "query_mode": "detail",
+      "seed": 667,
+      "cohort": "Val",
+      "prompt": "a polyp in a colonoscopy image",
+      "mc_samples": 30,
+      "batch_size": 32,
+      "inference_seconds": 11.526491992175579,
+      "milliseconds_per_image": 115.26491992175579,
+      "peak_allocated_gib": 2.221648693084717,
+      "trainable_parameters": 18891269,
+      "total_parameters": 214794758,
+      "device": "NVIDIA GeForce RTX 4090",
+      "completed_at": "2026-10-05T01:47:42.011318+00:00"
+    },
+    "sup448_seed666": {
+      "n": 100,
+      "n_positive": 100,
+      "n_negative": 0,
+      "n_small": 25,
+      "DSC_percent": 87.4972,
+      "NSD_percent": 89.4202,
+      "positive_DSC_percent": 87.4972,
+      "small_DSC_percent": 85.3,
+      "micro_foreground_precision_percent": 89.23478069048373,
+      "micro_foreground_recall_percent": 85.32268771486427,
+      "empty_positive": 0,
+      "zero_overlap_positive": 0,
+      "recall_below_50": 4,
+      "precision_below_50": 6,
+      "small_empty_positive": 0,
+      "positive_DSC_below_10_percent": 2,
+      "positive_DSC_below_50_percent": 4,
+      "negative_false_positive": 0,
+      "brier_224": 0.034741884929244404,
+      "local_area_quartile_DSC_percent": [
+        85.3,
+        87.40039999999999,
+        90.8412,
+        86.4472
+      ],
+      "source_train_area_threshold": 0.058989688326573426,
+      "run_id": "sup448_seed666",
+      "query_mode": "baseline",
+      "seed": 666,
+      "cohort": "Val",
+      "prompt": "a polyp in a colonoscopy image",
+      "mc_samples": 30,
+      "batch_size": 32,
+      "inference_seconds": 10.943034881725907,
+      "milliseconds_per_image": 109.43034881725907,
+      "peak_allocated_gib": 2.432223320007324,
+      "trainable_parameters": 18677268,
+      "total_parameters": 214580757,
+      "device": "NVIDIA GeForce RTX 4090",
+      "completed_at": "2026-10-05T00:47:15.311590+00:00"
+    },
+    "sup448_seed667": {
+      "n": 100,
+      "n_positive": 100,
+      "n_negative": 0,
+      "n_small": 25,
+      "DSC_percent": 87.22540000000002,
+      "NSD_percent": 89.14829999999999,
+      "positive_DSC_percent": 87.22540000000002,
+      "small_DSC_percent": 85.0932,
+      "micro_foreground_precision_percent": 89.40422768761763,
+      "micro_foreground_recall_percent": 84.9202964310977,
+      "empty_positive": 0,
+      "zero_overlap_positive": 0,
+      "recall_below_50": 4,
+      "precision_below_50": 6,
+      "small_empty_positive": 0,
+      "positive_DSC_below_10_percent": 2,
+      "positive_DSC_below_50_percent": 5,
+      "negative_false_positive": 0,
+      "brier_224": 0.03507568184402771,
+      "local_area_quartile_DSC_percent": [
+        85.0932,
+        87.494,
+        91.5016,
+        84.8128
+      ],
+      "source_train_area_threshold": 0.058989688326573426,
+      "run_id": "sup448_seed667",
+      "query_mode": "baseline",
+      "seed": 667,
+      "cohort": "Val",
+      "prompt": "a polyp in a colonoscopy image",
+      "mc_samples": 30,
+      "batch_size": 32,
+      "inference_seconds": 11.012827953323722,
+      "milliseconds_per_image": 110.12827953323722,
+      "peak_allocated_gib": 2.432223320007324,
+      "trainable_parameters": 18677268,
+      "total_parameters": 214580757,
+      "device": "NVIDIA GeForce RTX 4090",
+      "completed_at": "2026-10-05T02:07:20.670481+00:00"
+    },
+    "detail448_seed666": {
+      "n": 100,
+      "n_positive": 100,
+      "n_negative": 0,
+      "n_small": 25,
+      "DSC_percent": 88.33619999999999,
+      "NSD_percent": 90.07300000000001,
+      "positive_DSC_percent": 88.33619999999999,
+      "small_DSC_percent": 86.23559999999999,
+      "micro_foreground_precision_percent": 90.4746874177195,
+      "micro_foreground_recall_percent": 85.5161271782632,
+      "empty_positive": 0,
+      "zero_overlap_positive": 0,
+      "recall_below_50": 3,
+      "precision_below_50": 6,
+      "small_empty_positive": 0,
+      "positive_DSC_below_10_percent": 2,
+      "positive_DSC_below_50_percent": 4,
+      "negative_false_positive": 0,
+      "brier_224": 0.033433292877161874,
+      "local_area_quartile_DSC_percent": [
+        86.23559999999999,
+        89.0864,
+        91.41520000000001,
+        86.60759999999999
+      ],
+      "source_train_area_threshold": 0.058989688326573426,
+      "run_id": "detail448_seed666",
+      "query_mode": "detail",
+      "seed": 666,
+      "cohort": "Val",
+      "prompt": "a polyp in a colonoscopy image",
+      "mc_samples": 30,
+      "batch_size": 32,
+      "inference_seconds": 12.231692913919687,
+      "milliseconds_per_image": 122.31692913919687,
+      "peak_allocated_gib": 4.833576679229736,
+      "trainable_parameters": 18893253,
+      "total_parameters": 214796759,
+      "device": "NVIDIA GeForce RTX 4090",
+      "completed_at": "2026-10-05T01:08:27.360097+00:00"
+    },
+    "detail448_seed667": {
+      "n": 100,
+      "n_positive": 100,
+      "n_negative": 0,
+      "n_small": 25,
+      "DSC_percent": 88.37440000000001,
+      "NSD_percent": 90.08720000000001,
+      "positive_DSC_percent": 88.37440000000001,
+      "small_DSC_percent": 86.9956,
+      "micro_foreground_precision_percent": 89.75772429649565,
+      "micro_foreground_recall_percent": 86.27775786549968,
+      "empty_positive": 0,
+      "zero_overlap_positive": 0,
+      "recall_below_50": 4,
+      "precision_below_50": 6,
+      "small_empty_positive": 0,
+      "positive_DSC_below_10_percent": 1,
+      "positive_DSC_below_50_percent": 4,
+      "negative_false_positive": 0,
+      "brier_224": 0.033112942292355,
+      "local_area_quartile_DSC_percent": [
+        86.99560000000001,
+        88.63839999999999,
+        92.3036,
+        85.56
+      ],
+      "source_train_area_threshold": 0.058989688326573426,
+      "run_id": "detail448_seed667",
+      "query_mode": "detail",
+      "seed": 667,
+      "cohort": "Val",
+      "prompt": "a polyp in a colonoscopy image",
+      "mc_samples": 30,
+      "batch_size": 32,
+      "inference_seconds": 12.149375688284636,
+      "milliseconds_per_image": 121.49375688284636,
+      "peak_allocated_gib": 3.638497829437256,
+      "trainable_parameters": 18893253,
+      "total_parameters": 214796759,
+      "device": "NVIDIA GeForce RTX 4090",
+      "completed_at": "2026-10-05T02:29:31.355684+00:00"
+    }
+  },
+  "generated_at": "2026-10-05T02:29:32.779359+00:00"
+}

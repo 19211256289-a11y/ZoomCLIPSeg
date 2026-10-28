@@ -1,0 +1,69 @@
+name: clipseg_scz_v1
+locked_at: '2026-10-07'
+purpose: >-
+  Does scale-canonical zoom (SCZ) help a second frozen-encoder, fixed-resolution, text-prompted segmentation model?
+  External reviews noted that SCZ was shown for MedCLIPSeg variants only and did not help the multi-scale Polyp-PVT.
+  CLIPSeg (frozen CLIP ViT-B/16 encoders, lightweight decoder, 352 x 352 input) is fine-tuned on the Kvasir-SEG training
+  split with one fixed class sentence and evaluated on the five polyp test sets with a single pass and with the locked
+  SCZ window rule, unchanged. The outcome is reported whatever it is.
+locked_before: >-
+  Written after text_probe_v1 and pvt_seeds_v1 had been accepted. No CLIPSeg model had been trained or evaluated in
+  this project.
+model:
+  name: CLIPSeg (CIDAS/clipseg-rd64-refined, Hugging Face)
+  directory: checkpoints/clipseg-rd64-refined
+  trained: decoder only (the CLIP image and text encoders are frozen); the decoder starts from the released weights
+  sentence: a polyp in a colonoscopy image
+seeds: [666, 667, 668]
+groups:
+  kvasir_full:
+    dataset: Kvasir
+    train_list: Train_text.xlsx
+    cohort_source: kvasir_v1
+    targets: [Kvasir, ColonDB, ClinicDB, CVC300, BKAI]
+recipe:
+  input_size: 352                # the resolution of the released model; ImageNet statistics, as in its preprocessor
+  epochs: 100
+  batch_size: 24
+  optimizer: Adam
+  learning_rate: 0.0003
+  final_learning_rate: 0.0001    # cosine decay over all steps, as for our models
+  loss: 0.5 Dice + 0.5 binary cross-entropy
+  augmentation: >-
+    rotation by a random angle within +/-20 degrees with probability 0.5 (as in the MedCLIPSeg implementation), and
+    horizontal and vertical reflection with probability 0.5 each. No scale augmentation.
+  rotation_degrees: 20
+  weights: last epoch; no selection on validation or test data
+inference: one deterministic forward pass; sigmoid; threshold 0.5
+target_fraction: 0.15
+zoom:        # constants of the accepted method; must equal the pilot protocol
+  margin: 1.25
+  min_window: 0.2
+  zoom_in_if_window_at_most: 0.8
+  zoom_out_if_fraction_at_least: 0.20
+  zoom_out_target_fraction: 0.10
+  max_window: 2.0
+  fusion: second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty
+definitions:
+  single: one pass of the whole image at 352 x 352
+  scz: >-
+    the locked window rule (target fraction 0.15, constants above) applied to the first prediction; the window is cropped
+    from the original pixels, resized to 352 x 352 and segmented by the same model with the same sentence
+reading_rules_fixed_in_advance:
+  statistic: >-
+    DSC difference SCZ minus single pass in percentage points; mean over the three seeds of paired image-level
+    differences; macro mean over the four OOD sets, with a bootstrap interval and a sign-flip permutation test
+  transfers: the OOD gain is positive for every seed and its interval excludes zero
+  does_not_transfer: the interval of the OOD gain includes zero or lies below it
+  consequence: >-
+    If transfers holds, the manuscript states that SCZ also helps a second frozen-encoder, fixed-resolution
+    text-prompted model and gives the gain. If does_not_transfer holds, it states that SCZ did not help CLIPSeg and
+    keeps the scope "MedCLIPSeg variants only". A positive gain that is not positive for every seed is reported as such
+    and counts as neither. The accuracy of CLIPSeg itself is reported for context and is not compared with our models
+    as a ranking, because its recipe was not tuned.
+disclosures:
+  - The five polyp test sets were used in earlier stages of this project; ETIS-Larib is not touched.
+  - The training recipe of CLIPSeg was fixed here without tuning and differs from the one used for the values reported in the MedCLIPSeg paper.
+  - The decoder starts from released weights, so that the seeds differ in mini-batch order and augmentation only.
+  - The target fraction and the zoom constants are those locked for MedCLIPSeg at 224 x 224; nothing is re-derived for this model.
+statistics: {permutation_draws: 20000, bootstrap_draws: 10000, rng_seed: 20261019}

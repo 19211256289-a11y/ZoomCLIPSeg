@@ -1,0 +1,10 @@
+{
+  "run": "global_mix_seed669",
+  "cohort": "BKAI",
+  "single_pass_DSC_percent": 74.853,
+  "accepted_DSC_percent": 74.85470000000001,
+  "difference_pp": -0.0017000000000138016,
+  "largest_case_difference_pp": 0.9599999999999997,
+  "tolerance_pp": 0.25,
+  "passed": true
+}

@@ -1,0 +1,16 @@
+{
+  "signature": {
+    "suite": "formal_controls_kvasir_v1",
+    "run": "baseline_seed666",
+    "cohort": "Val",
+    "checkpoint_sha256": "80b612bbb68b848b691715ccfd351fde654ad705a37fed0bbf922f4c51c8db3f",
+    "science_digest": "b84c6e4ea2724d536e58bcb4f10ae1ddc0eed4b8964abfec0cfb3672c3fbab49",
+    "list_sha256": "097bdbbec8defdd7e20a590a1dd9f80b64d2f2d504521e46a927ec41abb8cf79",
+    "configs": []
+  },
+  "complete": true,
+  "n": 100,
+  "cases_sha256": "16daf9151ad81a4241145e2c5596f20e91f20c295cbe42a853022092195c4b1a",
+  "finished_at": "2026-10-08T11:39:15.348800+00:00",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

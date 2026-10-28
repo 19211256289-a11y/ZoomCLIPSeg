@@ -1,0 +1,10 @@
+{
+  "run": "baseline_seed668",
+  "cohort": "BUID",
+  "single_pass_DSC_percent": 70.00742857142858,
+  "accepted_DSC_percent": 70.00742857142858,
+  "difference_pp": 0.0,
+  "largest_case_difference_pp": 0.0,
+  "tolerance_pp": 0.1,
+  "passed": true
+}

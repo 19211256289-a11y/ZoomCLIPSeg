@@ -1,0 +1,15 @@
+{
+  "signature": {
+    "suite": "pvt_ext_v1",
+    "plan_digest": "67d5e4ca6ac5a31cf9cd65247d954caa5de8c7b993028a881784168c88072eb2",
+    "group": "kvasir_p10",
+    "seed": 668,
+    "cohort": "ColonDB",
+    "weights_sha256": "73fc911ef95696729e43a301aa6c37bee0175f51983f74c6eba0f2dec38c64c7"
+  },
+  "complete": true,
+  "n": 360,
+  "finished_at": "2026-10-07T03:38:41.311035+00:00",
+  "sha256": "29cbf64fc870d8090172a62069a80b2f8242b88ffae348a895b6388b49a18b8f",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

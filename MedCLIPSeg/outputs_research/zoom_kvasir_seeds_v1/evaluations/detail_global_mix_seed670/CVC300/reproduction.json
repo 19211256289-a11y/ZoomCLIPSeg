@@ -1,0 +1,10 @@
+{
+  "run": "detail_global_mix_seed670",
+  "cohort": "CVC300",
+  "single_pass_DSC_percent": 80.74983333333337,
+  "accepted_DSC_percent": 80.73733333333338,
+  "difference_pp": 0.012500000000000474,
+  "largest_case_difference_pp": 0.40999999999999925,
+  "tolerance_pp": 0.25,
+  "passed": true
+}

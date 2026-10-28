@@ -1,0 +1,53 @@
+{
+  "signature": {
+    "suite": "zoom_box_v1",
+    "plan_digest": "25d87236e9c137421c25c759dbab019c661218809d3a5bea201a91010a960285",
+    "run": "detail_seed666",
+    "cohort": "CVC300",
+    "checkpoint_sha256": "3e06610d8c4c9ed408d8bfb001f66d1e11eb068266fabac0c6d1b60d7eddda2d",
+    "prompt": "a polyp in a colonoscopy image",
+    "variants": [
+      {
+        "name": "plain125",
+        "tau": 1000000000000.0,
+        "margin": 1.25,
+        "min_window": 0.02,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      },
+      {
+        "name": "plain150",
+        "tau": 1000000000000.0,
+        "margin": 1.5,
+        "min_window": 0.02,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      },
+      {
+        "name": "plain200",
+        "tau": 1000000000000.0,
+        "margin": 2.0,
+        "min_window": 0.02,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      },
+      {
+        "name": "box125",
+        "tau": 1000000000000.0,
+        "margin": 1.25,
+        "min_window": 0.2,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      }
+    ]
+  },
+  "complete": true,
+  "n": 300,
+  "finished_at": "2026-10-06T08:19:29.324697+00:00",
+  "sha256": "fe632be2eecafefe2181c847ddce2c92fa89455f0b7046aa6da60afd93ac5cbd",
+  "device": "NVIDIA GeForce RTX 5060 Ti"
+}

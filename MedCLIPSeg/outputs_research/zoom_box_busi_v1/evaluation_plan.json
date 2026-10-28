@@ -1,0 +1,223 @@
+{
+  "protocol": {
+    "name": "zoom_box_busi_v1",
+    "locked_at": "2026-10-06",
+    "purpose": "Evaluation-only control on breast ultrasound. On polyps (zoom_box_v1) a plain crop of twice the predicted box was not distinguishable from the locked window rule. The rule, however, takes its magnification from the training masks of each source dataset (quantile matching, target fraction 0.086 for BUSI), whereas a fixed factor has to be chosen. Question: does the factor that was best on polyps (2.0) transfer to ultrasound, or does the rule, which was not tuned on ultrasound either, do better there? Nothing is trained; the locked configuration remains the method whatever the outcome, and the outcome is reported whatever it is.",
+    "locked_before": "Written after zoom_box_v1 (polyps) had been accepted and before any box-crop result on ultrasound existed.",
+    "lineage": {
+      "reports/acceptance_pilot_zoom_20261005/audit.json": "8bab68fe6d7bd821844dc0f2d842b9cf9cae93c65165f5ec51871c0aca0d21b3",
+      "reports/acceptance_test_zoom_20261005/audit.json": "8212840dbfb2057411b584af8c661a7243aca29d68fd162a098b40d5cebdad17"
+    },
+    "mc_samples": 30,
+    "batch_size": 32,
+    "threshold": 0.5,
+    "reproduction_tolerance_pp": 0.25,
+    "sources": {
+      "formal_detail_mix_busi_v1": [
+        666,
+        667,
+        668
+      ]
+    },
+    "arm": "detail",
+    "accepted_two_pass": {
+      "formal_detail_mix_busi_v1": "zoom_busi_v1"
+    },
+    "reference_config": "tcal",
+    "window_rules": {
+      "tcal": "side = max( sqrt(a / tau), 1.25 b, 0.2 ) with the quantile-matched tau, second pass if side <= 0.8  (accepted method)",
+      "box": "side = max( margin b, 0.02 ), second pass if side <= 0.8  (plain crop of the predicted box; no area term)"
+    },
+    "variants": [
+      {
+        "name": "plain125",
+        "margin": 1.25,
+        "min_window": 0.02
+      },
+      {
+        "name": "plain150",
+        "margin": 1.5,
+        "min_window": 0.02
+      },
+      {
+        "name": "plain200",
+        "margin": 2.0,
+        "min_window": 0.02
+      },
+      {
+        "name": "plain300",
+        "margin": 3.0,
+        "min_window": 0.02
+      },
+      {
+        "name": "plain400",
+        "margin": 4.0,
+        "min_window": 0.02
+      }
+    ],
+    "variant_notes": {
+      "factors": "1.25, 1.5 and 2.0 are the factors of zoom_box_v1; 3.0 and 4.0 were added before any ultrasound result existed.",
+      "geometry_note": "for a compact prediction the area term of the rule equals about 3.0 b with tau = 0.086 (about 2.3 b on polyps), so that plain300 is expected to choose windows similar to the rule on ultrasound."
+    },
+    "trigger": 0.8,
+    "zoom": {
+      "margin": 1.25,
+      "min_window": 0.2,
+      "zoom_in_if_window_at_most": 0.8,
+      "zoom_out_if_fraction_at_least": 0.2,
+      "zoom_out_target_fraction": 0.1,
+      "max_window": 2.0,
+      "fusion": "second-pass map replaces the first inside the window; zero outside; first pass kept if the second is empty"
+    },
+    "reading_rules_fixed_in_advance": {
+      "statistic": "DSC of the rule minus DSC of the variant, percentage points; mean over the three seeds of paired image-level differences; macro mean over the four OOD sets, with a bootstrap interval and a sign-flip permutation test",
+      "per_variant": {
+        "rule_better": "the difference is positive and its interval excludes zero",
+        "variant_better": "the difference is negative and its interval excludes zero",
+        "not_distinguishable": "otherwise"
+      },
+      "transfer": {
+        "supported": "rule_better against plain200, the factor that was best on polyps",
+        "not_supported": "otherwise"
+      },
+      "consequence": "supported: the manuscript may state that a factor chosen on one dataset does not carry over while the rule does. not_supported: the manuscript states that a fixed factor of about two performed like the rule on both modalities, and does not present the transfer rule as an advantage in accuracy.",
+      "note": "descriptive; no configuration is selected from these results"
+    },
+    "disclosures": [
+      "The ultrasound test sets were used in earlier stages of this project.",
+      "BUID (35 images) and UDIAT (25 images) are small; the study has three seeds.",
+      "Only the detail-branch model is evaluated.",
+      "No factor was tuned; whether a factor outside this list does better is unknown."
+    ],
+    "statistics": {
+      "permutation_draws": 20000,
+      "bootstrap_draws": 10000,
+      "rng_seed": 20261012
+    },
+    "probe_variants": [
+      {
+        "name": "plain125",
+        "tau": 1000000000000.0,
+        "margin": 1.25,
+        "min_window": 0.02,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      },
+      {
+        "name": "plain150",
+        "tau": 1000000000000.0,
+        "margin": 1.5,
+        "min_window": 0.02,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      },
+      {
+        "name": "plain200",
+        "tau": 1000000000000.0,
+        "margin": 2.0,
+        "min_window": 0.02,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      },
+      {
+        "name": "plain300",
+        "tau": 1000000000000.0,
+        "margin": 3.0,
+        "min_window": 0.02,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      },
+      {
+        "name": "plain400",
+        "tau": 1000000000000.0,
+        "margin": 4.0,
+        "min_window": 0.02,
+        "trigger": 0.8,
+        "pixels": "original",
+        "output": "original"
+      }
+    ],
+    "seeds": [
+      666,
+      667,
+      668
+    ],
+    "runs": [
+      "detail_seed666",
+      "detail_seed667",
+      "detail_seed668"
+    ]
+  },
+  "protocol_sha256": "b35324db3ca9416bd6b5b501b11c922a898998ed02b0558b78a05f0ef2655e78",
+  "code": {
+    "research_zoom_box_busi/__init__.py": "13f0d80a5ae29e9a63907090c6b894cd5f801cbba796a7f86ab6f48ecdb47458",
+    "research_zoom_box_busi/common.py": "dedba11964ea30df421d3fab50b1542ec4852b0525293780eeae6f28a53db9bc",
+    "research_zoom_box_busi/report.py": "82a526972fca1eb2a41718816afddc48b1685443624e3342b4d49342fde65cb2",
+    "research_zoom_box_busi/runner.py": "8ab95c5ded20ba9ba7077a5561404f2dea5e3d2f318fa15db81319e81709a399",
+    "research_zoom/evaluate.py": "024cef32be79463bf36e4bbbf29cf665d730bd29215f2fbe279939b8f72e4629",
+    "research_zoom/geometry.py": "23c20c342bb6fac71c135d50031db72dedcb926f890cf942f7ed0fa8dee3ed23",
+    "research_zoom_probe/evaluate.py": "26e3f42acd58c95a6dbea924ba9daec5d8e6a57f71f4f77bd1cb2449cff4cc25",
+    "research_zoom_probe/geometry.py": "e6a0c24369616e54f92158170afbb3e518f7dc63bdc8b1dc7214d1e5d7729f50"
+  },
+  "checkpoints": {
+    "formal_detail_mix_busi_v1": {
+      "detail_seed666": "15313cd5d935e527eed840fa1e522ac4ef1bf219fd5c1ea8166b56a51ab718a8",
+      "detail_seed667": "029fa59dad718938a8e19efb1ea3b3f8ace5980a00c6fa2c55c072189924d13a",
+      "detail_seed668": "bc3089d076a35d7d3d6694181ccad6618ba573b29e0f5f38c3f9e9f475547ba5"
+    }
+  },
+  "cohorts": {
+    "formal_detail_mix_busi_v1": {
+      "BUSI": {
+        "n": 78,
+        "list_sha256": "e114a8efc53d859a519d393b8cad7dabd90de5569a2962492db1898d81ca7ed4",
+        "files_digest": "5726cc14d5dcdb6e34b3f32ee3420eadab078daa74b4bde712e48ef5c9209d02"
+      },
+      "BUSBRA": {
+        "n": 282,
+        "list_sha256": "668ceaefc1e1b235fe6d9bd70edab669b4899647c34629b82135b281a1574cb7",
+        "files_digest": "f86b53c8949ddf36747267cc68608e2f852f694dce678d244a9a11afcc83fffd"
+      },
+      "BUSUC": {
+        "n": 122,
+        "list_sha256": "3f24c79d2c3966a6c23a146a9cece10e56e38b759e507a1c96ace005a6e24be8",
+        "files_digest": "5eee8aea34cfe64c49ee8c29897db6a57d7c9b74a823f688016387be658be91c"
+      },
+      "BUID": {
+        "n": 35,
+        "list_sha256": "05c135d11eb1362394cdf6a4bf5d0174852daa02d759aeafbc61778ea3bc5307",
+        "files_digest": "48e600d831b7bb4d73ec3d35514d7dea64e8e2ae632e1c5dd31532549ffa4ce4"
+      },
+      "UDIAT": {
+        "n": 25,
+        "list_sha256": "0a3feb0e1d5cc97297d6a356e2c0643d23dc287234f3bbd4cb2b553ca3ee450e",
+        "files_digest": "508d483b8d9f42a5746851d5c10fbb08375c1cf764b88ec9d571d9daca1d37a2"
+      }
+    }
+  },
+  "accepted_two_pass": {
+    "detail_seed666/BUSI": "62a18786472928d500b578087dd87e7d5abcf0ba6ce7e42c6c13918fb012c100",
+    "detail_seed666/BUSBRA": "240873a7e27f6bae55e3bb87a6ed90de848b25e1a9ff1f7ff9c6aa0891bfea43",
+    "detail_seed666/BUSUC": "4df0fdf44991e2ac277a0f02b48d4190c066406a5b2d0d89078c190eacd38daf",
+    "detail_seed666/BUID": "a0b9b94579f92fbf5b68c68264c69c79830efe4b5f75ba319834e101264680f5",
+    "detail_seed666/UDIAT": "b335a78b57f31c0c4e7807ec1284f062a940e7e8a8fddcb31361c76a00709db4",
+    "detail_seed667/BUSI": "c7929707f32abb359014fb1e90ffffe5e37428a21e478e3319faf6aaa185252b",
+    "detail_seed667/BUSBRA": "10e065a6247f65ac1e88f3cb5980709b58132062db73933b4054686562391bd3",
+    "detail_seed667/BUSUC": "ada3c1610a1ade4a577b0f3bf4842112a716bd9fc7c7f39229aed8d53b205ad0",
+    "detail_seed667/BUID": "2dcfda0463bc96bd5c090d4e9d90c1298039eabcc477c67c7471821f3053e7b4",
+    "detail_seed667/UDIAT": "0adab894a293eb25cf275ece047afe442f1868c2b01384430901c847ad1f7a81",
+    "detail_seed668/BUSI": "a286626e35f9130309bae8f6518d4536a83ee4447eb7ee281a10286a0e5df492",
+    "detail_seed668/BUSBRA": "95dd2b7778a694abe783014d9c88dd1b8e8c52fe9533038d59c351fe76df607a",
+    "detail_seed668/BUSUC": "1d4290ec73c5bd03313a1ab4b6b89e7558c60a3bf19483cc07e33b4b593341e5",
+    "detail_seed668/BUID": "463d096c5ceffdd596979fb74ef48da16d3b00f01e0d2b739dc6e4dc1c25c1c7",
+    "detail_seed668/UDIAT": "80b74e77529112bb2825158997b8e9a398d70296a5b2bf17c83adbfcc5e5334d"
+  },
+  "prompts": {
+    "formal_detail_mix_busi_v1": "a tumor in a breast ultrasound image"
+  },
+  "digest": "0fd63629f375648561822f86d78ed4fb55feb6d94f83f9d918bbe477941a761b"
+}

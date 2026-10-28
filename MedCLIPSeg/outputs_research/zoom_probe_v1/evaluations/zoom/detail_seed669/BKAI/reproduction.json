@@ -1,0 +1,23 @@
+{
+  "checks": [
+    {
+      "what": "detail_seed669/BKAI single pass",
+      "DSC_percent": 74.99709999999999,
+      "accepted_DSC_percent": 75.0099,
+      "difference_pp": -0.012800000000012801,
+      "largest_case_difference_pp": 1.1099999999999999,
+      "tolerance_pp": 0.25,
+      "passed": true
+    },
+    {
+      "what": "detail_seed669/BKAI accepted two-pass (t15)",
+      "DSC_percent": 79.37799999999999,
+      "accepted_DSC_percent": 79.3783,
+      "difference_pp": -0.00030000000000995897,
+      "largest_case_difference_pp": 0.019999999999997797,
+      "tolerance_pp": 0.25,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

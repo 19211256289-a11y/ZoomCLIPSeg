@@ -1,0 +1,134 @@
+{
+  "suite": "pvt_zoom_v1",
+  "audited_at": "2026-10-06T12:55:56.696726+00:00",
+  "execution_valid": true,
+  "gate_verdict": "not_applicable_descriptive",
+  "checks": {
+    "queue": "completed, 20/20 jobs, no error, 6 minutes",
+    "plan_digest_consistent": true,
+    "reproduction": "single-pass rows reproduce the accepted Polyp-PVT results (two records inspected: differences 0.0002 and below tolerance 0.05 pp; the runner aborts on failure)",
+    "code_hashes": "11 of 13 sealed code files identical to the auditor copy; the other two are accepted files not held by the auditor",
+    "independent_recomputation": "single-pass and two-pass DSC of all six sets recomputed from the 18 case files: identical to the report"
+  },
+  "files": {
+    "results_json_sha256": "657620e2714fb1fd6c869f4b4208a3531edac6a7ff5c93291b9a97adc06c65fc",
+    "report_md_sha256": "4406a75067fedfbbfead73009f0bed79c79ddb8d7ba879dcebcabd8de8b88605",
+    "plan_digest": "cf3b9414f22c3a7dfca69e9d166c442555473a64567588e3010a9f7b73b92c21"
+  },
+  "findings": {
+    "verdict_by_rule": "scz_harms",
+    "ood_macro": {
+      "mean_pp": -1.3445420689131753,
+      "ci95_pp": [
+        -2.0934061839708558,
+        -0.632760614943837
+      ],
+      "p": 9.99950002499875e-05
+    },
+    "per_seed": [
+      -1.815797449908925,
+      -0.9412455828779602,
+      -1.2765831739526403
+    ],
+    "etis": {
+      "mean_pp": -1.1100680272108843,
+      "ci95_pp": [
+        -2.6002619047619047,
+        0.36782908163265127
+      ],
+      "p": 0.14189290535473226,
+      "n": 196
+    },
+    "strata": {
+      "OOD pooled": [
+        {
+          "stratum": "<1%",
+          "n": 55,
+          "pvt": 43.09090909090909,
+          "pvt_scz": 38.910303030303034,
+          "ours_baseline": 22.890181818181816,
+          "ours_full": 33.34321212121212
+        },
+        {
+          "stratum": "1-3%",
+          "n": 179,
+          "pvt": 80.18545623836127,
+          "pvt_scz": 79.01364990689014,
+          "ours_baseline": 72.17800744878957,
+          "ours_full": 76.47208566108007
+        },
+        {
+          "stratum": "3-5.9%",
+          "n": 158,
+          "pvt": 85.9323628691983,
+          "pvt_scz": 84.70571729957805,
+          "ours_baseline": 82.56390295358652,
+          "ours_full": 83.63177215189874
+        },
+        {
+          "stratum": "5.9-15%",
+          "n": 129,
+          "pvt": 88.72909560723514,
+          "pvt_scz": 87.51883720930233,
+          "ours_baseline": 84.998165374677,
+          "ours_full": 85.6894056847545
+        },
+        {
+          "stratum": ">=15%",
+          "n": 60,
+          "pvt": 78.85872222222223,
+          "pvt_scz": 79.31566666666666,
+          "ours_baseline": 68.21172222222222,
+          "ours_full": 65.52338888888889
+        }
+      ],
+      "ETIS": [
+        {
+          "stratum": "<1%",
+          "n": 62,
+          "pvt": 55.68344086021505,
+          "pvt_scz": 58.082956989247315,
+          "ours_baseline": 34.131236559139786,
+          "ours_full": 45.09543010752688
+        },
+        {
+          "stratum": "1-3%",
+          "n": 54,
+          "pvt": 80.16438271604939,
+          "pvt_scz": 77.57962962962964,
+          "ours_baseline": 49.593148148148146,
+          "ours_full": 61.562469135802466
+        },
+        {
+          "stratum": "3-5.9%",
+          "n": 35,
+          "pvt": 78.05657142857142,
+          "pvt_scz": 72.45514285714286,
+          "ours_baseline": 61.569428571428574,
+          "ours_full": 58.69457142857142
+        },
+        {
+          "stratum": "5.9-15%",
+          "n": 27,
+          "pvt": 87.31320987654321,
+          "pvt_scz": 86.17555555555555,
+          "ours_baseline": 78.42296296296297,
+          "ours_full": 75.29814814814814
+        },
+        {
+          "stratum": ">=15%",
+          "n": 18,
+          "pvt": 95.2751851851852,
+          "pvt_scz": 95.2751851851852,
+          "ours_baseline": 94.53814814814815,
+          "ours_full": 94.94981481481481
+        }
+      ]
+    }
+  },
+  "auditor_notes": [
+    "Verdict scz_harms: the OOD mean falls by 1.34 pp with an interval that excludes zero, in all three seeds. By the consequence fixed in the protocol the manuscript states that the benefit of SCZ is specific to the frozen 224 model.",
+    "Exception by stratum: on ETIS lesions below 1% of the image SCZ raises Polyp-PVT from 55.68 to 58.08; all other strata fall or are unchanged.",
+    "The protocol was written after the single-pass preview of seed 666 and before any two-pass result existed; this is stated in the protocol and the report."
+  ]
+}

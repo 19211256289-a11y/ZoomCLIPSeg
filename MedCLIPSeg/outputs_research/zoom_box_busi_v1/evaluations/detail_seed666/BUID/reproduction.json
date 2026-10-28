@@ -1,0 +1,9 @@
+{
+  "run": "detail_seed666",
+  "cohort": "BUID",
+  "single_pass_DSC_percent": 74.22914285714286,
+  "accepted_DSC_percent": 74.22942857142857,
+  "difference_pp": -0.00028571428572377044,
+  "tolerance_pp": 0.25,
+  "passed": true
+}

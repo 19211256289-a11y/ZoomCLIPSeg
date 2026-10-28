@@ -1,0 +1,1772 @@
+{
+  "scope": "Kvasir source Val, n=100, 25 small; saved accepted predictions only",
+  "sources": {
+    "baseline_seed666": {
+      "path": "E:\\BaiduNetdiskDownload\\paper\\server_backups\\server5090\\formal_detail_mix_kvasir_v1\\workspace\\MedCLIPSeg\\outputs_research\\formal_detail_mix_kvasir_v1\\local\\evaluations\\baseline_seed666\\generic\\cases.csv",
+      "sha256": "1b116826cfe8b6272da1780f654c3413d2131a777d7043b87cd27667d45c51cf"
+    },
+    "global_mix_seed666": {
+      "path": "E:\\BaiduNetdiskDownload\\paper\\server_backups\\server5090\\formal_detail_mix_kvasir_v1\\workspace\\MedCLIPSeg\\outputs_research\\formal_detail_mix_kvasir_v1\\local\\evaluations\\global_mix_seed666\\generic\\cases.csv",
+      "sha256": "ac16d90a4a3123cd6913d4357ad42b8de584c162c638196633c59f355b012582"
+    },
+    "detail_seed666": {
+      "path": "E:\\BaiduNetdiskDownload\\paper\\server_backups\\server5090\\formal_detail_mix_kvasir_v1\\workspace\\MedCLIPSeg\\outputs_research\\formal_detail_mix_kvasir_v1\\local\\evaluations\\detail_seed666\\generic\\cases.csv",
+      "sha256": "bfa8f7cc1ef699004722877bd039ff1728fd953dde5ab4f48257d0b5a110c53e"
+    },
+    "detail_global_mix_seed666": {
+      "path": "E:\\BaiduNetdiskDownload\\paper\\server_backups\\server5090\\formal_detail_mix_kvasir_v1\\workspace\\MedCLIPSeg\\outputs_research\\formal_detail_mix_kvasir_v1\\local\\evaluations\\detail_global_mix_seed666\\generic\\cases.csv",
+      "sha256": "ad5ffae23ddaa89a79136a36a729494d3a8231ed3d6d1270926ac29059f90651"
+    },
+    "baseline_seed667": {
+      "path": "E:\\BaiduNetdiskDownload\\paper\\server_backups\\server4090\\formal_detail_mix_kvasir_v1\\workspace\\MedCLIPSeg\\outputs_research\\formal_detail_mix_kvasir_v1\\server4090\\evaluations\\baseline_seed667\\generic\\cases.csv",
+      "sha256": "724a0bbcf5d0356072c09b43322d2bc29b788a298717680461ffef885f7fd085"
+    },
+    "global_mix_seed667": {
+      "path": "E:\\BaiduNetdiskDownload\\paper\\server_backups\\server4090\\formal_detail_mix_kvasir_v1\\workspace\\MedCLIPSeg\\outputs_research\\formal_detail_mix_kvasir_v1\\server4090\\evaluations\\global_mix_seed667\\generic\\cases.csv",
+      "sha256": "f2b179b031f53d301c9779b8c564aa20057fae52217d33c800d367c8851ec083"
+    },
+    "detail_seed667": {
+      "path": "E:\\BaiduNetdiskDownload\\paper\\server_backups\\server4090\\formal_detail_mix_kvasir_v1\\workspace\\MedCLIPSeg\\outputs_research\\formal_detail_mix_kvasir_v1\\server4090\\evaluations\\detail_seed667\\generic\\cases.csv",
+      "sha256": "5e564ee20bf8dba3a3326f0d80f886a62dcb5e3224edea9085db2c8eec14f9e0"
+    },
+    "detail_global_mix_seed667": {
+      "path": "E:\\BaiduNetdiskDownload\\paper\\server_backups\\server5090\\dg667_668\\workspace\\MedCLIPSeg\\outputs_research\\formal_detail_mix_kvasir_v1\\server4090\\evaluations\\detail_global_mix_seed667\\generic\\cases.csv",
+      "sha256": "5ba6ad6c75b04ae0e334e5aac740244f5974668c9cd59e4fca8bf25e3f7bf48f"
+    },
+    "baseline_seed668": {
+      "path": "E:\\BaiduNetdiskDownload\\paper\\server_backups\\server4090\\formal_detail_mix_kvasir_v1\\workspace\\MedCLIPSeg\\outputs_research\\formal_detail_mix_kvasir_v1\\server4090\\evaluations\\baseline_seed668\\generic\\cases.csv",
+      "sha256": "1bdbf6de5f249bc854ec9e25a6742b97ac49d1c94911524cd88f6cbe075eb324"
+    },
+    "global_mix_seed668": {
+      "path": "E:\\BaiduNetdiskDownload\\paper\\server_backups\\server4090\\formal_detail_mix_kvasir_v1\\workspace\\MedCLIPSeg\\outputs_research\\formal_detail_mix_kvasir_v1\\server4090\\evaluations\\global_mix_seed668\\generic\\cases.csv",
+      "sha256": "372fef55dcf68ab18a36847bf93e3e986dda48932bb01427a91083b9326539f2"
+    },
+    "detail_seed668": {
+      "path": "E:\\BaiduNetdiskDownload\\paper\\server_backups\\server4090\\formal_detail_mix_kvasir_v1\\workspace\\MedCLIPSeg\\outputs_research\\formal_detail_mix_kvasir_v1\\server4090\\evaluations\\detail_seed668\\generic\\cases.csv",
+      "sha256": "c4dd861769914e1ed9cfd6f54a919d1937f40f81812f09ff6271ac40d2550752"
+    },
+    "detail_global_mix_seed668": {
+      "path": "E:\\BaiduNetdiskDownload\\paper\\server_backups\\server5090\\dg667_668\\workspace\\MedCLIPSeg\\outputs_research\\formal_detail_mix_kvasir_v1\\server4090\\evaluations\\detail_global_mix_seed668\\generic\\cases.csv",
+      "sha256": "84bb754987fac4968819bff8c1f3fb8369cc0b7ac35f2311a9cbb340afc64bd1"
+    }
+  },
+  "result": {
+    "arms": {
+      "baseline": {
+        "n": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100,
+            100
+          ]
+        },
+        "n_positive": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100,
+            100
+          ]
+        },
+        "n_negative": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        },
+        "n_small": {
+          "mean": 25.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            25,
+            25,
+            25
+          ]
+        },
+        "DSC_percent": {
+          "mean": 88.36566666666666,
+          "sample_sd": 0.305679478103014,
+          "per_seed": [
+            88.46209999999998,
+            88.61149999999999,
+            88.0234
+          ]
+        },
+        "NSD_percent": {
+          "mean": 90.3331,
+          "sample_sd": 0.26659999999999734,
+          "per_seed": [
+            90.41369999999999,
+            90.55010000000001,
+            90.03550000000001
+          ]
+        },
+        "small_DSC_percent": {
+          "mean": 85.08026666666666,
+          "sample_sd": 0.11053783665937061,
+          "per_seed": [
+            85.02839999999999,
+            85.2072,
+            85.0052
+          ]
+        },
+        "small_NSD_percent": {
+          "mean": 88.02386666666666,
+          "sample_sd": 0.06922465841976132,
+          "per_seed": [
+            87.95360000000001,
+            88.092,
+            88.026
+          ]
+        },
+        "micro_foreground_precision_percent": {
+          "mean": 89.94071026832835,
+          "sample_sd": 0.43732650386519034,
+          "per_seed": [
+            89.9116941187995,
+            89.51861438264022,
+            90.3918223035453
+          ]
+        },
+        "micro_foreground_recall_percent": {
+          "mean": 87.05204891761632,
+          "sample_sd": 0.745674442038654,
+          "per_seed": [
+            87.06829287255557,
+            87.78946867201391,
+            86.29838520827943
+          ]
+        },
+        "fp_pixels": {
+          "mean": 523680.0,
+          "sample_sd": 29757.830179635075,
+          "per_seed": [
+            525231,
+            552632,
+            493177
+          ]
+        },
+        "fn_pixels": {
+          "mean": 696128.3333333334,
+          "sample_sd": 40090.13497524463,
+          "per_seed": [
+            695255,
+            656482,
+            736648
+          ]
+        },
+        "empty_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        },
+        "zero_overlap_positive": {
+          "mean": 0.3333333333333333,
+          "sample_sd": 0.5773502691896258,
+          "per_seed": [
+            0,
+            1,
+            0
+          ]
+        },
+        "positive_DSC_below_50_percent": {
+          "mean": 2.6666666666666665,
+          "sample_sd": 0.5773502691896258,
+          "per_seed": [
+            3,
+            3,
+            2
+          ]
+        },
+        "negative_false_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "global_mix": {
+        "n": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100,
+            100
+          ]
+        },
+        "n_positive": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100,
+            100
+          ]
+        },
+        "n_negative": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        },
+        "n_small": {
+          "mean": 25.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            25,
+            25,
+            25
+          ]
+        },
+        "DSC_percent": {
+          "mean": 88.3396,
+          "sample_sd": 0.3845109621324293,
+          "per_seed": [
+            88.46600000000001,
+            88.64500000000001,
+            87.9078
+          ]
+        },
+        "NSD_percent": {
+          "mean": 90.31233333333334,
+          "sample_sd": 0.3512222990263241,
+          "per_seed": [
+            90.40969999999999,
+            90.6046,
+            89.92269999999999
+          ]
+        },
+        "small_DSC_percent": {
+          "mean": 85.25146666666667,
+          "sample_sd": 0.02806373698090326,
+          "per_seed": [
+            85.24560000000001,
+            85.22680000000001,
+            85.28200000000001
+          ]
+        },
+        "small_NSD_percent": {
+          "mean": 88.20479999999999,
+          "sample_sd": 0.1091032538469824,
+          "per_seed": [
+            88.24359999999999,
+            88.08160000000001,
+            88.28920000000001
+          ]
+        },
+        "micro_foreground_precision_percent": {
+          "mean": 90.05301949263519,
+          "sample_sd": 0.3595794837890656,
+          "per_seed": [
+            89.76640724689328,
+            89.93615745718327,
+            90.45649377382897
+          ]
+        },
+        "micro_foreground_recall_percent": {
+          "mean": 86.72527262409375,
+          "sample_sd": 1.317754419992041,
+          "per_seed": [
+            87.14473866049495,
+            87.78223329208485,
+            85.24884591970142
+          ]
+        },
+        "fp_pixels": {
+          "mean": 515263.3333333333,
+          "sample_sd": 27625.340347827994,
+          "per_seed": [
+            534126,
+            528110,
+            483554
+          ]
+        },
+        "fn_pixels": {
+          "mean": 713697.0,
+          "sample_sd": 70847.20835713994,
+          "per_seed": [
+            691145,
+            656871,
+            793075
+          ]
+        },
+        "empty_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        },
+        "zero_overlap_positive": {
+          "mean": 0.3333333333333333,
+          "sample_sd": 0.5773502691896258,
+          "per_seed": [
+            0,
+            1,
+            0
+          ]
+        },
+        "positive_DSC_below_50_percent": {
+          "mean": 2.6666666666666665,
+          "sample_sd": 0.5773502691896258,
+          "per_seed": [
+            3,
+            3,
+            2
+          ]
+        },
+        "negative_false_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "detail": {
+        "n": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100,
+            100
+          ]
+        },
+        "n_positive": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100,
+            100
+          ]
+        },
+        "n_negative": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        },
+        "n_small": {
+          "mean": 25.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            25,
+            25,
+            25
+          ]
+        },
+        "DSC_percent": {
+          "mean": 88.85693333333332,
+          "sample_sd": 0.4980478022573142,
+          "per_seed": [
+            89.1884,
+            89.09819999999999,
+            88.28419999999998
+          ]
+        },
+        "NSD_percent": {
+          "mean": 90.73746666666666,
+          "sample_sd": 0.4739230352423687,
+          "per_seed": [
+            91.0597,
+            90.9594,
+            90.1933
+          ]
+        },
+        "small_DSC_percent": {
+          "mean": 86.31293333333333,
+          "sample_sd": 0.9026234061519413,
+          "per_seed": [
+            86.638,
+            87.008,
+            85.2928
+          ]
+        },
+        "small_NSD_percent": {
+          "mean": 89.08053333333334,
+          "sample_sd": 0.905368374383234,
+          "per_seed": [
+            89.4348,
+            89.7552,
+            88.0516
+          ]
+        },
+        "micro_foreground_precision_percent": {
+          "mean": 91.0222806536915,
+          "sample_sd": 0.10487582238477264,
+          "per_seed": [
+            90.90559413565992,
+            91.10867975885623,
+            91.05256806655834
+          ]
+        },
+        "micro_foreground_recall_percent": {
+          "mean": 86.72726901855573,
+          "sample_sd": 0.48510336776615415,
+          "per_seed": [
+            86.94977400132692,
+            87.06120629221374,
+            86.17082676212657
+          ]
+        },
+        "fp_pixels": {
+          "mean": 459906.3333333333,
+          "sample_sd": 6768.227045049046,
+          "per_seed": [
+            467671,
+            456793,
+            455255
+          ]
+        },
+        "fn_pixels": {
+          "mean": 713589.6666666666,
+          "sample_sd": 26080.89857219903,
+          "per_seed": [
+            701627,
+            695636,
+            743506
+          ]
+        },
+        "empty_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        },
+        "zero_overlap_positive": {
+          "mean": 0.6666666666666666,
+          "sample_sd": 0.5773502691896258,
+          "per_seed": [
+            1,
+            1,
+            0
+          ]
+        },
+        "positive_DSC_below_50_percent": {
+          "mean": 2.6666666666666665,
+          "sample_sd": 0.5773502691896258,
+          "per_seed": [
+            3,
+            3,
+            2
+          ]
+        },
+        "negative_false_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "detail_global_mix": {
+        "n": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100,
+            100
+          ]
+        },
+        "n_positive": {
+          "mean": 100.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            100,
+            100,
+            100
+          ]
+        },
+        "n_negative": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        },
+        "n_small": {
+          "mean": 25.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            25,
+            25,
+            25
+          ]
+        },
+        "DSC_percent": {
+          "mean": 88.76343333333334,
+          "sample_sd": 0.461931643572226,
+          "per_seed": [
+            89.05100000000002,
+            89.00869999999999,
+            88.2306
+          ]
+        },
+        "NSD_percent": {
+          "mean": 90.63253333333331,
+          "sample_sd": 0.44518621197576513,
+          "per_seed": [
+            90.8853,
+            90.89379999999998,
+            90.1185
+          ]
+        },
+        "small_DSC_percent": {
+          "mean": 86.57506666666667,
+          "sample_sd": 0.10902207727489195,
+          "per_seed": [
+            86.64,
+            86.636,
+            86.4492
+          ]
+        },
+        "small_NSD_percent": {
+          "mean": 89.35693333333332,
+          "sample_sd": 0.13211288102730734,
+          "per_seed": [
+            89.43520000000001,
+            89.4312,
+            89.20439999999999
+          ]
+        },
+        "micro_foreground_precision_percent": {
+          "mean": 90.37833757766721,
+          "sample_sd": 0.5386264042536466,
+          "per_seed": [
+            89.79429172570335,
+            90.8555259309353,
+            90.48519507636298
+          ]
+        },
+        "micro_foreground_recall_percent": {
+          "mean": 86.72640722094637,
+          "sample_sd": 1.311501103154741,
+          "per_seed": [
+            88.11269857537415,
+            86.56116527932751,
+            85.50535780813745
+          ]
+        },
+        "fp_pixels": {
+          "mean": 496739.6666666667,
+          "sample_sd": 36866.65358197477,
+          "per_seed": [
+            538420,
+            468402,
+            483397
+          ]
+        },
+        "fn_pixels": {
+          "mean": 713636.0,
+          "sample_sd": 70511.0075945593,
+          "per_seed": [
+            639104,
+            722520,
+            779284
+          ]
+        },
+        "empty_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        },
+        "zero_overlap_positive": {
+          "mean": 0.3333333333333333,
+          "sample_sd": 0.5773502691896258,
+          "per_seed": [
+            0,
+            1,
+            0
+          ]
+        },
+        "positive_DSC_below_50_percent": {
+          "mean": 3.3333333333333335,
+          "sample_sd": 0.5773502691896258,
+          "per_seed": [
+            4,
+            3,
+            3
+          ]
+        },
+        "negative_false_positive": {
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "per_seed": [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "contrasts": {
+      "detail - baseline": {
+        "DSC": {
+          "all": {
+            "n": 100,
+            "mean_pp": 0.49126666666666646,
+            "median_pp": 0.601666666666667,
+            "improved": 73,
+            "worsened": 27,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.7263000000000004,
+              0.4866999999999998,
+              0.26079999999999953
+            ],
+            "per_seed_improved": [
+              65,
+              69,
+              70
+            ],
+            "per_seed_worsened": [
+              35,
+              30,
+              29
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.07789666666666646,
+              0.8759999999999992
+            ],
+            "permutation_p": 0.017359826401735983,
+            "wilcoxon_p": 0.00016771610916241366,
+            "top2_gain_contribution_to_mean_pp": 0.1004666666666667,
+            "mean_of_others_without_top2_gains_pp": 0.3987755102040813,
+            "mean_of_others_without_top2_losses_pp": 0.6508843537414963,
+            "trimmed_mean_10pct_pp": 0.5819583333333332,
+            "seed_level_paired_t": {
+              "t": 3.655321231108179,
+              "df": 2,
+              "p": 0.06736753902932913
+            }
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 1.232666666666666,
+            "median_pp": 1.043333333333333,
+            "improved": 20,
+            "worsened": 5,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              1.6096000000000006,
+              1.800799999999999,
+              0.2875999999999981
+            ],
+            "per_seed_improved": [
+              20,
+              21,
+              17
+            ],
+            "per_seed_worsened": [
+              5,
+              3,
+              8
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.6955699999999985,
+              1.7782866666666648
+            ],
+            "permutation_p": 0.00021999780002199978,
+            "wilcoxon_p": 0.0006982359291750461,
+            "top2_gain_contribution_to_mean_pp": 0.2872,
+            "mean_of_others_without_top2_gains_pp": 1.027681159420289,
+            "mean_of_others_without_top2_losses_pp": 1.4231884057971012,
+            "trimmed_mean_10pct_pp": 1.2168253968253966,
+            "seed_level_paired_t": {
+              "t": 2.591018754678592,
+              "df": 2,
+              "p": 0.1222369914150726
+            }
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": 0.2441333333333333,
+            "median_pp": 0.5599999999999938,
+            "improved": 53,
+            "worsened": 22,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.4318666666666668,
+              0.04866666666666659,
+              0.25186666666666646
+            ],
+            "per_seed_improved": [
+              45,
+              48,
+              53
+            ],
+            "per_seed_worsened": [
+              30,
+              27,
+              21
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              -0.2555211111111112,
+              0.7253455555555555
+            ],
+            "permutation_p": 0.33720662793372064,
+            "wilcoxon_p": 0.01663192618964934,
+            "top2_gain_contribution_to_mean_pp": 0.1339555555555556,
+            "mean_of_others_without_top2_gains_pp": 0.1131963470319634,
+            "mean_of_others_without_top2_losses_pp": 0.45164383561643834,
+            "trimmed_mean_10pct_pp": 0.3509836065573771,
+            "seed_level_paired_t": {
+              "t": 2.20560152197175,
+              "df": 2,
+              "p": 0.1581844086368719
+            }
+          }
+        },
+        "NSD": {
+          "all": {
+            "n": 100,
+            "mean_pp": 0.4043666666666666,
+            "median_pp": 0.49000000000000155,
+            "improved": 73,
+            "worsened": 27,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.6460000000000004,
+              0.4092999999999998,
+              0.15779999999999914
+            ],
+            "per_seed_improved": [
+              65,
+              69,
+              66
+            ],
+            "per_seed_worsened": [
+              35,
+              30,
+              32
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.005662499999999693,
+              0.7814008333333328
+            ],
+            "permutation_p": 0.04367956320436796,
+            "wilcoxon_p": 0.0007251858731499825,
+            "top2_gain_contribution_to_mean_pp": 0.102,
+            "mean_of_others_without_top2_gains_pp": 0.30853741496598636,
+            "mean_of_others_without_top2_losses_pp": 0.5453061224489795,
+            "trimmed_mean_10pct_pp": 0.48266666666666636,
+            "seed_level_paired_t": {
+              "t": 2.868809331081628,
+              "df": 2,
+              "p": 0.10306195381931249
+            }
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 1.0566666666666666,
+            "median_pp": 0.9299999999999975,
+            "improved": 21,
+            "worsened": 4,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              1.4812000000000003,
+              1.6631999999999996,
+              0.025600000000000254
+            ],
+            "per_seed_improved": [
+              21,
+              22,
+              16
+            ],
+            "per_seed_worsened": [
+              4,
+              2,
+              9
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.5021033333333339,
+              1.5872166666666663
+            ],
+            "permutation_p": 0.0011699883001169988,
+            "wilcoxon_p": 0.0013651372044563741,
+            "top2_gain_contribution_to_mean_pp": 0.26066666666666655,
+            "mean_of_others_without_top2_gains_pp": 0.865217391304348,
+            "mean_of_others_without_top2_losses_pp": 1.297536231884058,
+            "trimmed_mean_10pct_pp": 1.110793650793651,
+            "seed_level_paired_t": {
+              "t": 2.0390956487017307,
+              "df": 2,
+              "p": 0.17828561142864385
+            }
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": 0.18693333333333295,
+            "median_pp": 0.4566666666666645,
+            "improved": 52,
+            "worsened": 23,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.3676000000000004,
+              -0.008666666666666926,
+              0.2018666666666655
+            ],
+            "per_seed_improved": [
+              44,
+              47,
+              50
+            ],
+            "per_seed_worsened": [
+              31,
+              28,
+              23
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              -0.29366000000000064,
+              0.6437488888888883
+            ],
+            "permutation_p": 0.44763552364476356,
+            "wilcoxon_p": 0.038454041571698995,
+            "top2_gain_contribution_to_mean_pp": 0.13599999999999998,
+            "mean_of_others_without_top2_gains_pp": 0.05232876712328729,
+            "mean_of_others_without_top2_losses_pp": 0.3701826484018261,
+            "trimmed_mean_10pct_pp": 0.2563387978142073,
+            "seed_level_paired_t": {
+              "t": 1.7169510962704968,
+              "df": 2,
+              "p": 0.22812576597001144
+            }
+          }
+        },
+        "pixels_and_failures_per_seed": {
+          "fp_pixels_relative_change_percent": [
+            -10.95898756927904,
+            -17.342282024927982,
+            -7.68932857777228
+          ],
+          "fn_pixels_relative_change_percent": [
+            0.9164982632271612,
+            5.964215317403981,
+            0.9309738165310977
+          ],
+          "micro_foreground_precision_percent_delta": [
+            0.9939000168604224,
+            1.5900653762160033,
+            0.6607457630130398
+          ],
+          "micro_foreground_recall_percent_delta": [
+            -0.1185188712286589,
+            -0.7282623798001708,
+            -0.12755844615286094
+          ],
+          "positive_DSC_below_50_percent_delta": [
+            0,
+            0,
+            0
+          ],
+          "zero_overlap_positive_delta": [
+            1,
+            0,
+            0
+          ],
+          "empty_positive_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        "seeds": [
+          666,
+          667,
+          668
+        ]
+      },
+      "global_mix - baseline": {
+        "DSC": {
+          "all": {
+            "n": 100,
+            "mean_pp": -0.026066666666666495,
+            "median_pp": 0.10666666666666788,
+            "improved": 55,
+            "worsened": 45,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.0039000000000005562,
+              0.03350000000000005,
+              -0.11560000000000013
+            ],
+            "per_seed_improved": [
+              49,
+              55,
+              48
+            ],
+            "per_seed_worsened": [
+              51,
+              44,
+              52
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              -0.3585741666666664,
+              0.28256833333333353
+            ],
+            "permutation_p": 0.8763912360876391,
+            "wilcoxon_p": 0.3640266500316426,
+            "top2_gain_contribution_to_mean_pp": 0.08373333333333333,
+            "mean_of_others_without_top2_gains_pp": -0.11204081632653043,
+            "mean_of_others_without_top2_losses_pp": 0.11959183673469406,
+            "trimmed_mean_10pct_pp": 0.07875000000000022,
+            "seed_level_paired_t": {
+              "t": -0.5719527653584187,
+              "df": 2,
+              "p": 0.6250702995490495
+            }
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 0.17119999999999966,
+            "median_pp": 0.3066666666666662,
+            "improved": 15,
+            "worsened": 10,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.21720000000000006,
+              0.019599999999999687,
+              0.27679999999999927
+            ],
+            "per_seed_improved": [
+              11,
+              13,
+              13
+            ],
+            "per_seed_worsened": [
+              14,
+              11,
+              12
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              -0.18466666666666615,
+              0.5300233333333322
+            ],
+            "permutation_p": 0.37252627473725264,
+            "wilcoxon_p": 0.23645102010844773,
+            "top2_gain_contribution_to_mean_pp": 0.14799999999999996,
+            "mean_of_others_without_top2_gains_pp": 0.02521739130434748,
+            "mean_of_others_without_top2_losses_pp": 0.3350724637681156,
+            "trimmed_mean_10pct_pp": 0.19079365079365046,
+            "seed_level_paired_t": {
+              "t": 2.2025504219725693,
+              "df": 2,
+              "p": 0.15852418649047184
+            }
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": -0.09182222222222186,
+            "median_pp": 0.030000000000004096,
+            "improved": 40,
+            "worsened": 35,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              -0.06719999999999926,
+              0.038133333333333456,
+              -0.2464
+            ],
+            "per_seed_improved": [
+              38,
+              42,
+              35
+            ],
+            "per_seed_worsened": [
+              37,
+              33,
+              40
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.5146955555555551,
+              0.3023111111111113
+            ],
+            "permutation_p": 0.6739132608673913,
+            "wilcoxon_p": 0.6765574003803114,
+            "top2_gain_contribution_to_mean_pp": 0.11164444444444444,
+            "mean_of_others_without_top2_gains_pp": -0.2090410958904106,
+            "mean_of_others_without_top2_losses_pp": 0.10191780821917847,
+            "trimmed_mean_10pct_pp": 0.03994535519125718,
+            "seed_level_paired_t": {
+              "t": -1.105556677159293,
+              "df": 2,
+              "p": 0.3841130235345579
+            }
+          }
+        },
+        "NSD": {
+          "all": {
+            "n": 100,
+            "mean_pp": -0.020766666666666427,
+            "median_pp": 0.08833333333333657,
+            "improved": 54,
+            "worsened": 45,
+            "tied": 1,
+            "per_seed_mean_pp": [
+              -0.003999999999999266,
+              0.05449999999999997,
+              -0.1128
+            ],
+            "per_seed_improved": [
+              48,
+              55,
+              50
+            ],
+            "per_seed_worsened": [
+              52,
+              43,
+              49
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.3545724999999999,
+              0.27807000000000004
+            ],
+            "permutation_p": 0.9004109958900411,
+            "wilcoxon_p": 0.34689254868093905,
+            "top2_gain_contribution_to_mean_pp": 0.08510000000000006,
+            "mean_of_others_without_top2_gains_pp": -0.10802721088435357,
+            "mean_of_others_without_top2_losses_pp": 0.12295918367346957,
+            "trimmed_mean_10pct_pp": 0.08333333333333333,
+            "seed_level_paired_t": {
+              "t": -0.4236577055338739,
+              "df": 2,
+              "p": 0.7130289526356485
+            }
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 0.18093333333333342,
+            "median_pp": 0.32999999999999324,
+            "improved": 15,
+            "worsened": 9,
+            "tied": 1,
+            "per_seed_mean_pp": [
+              0.29000000000000054,
+              -0.010400000000000577,
+              0.26320000000000027
+            ],
+            "per_seed_improved": [
+              12,
+              14,
+              13
+            ],
+            "per_seed_worsened": [
+              13,
+              9,
+              11
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              -0.17626666666666707,
+              0.5237333333333333
+            ],
+            "permutation_p": 0.3250767492325077,
+            "wilcoxon_p": 0.2246386389237804,
+            "top2_gain_contribution_to_mean_pp": 0.14426666666666663,
+            "mean_of_others_without_top2_gains_pp": 0.039855072463768244,
+            "mean_of_others_without_top2_losses_pp": 0.34231884057971046,
+            "trimmed_mean_10pct_pp": 0.20317460317460356,
+            "seed_level_paired_t": {
+              "t": 1.885135004342091,
+              "df": 2,
+              "p": 0.20007380122504004
+            }
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": -0.0879999999999997,
+            "median_pp": 0.05333333333333486,
+            "improved": 39,
+            "worsened": 36,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              -0.10199999999999917,
+              0.07613333333333365,
+              -0.23813333333333347
+            ],
+            "per_seed_improved": [
+              36,
+              41,
+              37
+            ],
+            "per_seed_worsened": [
+              39,
+              34,
+              38
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.5002822222222213,
+              0.2982722222222225
+            ],
+            "permutation_p": 0.6800531994680054,
+            "wilcoxon_p": 0.6746279133458364,
+            "top2_gain_contribution_to_mean_pp": 0.11346666666666676,
+            "mean_of_others_without_top2_gains_pp": -0.20698630136986282,
+            "mean_of_others_without_top2_losses_pp": 0.10310502283105047,
+            "trimmed_mean_10pct_pp": 0.03704918032786884,
+            "seed_level_paired_t": {
+              "t": -0.9671325458878061,
+              "df": 2,
+              "p": 0.43550981460235927
+            }
+          }
+        },
+        "pixels_and_failures_per_seed": {
+          "fp_pixels_relative_change_percent": [
+            1.6935405564408803,
+            -4.437310904905977,
+            -1.951226435944904
+          ],
+          "fn_pixels_relative_change_percent": [
+            -0.591150009708668,
+            0.059255242337185175,
+            7.659967854389071
+          ],
+          "micro_foreground_precision_percent_delta": [
+            -0.14528687190622236,
+            0.4175430745430475,
+            0.06467147028367037
+          ],
+          "micro_foreground_recall_percent_delta": [
+            0.0764457879393774,
+            -0.007235379929056762,
+            -1.0495392885780035
+          ],
+          "positive_DSC_below_50_percent_delta": [
+            0,
+            0,
+            0
+          ],
+          "zero_overlap_positive_delta": [
+            0,
+            0,
+            0
+          ],
+          "empty_positive_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        "seeds": [
+          666,
+          667,
+          668
+        ]
+      },
+      "detail_global_mix - baseline": {
+        "DSC": {
+          "all": {
+            "n": 100,
+            "mean_pp": 0.3977666666666668,
+            "median_pp": 0.3716666666666646,
+            "improved": 70,
+            "worsened": 30,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.5889000000000005,
+              0.3972000000000001,
+              0.20719999999999977
+            ],
+            "per_seed_improved": [
+              66,
+              55,
+              65
+            ],
+            "per_seed_worsened": [
+              34,
+              44,
+              35
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              -0.2130199999999998,
+              0.9548075
+            ],
+            "permutation_p": 0.18483815161848383,
+            "wilcoxon_p": 0.0002787146522423348,
+            "top2_gain_contribution_to_mean_pp": 0.14110000000000003,
+            "mean_of_others_without_top2_gains_pp": 0.2619047619047621,
+            "mean_of_others_without_top2_losses_pp": 0.6488435374149661,
+            "trimmed_mean_10pct_pp": 0.6562499999999998,
+            "seed_level_paired_t": {
+              "t": 3.6099020097602046,
+              "df": 2,
+              "p": 0.0689011177566008
+            }
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 1.4947999999999997,
+            "median_pp": 1.4833333333333327,
+            "improved": 22,
+            "worsened": 3,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              1.6116000000000001,
+              1.4287999999999996,
+              1.4439999999999984
+            ],
+            "per_seed_improved": [
+              19,
+              18,
+              18
+            ],
+            "per_seed_worsened": [
+              6,
+              6,
+              7
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.9546566666666667,
+              2.0804133333333334
+            ],
+            "permutation_p": 9.99990000099999e-06,
+            "wilcoxon_p": 9.559759062461874e-05,
+            "top2_gain_contribution_to_mean_pp": 0.3681333333333336,
+            "mean_of_others_without_top2_gains_pp": 1.2246376811594195,
+            "mean_of_others_without_top2_losses_pp": 1.6943478260869562,
+            "trimmed_mean_10pct_pp": 1.4174603174603166,
+            "seed_level_paired_t": {
+              "t": 25.523947756255136,
+              "df": 2,
+              "p": 0.0015314603475444777
+            }
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": 0.032088888888889125,
+            "median_pp": 0.3166666666666688,
+            "improved": 48,
+            "worsened": 27,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.24800000000000058,
+              0.053333333333333455,
+              -0.2050666666666666
+            ],
+            "per_seed_improved": [
+              47,
+              37,
+              47
+            ],
+            "per_seed_worsened": [
+              28,
+              38,
+              28
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              -0.7174355555555556,
+              0.710903333333333
+            ],
+            "permutation_p": 0.9342106578934211,
+            "wilcoxon_p": 0.04857556578368685,
+            "top2_gain_contribution_to_mean_pp": 0.18813333333333337,
+            "mean_of_others_without_top2_gains_pp": -0.16031963470319616,
+            "mean_of_others_without_top2_losses_pp": 0.3591324200913244,
+            "trimmed_mean_10pct_pp": 0.29404371584699457,
+            "seed_level_paired_t": {
+              "t": 0.24454318698318092,
+              "df": 2,
+              "p": 0.8296104733455115
+            }
+          }
+        },
+        "NSD": {
+          "all": {
+            "n": 100,
+            "mean_pp": 0.29943333333333344,
+            "median_pp": 0.33166666666666716,
+            "improved": 69,
+            "worsened": 31,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.4716000000000007,
+              0.34369999999999984,
+              0.08299999999999942
+            ],
+            "per_seed_improved": [
+              64,
+              60,
+              64
+            ],
+            "per_seed_worsened": [
+              36,
+              39,
+              36
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              -0.28574666666666654,
+              0.8250016666666669
+            ],
+            "permutation_p": 0.3024269757302427,
+            "wilcoxon_p": 0.0007670865640802831,
+            "top2_gain_contribution_to_mean_pp": 0.14183333333333337,
+            "mean_of_others_without_top2_gains_pp": 0.16081632653061229,
+            "mean_of_others_without_top2_losses_pp": 0.5381972789115647,
+            "trimmed_mean_10pct_pp": 0.5395416666666666,
+            "seed_level_paired_t": {
+              "t": 2.6187564567715595,
+              "df": 2,
+              "p": 0.12010655367793688
+            }
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 1.333066666666667,
+            "median_pp": 1.2100000000000037,
+            "improved": 23,
+            "worsened": 2,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              1.481600000000001,
+              1.3391999999999988,
+              1.1784000000000008
+            ],
+            "per_seed_improved": [
+              19,
+              19,
+              18
+            ],
+            "per_seed_worsened": [
+              6,
+              5,
+              7
+            ],
+            "seeds_positive": 3,
+            "bootstrap_ci95_pp": [
+              0.8815933333333332,
+              1.827069999999999
+            ],
+            "permutation_p": 9.99990000099999e-06,
+            "wilcoxon_p": 4.316511596137687e-05,
+            "top2_gain_contribution_to_mean_pp": 0.32013333333333344,
+            "mean_of_others_without_top2_gains_pp": 1.1010144927536234,
+            "mean_of_others_without_top2_losses_pp": 1.487826086956522,
+            "trimmed_mean_10pct_pp": 1.2484126984126982,
+            "seed_level_paired_t": {
+              "t": 15.221129789220596,
+              "df": 2,
+              "p": 0.0042885008745902065
+            }
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": -0.04511111111111124,
+            "median_pp": 0.2366666666666665,
+            "improved": 46,
+            "worsened": 29,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.1349333333333339,
+              0.011866666666666893,
+              -0.2821333333333345
+            ],
+            "per_seed_improved": [
+              45,
+              41,
+              46
+            ],
+            "per_seed_worsened": [
+              30,
+              34,
+              29
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              -0.7700455555555558,
+              0.6203066666666657
+            ],
+            "permutation_p": 0.9050109498905011,
+            "wilcoxon_p": 0.14210494221623993,
+            "top2_gain_contribution_to_mean_pp": 0.18911111111111117,
+            "mean_of_others_without_top2_gains_pp": -0.24063926940639288,
+            "mean_of_others_without_top2_losses_pp": 0.26598173515981716,
+            "trimmed_mean_10pct_pp": 0.18010928961748618,
+            "seed_level_paired_t": {
+              "t": -0.3646183118846692,
+              "df": 2,
+              "p": 0.7503402717171541
+            }
+          }
+        },
+        "pixels_and_failures_per_seed": {
+          "fp_pixels_relative_change_percent": [
+            2.5110855985271243,
+            -15.241607434965763,
+            -1.9830608483363985
+          ],
+          "fn_pixels_relative_change_percent": [
+            -8.07631732242127,
+            10.059377104018084,
+            5.787838967865249
+          ],
+          "micro_foreground_precision_percent_delta": [
+            -0.11740239309615674,
+            1.3369115482950775,
+            0.09337277281768763
+          ],
+          "micro_foreground_recall_percent_delta": [
+            1.0444057028185796,
+            -1.2283033926863993,
+            -0.7930274001419804
+          ],
+          "positive_DSC_below_50_percent_delta": [
+            1,
+            0,
+            1
+          ],
+          "zero_overlap_positive_delta": [
+            0,
+            0,
+            0
+          ],
+          "empty_positive_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        "seeds": [
+          666,
+          667,
+          668
+        ]
+      },
+      "detail_global_mix - detail": {
+        "DSC": {
+          "all": {
+            "n": 100,
+            "mean_pp": -0.09349999999999976,
+            "median_pp": 0.02833333333333391,
+            "improved": 52,
+            "worsened": 48,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              -0.1374,
+              -0.08949999999999955,
+              -0.053599999999999814
+            ],
+            "per_seed_improved": [
+              52,
+              41,
+              55
+            ],
+            "per_seed_worsened": [
+              48,
+              58,
+              44
+            ],
+            "seeds_positive": 0,
+            "bootstrap_ci95_pp": [
+              -0.6294533333333331,
+              0.4237016666666667
+            ],
+            "permutation_p": 0.7359726402735972,
+            "wilcoxon_p": 0.8244905215345213,
+            "top2_gain_contribution_to_mean_pp": 0.1960666666666667,
+            "mean_of_others_without_top2_gains_pp": -0.2954761904761903,
+            "mean_of_others_without_top2_losses_pp": 0.11353741496598663,
+            "trimmed_mean_10pct_pp": 0.016791666666666656,
+            "seed_level_paired_t": {
+              "t": -3.851935561887988,
+              "df": 2,
+              "p": 0.061268479077950855
+            }
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 0.26213333333333366,
+            "median_pp": 0.04666666666666893,
+            "improved": 14,
+            "worsened": 11,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.0019999999999995135,
+              -0.3719999999999992,
+              1.1564000000000005
+            ],
+            "per_seed_improved": [
+              10,
+              11,
+              18
+            ],
+            "per_seed_worsened": [
+              15,
+              13,
+              7
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              -0.20841000000000004,
+              0.9262700000000015
+            ],
+            "permutation_p": 0.5486745132548675,
+            "wilcoxon_p": 0.7063989674926869,
+            "top2_gain_contribution_to_mean_pp": 0.3217333333333336,
+            "mean_of_others_without_top2_gains_pp": -0.06478260869565211,
+            "mean_of_others_without_top2_losses_pp": 0.39782608695652205,
+            "trimmed_mean_10pct_pp": 0.05269841269841275,
+            "seed_level_paired_t": {
+              "t": 0.5698758761258442,
+              "df": 2,
+              "p": 0.62624126654253
+            }
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": -0.21204444444444426,
+            "median_pp": 0.009999999999998602,
+            "improved": 38,
+            "worsened": 37,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              -0.1838666666666665,
+              0.004666666666666958,
+              -0.4569333333333333
+            ],
+            "per_seed_improved": [
+              42,
+              30,
+              37
+            ],
+            "per_seed_worsened": [
+              33,
+              45,
+              37
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.883321111111111,
+              0.446464444444444
+            ],
+            "permutation_p": 0.5490945090549094,
+            "wilcoxon_p": 0.9810419816879665,
+            "top2_gain_contribution_to_mean_pp": 0.2614222222222223,
+            "mean_of_others_without_top2_gains_pp": -0.4864383561643834,
+            "mean_of_others_without_top2_losses_pp": 0.06264840182648419,
+            "trimmed_mean_10pct_pp": -0.010819672131147467,
+            "seed_level_paired_t": {
+              "t": -1.58247806719506,
+              "df": 2,
+              "p": 0.2543636177047387
+            }
+          }
+        },
+        "NSD": {
+          "all": {
+            "n": 100,
+            "mean_pp": -0.10493333333333307,
+            "median_pp": -0.01000000000000445,
+            "improved": 49,
+            "worsened": 51,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              -0.1743999999999997,
+              -0.06559999999999995,
+              -0.07479999999999959
+            ],
+            "per_seed_improved": [
+              48,
+              42,
+              52
+            ],
+            "per_seed_worsened": [
+              50,
+              56,
+              48
+            ],
+            "seeds_positive": 0,
+            "bootstrap_ci95_pp": [
+              -0.6373199999999996,
+              0.4145366666666668
+            ],
+            "permutation_p": 0.7057429425705743,
+            "wilcoxon_p": 0.9547583626385665,
+            "top2_gain_contribution_to_mean_pp": 0.19673333333333332,
+            "mean_of_others_without_top2_gains_pp": -0.3078231292517004,
+            "mean_of_others_without_top2_losses_pp": 0.10292517006802739,
+            "trimmed_mean_10pct_pp": -0.002749999999999747,
+            "seed_level_paired_t": {
+              "t": -3.0123202002527774,
+              "df": 2,
+              "p": 0.09479395958012549
+            }
+          },
+          "small": {
+            "n": 25,
+            "mean_pp": 0.2764000000000001,
+            "median_pp": 0.03333333333333336,
+            "improved": 13,
+            "worsened": 12,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              0.00040000000000063097,
+              -0.32400000000000095,
+              1.1528000000000005
+            ],
+            "per_seed_improved": [
+              9,
+              10,
+              17
+            ],
+            "per_seed_worsened": [
+              16,
+              14,
+              8
+            ],
+            "seeds_positive": 2,
+            "bootstrap_ci95_pp": [
+              -0.21241333333333373,
+              0.9702766666666661
+            ],
+            "permutation_p": 0.5090549094509055,
+            "wilcoxon_p": 0.6865041817875919,
+            "top2_gain_contribution_to_mean_pp": 0.34120000000000006,
+            "mean_of_others_without_top2_gains_pp": -0.07043478260869562,
+            "mean_of_others_without_top2_losses_pp": 0.4171014492753624,
+            "trimmed_mean_10pct_pp": 0.05063492063492071,
+            "seed_level_paired_t": {
+              "t": 0.6168339074402392,
+              "df": 2,
+              "p": 0.6002066194028397
+            }
+          },
+          "not_small": {
+            "n": 75,
+            "mean_pp": -0.2320444444444441,
+            "median_pp": -0.03666666666666633,
+            "improved": 36,
+            "worsened": 39,
+            "tied": 0,
+            "per_seed_mean_pp": [
+              -0.23266666666666638,
+              0.02053333333333377,
+              -0.48399999999999976
+            ],
+            "per_seed_improved": [
+              39,
+              32,
+              35
+            ],
+            "per_seed_worsened": [
+              34,
+              42,
+              40
+            ],
+            "seeds_positive": 1,
+            "bootstrap_ci95_pp": [
+              -0.9101899999999998,
+              0.4347955555555548
+            ],
+            "permutation_p": 0.5096849031509685,
+            "wilcoxon_p": 0.7816040946051931,
+            "top2_gain_contribution_to_mean_pp": 0.2623111111111111,
+            "mean_of_others_without_top2_gains_pp": -0.507899543378995,
+            "mean_of_others_without_top2_losses_pp": 0.04351598173516005,
+            "trimmed_mean_10pct_pp": -0.03879781420764993,
+            "seed_level_paired_t": {
+              "t": -1.5932023670804925,
+              "df": 2,
+              "p": 0.2521325355149612
+            }
+          }
+        },
+        "pixels_and_failures_per_seed": {
+          "fp_pixels_relative_change_percent": [
+            15.127942506591172,
+            2.541413725691944,
+            6.181590537171475
+          ],
+          "fn_pixels_relative_change_percent": [
+            -8.911145095613481,
+            3.864664853457843,
+            4.812066076131194
+          ],
+          "micro_foreground_precision_percent_delta": [
+            -1.1113024099565791,
+            -0.2531538279209258,
+            -0.5673729901953521
+          ],
+          "micro_foreground_recall_percent_delta": [
+            1.1629245740472385,
+            -0.5000410128862285,
+            -0.6654689539891194
+          ],
+          "positive_DSC_below_50_percent_delta": [
+            1,
+            0,
+            1
+          ],
+          "zero_overlap_positive_delta": [
+            -1,
+            0,
+            0
+          ],
+          "empty_positive_delta": [
+            0,
+            0,
+            0
+          ]
+        },
+        "seeds": [
+          666,
+          667,
+          668
+        ]
+      }
+    }
+  },
+  "generated_at": "2026-10-04T09:34:40.482562+00:00"
+}

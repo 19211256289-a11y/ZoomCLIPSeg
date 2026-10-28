@@ -1,0 +1,81 @@
+{
+ "plan_digest": "9c292db8131e0c3576dcb2a9c3a03a4223ab06fcc0d26f2ede8dc1262cc40590",
+ "digest_match": true,
+ "partial": false,
+ "code": {
+  "research_clipseg/__init__.py": {
+   "pc": "not staged",
+   "local": true
+  },
+  "research_clipseg/common.py": {
+   "pc": true,
+   "local": true
+  },
+  "research_clipseg/evaluate.py": {
+   "pc": true,
+   "local": true
+  },
+  "research_clipseg/report.py": {
+   "pc": true,
+   "local": true
+  },
+  "research_clipseg/runner.py": {
+   "pc": true,
+   "local": true
+  },
+  "research_clipseg/work.py": {
+   "pc": true,
+   "local": true
+  }
+ },
+ "protocol": {
+  "pc": true,
+  "local": true
+ },
+ "recomputed": {
+  "single": {
+   "per_seed": [
+    78.77120357468122,
+    78.33337497723133,
+    78.75184082422588
+   ],
+   "reported": [
+    78.77120357468122,
+    78.33337497723133,
+    78.75184082422587
+   ],
+   "max_abs_diff": 1.4210854715202004e-14
+  },
+  "scz": {
+   "per_seed": [
+    79.18517067395263,
+    77.7752644125683,
+    78.75659335154826
+   ],
+   "reported": [
+    79.18517067395264,
+    77.7752644125683,
+    78.75659335154828
+   ],
+   "max_abs_diff": 1.4210854715202004e-14
+  }
+ },
+ "verdicts": {
+  "transfers": false,
+  "does_not_transfer": true
+ },
+ "ood_gain": {
+  "mean_pp": -0.046463646023071986,
+  "ci95_pp": [
+   -1.1622597391089857,
+   1.057775382513661
+  ],
+  "p": 0.9395030248487576
+ },
+ "per_seed": [
+  0.4139670992714028,
+  -0.5581105646630237,
+  0.004752527322405088
+ ],
+ "results_sha256": "8e5a16360119491c0501b3a3cd53ec5520fb55061b47724a2b71f2502607645d"
+}

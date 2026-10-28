@@ -1,0 +1,43 @@
+{
+  "seed": 666,
+  "resamples": 20000,
+  "unit": "paired source-validation case; rounded DSC as in production metrics",
+  "comparisons": {
+    "global_mix - baseline": {
+      "delta_pp": 0.0039,
+      "better": 49,
+      "worse": 51,
+      "ci95_pp": [
+        -0.674315,
+        0.628005
+      ]
+    },
+    "detail - baseline": {
+      "delta_pp": 0.7263,
+      "better": 65,
+      "worse": 35,
+      "ci95_pp": [
+        0.0570975,
+        1.4281125
+      ]
+    },
+    "detail_global_mix - baseline": {
+      "delta_pp": 0.5889,
+      "better": 66,
+      "worse": 34,
+      "ci95_pp": [
+        -0.4413025,
+        1.43511
+      ]
+    },
+    "detail_global_mix - detail": {
+      "delta_pp": -0.1374,
+      "better": 52,
+      "worse": 48,
+      "ci95_pp": [
+        -1.18311,
+        0.7585025
+      ]
+    }
+  }
+}
