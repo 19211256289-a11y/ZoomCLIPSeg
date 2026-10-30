@@ -3,7 +3,8 @@
 Code, locked protocols and per-image records for the paper
 
 **Vision-Language Medical Image Segmentation Without Mask-Derived Prompts: Where It Fails and a Training-Free Remedy**
-Yanan Liu, Rensong Liu — Qilu University of Technology (Shandong Academy of Sciences). Manuscript under review.
+Yanan Liu, Hongmei Yang, Kefeng Sun, Min Liu, Na Li, Jiateng Liu, Rensong Liu — Qilu University of Technology
+(Shandong Academy of Sciences) and Jinan Second Mental Health Center. Manuscript under review.
 
 Text-guided segmenters such as [MedCLIPSeg](https://github.com/HealthX-Lab/MedCLIPSeg) are prompted with lesion
 attributes (location, size, number) that are read from the annotation mask. This repository studies the automatic
@@ -116,7 +117,7 @@ Polyp-PVT network in `MedCLIPSeg/research_polyp_pvt/lib/` is for research and ed
 @misc{liu2026zoomclipseg,
   title  = {Vision-Language Medical Image Segmentation Without Mask-Derived Prompts:
             Where It Fails and a Training-Free Remedy},
-  author = {Liu, Yanan and Liu, Rensong},
+  author = {Liu, Yanan and Yang, Hongmei and Sun, Kefeng and Liu, Min and Li, Na and Liu, Jiateng and Liu, Rensong},
   year   = {2026},
   note   = {Manuscript under review. Code: https://github.com/19211256289-a11y/ZoomCLIPSeg}
 }
